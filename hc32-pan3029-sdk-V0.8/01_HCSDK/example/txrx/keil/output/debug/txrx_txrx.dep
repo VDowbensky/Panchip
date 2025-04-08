@@ -1,0 +1,417 @@
+Dependencies for Project 'txrx', Target 'txrx': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (..\..\..\mcu\common\startup_hc32f460.s)(0x6642D5C6)(--cpu Cortex-M4.fp.sp --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include--pd "__UVISION_VERSION SETA 541" --pd "_RTE_ SETA 1"--list .\output\debug\startup_hc32f460.lst --xref -o .\output\debug\startup_hc32f460.o --depend .\output\debug\startup_hc32f460.d)
+F (..\source\ev_hc32f460_lqfp100_v2.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\ev_hc32f460_lqfp100_v2.o --omf_browse .\output\debug\ev_hc32f460_lqfp100_v2.crf --depend .\output\debug\ev_hc32f460_lqfp100_v2.d)
+I (..\source\ev_hc32f460_lqfp100_v2.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_clk.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_efm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_gpio.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_exint_nmi_swi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_interrupts.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_pwc.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_sram.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_keyscan.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_usart.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_ddl.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_icg.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_spi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_cnt.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_oco.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_pwm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer6.h)(0x6642D5C6)
+I (..\..\..\radio\pan_rf.h)(0x6642D5C6)
+I (..\..\..\radio\pan_port.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdlib.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\math.h)(0x602569C8)
+F (..\..\..\mcu\common\system_hc32f460.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\system_hc32f460.o --omf_browse .\output\debug\system_hc32f460.crf --depend .\output\debug\system_hc32f460.d)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_utility.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_utility.o --omf_browse .\output\debug\hc32f460_utility.crf --depend .\output\debug\hc32f460_utility.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_pwc.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_pwc.o --omf_browse .\output\debug\hc32f460_pwc.crf --depend .\output\debug\hc32f460_pwc.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_pwc.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_interrupts.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_interrupts.o --omf_browse .\output\debug\hc32f460_interrupts.crf --depend .\output\debug\hc32f460_interrupts.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_interrupts.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_clk.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_clk.o --omf_browse .\output\debug\hc32f460_clk.crf --depend .\output\debug\hc32f460_clk.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_clk.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_icg.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_icg.o --omf_browse .\output\debug\hc32f460_icg.crf --depend .\output\debug\hc32f460_icg.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_icg.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_efm.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_efm.o --omf_browse .\output\debug\hc32f460_efm.crf --depend .\output\debug\hc32f460_efm.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_efm.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_sram.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_sram.o --omf_browse .\output\debug\hc32f460_sram.crf --depend .\output\debug\hc32f460_sram.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_sram.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_spi.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_spi.o --omf_browse .\output\debug\hc32f460_spi.crf --depend .\output\debug\hc32f460_spi.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_spi.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_gpio.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_gpio.o --omf_browse .\output\debug\hc32f460_gpio.crf --depend .\output\debug\hc32f460_gpio.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_gpio.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_exint_nmi_swi.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_exint_nmi_swi.o --omf_browse .\output\debug\hc32f460_exint_nmi_swi.crf --depend .\output\debug\hc32f460_exint_nmi_swi.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_exint_nmi_swi.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_usart.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_usart.o --omf_browse .\output\debug\hc32f460_usart.crf --depend .\output\debug\hc32f460_usart.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_usart.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_timer4_cnt.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_timer4_cnt.o --omf_browse .\output\debug\hc32f460_timer4_cnt.crf --depend .\output\debug\hc32f460_timer4_cnt.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_cnt.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_timer4_oco.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_timer4_oco.o --omf_browse .\output\debug\hc32f460_timer4_oco.crf --depend .\output\debug\hc32f460_timer4_oco.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_oco.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_timer4_pwm.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_timer4_pwm.o --omf_browse .\output\debug\hc32f460_timer4_pwm.crf --depend .\output\debug\hc32f460_timer4_pwm.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_pwm.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\mcu\hc32_driver\src\hc32f460_timer6.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\hc32f460_timer6.o --omf_browse .\output\debug\hc32f460_timer6.crf --depend .\output\debug\hc32f460_timer6.d)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer6.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (..\..\..\radio\pan_port.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\pan_port.o --omf_browse .\output\debug\pan_port.crf --depend .\output\debug\pan_port.d)
+I (..\..\..\radio\pan_port.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdlib.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (C:\Keil_v535\ARM\ARMCC\include\math.h)(0x602569C8)
+I (..\..\..\radio\pan_rf.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_usart.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_ddl.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_clk.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_efm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_exint_nmi_swi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_gpio.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_icg.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_interrupts.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_keyscan.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_pwc.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_spi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_sram.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_cnt.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_oco.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_pwm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer6.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (..\source\ev_hc32f460_lqfp100_v2.h)(0x6642D5C6)
+F (..\..\..\radio\pan_rf.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\pan_rf.o --omf_browse .\output\debug\pan_rf.crf --depend .\output\debug\pan_rf.d)
+I (..\..\..\radio\pan_port.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdlib.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (C:\Keil_v535\ARM\ARMCC\include\math.h)(0x602569C8)
+I (..\..\..\radio\pan_rf.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_usart.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_ddl.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_clk.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_efm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_exint_nmi_swi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_gpio.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_icg.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_interrupts.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_keyscan.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_pwc.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_spi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_sram.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_cnt.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_oco.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_pwm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer6.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (..\source\ev_hc32f460_lqfp100_v2.h)(0x6642D5C6)
+I (..\..\..\radio\pan_param.h)(0x6642D5C6)
+F (..\source\main.c)(0x6642D5C6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -O3 --apcs=interwork --split_sections -I ..\source -I ..\screen -I ..\..\..\mcu\common -I ..\..\..\mcu\hc32_driver\inc -I ..\..\..\radio --diag_suppress=186,66-I.\RTE\_txrx-IC:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\Admin\AppData\Local\Arm\Packs\HDSC\HC32F460\1.0.11\Device\Include-D__UVISION_VERSION="541" -D_RTE_ -D__DEBUG -DHC32F460 -DUSE_DEVICE_DRIVER_LIB-o .\output\debug\main.o --omf_browse .\output\debug\main.crf --depend .\output\debug\main.d)
+I (..\..\..\mcu\common\hc32_ddl.h)(0x6642D5C6)
+I (..\..\..\mcu\common\hc32_common.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Keil_v535\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (..\..\..\mcu\common\hc32f460.h)(0x6642D5C6)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626F912E)
+I (C:\Users\Admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F912E)
+I (..\..\..\mcu\common\system_hc32f460.h)(0x6642D5C6)
+I (..\source\ddl_config.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_clk.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_efm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_exint_nmi_swi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_gpio.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_icg.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_interrupts.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_keyscan.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_pwc.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_spi.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_sram.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_cnt.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_oco.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer4_pwm.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_timer6.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_usart.h)(0x6642D5C6)
+I (..\..\..\mcu\hc32_driver\inc\hc32f460_utility.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdio.h)(0x602569C4)
+I (..\source\ev_hc32f460_lqfp100_v2.h)(0x6642D5C6)
+I (..\..\..\radio\pan_rf.h)(0x6642D5C6)
+I (..\..\..\radio\pan_port.h)(0x6642D5C6)
+I (C:\Keil_v535\ARM\ARMCC\include\stdlib.h)(0x602569C4)
+I (C:\Keil_v535\ARM\ARMCC\include\math.h)(0x602569C8)

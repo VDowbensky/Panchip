@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+".\output\debug\startup_hc32f460.o"
+".\output\debug\ev_hc32f460_lqfp100_v2.o"
+".\output\debug\system_hc32f460.o"
+".\output\debug\hc32f460_utility.o"
+".\output\debug\hc32f460_pwc.o"
+".\output\debug\hc32f460_interrupts.o"
+".\output\debug\hc32f460_clk.o"
+".\output\debug\hc32f460_icg.o"
+".\output\debug\hc32f460_efm.o"
+".\output\debug\hc32f460_sram.o"
+".\output\debug\hc32f460_spi.o"
+".\output\debug\hc32f460_gpio.o"
+".\output\debug\hc32f460_exint_nmi_swi.o"
+".\output\debug\hc32f460_usart.o"
+".\output\debug\hc32f460_timer4_cnt.o"
+".\output\debug\hc32f460_timer4_oco.o"
+".\output\debug\hc32f460_timer4_pwm.o"
+".\output\debug\hc32f460_timer6.o"
+".\output\debug\pan_port.o"
+".\output\debug\pan_rf.o"
+".\output\debug\main.o"
+--library_type=microlib --nodebug --strict --scatter ".\output\debug\txrx.sct"
+--keep=*Handler --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\output\debug\txrx.map" -o .\output\debug\txrx.axf
