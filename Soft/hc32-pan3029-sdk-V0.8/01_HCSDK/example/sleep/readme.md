@@ -1,24 +1,25 @@
-# deepsleep说明
+# deepsleep description
 
-## 1. 功能说明
+## 1. Functional description
 
-- 芯片支持进入sleep休眠模式。
+- The chip supports entering sleep mode.
 
-## 2. 快速入门
+## 2. Quick start
 
-- sleep_tx演示芯片周期性发射数据。芯片发射完数据进入休眠模式，唤醒后，可直接进行数据发射。
-- sleep_rx演示芯片接收陪测。
+- sleep_tx demonstrates that the chip periodically transmits data. After the chip transmits data, it enters sleep mode. After waking up, it can directly transmit data.
 
-## 3. 接口说明
+- sleep_rx demonstrates chip receiving companion test.
+
+## 3. Interface description
 
 - rf_sleep();
 
-  设置芯片进入休眠模式，进入休眠后，芯片寄存器配置保存。
+Set the chip to enter sleep mode. After entering sleep mode, the chip register configuration is saved.
 
 - rf_sleep_wakeup();
 
-  设置芯片从休眠模式唤醒。
+Set the chip to wake up from sleep mode.
 
-## 4. 特别注意
+## 4. Special attention
 
-- 无
+- None

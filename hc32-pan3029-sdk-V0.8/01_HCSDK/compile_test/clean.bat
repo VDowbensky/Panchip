@@ -1,2 +1,0 @@
-python clean.py
-pause
