@@ -47,3 +47,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.crf
+*.htm
+*.sct
+*.dep
+*.lst
+*.lnp
+*.Admin
+*.axf
