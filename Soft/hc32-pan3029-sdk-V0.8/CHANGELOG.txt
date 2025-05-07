@@ -1,0 +1,88 @@
+Version: SDK_V0.8
+Date: 2024/4/30
+Update content:
+1. Fixed the problem of abnormal operation after changing the optimization level of the example project
+2. Optimize the STB2-STB3 conversion time
+3. Update the SDK directory structure, RF interface name, and optimize the code logic
+4. Update the document interface description
+5. Add smart search, deep sleep, noise energy, sleep examples and description documents
+6. Add power consumption calculation tool
+7. Add one-click SDK project clear and compile script
+
+
+Version: SDK_V0.7
+Date: 2024/3/29
+Update content:
+1. Fixed the error in calculating the launch time
+2. Added PAN3029MPB version configuration and compatibility with MPA version
+3. Added SPI write PAN3029 register readback switch
+4. Modified CAD and smart search application reference documents
+5. Updated hardware reference design schematic matching
+6. Updated product manual V1.7
+
+
+Version: SDK_V0.6
+Date: 2024/2/2
+Update content:
+1.Fix the problem that LDR adaptive opening is forced to close when switching to test mode
+2.Update AGC 800-900MHz segment configuration
+
+Version: SDK_V0.5
+Date: 2023/12/27
+Update content:
+1.Update MAPM usage example project, add multi-SF adaptation
+2.Update 433MHz, 470MHz transmission power gear 1-23 gears, update AGC parameter configuration
+3.OLED project adds mode 1, 2 receiving sensitivity test, single carrier test, delete LDR button switch
+4.Add AT DEMO project and AT usage documentation
+5. Update EVB board schematic
+6. Update CAD usage documentation
+7. Update PAN3029 evaluation board usage instructions
+8. Update PAN3029_SDK user guide
+9. Add PAN3029 test report
+10. Update PAN3029 hardware reference design
+11. Update PAN3029_PAN3060 product manual
+
+Version: SDK_V0.4
+Date: 2023/11/17
+Updated content:
+1. Updated MAPM usage example project
+2. Added PAN3029 RF module manual
+3. Added 900M band AGC configuration
+4. Added different SF, LDR automatic opening and closing at BW
+5. Updated PLL LDO gear, frequency lock range configuration, updated power gear table
+6. Updated hardware reference design (schematic diagram and BOM, special attention points)
+7. Added FT calibration parameter reading and configuration
+8. Added PAN3029 crystal selection description document
+9. Added EVB V1.2 hardware schematic diagram
+
+Version: SDK_V0.3
+Date: 2023/09/19
+Updated content:
+1. Updated MAPM usage example project
+2. Modified transmit power gear
+3. Updated PAN3029 hardware design reference
+4. Updated PAN3029 product manual
+5. Modified LDO How to use the PA switch
+6. Added EVB board battery power detection function
+7. Added single antenna multi-channel gateway module manual
+8. Optimized register configuration based on pull-distance test
+
+Version: SDK_V0.2
+Date: 2023/08/04
+Updated content:
+1. Add LDR settings to OLED distance project
+2. Optimize delay parameters in sleep wake-up
+3. Optimize BW bandwidth setting parameters
+4. Optimize AGC parameters, improve RSSI linearity, and reduce the probability of energy detection false triggering
+5. Add air energy detection interface
+6. Add PAN3029 product manual
+7. Optimize parameters to improve SF12 communication
+8. Modify PAN3029GPIO (TXEN, RXEN, TXO) configuration to adapt to PAN3029 module V1.1 and later hardware versions
+9. Modify EVB version CAD detection pin, PAN3029 CAD pin no longer needs to fly to the bottom board
+10. Update PAN3029 hardware reference design
+Version: SDK_V0.1
+Date: 2023/06/30
+Updated content:
+1. Initial content of the new version of Release
+
+
