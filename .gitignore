@@ -55,3 +55,6 @@ dkms.conf
 *.lnp
 *.Admin
 *.axf
+/Hard/pan3029evb/History
+*.SchDocPreview
+*.PrjPCBStructure
