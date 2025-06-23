@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 快速入门指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK 开发环境搭建" href="ndk_develop_environment_intro.html" />
+    <link rel="prev" title="快速入门" href="index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">快速入门</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 快速入门指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pan10xx-evb">2 PAN10xx EVB 介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3 NDK 开发环境确认</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pc">3.1 搭建 PC 开发环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pan107x-pan101x-ndk">3.2 下载 PAN107x/PAN101x NDK 开发套件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.3 快速编译运行一个简单的例程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4 更多相关文档</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_develop_environment_intro.html">NDK 开发环境搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_framework.html">NDK 整体框架介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ble_introduction.html">NDK BLE 协议栈简介</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">快速入门</a> &raquo;</li>
+  
+  <li>NDK 快速入门指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/01_quick_start/ndk_quick_start.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk">
+<h1>NDK 快速入门指南<a class="headerlink" href="#ndk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本文是 <strong>PAN107x/PAN101x NDK</strong> 开发的快速入门指引，旨在帮助使用者快速入门 PAN107x/PAN101x NDK 的相关开发。</p>
+</div>
+<div class="section" id="pan10xx-evb">
+<h2>2 PAN10xx EVB 介绍<a class="headerlink" href="#pan10xx-evb" title="永久链接至标题">¶</a></h2>
+<p>PAN10xx EVB (EValuation Board) 是 Panchip 提供给 PAN107x/PAN101x SoC 用户的一系列开发板的总称，目前包括 5 种 EVB 核心板，1 种 EVB 底板：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>开发板名称</p></th>
+<th class="text-align:center head"><p>SoC 型号</p></th>
+<th class="text-align:center head"><p>封装</p></th>
+<th class="text-align:center head"><p>Flash 大小</p></th>
+<th class="text-align:center head"><p>SRAM 大小</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>PAN1070UA2A EVB 核心板</p></td>
+<td class="text-align:center"><p>PAN1070UA2A</p></td>
+<td class="text-align:center"><p>QFN40 (5x5)</p></td>
+<td class="text-align:center"><p>512 KB</p></td>
+<td class="text-align:center"><p>48 KB</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PAN1070UA1A EVB 核心板</p></td>
+<td class="text-align:center"><p>PAN1070UA1A</p></td>
+<td class="text-align:center"><p>QFN32 (4x4)</p></td>
+<td class="text-align:center"><p>512 KB</p></td>
+<td class="text-align:center"><p>48 KB</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PAN1070UAEC EVB 核心板</p></td>
+<td class="text-align:center"><p>PAN1070UAEC</p></td>
+<td class="text-align:center"><p>QFN20 (3x3)</p></td>
+<td class="text-align:center"><p>512 KB</p></td>
+<td class="text-align:center"><p>48 KB</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PAN1010S9FA EVB 核心板</p></td>
+<td class="text-align:center"><p>PAN1010S9FA</p></td>
+<td class="text-align:center"><p>SSOP24</p></td>
+<td class="text-align:center"><p>256 KB</p></td>
+<td class="text-align:center"><p>16 KB</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PAN1010M9BA EVB 核心板</p></td>
+<td class="text-align:center"><p>PAN1010M9BA</p></td>
+<td class="text-align:center"><p>MSOP10</p></td>
+<td class="text-align:center"><p>256 KB</p></td>
+<td class="text-align:center"><p>16 KB</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PAN10xx EVB 底板</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<p>关于 PAN10xx EVB 开发板硬件的详细介绍，请参考 <a class="reference internal" href="../02_hardware/evaluation_board_introduction/pan107x_evb_intro.html"><span class="doc std std-doc">PAN10xx EVB 硬件资源介绍</span></a>。</p>
+</div>
+<div class="section" id="id2">
+<h2>3 NDK 开发环境确认<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="pc">
+<h3>3.1 搭建 PC 开发环境<a class="headerlink" href="#pc" title="永久链接至标题">¶</a></h3>
+<p>在使用 NDK 开发之前，请确保您的 PC 上有如下开发环境：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Keil</span> <span class="pre">MDK</span></code>：我们使用 Keil MDK v5 + ARMCC v5.06 作为集成开发环境 IDE</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Python3</span></code>：SDK 工程编译过程中，需要调用一些预置的 Python 脚本，实现一些特殊的功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JLink</span></code>：我们使用 JLink SWD 的方式调试和烧录程序</p></li>
+</ul>
+<p>关于具体的开发环境要求与搭建建议，请参考 <a class="reference internal" href="ndk_develop_environment_intro.html"><span class="doc std std-doc">NDK 开发环境搭建</span></a>。</p>
+</div>
+<div class="section" id="pan107x-pan101x-ndk">
+<h3>3.2 下载 PAN107x/PAN101x NDK 开发套件<a class="headerlink" href="#pan107x-pan101x-ndk" title="永久链接至标题">¶</a></h3>
+<p>目前 PAN107x 与 PAN101x 系列芯片共用同一个 NDK 开发套件，您可以通过如下几种方式获取到：</p>
+<ol class="simple">
+<li><p>从 PAN107x 或 PAN101x 芯片的产品介绍 WIKI 网页中的“<strong>产品开发资料</strong>”一节中下载到最新版本的 NDK 开发套件：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.panchip.com/ble/pan107-series/">PAN107 系列产品介绍</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/ble/pan101-series/">PAN101 系列产品介绍</a></p></li>
+</ul>
+</li>
+<li><p>从 PAN107x/PAN101x NDK 文档中心（即本文档所在的网站）网页的左下角 “<strong>NDK 版本选择</strong>”选项卡中，下载到与文档版本相对应的 NDK 开发套件版本：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a></p></li>
+</ul>
+</li>
+<li><p>直接与 Panchip 联系获取</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3>3.3 快速编译运行一个简单的例程<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ol class="simple">
+<li><p>将 EVB 核心板插到 EVB 底板上</p></li>
+<li><p>将 EVB 底板 SWD（P00：SWD_CLK，P01：SWD_DAT，GND：SWD_GND）接口通过 JLink 连接至 PC</p></li>
+<li><p>将 EVB 底板 USB-&gt;UART 接口通过 USB Type-C 线连接至 PC，然后在 PC 上打开串口终端或串口调试助手（<strong>串口波特率：921600</strong>）</p>
+<ul class="simple">
+<li><p>若 EVB 核心板主控为 QFN32 封装的 PAN107x 芯片（PAN1070UA1A），则将 EVB 底板 <code class="docutils literal notranslate"><span class="pre">Tx</span></code> 排针与 <code class="docutils literal notranslate"><span class="pre">P16</span></code> 排针相连</p></li>
+<li><p>若 EVB 核心板主控为 SSOP24 封装的 PAN101x 芯片（PAN1010S9FA），则将 EVB 底板 <code class="docutils literal notranslate"><span class="pre">Tx</span></code> 排针与 <code class="docutils literal notranslate"><span class="pre">P11</span></code> 排针相连</p></li>
+</ul>
+</li>
+<li><p>将 EVB 底板 <code class="docutils literal notranslate"><span class="pre">LED3</span></code> 排针与 <code class="docutils literal notranslate"><span class="pre">P10</span></code> 排针相连</p></li>
+<li><p>打开 NDK 中的一个 Sample 工程，例如演示 GPIO 推挽输出控制 LED 灯闪烁的例程：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\peripheral\gpio_output_push_pull</span></code></p></li>
+<li><p>通过 Keil 的 Project 文件窗口，打开 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code> 文件，并切换到 Configuration Wizard 界面，依次展开 <em>Log/Debug Config - Enable Log - Log Output to UART</em> 菜单，检查 <em>Log UART Tx Pin</em> 配置是否与您当前的 EVB 硬件一致，若不一致则需手动修改</p></li>
+<li><p>点击 Keil <code class="docutils literal notranslate"><span class="pre">Build</span></code> 编译按钮，成功后点击 <code class="docutils literal notranslate"><span class="pre">Download</span></code> 按钮进行烧录下载</p>
+<ul class="simple">
+<li><p>若无法正常编译，请检查 Keil 版本以及 ARMCC 编译器版本是否正确</p></li>
+<li><p>若无法正常下载，请检查是否已经正确将 Flash 烧录算法 FLM 文件从 NDK 中拷贝至 Keil 安装目录下）</p></li>
+</ul>
+</li>
+<li><p>烧录成功后：</p>
+<ul class="simple">
+<li><p>观察串口 Log 打印，可以看到系统成功初始化的 Log</p></li>
+<li><p>观察 EVB 底板上的发光二极管 LED3，可以看到其以 1Hz 的频率闪烁</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4 更多相关文档<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>下面这些文档有助于您进一步了解 PAN107x/PAN101x 系列 SoC 开发的相关知识：</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="../03_samples/index.html"><span class="doc std std-doc">NDK 所有例程目录</span></a>：列出了目前 NDK 内置的所有例程的简单介绍及对应文档的跳转链接</p></li>
+<li><p><a class="reference internal" href="../04_dev_guides/ndk_configuration_guidance.html"><span class="doc std std-doc">NDK Configuration 开发指南</span></a>：介绍 SDK Config 机制及各个配置参数的具体含义</p></li>
+<li><p><a class="reference internal" href="../04_dev_guides/ndk_app_dev_notes.html"><span class="doc std std-doc">NDK App 开发指南</span></a>：通过一些示例，介绍蓝牙应用开发过程中常用的方法以及可能遇到的问题</p></li>
+<li><p><a class="reference internal" href="../04_dev_guides/ndk_chip_migration.html"><span class="doc std std-doc">NDK Chip Migration</span></a>：介绍 PAN107x 和 PAN101x 芯片的不同点以及软件移植的一般方法</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

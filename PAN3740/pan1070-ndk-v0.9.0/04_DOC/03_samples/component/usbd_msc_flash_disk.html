@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>USBD MSC Flash Disk &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="USBD MSC RAM Disk" href="usbd_msc_ram_disk.html" />
+    <link rel="prev" title="USBD HID Mouse" href="usbd_hid_mouse.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">系统组件例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="flash_kvstore.html">Flash KVStore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sfud.html">Serial Flash Universal Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_cdc_acm.html">USBD CDC-ACM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_cdc_acm_msc_ram_disk.html">USBD CDC-ACM and MSC RAM Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_custom_inout.html">USBD HID Custom In/Out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_custom_msc_ram_disk.html">USBD HID Custom In/Out and MSC RAM Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_keyboard.html">USBD HID Keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_mouse.html">USBD HID Mouse</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">USBD MSC Flash Disk</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_msc_ram_disk.html">USBD MSC RAM Disk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">系统组件例程</a> &raquo;</li>
+  
+  <li>USBD MSC Flash Disk</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/component/usbd_msc_flash_disk.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="usbd-msc-flash-disk">
+<h1>USBD MSC Flash Disk<a class="headerlink" href="#usbd-msc-flash-disk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示 CherryUSB 组件的 MSC Flash Disk Device（大容量存储设备 - Flash 虚拟 U 盘）的基本功能与使用方法。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>使用跳线帽将 EVB 底板的：</p>
+<ul>
+<li><p>USB+ 排针与 P14 排针相连</p></li>
+<li><p>USB- 排针与 P13 排针相连</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\component\usbd_msc_flash_disk\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>烧录完成后，芯片会通过串口打印例程初始化 Log：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Try to load HW calibration data.. DONE.
+- Chip Info         : 0x61
+- Chip CP Version   : 255
+- Chip FT Version   : 7
+- Chip MAC Address  : E11000014DE5
+- Chip UID          : B90801465454455354
+- Chip Flash UID    : 4250315A3538380B01FD8B435603EF78
+- Chip Flash Size   : 512 KB (Inc. 4KB Panchip Info Area)
+
+- Current Flash Map :
+  +-------------------------+ &lt;- Addr: 0x00000
+  |      App Partition      |
+  |        (220 KB)         |
+  +-------------------------+ &lt;- Addr: 0x37000
+  |    KVStore Partition    |
+  |        ( 16 KB)         |
+  +-------------------------+ &lt;- Addr: 0x3B000
+  |  User Custom Partition  |
+  |        (272 KB)         |
+  +-------------------------+ &lt;- Addr: 0x7F000
+  |    Panchip Info Area    |
+  |     (4 KB, Hidden)      |
+  +-------------------------+ &lt;- End : 0x80000 (512 KB)
+
+[I] App started..
+
+[I] Try to mount file system..
+[W] File system does not exist, formatting..
+[I] File system formatting completed, remounting file system..
+[I] Try to open file..
+[W] File does not exist, try to create one..
+[I] Try to write data to the created file..
+[I] Close the opened file..
+[I] Try to open the created file again..
+[I] Try to read data from the opened file..
+[I] File reading successfully, content: Hello Panchip World!
+
+[I] Close the opened file..
+[I] Try to unmount file system..
+[I] USBD_EVENT_INIT
+</pre></div>
+</div>
+<p>由 Log 可知，App 初始化阶段：</p>
+<ol class="simple">
+<li><p>先在 Flash 中初始化了一个 FAT 文件系统，并在其中创建了一个文本文件，写入了一个字符串 <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Panchip</span> <span class="pre">World!</span></code></p></li>
+<li><p>然后初始化了 USB Device，但因为当前 USB 未插入，因此 PC 还未识别 U 盘</p></li>
+</ol>
+</li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板的 USB 插口相连</p></li>
+<li><p>可以看到 PC 文件资源管理器中多了一个U盘盘符，点击进入后可看到其中已经有一个名为 <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> 的文件，文件内容与预先写入的字符串一致：</p>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../../_images/usbd_msc_open_stored_file.png" />
+<p class="caption"><span class="caption-text">打开 Flash 虚拟 U 盘中预先保存的文件</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> 文件中新增一行字符串，然后保存并关闭此文件：</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../../_images/usbd_msc_file_update.png" />
+<p class="caption"><span class="caption-text">修改 Flash 虚拟 U 盘中预先保存的文件内容</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>按 EVB 板的 Reset 键复位芯片，观察 USB 重新枚举成功，重新打开 <code class="docutils literal notranslate"><span class="pre">file.txt</span></code>，可以看到芯片复位前保存到 Flash 中的内容仍然存在：</p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../../_images/usbd_msc_verify_updated_file.png" />
+<p class="caption"><span class="caption-text">检查 Flash 虚拟 U 盘修改后的文件内容是否丢失</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>本例程中将 SoC 的 User Custom Flash 分区扩大为 272KB，并将其用作默认的虚拟 U 盘数据存储区（从前一小节系统初始化 Log 中的 Flash Map 图中也可看出此分区大小）</p>
+<blockquote>
+<div><p>此区域在使用 Keil 烧录程序的时候是不会碰到的，若希望擦除此区域，则应使用 Keil 的 Flash - Erase 菜单进行 SoC Flash 全擦操作。</p>
+</div></blockquote>
+</li>
+<li><p>本例程在初始化 USB 之前，先初始化了 FatFs 文件系统，因此当 USB 插入 PC 后，不会再提示需要格式化，原因是 PC 识别到当前 U 盘存储区中已经存在可用的文件系统</p></li>
+<li><p>本例程还提供了使用外部 SPI Flash 作为 U 盘存储区域的功能，若希望测试此功能，则需：</p>
+<ul class="simple">
+<li><p>将本例程 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code> 配置中的 <strong>Application Config - Use External SPI Flash for USB Storage</strong> 选项勾上</p></li>
+<li><p>此功能会使用到 SFUD 组件，请参考 <a class="reference internal" href="sfud.html"><span class="doc std std-doc">Serial Flash Universal Driver</span></a> 例程说明，确认此例程可以执行成功（注意 EVB 底板上有对应的 Flash 跳线帽需要接）</p></li>
+</ul>
+<p>然后编译烧录修改后的本例程，即可看到 U 盘数据存储区变为了 EVB 底板上的外部 SPI Flash。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">43</span>.80k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">25</span>.61<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

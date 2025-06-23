@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>JFlash烧录 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Panchip 2.4G OTA 工具" href="panchip_2_4g_ota.html" />
+    <link rel="prev" title="RF Test" href="rf_test.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">量产测试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manufacture.html">量产烧录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rf_test.html">RF Test</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JFlash烧录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panchip_2_4g_ota.html">Panchip 2.4G OTA 工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panchip_dfu_tool_intro.html">Panchip DFU 工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pan10xx_rom_dfu_tool.html">PAN10xx ROM DFU 终端工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">量产测试</a> &raquo;</li>
+  
+  <li>JFlash烧录</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/05_manufacturing_and_testing/j-flash.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="jflash">
+<h1>JFlash烧录<a class="headerlink" href="#jflash" title="永久链接至标题">¶</a></h1>
+<p>本文介绍使用 Segger J-FLash 工具烧录固件到 PAN107x SoC 的方法。</p>
+<p>在使用 J-Flash 烧录工具前，请确保 J-Link 硬件与 PAN107x 芯片的 SWD 连接正常。</p>
+<p>J-Flash 工具操作步骤如下：</p>
+<ol>
+<li><p>打开 PAN107x NDK/ZDK 中的 J-FLash 烧录工具</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">&lt;PAN107x-DK&gt;\05_TOOLS\调试工具\JLink-V644b</span></code> 目录下找到 “<strong>JFlash.exe</strong>”</p>
+<div class="figure align-center" id="id1">
+<img alt="images" src="../_images/j_flash.png" />
+<p class="caption"><span class="caption-text">J-Flash 目录路径</span><a class="headerlink" href="#id1" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>双击 <code class="docutils literal notranslate"><span class="pre">JFlash.exe</span></code> 打开软件，在欢迎界面选择 <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">project</span></code>，然后点击 <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">J-Flash</span></code> 按钮</p>
+<div class="figure align-center" id="id2">
+<img alt="image" src="../_images/openjflash.png" />
+<p class="caption"><span class="caption-text">J-Flash 欢迎界面</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在新建工程界面，点击<code class="docutils literal notranslate"><span class="pre">...</span></code>，进入 Device 选择界面</p>
+<div class="figure align-center" id="id3">
+<img alt="image" src="../_images/choosechip.png" />
+<p class="caption"><span class="caption-text">新建工程界面</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">Manufacturer</span></code> 中选择 <code class="docutils literal notranslate"><span class="pre">Panchip</span></code>，然后找到并选择名为 <strong>PAN107X</strong> 的 Device，点击 <code class="docutils literal notranslate"><span class="pre">OK</span></code> 按钮确认</p>
+<div class="figure align-center" id="id4">
+<img alt="image" src="../_images/findchip.png" />
+<p class="caption"><span class="caption-text">Device 选择界面</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>点击菜单栏 <code class="docutils literal notranslate"><span class="pre">Target</span> <span class="pre">-</span> <span class="pre">Connect</span></code>，连接目标芯片</p>
+<div class="figure align-center" id="id5">
+<img alt="image" src="../_images/connect.png" />
+<p class="caption"><span class="caption-text">连接目标芯片</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>拖动待烧录固件至 J-Flash 软件右侧的空白区域</p>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../_images/openfile.png" />
+<p class="caption"><span class="caption-text">载入待烧录固件</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>点击菜单栏 <code class="docutils literal notranslate"><span class="pre">Target</span> <span class="pre">-</span> <span class="pre">Production</span> <span class="pre">Programming</span></code>（快捷键 <code class="docutils literal notranslate"><span class="pre">F7</span></code>），烧录程序至芯片</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../_images/program.png" />
+<p class="caption"><span class="caption-text">开始烧录</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>烧录完成后，会有弹窗提示</p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../_images/finish.png" />
+<p class="caption"><span class="caption-text">烧录完成</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p><strong>注</strong>：烧录完成后程序不会立刻执行，需要手动复位一下芯片，或重新给芯片上电。</p>
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

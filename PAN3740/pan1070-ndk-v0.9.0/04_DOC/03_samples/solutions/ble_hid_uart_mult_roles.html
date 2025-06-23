@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE HID Uart Mult Roles &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE Panchip-CTE Beacon" href="ble_panchip_cte_beacon.html" />
+    <link rel="prev" title="BLE HID Uart Capture" href="ble_hid_uart_capture.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">通用解决方案</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_accelerometer.html">BLE Accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_app_uart.html">BLE APP Uart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_selfie.html">BLE HID Selfie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_capture.html">BLE HID Uart Capture</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE HID Uart Mult Roles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">5 开发说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_panchip_cte_beacon.html">BLE Panchip-CTE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_multi_mode_toggle.html">BLE PRF Multi Mode Toggle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_sample.html">BLE PRF Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_rgb_light.html">BLE RGB Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_spi_tft_lcd.html">BLE Spi Tft Lcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_vehicles_key.html">BLE Vehicles Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf_mini_test.html">RF Mini Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">通用解决方案</a> &raquo;</li>
+  
+  <li>BLE HID Uart Mult Roles</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions/ble_hid_uart_mult_roles.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-hid-uart-mult-roles">
+<h1>BLE HID Uart Mult Roles<a class="headerlink" href="#ble-hid-uart-mult-roles" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>此sample为<code class="docutils literal notranslate"><span class="pre">pan107</span></code>上演示蓝牙HID串口设备的透传功能，支持1主1从</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107</span></code>（芯片型号）开发板 * 2</p></li>
+<li><p>uart0: 设置P16，P17作为默认的LOG输出端口</p></li>
+<li><p>uart1: 默认P24作为Uart1 Rx端-连接串口工具TX端，P10作为Uart1 Tx端-连接串口工具RX端，波特率115200</p></li>
+<li><p>蓝牙主机设备如手机</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions\ble_hid_uart_mult_roles\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>进行打开项目进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="at">
+<h3>4.1 AT指令说明<a class="headerlink" href="#at" title="永久链接至标题">¶</a></h3>
+<ol>
+<li><p>所有AT指令必须以<code class="docutils literal notranslate"><span class="pre">\r\n</span></code>字符结尾。广播状态为AT指令模式。连接状态为数据透传。AT指令模式以字符串格式发送。数据透传串口以hex格式发送。</p></li>
+<li><p>存储参数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">baudrate</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">own_mac</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">device_name</span><span class="p">[</span><span class="mi">28</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">name_length</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">bond_mac</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">passkey</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">rst_flag</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">fmc_data</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>全擦除后上电第一次打印默认初始化参数，用户可以后续通过AT命令进行修改</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>default_data_init
+Baudrate<span class="w"> </span>:<span class="w"> </span><span class="m">115200</span>
+Own_mac<span class="w"> </span>:<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">22</span>
+Bond_mac<span class="w"> </span>:<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">33</span><span class="w"> </span><span class="m">44</span><span class="w"> </span><span class="m">66</span><span class="w"> </span><span class="m">88</span>
+Name_length<span class="w"> </span>:<span class="w"> </span><span class="m">7</span>
+Device_name<span class="w"> </span>:<span class="w"> </span>pan_spp
+Passkey<span class="w"> </span>:<span class="w"> </span><span class="m">123456</span>
+</pre></div>
+</div>
+</li>
+<li><p>AT指令表</p></li>
+</ol>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>AT指令序号</p></th>
+<th class="head"><p>AT指令</p></th>
+<th class="head"><p>回复</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>AT</p></td>
+<td><p>AT+OK</p></td>
+<td><p>测试串口通讯是否正常</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>AT+RESET</p></td>
+<td><p>OK+RESET</p></td>
+<td><p>复位芯片指令</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>AT+DEFAULT</p></td>
+<td><p>OK+DEFAULT</p></td>
+<td><p>恢复出厂设置</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>AT+BAUD?</p></td>
+<td><p>BAUD+波特率</p></td>
+<td><p>10进制值（1200-115200）</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>AT+BAUD+115200<br />示例：AT+BAUD+115200</p></td>
+<td><p>OK+BAUD<br />NO CHANGE BAUD<br />OVER 115200 REJECT</p></td>
+<td><p>设置波特率  1200-115200任意值<br />超出配置限制会被拒绝，相等配置同样不会进行设置<br />切换波特率后需要更换波特率通信</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>AT+MAC?</p></td>
+<td><p>MAC+地址</p></td>
+<td><p>查询MAC地址</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>AT+SETMAC+地址<br />示例：AT+SETMAC+112233445566</p></td>
+<td><p>OK+SETMAC</p></td>
+<td><p>设置MAC地址成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>AT+NAME?</p></td>
+<td><p>NAME+广播名字</p></td>
+<td><p>查询蓝牙广播名字</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>AT+SETNAME+名字<br />示例：AT+SETNAME+HELLO_PAN</p></td>
+<td><p>OK+SETNAME</p></td>
+<td><p>设置广播名字成功，最长28字节，超过将会截断</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>AT+BONDMAC?</p></td>
+<td><p>BONDMAC+地址</p></td>
+<td><p>查询扫描过滤条件的绑定地址</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>AT+BONDMAC+地址<br />示例：AT+BONDMAC+112233446688</p></td>
+<td><p>OK+BONDMAC</p></td>
+<td><p>设置扫描过滤条件的绑定地址成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>AT+PIN?</p></td>
+<td><p>PIN+设置配对密码</p></td>
+<td><p>作为从机配对时需要在手机端输入密码</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>AT+PIN+配对密码<br />示例：AT+PIN+234567</p></td>
+<td><p>OK+PIN</p></td>
+<td><p>设置密码成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>AT+ADV START</p></td>
+<td><p>OK+ADV START</p></td>
+<td><p>默认开启了广播</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>AT+ADV STOP</p></td>
+<td><p>OK+ADV STOP</p></td>
+<td><p>在广播开启条件下可以停止广播</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>AT+SCAN START</p></td>
+<td><p>OK+SCAN START<br />SCAN DONE</p></td>
+<td><p>依次输出2条<br />第一条代表消息通信成功<br />第二条代表扫描到设备后停止扫描</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>AT+SCAN STOP</p></td>
+<td><p>OK+SCAN STOP</p></td>
+<td><p>在扫描开启条件下可以停止扫描</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>AT+CONN 00</p></td>
+<td><p>OK+CONN<br />CONN DONE<br />DISCOVERY DONE<br />CCC DONE<br />CONN WHOLE DONE</p></td>
+<td><p>依次输出5条<br />第一条代表消息通信成功<br />后四条代表连接后消息交互</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>AT+DISCONN 00</p></td>
+<td><p>OK+DISCONN<br />DISCONN DONE</p></td>
+<td><p>依次输出2条<br />第一条代表消息通信成功<br />第二条代表成功断连</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>AT+DEV SHOW</p></td>
+<td><p>OK+DEV SHOW</p></td>
+<td><p>显示连接列表<br />目前默认在log端口显示列表<br />有需要可以移植到透传端口显示</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>其他</p></td>
+<td><p>AT+ERROR</p></td>
+<td><p>未定义</p></td>
+</tr>
+</tbody>
+</table>
+<p>注： 当前NDK烧录代码后，<code class="docutils literal notranslate"><span class="pre">默认开启广播，未开启扫描</span></code>，命令14-20中仅16可用，并且扫描到指定UUID进行自动连接</p>
+<ol>
+<li><p>连接状态下，发送透传消息以hex格式发送，消息格式如下</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern(1B)</p></th>
+<th class="head"><p>Send Connect Index(1B)</p></th>
+<th class="head"><p>data(0~200B)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0x5A</p></td>
+<td><p>发送给index的参数为置位index bit位<br />bit0为发送给从机，bit1为发送给主机</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>4.2 演示流程<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id6">
+<h3>4.2.1AT配置测试<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>命令1-13可以灵活配置和读取默认配置参数，先进行测试后，建议发送<code class="docutils literal notranslate"><span class="pre">AT+DEFAULT</span></code>恢复默认配置</p>
+<p>注意：</p>
+<ol class="simple">
+<li><p>目前指令5设置921600会返回信息OVER 115200 REJECT，设置相等值会返回NO CHANGE BAUD，设置115200以下的串口波特率会返回OK+BAUD RESET并reset芯片，切换波特率可以继续通信测试</p></li>
+<li><p>部分设置命令会答应<code class="docutils literal notranslate"><span class="pre">RESETING...</span></code>进行芯片重启</p></li>
+</ol>
+<div class="figure align-center" id="id12" style="width: 500px">
+<img alt="image" src="../../_images/ble_hid_uart_mult_roles.png" />
+<p class="caption"><span class="caption-text">AT指令测试窗口</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>4.2.2 蓝牙状态测试<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>主机和从机可以同时支持，默认上电开启了广播，最多支持1主1从</p>
+<p>准备2块板子A和B，分别烧录程序后，A板子只作为从机，可以通过AT指令修改设备mac地址和名字，防止手机扫描到两个设备信息完全一样</p>
+<p>然后对B板子以以下流程进行测试</p>
+<div class="section" id="id8">
+<h4>4.2.2.1 从机模式<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>作为从机默认上电开启了蓝牙广播，测试流程可以按照以下顺序</p>
+<ol class="simple">
+<li><p>手机端蓝牙连接设备</p></li>
+<li><p>手机端对属性进行<code class="docutils literal notranslate"><span class="pre">notify</span> <span class="pre">enable</span></code></p></li>
+<li><p>芯片端发送消息上报</p></li>
+<li><p>手机端发送消息下发</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h4>4.2.2.2 主机模式<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>作为主机，需要主动开始扫描，扫描到设备后，主动进行连接已经开启的另一块从机设备，连接从机时默认会进行服务发现、<code class="docutils literal notranslate"><span class="pre">notify</span> <span class="pre">enable</span></code>，之后可以进行消息透传测试</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AT+SCAN</span> <span class="pre">START</span></code>，成功连接后返回<code class="docutils literal notranslate"><span class="pre">SCAN</span> <span class="pre">DONE</span></code></p></li>
+<li><p>芯片主机端进行数据传输测试</p></li>
+<li><p>可以进行第二块从机的准备和完成扫描连接流程</p></li>
+<li><p>可以对主机从机同时进行传输</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>5 开发说明<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>5.1 功耗说明<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>功耗测试分为广播态测试，连接态测试，并在两种状态下可以通过电流观察空闲WFI状态休眠电流</p>
+<p><strong>功耗测试结果：</strong></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>工作模式</p></th>
+<th class="head"><p>平均电流（uA）</p></th>
+<th class="head"><p>底电流（uA）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>广播（30ms广播间隔）</p></td>
+<td><p>345</p></td>
+<td><p>1.91</p></td>
+</tr>
+<tr class="row-odd"><td><p>连接（45ms连接间隔）</p></td>
+<td><p>118</p></td>
+<td><p>2.40</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">168</span>.31k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">43</span>.14<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

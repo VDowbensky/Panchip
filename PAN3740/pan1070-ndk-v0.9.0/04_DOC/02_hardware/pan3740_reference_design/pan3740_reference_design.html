@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PAN3740 EVB 介绍与硬件参考设计 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="演示例程" href="../../03_samples/index.html" />
+    <link rel="prev" title="PAN10xx 硬件参考设计" href="../hardware_reference_design/pan107x_hw_reference_design.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">硬件资料</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../evaluation_board_introduction/pan107x_evb_intro.html">PAN10xx EVB 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_reference_design/pan107x_hw_reference_design.html">PAN10xx 硬件参考设计</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PAN3740 EVB 介绍与硬件参考设计</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2 原理图设计</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pan3740">2.1 PAN3740参考设计原理图</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2 电源</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.3 晶振</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.4 复位电路 &amp; 按键</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.5 天线匹配</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sub-1g">2.5.2 SUB-1G匹配</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.6 静电防护</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mm">2.7 2.54mm连接器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pcb">3 PCB设计建议</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3.1 制板工艺</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">3.2 PCB布局</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">3.3 射频走线注意事项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">3.5 电源部分注意事项如下</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d">3.6 3D图</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">4 匹配电路</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bom">5 BOM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">硬件资料</a> &raquo;</li>
+  
+  <li>PAN3740 EVB 介绍与硬件参考设计</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/02_hardware/pan3740_reference_design/pan3740_reference_design.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="pan3740-evb">
+<h1>PAN3740 EVB 介绍与硬件参考设计<a class="headerlink" href="#pan3740-evb" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本文档主要介绍基于 PAN3740 芯片方案的硬件原理图设计、PCB 设计建议。本文档提供 PAN3740 芯片外围电路的硬件设计方法。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 原理图设计<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="pan3740">
+<h3>2.1 PAN3740参考设计原理图<a class="headerlink" href="#pan3740" title="永久链接至标题">¶</a></h3>
+<p>如下图，单板硬件由DC-DC降压、2.54mm排针组成、晶振电路、按键、去耦电容和天线匹配网络等组成。</p>
+<div class="figure align-center" id="id15">
+<img alt="image" src="../../_images/PAN3740AU33BBA_SMT.png" />
+<p class="caption"><span class="caption-text">基于PAN3740的原理图</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2.2 电源<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>VBAT为芯片电源脚，要求瞬时供电能力不小于200mA，供电范围为LDO模式：1.8-3.6V；DCDC模式：2.0-3.6V ；</p></li>
+<li><p>DVDD_SUB、DVDD_BLE、VBAT、DCDC_FB_SUB、VOUT_BK_BLE、VDD_FLASH至少预留1个电容，尽可能靠近芯片引脚；</p></li>
+<li><p>VDD123_SUB、VDD_PA_SUB、VCC_RF_BLE至少预留1个电容，尽可能靠近芯片引脚；</p></li>
+</ul>
+<div class="section" id="dc-dc">
+<h4>2.2.1 DC-DC<a class="headerlink" href="#dc-dc" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>BLE DC-DC 外围电路</p></li>
+</ul>
+<ol class="simple">
+<li><p>外围电路组成为：L1、C15、C16；</p></li>
+<li><p>推荐型号： PIM252010-2R2MTS00。</p></li>
+</ol>
+<ul class="simple">
+<li><p>Sub-1G DC-DC 外围电路</p></li>
+</ul>
+<ol class="simple">
+<li><p>外围电路组成为：L2、C17；</p></li>
+<li><p>推荐型号：PIM252010-2R2MTS00。</p></li>
+</ol>
+</div>
+<div class="section" id="dvdd">
+<h4>2.2.2 DVDD<a class="headerlink" href="#dvdd" title="永久链接至标题">¶</a></h4>
+<p>DVDD_BLE需要<strong>放置1uF电容</strong>、DVDD_SUB需要<strong>放置100nF电容</strong>。 电容最大不应超过1uF，否则会影响芯片正常启动，电容应靠近该引脚放置。</p>
+<blockquote>
+<div><p><strong>注意</strong>：为避免电路异常，该电容容值请不要随意更改！</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>2.3 晶振<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="k">
+<h4>2.3.1 32K晶振<a class="headerlink" href="#k" title="永久链接至标题">¶</a></h4>
+<p>为提供稳定的外部32KHz时钟，由Y3，C28，C29构成。此部分可以省略，由内部RC代替。</p>
+</div>
+<div class="section" id="m">
+<h4>2.3.2 32M晶振<a class="headerlink" href="#m" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>为MCU和BLE提供稳定的外部32MHz时钟，由Y2，C7，C8构成，其中晶振Y1型号为：XL7EL89CKI-111YLC-32M， C3，C4 = 10pF，此搭配的射频频率较为准确，为±10KHz左右。</p></li>
+<li><p>为Sub-1G提供稳定的外部32MHz时钟，由Y3，C17，C22构成，其中晶振Y1型号为：XL7EL89CKI-111YLC-32M， C1，C2 = 10pF，此搭配的射频频率较为准确，为±10KHz左右。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>2.4 复位电路 &amp; 按键<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><strong>复位引脚可以悬空</strong>，或增加外部按键。在按键应用中建议搭配电容使用，容值为100nF。加电容的作用是在系统受到强干扰时，稳定复位脚的电平状态。</p>
+<blockquote>
+<div><p><strong>注意</strong>：该引脚内部有一个50KΩ左右的上拉电阻，低电平会使复位生效。</p>
+</div></blockquote>
+<div class="figure align-center" id="id16">
+<img alt="image" src="../../_images/Schematic_KEY1.png" />
+<p class="caption"><span class="caption-text">按键复位电路</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2.5 天线匹配<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="ble">
+<h4>2.5.1 BLE匹配<a class="headerlink" href="#ble" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>在BLE应用中，由于芯片内部已做射频前端匹配电路，所以此处预留射频前端匹配网络电路，其中C19、C20、L3预留元件位置，C19、C20为预留电容默认不焊接，L3为0Ω电阻。若因PCB设计不合理或者天线效果不理想导致射频前端失配，那么可以通过C19、C20、L3组成匹配网络进行阻抗调整；</p></li>
+</ul>
+<div class="figure align-center" id="id17">
+<img alt="image" src="../../_images/Schematic_ANT.png" />
+<p class="caption"><span class="caption-text">天线匹配电路</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sub-1g">
+<h3>2.5.2 SUB-1G匹配<a class="headerlink" href="#sub-1g" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>在Sub-1G应用中：</p></li>
+</ul>
+<ol class="simple">
+<li><p>匹配元器件值需要根据 TR Switch 和 Layout 的不同微调；</p></li>
+<li><p>电感 L10 推荐使用直流内阻小于 2 欧姆、额定电流大于 150mA 的器件。</p></li>
+</ol>
+<div class="figure align-center" id="id18">
+<img alt="image" src="../../_images/TX_Match.png" />
+<p class="caption"><span class="caption-text">Sub-1G TX匹配参数</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+</div>
+<p>RX匹配元器件值需要根据 TR Switch 和 Layout 的不同微调；</p>
+<div class="figure align-center" id="id19">
+<img alt="image" src="../../_images/RX_Match.png" />
+<p class="caption"><span class="caption-text">Sub-1G RX匹配参数</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id20">
+<img alt="image" src="../../_images/Schematic_Sub-1G_ANT.png" />
+<p class="caption"><span class="caption-text">Sub-1G RF匹配电路</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>2.6 静电防护<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="section" id="io">
+<h4>2.6.1 IO端静电防护<a class="headerlink" href="#io" title="永久链接至标题">¶</a></h4>
+<p>使用的IO要预留串联电阻和ESD静电防护元件焊盘位置，便于过认证前的调试整改。串电阻的作用主要是减少IO信号的反射、降低外部毛刺信号干扰以及削弱静电对IO的影响。<strong>频繁与外部进行数据交换的IO例如使用USB功能脚等，必须使用TVS管进行保护</strong>。建议使用的TVS管类型如单向的ESD5Z3V3或双向的CESD923NC5VB，<strong>靠近外设接口位置摆放，ESD静电防护元件附近建议保留完整、连续的地，周围打尽量多过孔，有利电荷泄放</strong>。</p>
+</div>
+<div class="section" id="id8">
+<h4>2.6.2 电源端静电防护<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>电源输入端VBAT建议加上静电防护元件，若有静电进入可快速将电荷泄放到地，尽可能避免损坏芯片。<strong>ESD静电防护元件靠近电源输入端接口摆放</strong>。 可选择ESD5Z3V3。</p>
+</div>
+<div class="section" id="id9">
+<h4>2.6.3 天线端静电防护<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>无论是板载天线还是其他天线，本质上都是一段长导体，必然有概率吸引到静电电荷，为预防静电打坏芯片RF，天线端建议加上静电防护元件，<strong>必须使用低容值(小于0.5pF)、低钳位电压的TVS元器件，尽可能不影响RF阻抗，如JEB03SCDF</strong>。<strong>ESD静电防护元件靠近芯片摆放，若RF阻抗受到影响还可通过π匹配调整</strong>。在天线的位置放置一个ESD管。</p>
+<p><strong>推荐使用有馈地点的天线，板载天线推荐PIFA</strong>。</p>
+</div>
+</div>
+<div class="section" id="mm">
+<h3>2.7 2.54mm连接器<a class="headerlink" href="#mm" title="永久链接至标题">¶</a></h3>
+<p>为便于用户二次开发，该模块将所有GPIO全部引出，并兼容PAN107X_EVB底板。</p>
+</div>
+</div>
+<div class="section" id="pcb">
+<h2>3 PCB设计建议<a class="headerlink" href="#pcb" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>3.1 制板工艺<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>本文主要针对四层板并且单面贴设计，叠层如下图所示。
+PCB厚度需根据实际情况和阻抗要求适当调整。</p></li>
+</ul>
+<div class="figure align-center" id="id21">
+<img alt="image" src="../../_images/CorePCB_Thickness1.png" />
+<p class="caption"><span class="caption-text">制板工艺说明</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
+<p>*线宽推荐如下：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>板材属性</p></th>
+<th class="head"><p>参数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PCB板材</p></td>
+<td><p>FR-4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCB板厚</p></td>
+<td><p>1.6mm</p></td>
+</tr>
+<tr class="row-even"><td><p>50欧姆RF线宽</p></td>
+<td><p>9mil</p></td>
+</tr>
+<tr class="row-odd"><td><p>接地铺铜与RF走线间距</p></td>
+<td><p>5mil</p></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center" id="id22">
+<img alt="image" src="../../_images/50ohm_impedance.png" />
+<p class="caption"><span class="caption-text">50ohm阻抗仿真图</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>3.2 PCB布局<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="figure align-center" id="id23">
+<img alt="image" src="../../_images/PCB_TOP.png" />
+<p class="caption"><span class="caption-text">PAN3740 PCB顶层布局</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id24">
+<img alt="image" src="../../_images/PCB_BOTTOM.png" />
+<p class="caption"><span class="caption-text">PAN3740  PCB底层布局</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>3.3 射频走线注意事项<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>射频匹配链路按照50Ω走线，可以参考表层和邻层的GND平面，RF线需要结合叠构仿真阻抗模型，天线的π型匹配电路要靠近芯片ANT引脚，尽可能走线平滑，并联元件焊盘和走线重合为佳，降低阻抗突变。</p></li>
+<li><p>RF线有完整的参考地，从IC端出来就进行包地处理，两边均匀的打GND过孔，底层到芯片底部地平面尽量宽；</p></li>
+<li><p>晶振要远离天线和天线匹配链路、要靠近芯片引脚放置，晶振走线和其他走线垂直布线，减少晶振对RF的干扰，晶振中心铺铜挖空，周围包地；</p></li>
+<li><p>天线辐射区域尽量保证没有金属器件；</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>3.5 电源部分注意事项如下<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>VCC_RF，VBAT，DVDD管脚就近放置电容，走线尽量短(<strong>5mm以内</strong>)且粗(<strong>0.3mm以上</strong>)。
+<strong>电源储能电容布局如下图：</strong></p></li>
+</ul>
+<div class="figure align-center" id="id25">
+<img alt="image" src="../../_images/PCB_Reference1.png" />
+<p class="caption"><span class="caption-text">电源储能电容布局示意图</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>DC-DC电感靠近VSW1放置，走线尽量短粗，并且底部挖空，DC-DC相关电容靠近电感放置，如<strong>上图布局参考</strong>。</p></li>
+</ul>
+</div>
+<div class="section" id="d">
+<h3>3.6 3D图<a class="headerlink" href="#d" title="永久链接至标题">¶</a></h3>
+<div class="figure align-center" id="id26">
+<img alt="image" src="../../_images/3D_TOP.png" />
+<p class="caption"><span class="caption-text">TOP层3D图</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id27">
+<img alt="image" src="../../_images/3D_BOTTOM.png" />
+<p class="caption"><span class="caption-text">BOTTOM层3D图</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>4 匹配电路<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p><strong>注意</strong>：为保证射频性能最佳，建议由我司工程师进行样板射频参数校调！</p>
+</div></blockquote>
+</div>
+<div class="section" id="bom">
+<h2>5 BOM<a class="headerlink" href="#bom" title="永久链接至标题">¶</a></h2>
+<p><strong>单板BOM参考下表</strong></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>品种</p></th>
+<th class="head"><p>参数</p></th>
+<th class="head"><p>型号</p></th>
+<th class="head"><p>品牌</p></th>
+<th class="head"><p>位号</p></th>
+<th class="head"><p>封装</p></th>
+<th class="head"><p>数量</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>10uF</p></td>
+<td><p>0402X106M100NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C3</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>4.7uF</p></td>
+<td><p>CL05A475MP5NRNC</p></td>
+<td><p>三星电子</p></td>
+<td><p>C12, C15, C32</p></td>
+<td><p>0402</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>1uF</p></td>
+<td><p>CL05A105KP5NNNC</p></td>
+<td><p>三星电子</p></td>
+<td><p>C4, C17</p></td>
+<td><p>0402</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>220nF</p></td>
+<td><p>CL05A224KP5NNNC</p></td>
+<td><p>三星电子</p></td>
+<td><p>C6</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>100nF</p></td>
+<td><p>CL05B104KO5NNNC</p></td>
+<td><p>三星电子</p></td>
+<td><p>C5, C9, C10, C11, C13, C14, C16, C18, C30</p></td>
+<td><p>0402</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>100pF</p></td>
+<td><p>0402CG101J500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C21, C22, C24, C33</p></td>
+<td><p>0402</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>20pF</p></td>
+<td><p>0402CG200J500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C28, C29</p></td>
+<td><p>0402</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>18pF</p></td>
+<td><p>0402CG180J500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C25</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>12pF</p></td>
+<td><p>0402CG120J500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C26</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>10pF</p></td>
+<td><p>0402CG100J500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C1, C2, C7, C8</p></td>
+<td><p>0402</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>8.2pF</p></td>
+<td><p>0402CG8R2C500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C27</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电容</p></td>
+<td><p>3.9pF</p></td>
+<td><p>0402CG3R9C500NT</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>C23</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电容</p></td>
+<td><p>NC</p></td>
+<td><p>\</p></td>
+<td><p>\</p></td>
+<td><p>C19, C20</p></td>
+<td><p>0402</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片按键</p></td>
+<td><p>4P-4.2mm x 3.25mm</p></td>
+<td><p>K2-1808SN-A4SW-01</p></td>
+<td><p>东莞市韩荣电子有限公司</p></td>
+<td><p>K1</p></td>
+<td><p>SW-SMD(4.2x3.25x2.5)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电感</p></td>
+<td><p>6.2nH 2%</p></td>
+<td><p>LQW15AN6N2C00D</p></td>
+<td><p>村田</p></td>
+<td><p>L7</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电感</p></td>
+<td><p>10nH 2%</p></td>
+<td><p>LQW15AN10NG00D</p></td>
+<td><p>村田</p></td>
+<td><p>L10</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电感</p></td>
+<td><p>27nH 2%</p></td>
+<td><p>LQW15AN27NG00D</p></td>
+<td><p>村田</p></td>
+<td><p>L8, L9</p></td>
+<td><p>0402</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电感</p></td>
+<td><p>33nH 2%</p></td>
+<td><p>LQW15AN33NG00D</p></td>
+<td><p>村田</p></td>
+<td><p>L4, L6</p></td>
+<td><p>0402</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电感</p></td>
+<td><p>47nH 2%</p></td>
+<td><p>LQW15AN47NG00D</p></td>
+<td><p>村田</p></td>
+<td><p>L5</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电感</p></td>
+<td><p>10uH</p></td>
+<td><p>MLP2520S100MT0S1</p></td>
+<td><p>TDK</p></td>
+<td><p>L2</p></td>
+<td><p>SMD 2520 1.0mm</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电感</p></td>
+<td><p>2.2uH</p></td>
+<td><p>PIM252010 -2R2MTS00</p></td>
+<td><p>广东风华高新科技股份有限公司</p></td>
+<td><p>L1, L2</p></td>
+<td><p>SMD 2520 1.0mm</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>同轴连接器</p></td>
+<td><p>插板 3Pin SMA</p></td>
+<td><p>KH-SMA-KE8-G</p></td>
+<td><p>深圳市金航标电子有限公司</p></td>
+<td><p>E3</p></td>
+<td><p>SMA</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>同轴连接器</p></td>
+<td><p>贴片ipex连接器-1代</p></td>
+<td><p>KH-IPEX-K501-29</p></td>
+<td><p>深圳市金航标电子有限公司</p></td>
+<td><p>E2</p></td>
+<td><p>ANT IPEX-1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>直插连接器</p></td>
+<td><p>Header 2x10,2.54mm</p></td>
+<td><p>PZ254V-12-20P</p></td>
+<td><p>XFCN(台湾兴飞)</p></td>
+<td><p>P1, P2</p></td>
+<td><p>Header 2x10</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电阻</p></td>
+<td><p>0Ω 1%</p></td>
+<td><p>0402WGF0000TCE</p></td>
+<td><p>厚声电子工业有限公司</p></td>
+<td><p>C31, L3, R1, R3, R5, R6, R8, R10, R11</p></td>
+<td><p>0402</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片电阻</p></td>
+<td><p>10KΩ 1%</p></td>
+<td><p>0402WGF1002TCE</p></td>
+<td><p>厚声电子工业有限公司</p></td>
+<td><p>R2</p></td>
+<td><p>0402</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片电阻</p></td>
+<td><p>NC</p></td>
+<td><p>\</p></td>
+<td><p>\</p></td>
+<td><p>R4, R7, R9</p></td>
+<td><p>0402</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片晶振</p></td>
+<td><p>32MHz 10ppm 9pF</p></td>
+<td><p>XL7EL89CKI-111YLC-32M</p></td>
+<td><p>深圳扬兴科技有限公司</p></td>
+<td><p>Y1,Y2</p></td>
+<td><p>SMD 2016 4P</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片晶振</p></td>
+<td><p>32.768KHz 12.5pF</p></td>
+<td><p>Q13FC13500005</p></td>
+<td><p>EPSON</p></td>
+<td><p>Y3</p></td>
+<td><p>SMD 3215 2P</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ESD管</p></td>
+<td><p>BESD3301P</p></td>
+<td><p>双向静电ESD管</p></td>
+<td><p>伯恩半导体有限公司</p></td>
+<td><p>ESD1, ESD2</p></td>
+<td><p>DFN1006-2L</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>贴片IC</p></td>
+<td><p>SPDT Switch</p></td>
+<td><p>CKRF2179MM26-C4</p></td>
+<td><p>CDK</p></td>
+<td><p>U2</p></td>
+<td><p>SOT 363</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>贴片IC</p></td>
+<td><p>2.4G&amp; BLE&amp; Sub-1G SOC</p></td>
+<td><p>PAN3740</p></td>
+<td><p>上海磐启微电子有限公司</p></td>
+<td><p>U1</p></td>
+<td><p>QFN48 6x6mm</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

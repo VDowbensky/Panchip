@@ -1,0 +1,1057 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Multiple Wakeup Source &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="系统调试例程" href="../os_debug/index.html" />
+    <link rel="prev" title="Standby Mode0 P02 Key Wakeup" href="standby_m0_p02_key_wakeup.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">低功耗例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_key_wakeup.html">DeepSleep GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_pwm_wakeup.html">DeepSleep GPIO PWM Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_slptmr_wakeup.html">DeepSleep SleepTimer Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_pwm_waveform_generator.html">DeepSleep PWM Waveform Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_gpio_key_wakeup.html">Standby Mode1 GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_slptmr_wakeup.html">Standby Mode1 SleepTimer Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m0_p02_key_wakeup.html">Standby Mode0 P02 Key Wakeup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multiple Wakeup Source</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">低功耗例程</a> &raquo;</li>
+  
+  <li>Multiple Wakeup Source</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/low_power/multiple_wakeup_source.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="multiple-wakeup-source">
+<h1>Multiple Wakeup Source<a class="headerlink" href="#multiple-wakeup-source" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程是一个稍微复杂一些的应用，用于演示多种唤醒源、多种低功耗模式的切换，具体包括以下功能：</p>
+<ul class="simple">
+<li><p>DeepSleep 状态下，通过 UART1 Rx 引脚唤醒芯片，并完成 UART1 数据接收（对应 SoC GPIO 唤醒）</p></li>
+<li><p>DeepSleep 状态下，通过 SleepTimer 定时唤醒</p></li>
+<li><p>Standby Mode 1 状态下，通过按键唤醒芯片（对应 SoC GPIO 唤醒）</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p><strong>电流计</strong>（本文使用电流可视化测量设备 PPK2 <em>[Nordic Power Profiler Kit II]</em> 进行演示）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>USB 转串口模块一个（用于与芯片 UART1 通信）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>为确保能够准确地测量 SoC 本身的功耗，排除底板外围电路的影响，请确认 EVB 底板上的：</p>
+<ul>
+<li><p>Voltage 排针组中的 VCC 和 VDD 均接至 3V3</p></li>
+<li><p>POWER 开关从 LDO 档位拨至 BAT 档位（并确认底板背部的电池座内<strong>没有</strong>纽扣电池）</p></li>
+</ul>
+</li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17（用于打印串口 Log）</p></li>
+<li><p>使用杜邦线将 USB 转串口模块的 RX 引脚与核心板上的 P10 引脚相连，TX 引脚与核心板上的 P07 引脚相连（用于通过 UART1 接收 PC 发送的数据）</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>将 PPK2 硬件的：</p>
+<ul>
+<li><p>USB DATA/POWER 接口连接至 PC USB 接口</p></li>
+<li><p>VOUT 连接至 EVB 底板的 VBAT 排针</p></li>
+<li><p>GND 连接至 EVB 底板的 GND 排针</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（接至芯片 UART0，用于接收串口打印 Log）</p></li>
+<li><p>串口调试助手（UartAssist），波特率 9600（接至芯片 UART1，用于接受 PC 发送过来的数据）</p></li>
+<li><p>nRF Connect Desktop（用于配合 PPK2 测量 SoC 电流）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\low_power\multiple_wakeup_source\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录，烧录成功后断开 JLink 连线以避免漏电。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>PC 上打开 PPK2 Power Profiler 软件，供电电压选择 3300 mV，然后打开供电开关</p></li>
+<li><p>从串口 Log (UART0) 中看到如下的打印信息：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>nRESET<span class="w"> </span>Pin<span class="w"> </span>Reset.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>a<span class="w"> </span><span class="k">while</span>..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Notifications..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>started,<span class="w"> </span><span class="nv">timeout</span><span class="o">=</span>30s
+</pre></div>
+</div>
+</li>
+<li><p>此时观察芯片电流波形，发现稳定在 4uA 左右（说明芯片成功进入了 DeepSleep 模式）：</p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../../_images/multiple_wakeup_source_init.png" />
+<p class="caption"><span class="caption-text">系统初始化后进入 DeepSleep 模式</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在 30s 内，使用串口调试助手通过 UART1（波特率 9600）向芯片发送起始字节为 0x00 的二进制字节串：</p>
+<div class="figure align-center" id="id11">
+<img alt="image" src="../../_images/multiple_wakeup_source_pc_send_data_to_uart1.png" />
+<p class="caption"><span class="caption-text">通过串口将芯片从 DeepSleep 状态下唤醒</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>此时再观察串口 Log，可以看到成功检测到 GPIO P07 中断，随后 app task 向下执行，SleepTimer1 被停止，随后 UART1 中断服务程序触发，收到并打印除起始字节 0x00 外的剩下的所有数据，随后 app task 重新执行到等待 Notification 的位置，并触发系统调度到 Idle 线程，并触发重新启动 SleepTimer1 的流程：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>I<span class="o">]</span><span class="w"> </span>UART1<span class="w"> </span>Rx<span class="w"> </span><span class="o">(</span>P07<span class="o">)</span><span class="w"> </span>GPIO<span class="w"> </span>wakeup<span class="w"> </span>triggered..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>notification<span class="w"> </span>received,<span class="w"> </span>value:<span class="w"> </span><span class="m">1</span>.
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>stopped.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>a<span class="w"> </span><span class="k">while</span>..
+Data<span class="w"> </span>received<span class="w"> </span>from<span class="w"> </span>UART:<span class="w"> </span>0x01<span class="w"> </span>0x02<span class="w"> </span>0x03<span class="w"> </span>0x04
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Notifications..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>started,<span class="w"> </span><span class="nv">timeout</span><span class="o">=</span>30s
+</pre></div>
+</div>
+</li>
+<li><p>再观察芯片电流波形，可以看到芯片触发了 DeepSleep 唤醒，一次唤醒持续了约 1s 左右时间，随后重新进入 DeepSleep 状态等待下次唤醒：</p>
+<div class="figure align-center" id="id12">
+<img alt="image" src="../../_images/multiple_wakeup_source_uart1_io_wakeup.png" />
+<p class="caption"><span class="caption-text">通过 UART1 Rx IO（P07）的 GPIO 方式将系统唤醒，之后重新进入 DeepSleep 状态</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>这次在 DeepSleep 状态下等待 30s 以上，可以看到会触发 SleepTimer1 超时唤醒，并随即进入 Standby Mode 1 状态：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Soc<span class="w"> </span>has<span class="w"> </span>stayed<span class="w"> </span><span class="k">in</span><span class="w"> </span>deepsleep<span class="w"> </span>mode<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span>30s,<span class="w"> </span>now<span class="w"> </span>try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>standby<span class="w"> </span>mode<span class="w"> </span><span class="m">1</span>..
+</pre></div>
+</div>
+</li>
+<li><p>此时再观察芯片电流波形，可以看到芯片触发了 DeepSleep 唤醒，随后很快进入了 Standby Mode 1 状态（从底电流变为 1uA 左右可看出）：</p>
+<div class="figure align-center" id="id13">
+<img alt="image" src="../../_images/multiple_wakeup_source_enter_stbm1.png" />
+<p class="caption"><span class="caption-text">通过 SleepTimer1 将芯片从 DeepSleep 状态下唤醒，随即进入 Standby Mode 1 状态</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>本例程中 Stanby Mode 1 状态下至支持 WKUP 按键（P02）唤醒，此时我们按一下底板的 WKUP 按键，可以看到芯片成功被唤醒，随后重新进入 DeepSleep 状态：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>Standby<span class="w"> </span>Mode<span class="w"> </span><span class="m">1</span><span class="w"> </span>GPIO<span class="w"> </span>Wakeup.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>gpio<span class="w"> </span>wakeup<span class="w"> </span>src<span class="w"> </span><span class="nv">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x00000004
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SoC<span class="w"> </span>is<span class="w"> </span>waked<span class="w"> </span>up<span class="w"> </span>by<span class="w"> </span>GPIO<span class="w"> </span>P0_2.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>WKUP<span class="w"> </span>key<span class="w"> </span><span class="o">(</span>P02<span class="o">)</span><span class="w"> </span>pressed..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>a<span class="w"> </span><span class="k">while</span>..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Notifications..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>started,<span class="w"> </span><span class="nv">timeout</span><span class="o">=</span>30s
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>notification<span class="w"> </span>received,<span class="w"> </span>value:<span class="w"> </span><span class="m">1</span>.
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>stopped.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>a<span class="w"> </span><span class="k">while</span>..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Notifications..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>SleepTimer1<span class="w"> </span>started,<span class="w"> </span><span class="nv">timeout</span><span class="o">=</span>30s
+</pre></div>
+</div>
+<div class="figure align-center" id="id14">
+<img alt="image" src="../../_images/multiple_wakeup_source_wkup_key_wakeup.png" />
+<p class="caption"><span class="caption-text">通过 WKUP 按键将芯片从 Standby Mode 1 状态下唤醒，随后重新进入 DeepSleep 状态</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="sdk-config">
+<h3>5.1 SDK Config 配置<a class="headerlink" href="#sdk-config" title="永久链接至标题">¶</a></h3>
+<p>与本例程相关的 <a class="reference internal" href="../../04_dev_guides/ndk_configuration_guidance.html"><span class="doc std std-doc">SDK Config</span></a> (<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>) 配置有：</p>
+<ul class="simple">
+<li><p><strong>SoC Platform : Chip Power Mode</strong></p>
+<ul>
+<li><p>芯片供电选择 DCDC 模式，以降低芯片动态功耗</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_SOC_DCDC_PAN1070</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>RTOS Config : Enable OS Idle Hook</strong></p>
+<ul>
+<li><p>使能 FreeRTOS Ilde Task Hook 机制</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">configUSE_IDLE_HOOK</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode</strong></p>
+<ul>
+<li><p>使能系统低功耗功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log</strong></p>
+<ul>
+<li><p>使能 App Log 功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">APP_LOG_EN</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log : Log to UART</strong></p>
+<ul>
+<li><p>将 App Log 输出至串口</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_UART_LOG_ENABLE</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>5.2 程序代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>5.2.1 主程序<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>本例程中，OS 为使能状态，因此主程序 main() 函数也是 OS Main Task 的入口函数，其内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Application initialization */</span>
+<span class="w">    </span><span class="n">app_setup</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Application main infinite loop */</span>
+<span class="w">    </span><span class="n">app_main_loop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-setup">
+<h4>5.2.2 App Setup 初始化<a class="headerlink" href="#app-setup" title="永久链接至标题">¶</a></h4>
+<p>App 初始化 app_setup() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;App started..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Get the last reset reason */</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Reset Reason: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rst_reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_reset_reason_get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">rst_reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_POR_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Power On Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_PIN_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;nRESET Pin Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_SYS_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;NVIC System Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_STBM1_GPIO_WAKEUP</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Standby Mode 1 GPIO Wakeup.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">parse_stbm1_gpio_wakeup_source</span><span class="p">();</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Unhandled Reset Reason (%d), refer to more reason define in soc_api.h!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Enable and init UART1 for data transmission */</span>
+<span class="w">    </span><span class="n">uart1_comm_init</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Enable specific gpios wakeup for wakeup use */</span>
+<span class="w">    </span><span class="n">wakeup_gpio_init</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>打印 App 初始化 Log</p></li>
+<li><p>获取并打印本次芯片启动的复位原因</p></li>
+<li><p>在 uart1_comm_init() 函数中初始化 UART1 通信配置</p></li>
+<li><p>在 wakeup_gpio_init() 函数中初始化按键 GPIO P02 配置</p></li>
+</ol>
+</div>
+<div class="section" id="app-main-task-loop">
+<h4>5.2.3 App Main Task Loop 任务循环<a class="headerlink" href="#app-main-task-loop" title="永久链接至标题">¶</a></h4>
+<p>App Main Task 循环 app_main_loop() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_main_loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ulNotificationValue</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Store the handle of current task. */</span>
+<span class="w">    </span><span class="n">xTaskToNotify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xTaskGetCurrentTaskHandle</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">xTaskToNotify</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">app_assert</span><span class="p">(</span><span class="s">&quot;Error, get current task handle failed!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait a while to simulate cpu busy status */</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Busy wait a while..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* Try to take wakeup_sem */</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Wait for Task Notifications..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Wait to be notified that gpio key is pressed (gpio irq occured). Note the first parameter</span>
+<span class="cm">         * is pdTRUE, which has the effect of clearing the task&#39;s notification value back to 0, making</span>
+<span class="cm">         * the notification value act like a binary (rather than a counting) semaphore.</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="n">ulNotificationValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ulTaskNotifyTake</span><span class="p">(</span><span class="n">pdTRUE</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;A notification received, value: %d.</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ulNotificationValue</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* Stop the slptmr1 timer (by resetting the counter) */</span>
+<span class="w">        </span><span class="n">LP_SetSleepTime</span><span class="p">(</span><span class="n">ANA</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">LP_SLPTMR_CH1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;SleepTimer1 stopped.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>获取当前任务的 Task Handle，用于后续中断中给次任务发送通知使用</p></li>
+<li><p>在随后的 <code class="docutils literal notranslate"><span class="pre">while(1)</span></code> 循环中：</p>
+<ol class="simple">
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_busy_wait()</span></code> 接口使芯片在 Active 状态下全速运行 1s</p></li>
+<li><p>尝试获取任务通知（Task Notify），并打印相关的状态信息</p></li>
+<li><p>若成功获取到任务通知，则停止 SleepTimer 1 定时器（将定时时间配置为 0）</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="uart1">
+<h4>5.2.4 UART1 初始化程序<a class="headerlink" href="#uart1" title="永久链接至标题">¶</a></h4>
+<p>UART1 初始化程序 uart1_comm_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">uart1_comm_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Enable UART1 Clock */</span>
+<span class="w">    </span><span class="n">CLK_APB2PeriphClockCmd</span><span class="p">(</span><span class="n">CLK_APB2Periph_UART1</span><span class="p">,</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Configure UART Pinmux */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_TX</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_RX</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Enable digital input path of UART Rx Pin */</span>
+<span class="w">    </span><span class="n">GPIO_EnableDigitalPath</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Init UART1 */</span>
+<span class="w">    </span><span class="n">UART_InitTypeDef</span><span class="w"> </span><span class="n">Init_Struct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">.</span><span class="n">UART_BaudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9600</span><span class="p">,</span>
+<span class="w">        </span><span class="p">.</span><span class="n">UART_LineCtrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uart_Line_8n1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="n">UART_Init</span><span class="p">(</span><span class="n">UART1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Init_Struct</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UART_EnableFifo</span><span class="p">(</span><span class="n">UART1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Configure interrupt of UART1 */</span>
+<span class="w">    </span><span class="n">UART_SetRxTrigger</span><span class="p">(</span><span class="n">UART1</span><span class="p">,</span><span class="w"> </span><span class="n">UART_RX_FIFO_HALF_FULL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UART_EnableIrq</span><span class="p">(</span><span class="n">UART1</span><span class="p">,</span><span class="w"> </span><span class="n">UART_IRQ_RECV_DATA_AVL</span><span class="p">);</span><span class="w">      </span><span class="c1">// Enable RDA Interrupt</span>
+<span class="w">    </span><span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">UART1_IRQn</span><span class="p">);</span><span class="w">                         </span><span class="c1">// Enable target UART INT in NVIC</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol>
+<li><p>此函数使用 Panchip Low-Level UART Driver 对 UART 进行配置</p>
+<blockquote>
+<div><p>实际上也可使用更上层的 Panchip HAL UART Driver 进行配置，具体可参考 <a class="reference internal" href="../peripheral/uart_fifo.html"><span class="doc std std-doc">UART FIFO</span></a> 例程中的相关介绍</p>
+</div></blockquote>
+</li>
+<li><p>使用 Low-Level Driver 配置 UART1 的流程为：</p>
+<ul class="simple">
+<li><p>开启 APB1 上 UART1 时钟</p></li>
+<li><p>分别将 P10 和 P07 的 PINMUX 配置为 UART1 Tx 和 RX 功能</p></li>
+<li><p>使能 UART1 Rx 引脚的数字输入功能</p></li>
+<li><p>初始化 UART1，参数配置为波特率 9600，数据宽度 8-bit，无奇偶校验，1 位停止位</p></li>
+<li><p>使能 UART1 的 FIFO 功能</p></li>
+<li><p>配置 UART1 Rx FIFO 的 Trigger Level 为 Half-Full（即 8 字节）</p></li>
+<li><p>使能 UART1 Rx Data Receive 中断</p></li>
+<li><p>使能 NVIC 层的 UART1 IRQ</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h4>5.2.5 UART1 中断服务程序<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>UART1 的中断服务程序如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">UART_HandleReceivedData</span><span class="p">(</span><span class="n">UART_T</span><span class="o">*</span><span class="w"> </span><span class="n">UARTx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rx_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Data received from UART: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">UART_IsRxFifoEmpty</span><span class="p">(</span><span class="n">UARTx</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">uart_data_buf</span><span class="p">[</span><span class="n">rx_index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UART_ReceiveData</span><span class="p">(</span><span class="n">UARTx</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;0x%02x &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">uart_data_buf</span><span class="p">[</span><span class="n">rx_index</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">rx_index</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Handle Rx buffer full</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rx_index</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">UART_DATA_BUFF_SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">APP_LOG_WRN</span><span class="p">(</span><span class="s">&quot;WARNING: Too much data received, UART Rx buffer full!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">rx_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// Reset Rx buf index</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">UART_HandleProc</span><span class="p">(</span><span class="n">UART_T</span><span class="w"> </span><span class="o">*</span><span class="n">UARTx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">UART_EventDef</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UART_GetActiveEvent</span><span class="p">(</span><span class="n">UARTx</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">UART_EVENT_DATA</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">UART_EVENT_TIMEOUT</span><span class="p">:</span>
+<span class="w">        </span><span class="cm">/* Handle received data */</span>
+<span class="w">        </span><span class="n">UART_HandleReceivedData</span><span class="p">(</span><span class="n">UARTx</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">UART_EVENT_NONE</span><span class="p">:</span>
+<span class="w">        </span><span class="cm">/* Just ignore this event. */</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">APP_LOG_WRN</span><span class="p">(</span><span class="s">&quot;WARNING: Unhandled event, IID: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">UART1_IRQHandlerOverlay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">UART_HandleProc</span><span class="p">(</span><span class="n">UART1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>上述 3 个函数中，<code class="docutils literal notranslate"><span class="pre">UART1_IRQHandlerOverlay()</span></code> 是中断服务程序入口，<code class="docutils literal notranslate"><span class="pre">UART_HandleProc()</span></code> 是通用的 UART Rx 处理流程模板，<code class="docutils literal notranslate"><span class="pre">UART_HandleReceivedData()</span></code> 是本例程的逻辑处理</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UART_HandleReceivedData()</span></code>函数的主要逻辑是，当发现 UART Rx FIFO 非空时，将其读空，并将数据存储在一个全局的数组中，同时向串口打印数据信息</p></li>
+</ol>
+</div>
+<div class="section" id="gpio">
+<h4>5.2.6 GPIO 初始化程序<a class="headerlink" href="#gpio" title="永久链接至标题">¶</a></h4>
+<p>GPIO 初始化程序 wakeup_gpio_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">wakeup_gpio_key_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Set pinmux func as GPIO */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Configure debounce clock */</span>
+<span class="w">    </span><span class="n">GPIO_SetDebounceTime</span><span class="p">(</span><span class="n">GPIO_DBCTL_DBCLKSRC_RCL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_DBCTL_DBCLKSEL_4</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Enable input debounce function of specified GPIO */</span>
+<span class="w">    </span><span class="n">GPIO_EnableDebounce</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Set GPIO to input mode */</span>
+<span class="w">    </span><span class="n">GPIO_SetMode</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_MODE_INPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CLK_Wait3vSyncReady</span><span class="p">();</span><span class="w"> </span><span class="cm">/* Necessary for P02 to do manual aon-reg sync */</span>
+
+<span class="w">    </span><span class="cm">/* Enable internal pull-up resistor path */</span>
+<span class="w">    </span><span class="n">GPIO_EnablePullupPath</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CLK_Wait3vSyncReady</span><span class="p">();</span><span class="w"> </span><span class="cm">/* Necessary for P02 to do manual aon-reg sync */</span>
+
+<span class="w">    </span><span class="cm">/* Wait for a while to ensure the internal pullup is stable before entering low power mode */</span>
+<span class="w">    </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Disable P02 interrupt at this time */</span>
+<span class="w">    </span><span class="n">GPIO_DisableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">wakeup_gpio_uart1_rx_pin_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Set GPIO to input mode */</span>
+<span class="w">    </span><span class="n">GPIO_SetMode</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_MODE_INPUT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Enable internal pull-up resistor path */</span>
+<span class="w">    </span><span class="n">GPIO_EnablePullupPath</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Disable P07 interrupt before entering deepsleep */</span>
+<span class="w">    </span><span class="n">GPIO_DisableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">wakeup_gpio_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Configure gpio wakeup key (P02) */</span>
+<span class="w">    </span><span class="n">wakeup_gpio_key_init</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Configure gpio wakeup pin for uart rx */</span>
+<span class="w">    </span><span class="n">wakeup_gpio_uart1_rx_pin_init</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Enable GPIO IRQs in NVIC */</span>
+<span class="w">    </span><span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">GPIO0_IRQn</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>本例程中的 GPIO 配置分三部分：</p>
+<ol class="simple">
+<li><p>GPIO P02 (WKUP 按键) 初始化配置函数 <code class="docutils literal notranslate"><span class="pre">wakeup_gpio_key_init()</span></code>，使用 Low-Level GPIO Driver：</p>
+<ul class="simple">
+<li><p>配置 P02 引脚的 Pinmux 为 GPIO 功能（芯片上电默认功能，因此可以省略）</p></li>
+<li><p>使能 P02 去抖功能（并配置去抖时间）</p></li>
+<li><p>配置 P02 为数字输入模式</p></li>
+<li><p>使能 P02 内部上拉电阻（按键没有外部上拉电阻）</p></li>
+<li><p>关闭 P02 的中断使能</p></li>
+</ul>
+</li>
+<li><p>UART Rx（P07）引脚的 GPIO 初始化配置函数 <code class="docutils literal notranslate"><span class="pre">wakeup_gpio_uart1_rx_pin_init()</span></code></p>
+<ul class="simple">
+<li><p>配置 P07 引脚为数字输入功能</p></li>
+<li><p>使能 P07 引脚的内部上拉电阻</p></li>
+<li><p>关闭 P07 引脚的中断使能</p></li>
+</ul>
+</li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">wakeup_gpio_init()</span></code> 函数尾部使能 NVIC 层的 GPIO 中断 IRQ</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h4>5.2.7 GPIO 中断服务程序<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>GPIO P0 的中断服务程序如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">GPIO0_IRQHandlerOverlay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Check if WKUP (P02) button pressed */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_GetIntFlag</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GPIO_ClrIntFlag</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;WKUP key (P02) pressed..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Check if UART1 Rx (P07) GPIO wakeup triggered */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_GetIntFlag</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Clear gpio pin irq flag */</span>
+<span class="w">        </span><span class="n">GPIO_ClrIntFlag</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">P07</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/* Busy wait until P07 pulled high, which means the 1st wakup</span>
+<span class="cm">             * trigger character (0x00) send done.</span>
+<span class="cm">             */</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="cm">/* Resume UART1 PIN configs after P07 pulled high */</span>
+<span class="w">        </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_TX</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_RX</span><span class="p">);</span>
+<span class="w">        </span><span class="n">GPIO_DisableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;UART1 Rx (P07) GPIO wakeup triggered..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Try to do context switch right after current isr return */</span>
+<span class="w">    </span><span class="n">taskYIELD</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>由于本例程使用 Low-Level GPIO Driver，因此每个 GPIO Port 均需编写自己的中断服务函数，其内部可通过 <code class="docutils literal notranslate"><span class="pre">GPIO_GetIntFlag()</span></code> 接口判断触发中断的是当前 port 的哪根 pin</p></li>
+<li><p>在中断服务函数中需注意调用 <code class="docutils literal notranslate"><span class="pre">GPIO_ClrIntFlag()</span></code> 接口清除中断标志位</p></li>
+<li><p>若检测到 GPIO P0 中断触发原因为 P02，则直接打印 Log</p></li>
+<li><p>若检测到 GPIO P0 中断触发原因为 P07，则说明当前是通过 UART Rx 引脚的方式触发的中断，此时先一直等待直到确定 P07 拉高，然后重新将 P10/P07 引脚的 PINMUX 功能配置为 UART1，并关闭 P07 中断</p></li>
+<li><p>在中断服务函数结尾通过调用 FreeRTOS <code class="docutils literal notranslate"><span class="pre">taskYIELD()</span></code> 接口告知系统在退出当前中断服务程序后立刻触发尝试任务切换的流程</p></li>
+</ol>
+</div>
+<div class="section" id="sleeptimer-1">
+<h4>5.2.8 SleepTimer 1 中断服务回调函数<a class="headerlink" href="#sleeptimer-1" title="永久链接至标题">¶</a></h4>
+<p>SleepTimer 1 的中断服务回调函数如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This function overrides the reserved weak function with same name in soc_pm.c */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sleep_timer1_handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Soc has stayed in deepsleep mode more than %ds, now try to enter standby mode 1..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">INTERVAL_FOR_SWITCH_LOWPOWER_MODE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Wait until all UART0 data sending done before entering standby mode */</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">UART_GetLineStatus</span><span class="p">(</span><span class="n">UART0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">UART_LINE_TXSR_EMPTY</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Enable P02 interrupt before entering standby mode for wakeup */</span>
+<span class="w">    </span><span class="n">GPIO_EnableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_INT_FALLING</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Enter standby mode1 with all sram power off */</span>
+<span class="w">    </span><span class="n">soc_enter_standby_mode_1</span><span class="p">(</span><span class="n">STBM1_WAKEUP_SRC_GPIO</span><span class="p">,</span><span class="w"> </span><span class="n">STBM1_RETENTION_SRAM_NONE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;WARNING: Failed to enter SoC standby mode 1 due to unexpected interrupt detected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         Please check if there is an unhandled interrupt during the standby mode 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         entering flow.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>芯片共有 3 个 SleepTimer，分别为 SleepTimer 0、SleepTimer 1 和 SleepTimer 2，它们共用一个中断服务函数 <code class="docutils literal notranslate"><span class="pre">SLPTMR_IRQHandler()</span></code>，此函数是在 soc.c 中实现的；其中 SleepTimer0 被用作 OS Tick，因此在 App 层只可通过回调函数使用 SleepTimer 1 和 SleepTimer 2</p></li>
+<li><p>本例程我们在 App 中实现了 <code class="docutils literal notranslate"><span class="pre">sleep_timer1_handler()</span></code> 中断回调函数，其行为是：</p>
+<ul class="simple">
+<li><p>向串口打印将要进入 Standby Mode 1 状态的 Log</p></li>
+<li><p>确保 UART0 Tx FIFO 中没有数据（即确保所有串口 Log 均已成功发出）</p></li>
+<li><p>使能 P02 引脚中断，并配置为下降沿触发中断（唤醒）</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_1()</span></code> 接口使芯片进入 Standby Mode 1 的 GPIO 唤醒模式，且在此模式下所有 SRAM 均掉电以节省功耗</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="hook">
+<h4>5.2.9 与低功耗相关的 Hook 函数<a class="headerlink" href="#hook" title="永久链接至标题">¶</a></h4>
+<p>本例程用到了 3 个与低功耗密切相关的 Hook 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * This is the application hook function running in OS IDLE task. Before use this, the</span>
+<span class="cm"> * macro configUSE_IDLE_HOOK should be enabled in FreeRTOSConfig.h.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Note that the function definition is a bit different with FreeRTOS original one, that</span>
+<span class="cm"> * is, here we add a return value for flexibility.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Return Value:</span>
+<span class="cm"> * - false:   Continue run the following code after vApplicationIdleHook() in IDLE task,</span>
+<span class="cm"> *            which is equivalent to the original FreeRTOS implementation.</span>
+<span class="cm"> * - true:    Avoid run following code after vApplicationIdleHook() in IDLE task, and this</span>
+<span class="cm"> *            could prevent SoC entering DeepSleep flow when CONFIG_PM enabled.</span>
+<span class="cm"> */</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">vApplicationIdleHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Enter sleep mode (instead of deepsleep) if UART Rx FIFO is not empty</span>
+<span class="cm">     * (Which means there is already data receiving from remote)</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">UART_IsRxFifoEmpty</span><span class="p">(</span><span class="n">UART1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">__disable_irq</span><span class="p">();</span>
+<span class="w">        </span><span class="n">__WFI</span><span class="p">();</span>
+<span class="w">        </span><span class="n">__enable_irq</span><span class="p">();</span>
+<span class="w">        </span><span class="cm">/* Avoid entering DeepSleep flow here */</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Allow entering DeepSleep flow */</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * This is hook function runs right after entering SoC DeepSleep Flow.</span>
+<span class="cm"> * Note that either the os scheduler or systick are stopped before running this</span>
+<span class="cm"> * function, so do not run any os related objects (such as OS Timer) here.</span>
+<span class="cm"> */</span>
+<span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepEnterHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Enable and Set timeout of SleepTimer1 */</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_32k_clock_freq_get</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">INTERVAL_FOR_SWITCH_LOWPOWER_MODE</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LP_SetSleepTime</span><span class="p">(</span><span class="n">ANA</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">LP_SLPTMR_CH1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;SleepTimer1 started, timeout=%ds</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">INTERVAL_FOR_SWITCH_LOWPOWER_MODE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Handle UART0 (Log UART) */</span>
+
+<span class="w">    </span><span class="cm">/* Wait until all UART0 data sending done before entering deepsleep mode */</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">UART_GetLineStatus</span><span class="p">(</span><span class="n">UART0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">UART_LINE_TXSR_EMPTY</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cm">/* Reset UART0 PINs to GPIO function and disable digital input path of UART0 Rx PIN to avoid possible current leakage. */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GPIO_DisableDigitalPath</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Handle UART1 (Data UART) */</span>
+
+<span class="w">    </span><span class="cm">/* Wait until all UART1 data sending done before entering deepsleep mode */</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">UART_GetLineStatus</span><span class="p">(</span><span class="n">UART1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">UART_LINE_TXSR_EMPTY</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cm">/* Reset UART1 PINs to GPIO function and enable gpio interrupt for uart rx pin. */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GPIO_EnableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_INT_FALLING</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Enable P02 interrupt before entering deepsleep mode for wakeup */</span>
+<span class="w">    </span><span class="n">GPIO_EnableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_INT_FALLING</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepExitHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Resume UART0 PIN Configurations to reenable UART0 function */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">UART0_TX</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">UART0_RX</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GPIO_EnableDigitalPath</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Resume UART1 PIN Configurations here to reenable UART1 function if is not waked up by P07 */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GPIO_GetIntFlag</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT7</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_TX</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">UART1_RX</span><span class="p">);</span>
+<span class="w">        </span><span class="n">GPIO_DisableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Re-disable P02 interrupt after deepsleep wakeup */</span>
+<span class="w">    </span><span class="n">GPIO_DisableInt</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Trigger App Task reschedule after wakeup from deepsleep mode */</span>
+<span class="w">    </span><span class="n">xTaskNotifyGive</span><span class="p">(</span><span class="n">xTaskToNotify</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol>
+<li><p>FreeRTOS 有一个优先级最低的 Idle Task，当系统调度到此任务后会对当前状态进行检查，以判断是否允许进入芯片 DeepSleep 低功耗流程</p></li>
+<li><p>若程序执行到 Idle Task，则会立刻触发 FreeRTOS 的 Idle Hook 机制，调用名为 <code class="docutils literal notranslate"><span class="pre">vApplicationIdleHook()</span></code> 的函数，我们在此函数中判断 UART1 Rx FIFO 是否为空：</p>
+<ul class="simple">
+<li><p>若是则函数直接返回 false，表示允许系统稍后进入 DeepSleep 流程</p></li>
+<li><p>若非则使系统立刻进入 Sleep（WFI）流程</p></li>
+</ul>
+</li>
+<li><p>若程序执行到 Idle Task 的 DeepSleep 子流程中，会在 SoC 进入 DeepSleep 模式之前执行 <code class="docutils literal notranslate"><span class="pre">vSocDeepSleepEnterHook()</span></code> 函数，在 SoC 从 DeepSleep 模式下唤醒后执行 <code class="docutils literal notranslate"><span class="pre">vSocDeepSleepExitHook()</span></code> 函数：</p>
+<ul>
+<li><p>本例程在 <code class="docutils literal notranslate"><span class="pre">vSocDeepSleepEnterHook()</span></code> 函数中，实现了如下逻辑：</p>
+<ul class="simple">
+<li><p>使能 SleepTimer1，并设置 30s 超时时间</p></li>
+<li><p>等待 UART0 串口所有 Log 数据都打印完毕（即 UART0 Tx FIFO 为空）</p></li>
+<li><p>将 P16、P17 两个引脚切换回 GPIO 功能，并关闭 P17 数字输入使能</p></li>
+<li><p>等待 UART1 串口所有数据（若有）都发送完毕（即 UART1 Tx FIFO 为空）</p></li>
+<li><p>将 P10、P07 两个引脚切换回 GPIO 功能，并使能 P07 引脚的中断，将其配置为下降沿触发（即使能 UART Rx 引脚接收数据唤醒芯片的功能）</p></li>
+<li><p>使能 P02 引脚的中断，并配置为下降沿触发（即使能 WKUP 按键唤醒功能）</p></li>
+</ul>
+</li>
+<li><p>本例程在 <code class="docutils literal notranslate"><span class="pre">vSocDeepSleepExitHook()</span></code> 函数中，实现了如下逻辑：</p>
+<ul>
+<li><p>将 P16、P17 两个引脚重新切换成 UART0 功能，并重新打开 P17 数字输入使能</p></li>
+<li><p>检测当前唤醒原因是否为 P07 中断（即 UART1 Rx 引脚接收到了足够时间的低电平），若不是则立刻将 P10、P07 两个芯片重新切换成 UART1 功能，并关闭 P07 GPIO 中断</p>
+<blockquote>
+<div><p>注：若是 P07 中断，则此处先不将 P10、P07 两个引脚切换为 UART1 功能，而是随后在 GPIO 中断服务程序中，先确认 P07 引脚检测到高电平之后，才将 PINMUX 切换为 UART1，这样可以确保 UART1 Rx 引脚接收到的第一个唤醒字节 0x00 完全接收完成，再切 PINMUX 收取 UART1 Rx 线上发送过来的实际数据</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">24</span>.00k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.77<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

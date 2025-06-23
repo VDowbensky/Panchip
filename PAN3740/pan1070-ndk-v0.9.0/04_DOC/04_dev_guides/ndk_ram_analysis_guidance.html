@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK RAM 使用分析及优化指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK 蓝牙 OTA 移植指南" href="dfu_porting.html" />
+    <link rel="prev" title="NDK Bootloader 开发指南" href="ndk_mcu_boot.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK RAM 使用分析及优化指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keilramflash">1 如何查看KEIL的RAM和Flash使用情况</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ram">1.1 如何查看RAM空间：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flash">1.2 如何查看Flash空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2 关于堆空间的使用说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller">2.1 蓝牙controller的堆</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apphost-freertos">2.2  App以及host使用的堆（应用层堆全局使用freertos的堆）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#freertos-heap">2.3 如何查看freertos heap的使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK RAM 使用分析及优化指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_ram_analysis_guidance.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-ram">
+<h1>NDK RAM 使用分析及优化指南<a class="headerlink" href="#ndk-ram" title="永久链接至标题">¶</a></h1>
+<div class="section" id="keilramflash">
+<h2>1 如何查看KEIL的RAM和Flash使用情况<a class="headerlink" href="#keilramflash" title="永久链接至标题">¶</a></h2>
+<p>因为当前工程中很多和BLE时间处理相关的函数为了提升处理速度使用了RAM CODE，所以导致部分CODE会占用RAM空间，所以查看工程的实际占用空间要从RAM和Flash空间进行查看。</p>
+<p><strong>首先双击keil项目打开map文件</strong></p>
+<div class="section" id="ram">
+<h3>1.1 如何查看RAM空间：<a class="headerlink" href="#ram" title="永久链接至标题">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="image" src="../_images/map_stack.png" />
+<p class="caption"><span class="caption-text">通过STACK查看RAM占用</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+<p>因为STACK占用RAM边界位置，我们可以通过STACK占用可以知道RAM最多占用<code class="docutils literal notranslate"><span class="pre">0x20007f30+0x800(2048)</span> <span class="pre">=</span> <span class="pre">0x20008730</span></code>的RAM，因为RAM地址默认是<code class="docutils literal notranslate"><span class="pre">0x20000000</span></code>起始的，所以我们知道RAM占用了<code class="docutils literal notranslate"><span class="pre">0x8730（34608）</span></code>字节的RAM。</p>
+</div>
+<div class="section" id="flash">
+<h3>1.2 如何查看Flash空间<a class="headerlink" href="#flash" title="永久链接至标题">¶</a></h3>
+<p>从RAM空间往上查找flash边界位置，0x20000000前面的即是flash最大地址</p>
+<div class="figure align-center" id="id3">
+<img alt="image" src="../_images/map_flash.png" />
+<p class="caption"><span class="caption-text">查看flash边界</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+<p>通过map文件找到边界地址0x1c7a8+0x22(34) = 0x1c7ca(116682) bytes。</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>2 关于堆空间的使用说明<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="controller">
+<h3>2.1 蓝牙controller的堆<a class="headerlink" href="#controller" title="永久链接至标题">¶</a></h3>
+<p>蓝牙controller的堆默认是用于controller的广播，连接等各种数据包动态分配使用的。而且是从host定义来进行分配的，但是不同的参数可能导致堆的需求空间不一致。</p>
+<p>我们可以通过打开<code class="docutils literal notranslate"><span class="pre">app_config.h</span></code>或者<code class="docutils literal notranslate"><span class="pre">app_config_spark.h</span></code>中的<code class="docutils literal notranslate"><span class="pre">BT</span> <span class="pre">controller</span> <span class="pre">Memory</span> <span class="pre">Pool</span> <span class="pre">usage</span> <span class="pre">print</span></code>选项（对应的宏<code class="docutils literal notranslate"><span class="pre">CONFIG_CNTRL_MEM_POOL_PRINT</span></code>）显示的输出底层controller所需要的内存。</p>
+<p>正常分配时如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">19</span>:32:53.628<span class="o">]</span>收←◆LL<span class="w"> </span>Controller<span class="w"> </span>Version:bd5923c
+
+<span class="o">[</span><span class="m">19</span>:32:53.665<span class="o">]</span>收←◆BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">400</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">8496</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">764</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">8132</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">3784</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">5112</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">4840</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">4056</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">5164</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">3732</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">6124</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">2772</span>,<span class="w"> </span>total:8896
+BT<span class="w"> </span>controller<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>used:<span class="w"> </span><span class="m">8896</span><span class="w"> </span>bytes,<span class="w"> </span>remain<span class="w"> </span>bytes:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>total:8896
+app<span class="w"> </span>started
+</pre></div>
+</div>
+<p>上面的log显示正常分配的对内存为8896bytes，所以我们可以打开<code class="docutils literal notranslate"><span class="pre">nimble_glue.c</span></code>或者<code class="docutils literal notranslate"><span class="pre">nimble_glue_spark.c</span></code>找到堆分配的宏<code class="docutils literal notranslate"><span class="pre">PAN_BLE_CTLR_BUFFER_ALLOC</span></code>将其的值修改为<code class="docutils literal notranslate"><span class="pre">8896</span></code>。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define PAN_BLE_CTLR_BUFFER_ALLOC	(8896)</span>
+<span class="cp">#define PAN_BLE_CTLR_BUFFER_SIZE	(((PAN_BLE_CTLR_BUFFER_ALLOC) + 3)&amp; (~((uint32_t)0x03))) </span><span class="cm">/*4 bytes aligned*/</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">mem_buffer</span><span class="p">[</span><span class="n">PAN_BLE_CTLR_BUFFER_SIZE</span><span class="o">/</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">mem_pos</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>我们也可以将堆修改为异常很小的值，比如此处设置为4000，看下实际输出：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+[19:38:01.115]收←◆LL Controller Version:bd5923c
+
+[19:38:01.151]收←◆BT controller memory pool used: 400 bytes, remain bytes: 3600, total:4000
+BT controller memory pool used: 764 bytes, remain bytes: 3236, total:4000
+BT controller memory pool used: 3784 bytes, remain bytes: 216, total:4000
+BT controller allocating 1056 bytes failed
+
+</pre></div>
+</div>
+<p>此时分配失败后会触发断言在初始化的地方卡住。</p>
+<p>我们可以一开始设置比较大的堆值，然后再调整为合适的值即可。</p>
+</div>
+<div class="section" id="apphost-freertos">
+<h3>2.2  App以及host使用的堆（应用层堆全局使用freertos的堆）<a class="headerlink" href="#apphost-freertos" title="永久链接至标题">¶</a></h3>
+<p>为了方便资源管理，我们app和host全局使用freertos的堆，相应堆的分配函数<code class="docutils literal notranslate"><span class="pre">pvPortMalloc</span></code>。</p>
+<p>当前SDK哪些资源默认使用了freertos的堆呢？</p>
+<ul class="simple">
+<li><p>app中显式使用<code class="docutils literal notranslate"><span class="pre">pvPortMalloc</span></code>的地方</p></li>
+<li><p>freertos task的栈</p></li>
+<li><p>创建freertos定时器时的栈（定时器也是task）、</p></li>
+<li><p>freertos创建信号量等</p></li>
+</ul>
+</div>
+<div class="section" id="freertos-heap">
+<h3>2.3 如何查看freertos heap的使用<a class="headerlink" href="#freertos-heap" title="永久链接至标题">¶</a></h3>
+<p>我们可以通过打开<code class="docutils literal notranslate"><span class="pre">app_config.h</span></code>或者<code class="docutils literal notranslate"><span class="pre">app_config_spark.h</span></code>中的<code class="docutils literal notranslate"><span class="pre">FreeRTOS</span> <span class="pre">Heap</span> <span class="pre">Usage</span> <span class="pre">Print</span></code>选项（对应的宏<code class="docutils literal notranslate"><span class="pre">CONFIG_FREERTOS_HEAP_PRINT</span></code>）显示的输出底层controller所需要的内存。</p>
+<p>freertos heap的宏是<code class="docutils literal notranslate"><span class="pre">FreeRTOSConfig.h</span></code>中的<code class="docutils literal notranslate"><span class="pre">configTOTAL_HEAP_SIZE</span></code>,我们可以通过修改<code class="docutils literal notranslate"><span class="pre">configTOTAL_HEAP_SIZE</span></code>的值来改变全局堆的大小。</p>
+<p>启动时会输出如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[19:47:57.875]收←◆total allocated bytes:216,remain:5920
+total allocated bytes:304,remain:5832
+total allocated bytes:392,remain:5744
+total allocated bytes:480,remain:5656
+total allocated bytes:536,remain:5600
+total allocated bytes:704,remain:5432
+total allocated bytes:792,remain:5344
+LL Controller Version:bd5923c
+
+[19:47:57.918]收←◆app started
+total allocated bytes:848,remain:5288
+total allocated bytes:2864,remain:3272
+total allocated bytes:2960,remain:3176
+total allocated bytes:3232,remain:2904
+total allocated bytes:3328,remain:2808
+total allocated bytes:4368,remain:1768
+total allocated bytes:4464,remain:1672
+total allocated bytes:4520,remain:1616
+total allocated bytes:4752,remain:1384
+total allocated bytes:4776,remain:1360
+total allocated bytes:4808,remain:1328
+
+</pre></div>
+</div>
+<p>我们故意将<code class="docutils literal notranslate"><span class="pre">configTOTAL_HEAP_SIZE</span></code>设置为一个很小的值，分配失败是会有如下显示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+[19:50:28.736]收←◆total allocated bytes:216,remain:2848
+total allocated bytes:304,remain:2760
+total allocated bytes:392,remain:2672
+total allocated bytes:480,remain:2584
+total allocated bytes:536,remain:2528
+total allocated bytes:704,remain:2360
+total allocated bytes:792,remain:2272
+LL Controller Version:bd5923c
+
+[19:50:28.778]收←◆app started
+total allocated bytes:848,remain:2216
+total allocated bytes:2864,remain:200
+total allocated bytes:2960,remain:104
+pvPortMalloc failed
+allocate 272 bytes failed,remain:104
+</pre></div>
+</div>
+<p><strong>另外我们也要注意一点，堆定义的空间可以适当多分配一点，有些堆的分配是在运行时才会去调用。</strong></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

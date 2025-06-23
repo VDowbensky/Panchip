@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DeepSleep PWM Waveform Generator &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Standby Mode1 GPIO Key Wakeup" href="standby_m1_gpio_key_wakeup.html" />
+    <link rel="prev" title="DeepSleep SleepTimer Wakeup" href="deepsleep_slptmr_wakeup.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">低功耗例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_key_wakeup.html">DeepSleep GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_pwm_wakeup.html">DeepSleep GPIO PWM Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_slptmr_wakeup.html">DeepSleep SleepTimer Wakeup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DeepSleep PWM Waveform Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_gpio_key_wakeup.html">Standby Mode1 GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_slptmr_wakeup.html">Standby Mode1 SleepTimer Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m0_p02_key_wakeup.html">Standby Mode0 P02 Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_wakeup_source.html">Multiple Wakeup Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">低功耗例程</a> &raquo;</li>
+  
+  <li>DeepSleep PWM Waveform Generator</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/low_power/deepsleep_pwm_waveform_generator.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="deepsleep-pwm-waveform-generator">
+<h1>DeepSleep PWM Waveform Generator<a class="headerlink" href="#deepsleep-pwm-waveform-generator" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使 SoC 在 DeepSleep 状态下输出 PWM 波形，并使用 APB HW Timer0 定时唤醒并修改 PWM 波形周期和占空比。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>逻辑分析仪（Logic Analyzer, LA，用于观察 PWM 波形信息）</p></li>
+<li><p><strong>电流计</strong>（本文使用电流可视化测量设备 PPK2 <em>[Nordic Power Profiler Kit II]</em> 进行演示）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>为确保能够准确地测量 SoC 本身的功耗，排除底板外围电路的影响，请确认 EVB 底板上的：</p>
+<ul>
+<li><p>Voltage 排针组中的 VCC 和 VDD 均接至 3V3</p></li>
+<li><p>POWER 开关从 LDO 档位拨至 BAT 档位（并确认底板背部的电池座内<strong>没有</strong>纽扣电池）</p></li>
+</ul>
+</li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>将逻辑分析仪硬件的：</p>
+<ul>
+<li><p>USB 接口连接至 PC USB 接口</p></li>
+<li><p>三个通道的信号线分别连接至 EVB 底板的 P03 / P04 / P15 排针</p></li>
+<li><p>GND 连接至 EVB 底板的 GND 排针</p></li>
+</ul>
+</li>
+<li><p>将 PPK2 硬件的：</p>
+<ul>
+<li><p>USB DATA/POWER 接口连接至 PC USB 接口</p></li>
+<li><p>VOUT 连接至 EVB 底板的 VBAT 排针</p></li>
+<li><p>GND 连接至 EVB 底板的 GND 排针</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+<li><p>Logic（用于配合逻辑分析仪抓取 IO 波形）</p></li>
+<li><p>nRF Connect Desktop（用于配合 PPK2 测量 SoC 电流）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\low_power\deepsleep_pwm_waveform_generator\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录，烧录成功后断开 JLink 连线。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>PC 上打开 PPK2 Power Profiler 软件，供电电压选择 3300 mV，然后打开供电开关</p></li>
+<li><p>从串口工具中看到如下的打印信息：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E1100000103A
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">210001465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B0065594356039B78
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Notifications..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">180</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">280</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">380</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">479</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">579</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">679</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">778</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">878</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">977</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1077</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">172</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">91</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1177</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">158</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1276</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">43</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">28</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1376</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">276</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">84</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1476</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>Timer0<span class="w"> </span>ISR<span class="w"> </span><span class="k">in</span>,<span class="w"> </span><span class="nv">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">14</span>,<span class="w"> </span><span class="nv">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span>.
+...
+</pre></div>
+</div>
+</li>
+<li><p>观察逻辑分析仪波形，发现芯片 P03 引脚输出周期为 100ms，占空比为 50% 的波形；P04 引脚输出周期为0~10ms可变，占空比可变的波形； P15 引脚以 100ms 左右的间隔翻转：</p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../../_images/deepsleep_pwm_waveform_la.png" />
+<p class="caption"><span class="caption-text">使用逻辑分析仪抓取 PWM 输出波形</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>可见 PWM 波形输出是连续不间断的，说明低功耗期间 PWM 仍可以正常工作，期间 P15 引脚翻转说明 Timer0 定时时间到了触发芯片唤醒，并改变 P04 引脚的 PWM 波形参数。</p>
+</div></blockquote>
+</li>
+<li><p>将逻辑分析仪从芯片上断开（避免影响电流观测），再观察芯片电流波形：</p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../../_images/deepsleep_pwm_waveform_ppk2.png" />
+<p class="caption"><span class="caption-text">使用电流计抓取电流波形</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>可见芯片低功耗底电流为 6uA 左右（比 GPIO 唤醒等其他模式的 4uA 底电流稍大一些，这是因为当前 DeepSleep 状态下内部 PWM 模块仍在工作），并且每隔 100ms 左右芯片从 DeepSleep 状态下唤醒。</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="sdk-config">
+<h3>5.1 SDK Config 配置<a class="headerlink" href="#sdk-config" title="永久链接至标题">¶</a></h3>
+<p>与本例程相关的 <a class="reference internal" href="../../04_dev_guides/ndk_configuration_guidance.html"><span class="doc std std-doc">SDK Config</span></a> (<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>) 配置有：</p>
+<ul class="simple">
+<li><p><strong>SoC Platform : Chip Power Mode</strong></p>
+<ul>
+<li><p>芯片供电选择 DCDC 模式，以降低芯片动态功耗</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_SOC_DCDC_PAN1070</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>SoC Platform : 32K Low-Speed Clock Source</strong></p>
+<ul>
+<li><p>系统低速时钟选择内部 32K RC 时钟（RCL）</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_LOW_SPEED_CLOCK_SRC</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>SoC Platform : Force Calib RCL Clock</strong></p>
+<ul>
+<li><p>在系统初始化阶段强制校准一次 RCL 时钟，此操作会增加 50ms 左右的启动时间</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_FORCE_CALIB_RCL_CLK</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode</strong></p>
+<ul>
+<li><p>使能系统低功耗功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode : Enable DeepSleep Mode2</strong></p>
+<ul>
+<li><p>使能系统低功耗 DeepSleep 模式 2，此模式下使用电压较高的低功耗 LDO（LPLDOH, 0.7v以上）给芯片所有外设模块供电，以确保低功耗下 PWM 输出 和 Timer 唤醒均正常</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_DEEPSLEEP_MODE_2</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode : Increase LPLDOH trim value</strong></p>
+<ul>
+<li><p>提高 LPLDOH 的电压，默认配置为 0，表示使用当前芯片默认的校准电压（0.7v），若发现低功耗下 PWM 输出和 Timer 唤醒功能不正常，则可以配置此选项以抬高 LPLDOH 的电压值</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_SOC_INCREASE_LPLDOH_CALIB_CODE</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log</strong></p>
+<ul>
+<li><p>使能 App Log 功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">APP_LOG_EN</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log : Log to UART</strong></p>
+<ul>
+<li><p>将 App Log 输出至串口</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_UART_LOG_ENABLE</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>5.2 程序代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>5.2.1 主程序<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>本例程中，OS 为使能状态，因此主程序 main() 函数也是 OS Main Task 的入口函数，其内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Application initialization */</span>
+<span class="w">    </span><span class="n">app_setup</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Application main infinite loop */</span>
+<span class="w">    </span><span class="n">app_main_loop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-setup">
+<h4>5.2.2 App Setup 初始化<a class="headerlink" href="#app-setup" title="永久链接至标题">¶</a></h4>
+<p>App 初始化 app_setup() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;App started..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Initialize random seed for later pwm random duty use */</span>
+<span class="w">    </span><span class="n">srand</span><span class="p">(</span><span class="mi">2024</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Init GPIO P15 as indication IO */</span>
+<span class="w">    </span><span class="n">GPIO_SetMode</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT5</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_MODE_OUTPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Init specific Timers for wake up use */</span>
+<span class="w">    </span><span class="n">wakeup_timer_init</span><span class="p">();</span>
+<span class="w">    </span><span class="cm">/* Init specific PWM channels */</span>
+<span class="w">    </span><span class="n">pwm_init</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>初始化随机数种子，以供后续 Timer0 中断的修改 PWM 周期和占空比流程中使用</p></li>
+<li><p>将 P15 初始化为推挽输出模式</p></li>
+<li><p>在 wakeup_timer_init() 函数中初始化 HW APB Timer0</p></li>
+<li><p>在 pwm_init() 函数中初始化 PWM Channel 2 和 Channel 3</p></li>
+</ol>
+</div>
+<div class="section" id="app-main-task-loop">
+<h4>5.2.3 App Main Task Loop 任务循环<a class="headerlink" href="#app-main-task-loop" title="永久链接至标题">¶</a></h4>
+<p>App Main Task 循环 app_main_loop() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_main_loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ulNotificationValue</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Store the handle of current task. */</span>
+<span class="w">    </span><span class="n">xTaskToNotify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xTaskGetCurrentTaskHandle</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">xTaskToNotify</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">app_assert</span><span class="p">(</span><span class="s">&quot;Error, get current task handle failed!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Wait for Task Notifications..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Here we try to take the task notify to let OS fall into idle task and</span>
+<span class="cm">         * enter SoC DeepSleep mode. We&#39;ll never wakeup this task by giving notify.</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="n">ulNotificationValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ulTaskNotifyTake</span><span class="p">(</span><span class="n">pdTRUE</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;A notification received, value: %d.</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ulNotificationValue</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>获取当前任务的 Task Handle，用于后续中断中给次任务发送通知使用</p></li>
+<li><p>在 while (1) 主循环中尝试获取任务通知（Task Notify），并打印相关的状态信息</p></li>
+</ol>
+</div>
+<div class="section" id="timer0">
+<h4>5.2.4 Timer0 初始化程序<a class="headerlink" href="#timer0" title="永久链接至标题">¶</a></h4>
+<p>Timer0 初始化程序 wakeup_timer_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">wakeup_timer_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Configure HW APB Timer0 with interrupt and wakeup enabled */</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Configure timeout</span>
+<span class="cm">     * timeout = TIMER_CMP_VAL * (TIMER_PRESCALE + 1) / SYS_CLOCK_32K</span>
+<span class="cm">     *         = 32000 / 10 * (0 + 1) / 32000 (s)</span>
+<span class="cm">     *         = 0.1 s = 100 ms</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">TIMER_PRESCALE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">TIMER_CMP_VAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_32k_clock_freq_get</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Enable HW Timer0 Module clock */</span>
+<span class="w">    </span><span class="n">CLK_APB1PeriphClockCmd</span><span class="p">(</span><span class="n">CLK_APB1Periph_TMR0</span><span class="p">,</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Set Timer to periodic mode */</span>
+<span class="w">    </span><span class="n">TIMER_SetCountingMode</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">TIMER_PERIODIC_MODE</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Enable Timer interrupt */</span>
+<span class="w">    </span><span class="n">TIMER_EnableInt</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Enable Timer wakeup */</span>
+<span class="w">    </span><span class="n">TIMER_EnableWakeup</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Enable Timer0 interrupt flag0 and wakeup flag0 signal */</span>
+<span class="w">    </span><span class="n">TIMER0</span><span class="o">-&gt;</span><span class="n">CTL</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">BIT8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BIT11</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/* Enable NVIC IRQ for Timer */</span>
+<span class="w">    </span><span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">TMR0_IRQn</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Set timeout value */</span>
+<span class="w">    </span><span class="n">TIMER_SetPrescaleValue</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">TIMER_PRESCALE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">TIMER_SetCmpValue</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">TMR0_COMPARATOR_SEL_CMP</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">TIMER_CMP_VAL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TIMER0_CMPDAT_DEVIATION</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Select Timer counting clock source to low-speed 32K clock</span>
+<span class="cm">     * NOTE: It&#39;s better to keep this as the last step before TIMER_Start() to</span>
+<span class="cm">     *       avoid possible early spurious triggering of Timer1/2 IRQ. (Task#2701)</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">CLK_SetTmrClkSrc</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">CLK_APB1_TMR0SEL_RCL32K</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Start Timer */</span>
+<span class="w">    </span><span class="n">TIMER_Start</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>此函数目的是将 Timer0 模块配置为每隔 100ms 唤醒系统并产生中断</p></li>
+<li><p>由公式 <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">=</span> <span class="pre">TIMER_CMP_VAL</span> <span class="pre">*</span> <span class="pre">(TIMER_PRESCALE</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">SYS_CLOCK_32K</span></code>，可知一个比较简单的配置方法是将 TIMER_CMP_VAL 配置为 3200，TIMER_PRESCALE 配置为 1</p></li>
+<li><p>配置并使能 Timer0 的流程包括：</p>
+<ul class="simple">
+<li><p>使能 APB1 上的 Timer0 时钟</p></li>
+<li><p>将 Timer0 配置为周期模式</p></li>
+<li><p>使能 Timer0 的中断功能</p></li>
+<li><p>使能 Timer0 的唤醒功能</p></li>
+<li><p>使能 Timer0 的计数器 0 的中断和唤醒控制位</p></li>
+<li><p>使能 Timer0 的 NVIC IRQ</p></li>
+<li><p>配置 Timer0 的 Prescaler 预分频</p></li>
+<li><p>配置 Timer0 的 Compare Value</p></li>
+<li><p>配置 Timer 计数时钟为 32K Clock（需确保此步骤是启动 Timer 计数前的最后一步）</p></li>
+<li><p>启动 Timer0 计数</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h4>5.2.5 Timer0 中断服务程序<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>Timer0 的中断服务程序如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TMR0_IRQHandlerOverlay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Handle timer interrupt event */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TIMER_GetIntFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Clear timer int flags */</span>
+<span class="w">        </span><span class="n">TIMER_ClearTFFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">TIMER_GetTFFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">TIMER_ClearIntFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/* Randomize PWM CH3 duty cycle after 10 times this handler execute */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pwm_period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">319</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">pwm_pulse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">pwm_period</span><span class="p">;</span>
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">             * PWM Channel 3:</span>
+<span class="cm">             * - Period = (&lt;0~319&gt; + 1) cycles = &lt;1~320&gt; * 1 / 32000 s = (0~10) ms</span>
+<span class="cm">             * - Pulse = (&lt;0~319&gt; + 1) cycles = (0~10) ms</span>
+<span class="cm">             */</span>
+<span class="w">            </span><span class="n">PWM_SetPeriodAndDuty</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3</span><span class="p">,</span><span class="w"> </span><span class="n">pwm_period</span><span class="p">,</span><span class="w"> </span><span class="n">pwm_pulse</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="cm">/* Toggle GPIO to indicate timer is timeout */</span>
+<span class="w">        </span><span class="n">GPIO_Toggle</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT5</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/* Print system uptime to UART */</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;[Uptime: %d ms] Timer0 ISR in, pwm_period = %d, pwm_pulse = %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">soc_lptmr_uptime_get_ms</span><span class="p">(),</span><span class="w"> </span><span class="n">pwm_period</span><span class="p">,</span><span class="w"> </span><span class="n">pwm_pulse</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Clear wakeup flag if there is. */</span>
+<span class="w">    </span><span class="n">TIMER_ClearWakeupFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">,</span><span class="w"> </span><span class="n">TIMER_GetWakeupFlag</span><span class="p">(</span><span class="n">TIMER0</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>在函数名称前面加上 <code class="docutils literal notranslate"><span class="pre">CONFIG_RAM_CODE</span></code> 以将此函数编译成 RAM Code（需确保 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code> 中的 <em>SoC Platform : Enable RAM Function</em> 配置为使能状态）</p></li>
+<li><p>由于工程默认会编译 HAL Timer Driver，而此处我们使用了 Timer 底层 Driver，并需重新实现中断处理函数，因此这里我们需要定义名为 <code class="docutils literal notranslate"><span class="pre">TMR0_IRQHandlerOverlay()</span></code> 的中断处理函数，以覆盖 HAL Timer Driver 中实现的同名 weak 函数</p></li>
+<li><p>使用 TIMER_GetIntFlag() 接口检查 Timer0 中断 Flag 是否置位，若是则：</p>
+<ul class="simple">
+<li><p>清除 Timeout Flag</p></li>
+<li><p>清除 中断 Flag</p></li>
+<li><p>满足一定条件后重新随机配置 PWM Channel 3 波形的周期和占空比</p></li>
+<li><p>翻转 GPIO P15，并向串口打印当前时间戳和 PWM 参数信息</p></li>
+</ul>
+</li>
+<li><p>使用 TIMER_ClearWakeupFlag() 接口清除 Timer0 唤醒 Flag</p></li>
+</ol>
+</div>
+<div class="section" id="pwm">
+<h4>5.2.6 PWM 初始化程序<a class="headerlink" href="#pwm" title="永久链接至标题">¶</a></h4>
+<p>PWM 初始化程序 pwm_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pwm_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Configure HW PWM module which can output waveform even in SoC DeepSleep mode */</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Configure PWM waveform period and duty:</span>
+<span class="cm">     * PWM CH2 (PWM clock source is divided by PWM CLKDIV and CLKPSC):</span>
+<span class="cm">     * - pwm_cnt_freq = PAN_RCC_CLOCK_FREQUENCY_SLOW / (PWM_CH23_CLKPSC + 1) / PWM_CH2_CLKDIV</span>
+<span class="cm">     *                = 32000 / (3 + 1) / 2 (Hz)</span>
+<span class="cm">     *                = 4000 Hz</span>
+<span class="cm">     * - period = 1 / pwm_cnt_freq * (PWM_CH2_PERIOD_CNT + 1)</span>
+<span class="cm">     *          = 1 / 4000 * (399 + 1) (s)</span>
+<span class="cm">     *          = 100 ms</span>
+<span class="cm">     * - pulse = 1 / pwm_cnt_freq * (PWM_CH2_PULSE_CNT + 1)</span>
+<span class="cm">     *         = 1 / 4000 * (199 + 1) (s)</span>
+<span class="cm">     *         = 50 ms</span>
+<span class="cm">     * PWM CH3 (PWM clock source is configured as directly from 32K Clock):</span>
+<span class="cm">     * - pwm_cnt_freq = PAN_RCC_CLOCK_FREQUENCY_SLOW</span>
+<span class="cm">     *                = 32000 Hz</span>
+<span class="cm">     * - period = 1 / pwm_cnt_freq * (PWM_CH3_PERIOD_CNT + 1)</span>
+<span class="cm">     *          = 1 / 32000 * (15999 + 1) (s)</span>
+<span class="cm">     *          = 500 ms</span>
+<span class="cm">     * - pulse = 1 / pwm_cnt_freq * (PWM_CH3_PULSE_CNT + 1)</span>
+<span class="cm">     *         = 1 / 32000 * (3199 + 1) (s)</span>
+<span class="cm">     *         = 100 ms</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">PWM_CH23_CLKPSC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">PWM_ClkDivDef</span><span class="w"> </span><span class="n">PWM_CH2_CLKDIV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PWM_CLK_DIV_2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">PWM_CH2_PERIOD_CNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">399</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">PWM_CH2_PULSE_CNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">199</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">PWM_ClkDivDef</span><span class="w"> </span><span class="n">PWM_CH3_CLKDIV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PWM_CLK_DIRECT</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">PWM_CH3_PERIOD_CNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15999</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">PWM_CH3_PULSE_CNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3199</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Set PWM channel 2/3 counting clock source to 32K clock */</span>
+<span class="w">    </span><span class="n">CLK_SetPwmClkSrc</span><span class="p">(</span><span class="n">PWM_CH2</span><span class="p">,</span><span class="w"> </span><span class="n">CLK_APB1_PWM_CH23_SEL_CLK32K</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Enable clock of PWM and related channel */</span>
+<span class="w">    </span><span class="n">CLK_APB1PeriphClockCmd</span><span class="p">(</span><span class="n">CLK_APB1Periph_PWM0_EN</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CLK_APB1Periph_PWM0_CH23</span><span class="p">,</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Enable Pinmux of target PWM channel */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Set clock prescaler (clk_psc) of PWM Channel 2/3.</span>
+<span class="cm">     * NOTE that the channel 2 and 3 share the same prescaler.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">PWM_SetPrescaler</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH23_CLKPSC</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Set clock divider (clk_div) of PWM channel 2/3 */</span>
+<span class="w">    </span><span class="n">PWM_SetDivider</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2_CLKDIV</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PWM_SetDivider</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3_CLKDIV</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Init PWM channel 2/3 with different period and pulse cycles */</span>
+<span class="w">    </span><span class="n">PWM_SetPeriodAndDuty</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2_PERIOD_CNT</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2_PULSE_CNT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PWM_SetPeriodAndDuty</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3_PERIOD_CNT</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3_PULSE_CNT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Invert output level of PWM channel 3 */</span>
+<span class="w">    </span><span class="n">PWM_EnableOutputInverter</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">BIT</span><span class="p">(</span><span class="n">PWM_CH3</span><span class="p">));</span>
+
+<span class="w">    </span><span class="cm">/* Enable Output of PWM channel 2/3 */</span>
+<span class="w">    </span><span class="n">PWM_EnableOutput</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">BIT</span><span class="p">(</span><span class="n">PWM_CH2</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PWM_EnableOutput</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">BIT</span><span class="p">(</span><span class="n">PWM_CH3</span><span class="p">));</span>
+
+<span class="w">    </span><span class="cm">/* Start PWM internal counter */</span>
+<span class="w">    </span><span class="n">PWM_StartChannel</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PWM_StartChannel</span><span class="p">(</span><span class="n">PWM</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CH3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>此函数功能是：</p>
+<ul class="simple">
+<li><p>将 PWM Channel 2 输出周期 100ms，占空比 50% 的波形</p></li>
+<li><p>将 PWM Channel 3 初始输出周期 500ms，占空比 20% 的波形（后续会在 Timer0 中断中修改）</p></li>
+</ul>
+</li>
+<li><p>PWM 配置也有 Prescaler 和 Clock Divisor 的概念，它们共同决定了 1 个 PWM Count 的时间，具体公式计算请参考代码注释</p></li>
+<li><p>配置并使能 PWM 的流程包括：</p>
+<ul class="simple">
+<li><p>配置 PWM 计数时钟为 32K Clock</p></li>
+<li><p>使能 APB1 上的 PWM 时钟 和 PWM Channel 2 / Channel 3 时钟</p></li>
+<li><p>配置 Pinmux 引脚，将 P03 配置为 PWM Channel 2 功能，P04 配置为 PWM Channel 3 功能</p></li>
+<li><p>配置 PWM Channel 2 和 Channel 3 的 Prescaler 预分频参数（两个通道共用一个参数）</p></li>
+<li><p>配置 PWM Channel 2 和 Channel 3 的 Clock Dividor 分频系数（各个通道可单独配置）</p></li>
+<li><p>配置 PWM Channel 2 和 Channel 3 的周期和占空比</p></li>
+<li><p>反相 PWM Channel 3 输出波形</p></li>
+<li><p>使能 PWM Channel 2 和 Channel 3 的输出功能</p></li>
+<li><p>启动 PWM Channel 2 和 Channel 3</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="hook">
+<h4>5.2.7 与低功耗相关的 Hook 函数<a class="headerlink" href="#hook" title="永久链接至标题">¶</a></h4>
+<p>本例程还用到了 2 个与低功耗密切相关的 Hook 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepEnterHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">reset_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepExitHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">set_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>上述两个 Hook 函数用于在进入 DeepSleep 前和从 DeepSleep 唤醒后做一些额外操作，如关闭和重新配置 IO 为串口功能，以防止 DeepSleep 状态下 IO 漏电</p></li>
+<li><p>详细解释请参考 <a class="reference internal" href="deepsleep_gpio_key_wakeup.html"><span class="doc std std-doc">DeepSleep GPIO Key Wakeup</span></a> 例程中的相关介绍</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">22</span>.29k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.45<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

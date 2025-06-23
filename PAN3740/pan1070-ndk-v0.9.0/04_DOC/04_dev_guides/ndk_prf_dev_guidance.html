@@ -1,0 +1,1302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK PRF 2.4G 开发指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK 低功耗开发指南" href="ndk_lowpower_dev_notes.html" />
+    <link rel="prev" title="NDK 蓝牙开发指南" href="ndk_app_dev_notes.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK PRF 2.4G 开发指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2 环境配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3 演示说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4 开发说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#g">4.1 2.4G初始化配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">4.2 API介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prf-sample-tx">prf_sample_tx例程运行流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6 2.4G帧结构介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xn297">6.1 xn297兼容帧结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nrf2401">6.2 nrf2401兼容帧结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nrf52">6.3 nrf52兼容帧结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.4 自定义帧结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b250k">6.5 B250K帧结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#g-pid">7 2.4G PID流程</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK PRF 2.4G 开发指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_prf_dev_guidance.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-prf-2-4g">
+<h1>NDK PRF 2.4G 开发指南<a class="headerlink" href="#ndk-prf-2-4g" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本文介绍的内容有以下几点：</p>
+<ol class="simple">
+<li><p>TRX例程功能：</p>
+<ul class="simple">
+<li><p>发射端例程的功能：每隔333ms发送一次2.4G数据包，长度5个字节。</p></li>
+<li><p>发射端例程的功能：接收发送端的2.4G信号，并将接收到的数据通过串口打印出来。</p></li>
+</ul>
+</li>
+<li><p>开发说明：</p>
+<ul class="simple">
+<li><p>2.4g初始化配置</p></li>
+<li><p>API介绍</p></li>
+<li><p>SAMPLE运行流程</p></li>
+<li><p>帧结构介绍</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>2 环境配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>环境要求</p>
+<ul class="simple">
+<li><p>board：pan1070_evb</p></li>
+<li><p>uart：显示串口输出log，uart端口P16（UART_RX）、P17（UART_TX）</p></li>
+<li><p>PC串口工具：Panchip Serial Assistant V0.0.010.exe</p></li>
+</ul>
+<p>“PRF_TX_SAMPLE”的板子需要搭配和”PRF_RX_SAMPLE”的板子一起使用，两个例程的CONFIG要选择一样。</p>
+</li>
+<li><p>编译和烧录：</p>
+<ol class="simple">
+<li><p>项目位置：</p></li>
+</ol>
+<ul class="simple">
+<li><p>TX端：”03_MCU\mcu_samples\PRF_TX_SAMPLE”。</p></li>
+<li><p>RX端：”03_MCU\mcu_samples\PRF_RX_SAMPLE”。</p></li>
+</ul>
+<ol class="simple">
+<li><p>TX端和RX端选择project target，如下图所示：</p></li>
+</ol>
+<p><img alt="" src="../_images/project_target.png" /></p>
+<p>工程有四种project target，分别对应如下四种不同的配置：</p>
+<ul class="simple">
+<li><p>B_250k，250k私有调制方式</p></li>
+<li><p>NRF52 250k，可以和nrf52832 250k通信，GFSK调制方式</p></li>
+<li><p>XN297 1M，可以和xn297 1M phy通信</p></li>
+<li><p>NRF 2M，可以和nrf24l01 2M phy 通信</p></li>
+</ul>
+</li>
+</ol>
+<p>​       不同的配置也是可以修改的，分别在不同target的”sample_config”文件中，用户可以根据自己的需求修改相应的配置。</p>
+<ol class="simple">
+<li><p>选择好后编译程序，用j-link烧录编译后的hex文件到pan1070_evb板子中。</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>3 演示说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>步骤</p>
+<ul class="simple">
+<li><p>将接收端串口和发射端串口分别接到PC的USB端口上。</p></li>
+<li><p>配置接收端和发送端。</p></li>
+<li><p>观察PC串口工具的输出结果。</p></li>
+</ul>
+</li>
+<li><p>结果</p>
+<p>发射端输出结果：</p>
+<p><img alt="" src="../_images/image2.png" /></p>
+<p>接收端输出结果：</p>
+<p><img alt="" src="../_images/image3.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>4 开发说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="g">
+<h3>4.1 2.4G初始化配置<a class="headerlink" href="#g" title="永久链接至标题">¶</a></h3>
+<p>配置的结构体“pan_prf_config_t”，各成员介绍如下：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prf_mode_t</p></td>
+<td><p>work_mode</p></td>
+<td><p>工作模式配置，包括普通型、增强型、自定义增强型</p></td>
+</tr>
+<tr class="row-odd"><td><p>prf_chip_mode_sel_t</p></td>
+<td><p>chip_mode</p></td>
+<td><p>xn297通信协议和nordic通信协议配置</p></td>
+</tr>
+<tr class="row-even"><td><p>prf_trx_mode_t</p></td>
+<td><p>trx_mode</p></td>
+<td><p>收发模式配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>prf_phy_t</p></td>
+<td><p>phy</p></td>
+<td><p>通信速率配置，可配置为1M、2M、CODED_S8、CODED_S2、250K</p></td>
+</tr>
+<tr class="row-even"><td><p>prf_crc_sel_t</p></td>
+<td><p>crc</p></td>
+<td><p>数据包CRC配置，可配置为crc 16bit，crc 8bit，crc 24bit ，no crc</p></td>
+</tr>
+<tr class="row-odd"><td><p>prf_scramble_sel_t</p></td>
+<td><p>scr</p></td>
+<td><p>数据包扰码的配置，可配置为使用扰码和不使用扰码</p></td>
+</tr>
+<tr class="row-even"><td><p>prf_mode_conf_sel_t</p></td>
+<td><p>mode_conf</p></td>
+<td><p>2.4g不同模式射频参数配置，设置deviation</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint16_t</p></td>
+<td><p>rx_timeout</p></td>
+<td><p>接收超时时间配置，最大50000us</p></td>
+</tr>
+<tr class="row-even"><td><p>uint16_t</p></td>
+<td><p>rf_channel</p></td>
+<td><p>2.4g频点配置，任意频点可设(2402Mhz~2480Mhz)，也可配置带外频点，时间较长</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint8_t</p></td>
+<td><p>tx_no_ack</p></td>
+<td><p>配置增强型模式下tx是否需要ack</p></td>
+</tr>
+<tr class="row-even"><td><p>prf_trf_t</p></td>
+<td><p>trf_type</p></td>
+<td><p>特殊通信模式设置，normal模式、nrf52模式和b250k模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint8_t</p></td>
+<td><p>rx_length</p></td>
+<td><p>rx接收数据包长度配置，增强型模式配置不生效</p></td>
+</tr>
+<tr class="row-even"><td><p>uint8_t</p></td>
+<td><p>sync_length</p></td>
+<td><p>接入地址长度配置，可配置为3、4、5字节</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint8_t</p></td>
+<td><p>addr[5]</p></td>
+<td><p>接入地址的内容(xn297模式下可白化地址，防止出现长0和长1的地址)</p></td>
+</tr>
+<tr class="row-even"><td><p>uint8_t</p></td>
+<td><p>crc_include_sync</p></td>
+<td><p>crc作用域是否包含接入地址（XN297和NRF24L01必须使能），NRF52可配</p></td>
+</tr>
+<tr class="row-odd"><td><p>uint8_t</p></td>
+<td><p>src_include_sync</p></td>
+<td><p>扰码作用域是否包含接入地址，XN297包含，NRF不包含</p></td>
+</tr>
+<tr class="row-even"><td><p>prf_pipe_t</p></td>
+<td><p>pipe</p></td>
+<td><p>设置不同地址通信通道（0~7）</p></td>
+</tr>
+<tr class="row-odd"><td><p>int8_t</p></td>
+<td><p>tx_power</p></td>
+<td><p>设置发射功率，范围(-45dbm~9dbm)</p></td>
+</tr>
+<tr class="row-even"><td><p>uint8_t</p></td>
+<td><p>pid_manual_flag</p></td>
+<td><p>pid手动配置的标志，使能后可以手动设置pid（0~3）</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_mode_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_MODE_NORMAL</p></td>
+<td><p>0</p></td>
+<td><p>普通型</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_MODE_ENHANCE</p></td>
+<td><p>1</p></td>
+<td><p>增强型</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_MODE_NORMAL_M1</p></td>
+<td><p>2</p></td>
+<td><p>自定义增强型</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_chip_mode_sel_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_CHIP_MODE_SEL_BLE</p></td>
+<td><p>1</p></td>
+<td><p>蓝牙模式（BLE和2.4g模式切换）</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_CHIP_MODE_SEL_XN297</p></td>
+<td><p>2</p></td>
+<td><p>XN297模式</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_CHIP_MODE_SEL_NORDIC</p></td>
+<td><p>3</p></td>
+<td><p>NORCDIC模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_trx_mode_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_TX_MODE</p></td>
+<td><p>0</p></td>
+<td><p>2.4G发射</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_RX_MODE</p></td>
+<td><p>1</p></td>
+<td><p>2.4G接收</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_phy_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_PHY_1M</p></td>
+<td><p>1</p></td>
+<td><p>1M通信速率</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PHY_2M</p></td>
+<td><p>2</p></td>
+<td><p>2M通信速率</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_PHY_CODED_S8</p></td>
+<td><p>3</p></td>
+<td><p>S8编码PHY</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PHY_CODED_S8</p></td>
+<td><p>4</p></td>
+<td><p>S2编码PHY</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_PHY_250K</p></td>
+<td><p>5</p></td>
+<td><p>250k通信速率</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_crc_sel_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_CRC_SEL_NOCRC</p></td>
+<td><p>0</p></td>
+<td><p>no crc</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_CRC_SEL_CRC8</p></td>
+<td><p>1</p></td>
+<td><p>crc 8bit</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_CRC_SEL_CRC16</p></td>
+<td><p>2</p></td>
+<td><p>crc 16bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_CRC_SEL_CRC24</p></td>
+<td><p>3</p></td>
+<td><p>crc 24bit</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_scramble_sel_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_SRC_SEL_NOSRC</p></td>
+<td><p>0</p></td>
+<td><p>不使能扰码</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_SRC_SEL_EN</p></td>
+<td><p>1</p></td>
+<td><p>使能扰码</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_mode_conf_sel_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_DEV_NRF</p></td>
+<td><p>1</p></td>
+<td><p>NRF模式deviation配置，1M 170k，2M 320K</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_DEV_BLE</p></td>
+<td><p>2</p></td>
+<td><p>NRF模式deviation配置，1M 250k，2M 500K</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_G_250K_CONF</p></td>
+<td><p>3</p></td>
+<td><p>GFSK调制250K通信速率射频参数配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_B_250K_CONF</p></td>
+<td><p>4</p></td>
+<td><p>私有调制250K通信速率射频参数配置（B_250K）</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_addr_length_sel_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_ADDR_LENGTH_SEL_2</p></td>
+<td><p>2</p></td>
+<td><p>2 BYTE地址长度</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_ADDR_LENGTH_SEL_3</p></td>
+<td><p>3</p></td>
+<td><p>3 BYTE地址长度</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_ADDR_LENGTH_SEL_4</p></td>
+<td><p>4</p></td>
+<td><p>4 BYTE地址长度</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_ADDR_LENGTH_SEL_5</p></td>
+<td><p>5</p></td>
+<td><p>5 BYTE地址长度</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_pipe_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_PIPE0</p></td>
+<td><p>1&lt;&lt;0</p></td>
+<td><p>管道0</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PIPE1</p></td>
+<td><p>1&lt;&lt;1</p></td>
+<td><p>管道1</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_PIPE2</p></td>
+<td><p>1&lt;&lt;2</p></td>
+<td><p>管道2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PIPE3</p></td>
+<td><p>1&lt;&lt;3</p></td>
+<td><p>管道3</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_PIPE4</p></td>
+<td><p>1&lt;&lt;4</p></td>
+<td><p>管道4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PIPE5</p></td>
+<td><p>1&lt;&lt;5</p></td>
+<td><p>管道5</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_PIPE6</p></td>
+<td><p>1&lt;&lt;6</p></td>
+<td><p>管道6</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_PIPE7</p></td>
+<td><p>1&lt;&lt;7</p></td>
+<td><p>管道7</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_trf_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_TRF_NORMAL</p></td>
+<td><p>0</p></td>
+<td><p>普通模式传输</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_TRF_NRF52</p></td>
+<td><p>1</p></td>
+<td><p>NRF长包模式（payload最大255byte）传输</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF_TRF_B_250K</p></td>
+<td><p>2</p></td>
+<td><p>B_250K通信速率模式传输</p></td>
+</tr>
+</tbody>
+</table>
+<p>prf_endian_t：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRF_BIG_ENDIAN</p></td>
+<td><p>0</p></td>
+<td><p>大端模式传输</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRF_LITTLE_ENDIAN</p></td>
+<td><p>1</p></td>
+<td><p>小端模式传输</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api">
+<h3>4.2 API介绍<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h3>
+<div class="section" id="panchip-prf-init">
+<h4>panchip_prf_init<a class="headerlink" href="#panchip-prf-init" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_init</span><span class="p">(</span><span class="n">pan_prf_config_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>初始化配置的结构体“<strong>pan_prf_config_t</strong>”</p>
+</div>
+<div class="section" id="panchip-prf-trx-start">
+<h4>panchip_prf_trx_start<a class="headerlink" href="#panchip-prf-trx-start" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_trx_start</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>调用此接口，在<strong>RX</strong>状态下开始<strong>RX</strong>，在<strong>TX</strong>状态下开始<strong>TX</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-set-data">
+<h4>panchip_prf_set_data<a class="headerlink" href="#panchip-prf-set-data" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_data</span><span class="p">(</span><span class="n">panchip_prf_payload_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_payload</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>TX</strong>模式下设置<strong>payload</strong>的内容和长度。</p>
+</div>
+<div class="section" id="panchip-prf-set-ack-data">
+<h4>panchip_prf_set_ack_data<a class="headerlink" href="#panchip-prf-set-ack-data" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_ack_data</span><span class="p">(</span><span class="n">panchip_prf_payload_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_payload</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>RX</strong>模式下设置<strong>ack payload</strong>的内容和长度，<strong>ack without payload</strong>需要将<strong>data length</strong>设为<strong>0</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-data-rec">
+<h4>panchip_prf_data_rec<a class="headerlink" href="#panchip-prf-data-rec" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">panchip_prf_data_rec</span><span class="p">(</span><span class="n">panchip_prf_payload_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_payload</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>RX</strong>模式下获取接收的数据和长度，返回值是数据长度。<strong>必须在RX中断中读取数据</strong>，在其他地方读数据会异常。</p>
+</div>
+<div class="section" id="panchip-switch-prf">
+<h4>panchip_switch_prf<a class="headerlink" href="#panchip-switch-prf" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_switch_prf</span><span class="p">(</span><span class="n">pan_prf_config_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>切换通信协议的帧结构，<strong>XN297</strong>模式和<strong>NRF</strong>模式。</p>
+</div>
+<div class="section" id="panchip-prf-set-chn">
+<h4>panchip_prf_set_chn<a class="headerlink" href="#panchip-prf-set-chn" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_chn</span><span class="p">(</span><span class="n">pan_prf_config_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置通信的频点，带内2400~2480任意频点可设，也可设置带外频点，带外频点配置的时间比带内要长。<strong>频点必须在TX和RX退出后使用。</strong></p>
+</div>
+<div class="section" id="panchip-prf-set-tx-pwr">
+<h4>panchip_prf_set_tx_pwr<a class="headerlink" href="#panchip-prf-set-tx-pwr" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_tx_pwr</span><span class="p">(</span><span class="kt">int8_t</span><span class="w"> </span><span class="n">tx_pwr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置发射的功率，功率范围-45dbm~9dbm。</p>
+</div>
+<div class="section" id="panchip-prf-mode-conf-set">
+<h4>panchip_prf_mode_conf_set<a class="headerlink" href="#panchip-prf-mode-conf-set" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_mode_conf_set</span><span class="p">(</span><span class="n">prf_mode_conf_sel_t</span><span class="w"> </span><span class="n">conf</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置<strong>deviation</strong>，不同模式下射频<strong>dev</strong>参数配置，可以选择<strong>BLE</strong>模式、<strong>NRF</strong>模式、<strong>GFSK 250K</strong>、私有调制<strong>250K</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-set-phy">
+<h4>panchip_prf_set_phy<a class="headerlink" href="#panchip-prf-set-phy" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_phy</span><span class="p">(</span><span class="n">pan_prf_config_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置通信速率，可以选择<strong>1M、2M、PRF_PHY_CODED_S8、PRF_PHY_CODED_S2、PRF_PHY_250K</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-set-trx-mode">
+<h4>panchip_prf_set_trx_mode<a class="headerlink" href="#panchip-prf-set-trx-mode" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_trx_mode</span><span class="p">(</span><span class="n">prf_trx_mode_t</span><span class="w"> </span><span class="n">trx_mode</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置接收模式和发射模式，在<strong>idle</strong>状态下调用。</p>
+</div>
+<div class="section" id="panchip-prf-set-work-mode">
+<h4>panchip_prf_set_work_mode<a class="headerlink" href="#panchip-prf-set-work-mode" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_work_mode</span><span class="p">(</span><span class="n">prf_mode_t</span><span class="w"> </span><span class="n">work_mode</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置普通型工作模式和增强型工作模式，在<strong>idle</strong>状态下调用。</p>
+</div>
+<div class="section" id="panchip-prf-set-addr">
+<h4>panchip_prf_set_addr<a class="headerlink" href="#panchip-prf-set-addr" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_addr</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">prf_pipe_t</span><span class="w"> </span><span class="n">pipe</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">trx_addr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置通信地址内容、长度、地址通道、地址类型。</p>
+<p>地址类型分为以下三种：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>trx_addr</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRI_RF_MODE_SEL_TX</p></td>
+<td><p>0</p></td>
+<td><p>设置TX地址</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRI_RF_MODE_SEL_RX</p></td>
+<td><p>1</p></td>
+<td><p>设置RX地址</p></td>
+</tr>
+<tr class="row-even"><td><p>PRI_RF_MODE_SEL_TRX</p></td>
+<td><p>2</p></td>
+<td><p>设置TRX地址，TX和RX地址相同</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>TX</strong>地址只有一个<strong>PIPE</strong>，<strong>RX</strong>地址有<strong>8</strong>个<strong>PIPE</strong>。</p>
+<p><strong>NOTE：地址的最后一个字节不能出现连续的6个bit为0或者为1。</strong></p>
+</div>
+<div class="section" id="panchip-prf-set-tx-noack">
+<h4>panchip_prf_set_tx_noack<a class="headerlink" href="#panchip-prf-set-tx-noack" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_tx_noack</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置<strong>TX</strong>增强型模式下是否需要接收<strong>ACK</strong>，设置成<strong>true</strong>后，<strong>TX</strong>后不会进接收。</p>
+<p><strong>NOTE：该字段和NRF52系列的noack字段是相反的，PAN1070的true对应NRF52的false，PAN1070的false对应NRF52的true。由于PAN1070该字段是硬件操作的，适配需要修改NRF52的软件。</strong></p>
+<p><strong>PAN1070和NRF2401、XN297通信无此问题。</strong></p>
+</div>
+<div class="section" id="panchip-prf-rx-timeout">
+<h4>panchip_prf_rx_timeout<a class="headerlink" href="#panchip-prf-rx-timeout" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_rx_timeout</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">time</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置接收的超时时间，单位<strong>us</strong>，最大<strong>50000us</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-reset">
+<h4>panchip_prf_reset<a class="headerlink" href="#panchip-prf-reset" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_reset</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>复位<strong>PRF</strong>状态机，使其处于<strong>IDLE</strong>状态。</p>
+</div>
+<div class="section" id="panchip-prf-rx-stop">
+<h4>panchip_prf_rx_stop<a class="headerlink" href="#panchip-prf-rx-stop" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_rx_stop</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>退出<strong>RX</strong>模式，RX退出后会产生<strong>timeout</strong>中断。</p>
+</div>
+<div class="section" id="panchip-prf-pid-cfg">
+<h4>panchip_prf_pid_cfg<a class="headerlink" href="#panchip-prf-pid-cfg" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_pid_cfg</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">pid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>增强型模式手动设置<strong>TX PID</strong>，<strong>PID</strong>设置的范围是<strong>0~3</strong>。</p>
+</div>
+<div class="section" id="panchip-white-init-value">
+<h4>panchip_white_init_value<a class="headerlink" href="#panchip-white-init-value" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_white_init_value</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>白化使能后，白化初始值设置，默认是<strong>0x7f</strong>。</p>
+</div>
+<div class="section" id="panchip-prf-carrier-start">
+<h4>panchip_prf_carrier_start<a class="headerlink" href="#panchip-prf-carrier-start" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_carrier_start</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w">  </span><span class="n">tx_channel</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>发射单载波，参数设置任意频点。<strong>必须在TX和RX退出后使用。</strong></p>
+</div>
+<div class="section" id="panchip-prf-carrier-stop">
+<h4>panchip_prf_carrier_stop<a class="headerlink" href="#panchip-prf-carrier-stop" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_carrier_stop</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>退出发射单载波模式。</p>
+</div>
+<div class="section" id="panchip-prf-read-rssi">
+<h4>panchip_prf_read_rssi<a class="headerlink" href="#panchip-prf-read-rssi" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">panchip_prf_read_rssi</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>收到数据后，在接收中断中获取数据强度的<strong>RSSI</strong>值。这个<strong>RSSI</strong>会缓存，收到新的数据后值会覆盖。获取<strong>RSSI</strong>值也可直接使用变量<strong>prf_rssi</strong>，和接口读出来的值是一样的。</p>
+</div>
+<div class="section" id="panchip-prf-enable-carrier-rssi">
+<h4>panchip_prf_enable_carrier_rssi<a class="headerlink" href="#panchip-prf-enable-carrier-rssi" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_enable_carrier_rssi</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>使能获取载波强度的<strong>RSSI</strong>模式，调用后不能接收数据。</p>
+</div>
+<div class="section" id="panchip-prf-read-carrier-rssi">
+<h4>panchip_prf_read_carrier_rssi<a class="headerlink" href="#panchip-prf-read-carrier-rssi" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">panchip_prf_read_carrier_rssi</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>获取载波强度的<strong>RSSI</strong>值，这个<strong>RSSI</strong>值是实时的，不会缓存。</p>
+</div>
+<div class="section" id="panchip-prf-disable-carrier-rssi">
+<h4>panchip_prf_disable_carrier_rssi<a class="headerlink" href="#panchip-prf-disable-carrier-rssi" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_disable_carrier_rssi</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>载波强度<strong>RSSI</strong>获取后，关闭RSSI功能。关闭后可以正常接收数据。</p>
+</div>
+<div class="section" id="panchip-prf-rx-length-irq-cfg">
+<h4>panchip_prf_rx_length_irq_cfg<a class="headerlink" href="#panchip-prf-rx-length-irq-cfg" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_rx_length_irq_cfg</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>配置是否使能rx length err中断，当rx收到数据硬件解析出来的length值大于配置的rx length（结构体中“rx_length”字段），rx length err irq会产生，普通型和增强型接收都有效。在使用前需要先注册中断函数。</p>
+</div>
+<div class="section" id="panchip-prf-get-pipe">
+<h4>panchip_prf_get_pipe<a class="headerlink" href="#panchip-prf-get-pipe" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">panchip_prf_get_pipe</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>收到数据获取地址通道号，范围0~7。</p>
+</div>
+<div class="section" id="panchip-prf-set-crc">
+<h4>panchip_prf_set_crc<a class="headerlink" href="#panchip-prf-set-crc" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_crc</span><span class="w"> </span><span class="p">(</span><span class="n">pcrc_sel_t</span><span class="w"> </span><span class="n">crc</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">crc_include_sync</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置crc的类型和crc的范围是否包含地址。</p>
+</div>
+<div class="section" id="panchip-prf-set-whitening">
+<h4>panchip_prf_set_whitening<a class="headerlink" href="#panchip-prf-set-whitening" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_whitening</span><span class="w"> </span><span class="p">(</span><span class="n">prf_scramble_sel_t</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">src_include_sync</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置白化类型和白化范围是否包含地址。</p>
+</div>
+<div class="section" id="panchip-prf-set-endian">
+<h4>panchip_prf_set_endian<a class="headerlink" href="#panchip-prf-set-endian" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_set_endian</span><span class="w"> </span><span class="p">(</span><span class="n">prf_endian_t</span><span class="w"> </span><span class="n">endian</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置payload数据传输的大小端。</p>
+</div>
+<div class="section" id="panchip-prf-pa-mode">
+<h4>panchip_prf_pa_mode<a class="headerlink" href="#panchip-prf-pa-mode" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">panchip_prf_pa_mode</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>功能：设置prf支持带PA拓展模式，可以外接PA芯片，增大发射功率。</p>
+<p>使用说明：</p>
+<ul class="simple">
+<li><p>在panchip_prf_init()接口后面，panchip_prf_trx()接口之前调用即可。</p></li>
+<li><p>RX_EN对应GPIO P04，TX_EN对应GPIO P03，端口不可修改。</p></li>
+</ul>
+<p>硬件连线参考下图：</p>
+<p><img alt="image" src="../_images/image13.png" /></p>
+<p>​</p>
+<p>PA连接示意图</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### 4.3 MULTI PIPE使用介绍
+
+1. 多**pipe**的使用主要在于接收端，发送端同时只有一个**pipe**，接收端同时有**8**个地址。
+
+2. 涉及到两个接口，**panchip_prf_set_addr**和**panchip_prf_get_pipe**。**panchip_prf_set_addr**为每个**pipe**设置不同的地址，接收端收到数据后可以使用**panchip_prf_get_pipe**获取当前收到数据对应的**pipe**地址。
+
+3. 详细使用情况请参考例程” **PRF_RX_MULTI_PIPE**”和” **PRF_TX_MULTI_PIPE**”。**RX**端将收到的数据打印出来，同时打印当前的**pipe**通道号，**TX**端每**1s**切换不同**pipe**通道，同时每个**pipe**通道配置相应的地址。**注意：接收端在增强型模式下收到数据后需要配置TX地址，地址为当前pipe通道的地址。**
+
+### 4.4 中断介绍
+
+中断介绍如如下代码所示：
+
+```c
+void event_tx_fun(void)
+{
+	printk(&quot;tx done\n&quot;);
+}		//增强型和普通型模式TX结束后会产生TX中断，TX退出，增强型TX完了之后会马上进入RX。
+
+void event_rx_fun(void)
+{
+	panchip_prf_payload_t rx_payload;
+
+	rx_payload.data_length = panchip_prf_data_rec(&amp;rx_payload);
+	printk(&quot;rx data:&quot;);
+	data_printk(rx_payload.data, rx_payload.data_length);
+}		//增强型和普通型模式RX收到数据后会进入RX中断,RX退出，增强型RX完了之后会马上进入TX。
+
+void event_rx_timeout_fun(void)
+{
+	printk(&quot;rx timeout\n&quot;);
+}		//接收超时后会进入timeout中断,RX退出
+
+void event_crc_err_fun(void)
+{
+	printk(&quot;crc err\n&quot;);
+}		//接收数据错误会进入crc中断，RX退出，不会进入TX
+
+/*普通型TX，TX结束退出后产生TX中断，进入下一次TX后须调用&quot;panchip_prf_trx_start&quot;。*/
+
+/*普通型RX，收到数据后会进入RX中断，接收超时会进入timeout中断，收到错误数据会进入crc中断，进入下一次RX后须调用&quot;panchip_prf_trx_start&quot;。*/
+
+/*增强型TX，TX结束后硬件会自动进入RX，RX收到数据后会进入RX中断，接收超时会进入timeout中断，收到错误数据会进入crc中断，进入下一次TX后须调用&quot;panchip_prf_trx_start&quot;。*/
+
+/*增强型RX，RX收到数据后会硬件会自动进入TX，TX结束退出后产生TX中断，接收超时会进入timeout中断，收到错误数据会进入crc中断，进入下一次RX后须调用&quot;panchip_prf_trx_start&quot;。*/
+```
+
+**注意：在高性能的2.4g应用中尽量不要使用打印，会影响射频收发性能。增强型RX中断中不能有延时或者打印或者执行时间很长的接口，不然会影响TX中断从而导致时序错误。**
+
+## 5 Sample运行流程
+
+### prf_sample_rx例程运行流程
+
+如下图所示：
+
+:::{figure-md}
+:align: center
+
+![image](images/image4.png)
+
+RX例程流程图
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prf-sample-tx">
+<h3>prf_sample_tx例程运行流程<a class="headerlink" href="#prf-sample-tx" title="永久链接至标题">¶</a></h3>
+<p>如下图所示：</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../_images/image8.png" />
+<p class="caption"><span class="caption-text">TX例程流程图</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>6 2.4G帧结构介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>兼容三种帧结构：<strong>xn297、nrf24l01、nrf52</strong></p>
+<div class="section" id="xn297">
+<h3>6.1 xn297兼容帧结构<a class="headerlink" href="#xn297" title="永久链接至标题">¶</a></h3>
+<p>普通型：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>3 byte</p></th>
+<th class="head"><p>3~5 byte</p></th>
+<th class="head"><p>1~64 byte</p></th>
+<th class="head"><p>0/1/2/3 byte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>preamble(0x710f55)</p></td>
+<td><p>addr</p></td>
+<td><p>payload</p></td>
+<td><p>crc(包含addr和payload)</p></td>
+</tr>
+</tbody>
+</table>
+<p>空中bit序：大端模式</p>
+<p>增强型：在地址和payload之间插入signal(10bit)数据。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>3 byte</p></th>
+<th class="head"><p>3~5 byte</p></th>
+<th class="head"><p>10bit</p></th>
+<th class="head"><p>1~64 byte</p></th>
+<th class="head"><p>0/1/2/3 byte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>preamble(0x710f55)</p></td>
+<td><p>addr</p></td>
+<td><p>signal</p></td>
+<td><p>payload</p></td>
+<td><p>crc(包含addr和payload)</p></td>
+</tr>
+</tbody>
+</table>
+<p>signal结构：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>7bit</p></th>
+<th class="head"><p>2bit</p></th>
+<th class="head"><p>1bit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>数据长度标识(动态payload)</p></td>
+<td><p>PID标识 (判断是否是重发包)</p></td>
+<td><p>NO_ACK标识  (tx完是否需要ack)</p></td>
+</tr>
+</tbody>
+</table>
+<p>数据长度7bit最大包长发送可支持127byte，接收最大包长可支持128byte。</p>
+<p>白化和crc的作用域包括addr+payload+signal。</p>
+</div>
+<div class="section" id="nrf2401">
+<h3>6.2 nrf2401兼容帧结构<a class="headerlink" href="#nrf2401" title="永久链接至标题">¶</a></h3>
+<p>普通型：</p>
+<p>空中bit序：大端模式</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>1 byte</p></th>
+<th class="head"><p>3~5 byte</p></th>
+<th class="head"><p>1~32byte</p></th>
+<th class="head"><p>0/1/2/3 byte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>preamble(0x55或者0xaa)</p></td>
+<td><p>addr</p></td>
+<td><p>payload</p></td>
+<td><p>crc(包含addr和payload)</p></td>
+</tr>
+</tbody>
+</table>
+<p>preamble：地址第一个bit为0，取0xaa；地址第一个bit为1，取0x55。</p>
+<p>增强型：在地址和payload之间插入signal(9bit)数据。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>1 byte</p></th>
+<th class="head"><p>3~5 byte</p></th>
+<th class="head"><p>9bit</p></th>
+<th class="head"><p>1~32byte</p></th>
+<th class="head"><p>0/1/2/3 byte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>preamble(0x55或者0xaa)</p></td>
+<td><p>addr</p></td>
+<td><p>signal</p></td>
+<td><p>payload</p></td>
+<td><p>crc(包含addr和payload)</p></td>
+</tr>
+</tbody>
+</table>
+<p>signal结构：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>6bit</p></th>
+<th class="head"><p>2bit</p></th>
+<th class="head"><p>1bit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>数据长度标识(动态payload)</p></td>
+<td><p>PID标识 (判断是否是重发包)</p></td>
+<td><p>NO_ACK标识  (tx完是否需要ack)</p></td>
+</tr>
+</tbody>
+</table>
+<p>数据长度6bit最大包长发送可支持63byte，接收最大包长可支持64byte。</p>
+<p>nrf2401无白化，crc的作用域包括addr+payload+signal。</p>
+</div>
+<div class="section" id="nrf52">
+<h3>6.3 nrf52兼容帧结构<a class="headerlink" href="#nrf52" title="永久链接至标题">¶</a></h3>
+<p>nrf52帧结构如下图所示：</p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../_images/image6.png" />
+<p class="caption"><span class="caption-text">nrf52帧结构</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<p>当s0=0，length=0，s1=0时，和nrf2401普通型帧结构一样。</p>
+<p>当s0=0，length=6，s1=3时，和nrf2401增强型帧结构一样。payload长度最大32byte。</p>
+<p>当s0=0，length=8，s1=3时，长包模式。payload长度最大255byte。</p>
+<p>空中bit序：大小端模式可配</p>
+<p>crc作用域：addr(可配)+s0+length+s1+payload</p>
+<p>长包模式下，PAN1070 signal结构如下：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>8bit</p></th>
+<th class="head"><p>2bit</p></th>
+<th class="head"><p>1bit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>数据长度标识(动态payload)</p></td>
+<td><p>PID标识 (判断是否是重发包)</p></td>
+<td><p>NO_ACK标识  (tx完是否需要ack)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h3>6.4 自定义帧结构<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><strong>chip_mode</strong>字段为“<strong>PRF_CHIP_MODE_SEL_NORDIC</strong>”模式时，帧结构如下：</p>
+<p><img alt="image" src="../_images/image7.png" /></p>
+<p>header0、header1、length为可选字段，可以适配BLE和NRF52不同模式的帧结构，例如BLE广播帧结构：</p>
+<p><img alt="image" src="../_images/image10.png" /></p>
+<p>蓝牙广播中的报头和长度对应PRF_MODE_NORMAL_M1模式中的header0和length，header1没有。</p>
+</div>
+<div class="section" id="b250k">
+<h3>6.5 B250K帧结构<a class="headerlink" href="#b250k" title="永久链接至标题">¶</a></h3>
+<p><img alt="image" src="../_images/image11.png" /></p>
+<p>使用nrf普通型帧结构进行兼容。 B250K中payload长度为8bit，而且最大payload(包含addr在内)长度为255.另外，length字段固定为1个字节。</p>
+<p>Preamble长度有：2/3/4/6/8/12/16/24byte， 帧速率为250K。</p>
+</div>
+</div>
+<div class="section" id="g-pid">
+<h2>7 2.4G PID流程<a class="headerlink" href="#g-pid" title="永久链接至标题">¶</a></h2>
+<p>tx和rx pid处理逻辑如下：</p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../_images/image12.png" />
+<p class="caption"><span class="caption-text">PID生成和检测</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<p>每一包数据都包括两位的PID（数据包标志位），来帮助接收端识别该数据是新数据包还是重发的数据包，防止多次存入相同的数据包，PID的生成和检测如上图所示。发送端的ack包未发生超时PID值加一。支持软件配置tx pid和rx pid。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

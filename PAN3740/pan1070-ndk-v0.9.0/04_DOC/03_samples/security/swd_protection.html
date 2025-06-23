@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SWD Protection &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="通用解决方案" href="../solutions/index.html" />
+    <link rel="prev" title="Firmware Encryption" href="fw_encryption.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">固件保护例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fw_encryption.html">Firmware Encryption</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SWD Protection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">固件保护例程</a> &raquo;</li>
+  
+  <li>SWD Protection</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/security/swd_protection.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="swd-protection">
+<h1>SWD Protection<a class="headerlink" href="#swd-protection" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示芯片 SWD Debug Protect 调试保护机制。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>本功能需要用到 PanLink 量产烧录工具，为正常演示本例程，请确保您的 PanLink 上位机工具版本不低于 <code class="docutils literal notranslate"><span class="pre">v0.0.008</span></code>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>本功能需要通过 PanLink 工具烧录芯片 eFuse 的特定地址，eFuse 的物理特性是同一地址只可烧录一次，无法还原，因此<strong>当某颗芯片使能 Debug Protect 功能后，其将只能通过输入正确秘钥的方式重新使能 SWD 调试和烧录功能</strong>！</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>PanLink 量产烧录工具（用于烧录 SWD 保护信息至芯片 eFuse，以及烧录例程程序至芯片 Flash）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>根据情况将 PanLink 或 Jlink 仿真器连接至芯片</p></li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+<li><p>PanLink 上位机工具</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\security\swd_protection\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程，编译成功后，使用 Keil - Flash Download 按钮，向<strong>未使能 SWD 保护功能</strong>的芯片中烧录程序。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>通过 Keil 将例程程序烧录至芯片后，可以看到芯片通过串口打印如下 Log：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E1100000101D
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span>0D0001465454455354
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B004B554356034578
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+
+Dump<span class="w"> </span>eFuse<span class="w"> </span>content<span class="w"> </span>after<span class="w"> </span>reset:
+Debug<span class="w"> </span>Protect<span class="w"> </span>Key<span class="w"> </span><span class="k">in</span><span class="w"> </span>eFuse:
+<span class="w">      </span>Addr:Data<span class="w">       </span>Addr:Data<span class="w">       </span>Addr:Data<span class="w">       </span>Addr:Data
+<span class="w">      </span>0x10:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x11:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x12:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x13:0x00<span class="o">(</span>OK<span class="o">)</span>
+<span class="w">      </span>0x14:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x15:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x16:0x00<span class="o">(</span>OK<span class="o">)</span><span class="w">   </span>0x17:0x00<span class="o">(</span>OK<span class="o">)</span>
+
+Secure<span class="w"> </span>Enable<span class="w"> </span>Control<span class="w"> </span>Flag<span class="w"> </span><span class="k">in</span><span class="w"> </span>eFuse<span class="w"> </span><span class="o">(</span>Address<span class="w"> </span>0x1B<span class="o">)</span>:
+<span class="w">      </span>0x00
+Note:
+<span class="w">      </span>-<span class="w"> </span>BIT0:<span class="w"> </span>FW<span class="w"> </span>Encryption<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+<span class="w">      </span>-<span class="w"> </span>BIT1:<span class="w"> </span>Anti-injection<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+<span class="w">      </span>-<span class="w"> </span>BIT2:<span class="w"> </span>Debug<span class="w"> </span>Protection<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+Done.
+</pre></div>
+</div>
+<blockquote>
+<div><p>从上述 Log 信息可以看到，当前芯片 eFuse 中的加密保护相关位置都是没有被写入过的，读出值均为0。</p>
+</div></blockquote>
+</li>
+<li><p>断开 JLink 与芯片的连接，然后将 PanLink 连接至芯片（可能需要将芯片从 EVB 底板取下），打开 PanLink 上位机工具：：</p>
+<ol class="simple">
+<li><p>在 <em>下载程序配置</em> 选项上点击右键，选择 <em>添加程序</em>，并加载本例程编译生成的固件（<code class="docutils literal notranslate"><span class="pre">Images\ndk_app.bin</span></code>）</p></li>
+<li><p>勾选 <em>下载加密信息配置</em> 选项框，在出现的 <em>加密信息配置</em> 选项上点击右键，选择 <em>设置加密信息配置</em>，并加载本例程的加密配置信息文件（<code class="docutils literal notranslate"><span class="pre">encrypt_info.yaml</span></code>）</p></li>
+</ol>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../../_images/swd_protect_panlink_load_encrypt_info_file.png" />
+<p class="caption"><span class="caption-text">PanLink 成功载入加密配置信息文件和例程固件</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>更详细的操作步骤请参考 PanLink 上位机工具文档。</p>
+</div></blockquote>
+</li>
+<li><p>点击 PanLink 上位机工具的 “下载” 按钮，即可将本工程的加密配置信息（包括 SWD 保护使能开关、SWD 保护秘钥等）和例程固件分别烧录到芯片 eFuse 和 Flash 中：</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../../_images/swd_protect_panlink_download_encrypt_info_and_image.png" />
+<p class="caption"><span class="caption-text">PanLink 烧录加密配置信息文件和未加密固件成功</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>eFuse 烧录成功后，复位芯片，可以看到打印的 Log 已经与之前有所不同：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E1100000101D
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span>0D0001465454455354
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B004B554356034578
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+
+Dump<span class="w"> </span>eFuse<span class="w"> </span>content<span class="w"> </span>after<span class="w"> </span>reset:
+Debug<span class="w"> </span>Protect<span class="w"> </span>Key<span class="w"> </span><span class="k">in</span><span class="w"> </span>eFuse:
+<span class="w">      </span>Addr:Data<span class="w">       </span>Addr:Data<span class="w">       </span>Addr:Data<span class="w">       </span>Addr:Data
+<span class="w">      </span>0x10:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x11:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x12:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x13:0x00<span class="o">(</span>N/A<span class="o">)</span>
+<span class="w">      </span>0x14:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x15:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x16:0x00<span class="o">(</span>N/A<span class="o">)</span><span class="w">  </span>0x17:0x00<span class="o">(</span>N/A<span class="o">)</span>
+
+Secure<span class="w"> </span>Enable<span class="w"> </span>Control<span class="w"> </span>Flag<span class="w"> </span><span class="k">in</span><span class="w"> </span>eFuse<span class="w"> </span><span class="o">(</span>Address<span class="w"> </span>0x1B<span class="o">)</span>:
+<span class="w">      </span>0x04
+Note:
+<span class="w">      </span>-<span class="w"> </span>BIT0:<span class="w"> </span>FW<span class="w"> </span>Encryption<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+<span class="w">      </span>-<span class="w"> </span>BIT1:<span class="w"> </span>Anti-injection<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+<span class="w">      </span>-<span class="w"> </span>BIT2:<span class="w"> </span>Debug<span class="w"> </span>Protection<span class="w"> </span>Enable<span class="w"> </span>Ctrl
+Done.
+</pre></div>
+</div>
+<blockquote>
+<div><p>由 Log 信息可以看到：</p>
+<ul class="simple">
+<li><p>eFuse 中存放 SWD 保护秘钥（Debug Protect Key）的地方已经无法正常读取（虽然显示为0，但实际上此处已经通过 PanLink 工具烧写过）</p></li>
+<li><p>eFuse 中使能 SWD 保护功能的控制位（即 eFuse 0x1B 地址的 BIT2）已经被置1，表示 SWD 保护使能已经打开</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>此时尝试通过 Keil Download 重新烧录固件，看到提示烧录失败：</p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../../_images/swd_protect_keil_download_without_unlock.png" />
+<p class="caption"><span class="caption-text">使用 Keil 烧录开启 SWD 保护的芯片</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>这是因为当前芯片的 SWD 保护功能已经开启，此时 SWD 虽然仍然能够被 JLink 连接上，但此时芯片除了解锁秘钥的寄存器以外，其他所有模块寄存器、SRAM、Flash 的操作均无法正常读写，因此 Keil 的烧录操作自然也就不会成功。同理 Keil 的 SWD 调试功能也会失效，表现上就是虽然 Keil 仍然能进入调试模式，但是已经无法从调试界面获取到有效的调试信息了。</p>
+</div></blockquote>
+</li>
+<li><p>双击执行例程目录下的 <code class="docutils literal notranslate"><span class="pre">gen_jlinkscript_with_swd_unlock_key.bat</span></code> 脚本，以将 SWD 解锁秘钥更新至 JLinkSettings.JLinkScript 脚本文件中：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">ApplyDebugKey</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// Write debug key to KEY Registers in eFuse module</span>
+<span class="w">   </span><span class="n">JLINK_MEM_WriteU32</span><span class="p">(</span><span class="mh">0x40080068</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0a0000fa</span><span class="p">);</span><span class="w"> </span><span class="c1">// EF_VERIFY_DEBUG1</span>
+<span class="w">   </span><span class="n">JLINK_MEM_WriteU32</span><span class="p">(</span><span class="mh">0x4008006C</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00004f00</span><span class="p">);</span><span class="w"> </span><span class="c1">// EF_VERIFY_DEBUG2</span>
+<span class="w">   </span><span class="n">JLINK_MEM_WriteU32</span><span class="p">(</span><span class="mh">0x40080070</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00fe9e58</span><span class="p">);</span><span class="w"> </span><span class="c1">// EF_VERIFY_DEBUG3</span>
+<span class="w">   </span><span class="n">JLINK_MEM_WriteU32</span><span class="p">(</span><span class="mh">0x40080074</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00e20000</span><span class="p">);</span><span class="w"> </span><span class="c1">// EF_VERIFY_DEBUG4</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">AfterResetTarget</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">JLINK_SYS_Report</span><span class="p">(</span><span class="s">&quot;AfterResetTarget()&quot;</span><span class="p">);</span>
+
+<span class="w">   </span><span class="n">ApplyDebugKey</span><span class="p">();</span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_jlinkscript_with_swd_unlock_key.bat</span></code> 脚本的作用，是根据 <code class="docutils literal notranslate"><span class="pre">encrypt_info.yaml</span></code> 加密配置文件中指定的 <code class="docutils literal notranslate"><span class="pre">debug_key</span></code>，生成一把解锁 SWD 调试功能的秘钥，并在 JLink Script 的 AfterResetTarget() 流程中，将解锁秘钥传给芯片，以重新使能 SWD 调试功能。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_jlinkscript_with_swd_unlock_key.bat</span></code> 脚本内部会调用另外一个 Python 脚本，而该脚本中使用了第三方库 PyYAML，需要提前安装（Windows 下直接在 CMD 命令行中执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyyaml</span></code> 即可），否则会提示执行失败。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>重新尝试通过 Keil Download 烧录固件，此时看到可以烧录成功了：</p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../../_images/swd_protect_keil_download_with_unlock.png" />
+<p class="caption"><span class="caption-text">使用 Keil 烧录开启 SWD 保护但成功解锁的芯片</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>在 Keil 界面点击 Download 按钮的时候，Keil 首先会复位芯片，在芯片复位后触发 Jlink Script 脚本的 AfterResetTarget() 流程，将 SWD 解锁秘钥配置到芯片的解锁寄存器中，然后芯片的 SWD 调试功能恢复正常，于是 Keil 即可正常执行后续的烧录过程。</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>本例程的加密信息配置文件（encrypt_info.yaml）内容如下:</p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../../_images/swd_protect_encrypt_info_yaml.png" />
+<p class="caption"><span class="caption-text">Encrypt Info File</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<p>其中各个 item 解释如下：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">secure_enable:</span> <span class="pre">false</span></code>：<strong>不</strong>使能固件加密功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anti_injection_enable:</span> <span class="pre">false</span></code>：<strong>不</strong>使能防注入保护功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_flash_offset:</span> <span class="pre">0x0</span></code>：<strong>不</strong>配置 Encrypt Flash Offset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_key:</span> <span class="pre">''</span></code>：<strong>不</strong>配置加密秘钥</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug_protect_enable:</span> <span class="pre">true</span></code>：使能 SWD Debug Protect 功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug_key:</span> <span class="pre">'fa0ab00a589e01e2'</span></code>：配置 SWD Debug Protect 秘钥，8 字节长度的 hex 格式</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_start_addr:</span> <span class="pre">0x0</span></code>：不生效，可忽略</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ol class="simple">
+<li><p>本文件中包含明文的加密秘钥（debug_key），一定要妥善保管，不可随意外传，以防密钥泄露！</p></li>
+<li><p>本例程还提供了一个单独的 <code class="docutils literal notranslate"><span class="pre">gen_encrypt_info_enc_bin.bat</span></code> 可用于生成一个二次加密后的 <code class="docutils literal notranslate"><span class="pre">encrypt_info_enc.bin</span></code> 文件，此文件中会对秘钥添加扰码，因此在 PanLink 载入加密信息的过程中建议使用此文件，而不是明文的 yaml 文件。</p></li>
+</ol>
+</div>
+</li>
+<li><p>使能 SWD 调试保护功能，只需使用 PanLink 将加密信息配置文件（encrypt_info.yaml）烧录至目标芯片的 eFuse 中即可，无需修改固件程序</p></li>
+<li><p>对于已经使能 SWD 调试保护功能的芯片来说，解锁的办法本质上是在 SWD 调试之前，将解锁秘钥配置到芯片的解锁寄存器中，本例程演示的是通过 JLink Script 脚本的方式配置，在实际场景中也可以根据需要通过其他方式解锁，如 JFlash 的 Init 脚本、JLink 命令行，或者其他 SWD 调试工具均可以</p></li>
+<li><p>同样地，对于已经使能 SWD 调试保护功能的芯片，如果想再次通过 PanLink 工具向芯片烧录固件程序，则应同时加载 <code class="docutils literal notranslate"><span class="pre">encrypt_info.yaml</span></code> 加密信息配置文件和待烧录的固件程序，否则烧录将会失败</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

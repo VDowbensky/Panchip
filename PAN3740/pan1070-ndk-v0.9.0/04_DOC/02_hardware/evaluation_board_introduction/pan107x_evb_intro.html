@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PAN10xx EVB 介绍 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="PAN10xx 硬件参考设计" href="../hardware_reference_design/pan107x_hw_reference_design.html" />
+    <link rel="prev" title="硬件资料" href="../index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">硬件资料</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PAN10xx EVB 介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2 开发板硬件资源</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pan10xx">2.1 PAN10xx最小系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2 电源模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swd">2.3 SWD调试接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usb">2.4 USB转串口模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgb">2.5 RGB灯</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.6 USB模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.7 运动传感器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oled">2.8 OLED显示屏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spi-flash">2.9 外部SPI FLASH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.10 蜂鸣器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.11 可调电阻</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">2.12 轻触按键</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#led">2.13 独立LED灯</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">2.14 红外模块</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_reference_design/pan107x_hw_reference_design.html">PAN10xx 硬件参考设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pan3740_reference_design/pan3740_reference_design.html">PAN3740 EVB 介绍与硬件参考设计</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">硬件资料</a> &raquo;</li>
+  
+  <li>PAN10xx EVB 介绍</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/02_hardware/evaluation_board_introduction/pan107x_evb_intro.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="pan10xx-evb">
+<h1>PAN10xx EVB 介绍<a class="headerlink" href="#pan10xx-evb" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本文为 PAN10xx Evaluation Board (EVB) 开发板介绍，包括相关板级硬件模块、各模块在EVB板上的位置、以及对应电路原理图，旨在帮助开发者快速了解PAN10xx EVB开发板。</p>
+<p>PAN10xx EVB开发板由核心板、底板两大部分组成，其中：</p>
+<ul class="simple">
+<li><p>核心板提供了PAN10xx SoC的最小系统，主要包含有PAN10xx SoC芯片、32MHz高速晶振、32768Hz低速晶振、复位按钮、板载天线以及一些必要的无源器件。</p></li>
+<li><p>底板上提供了诸多PAN10xx SoC支持的外设模块，其中包含：</p>
+<ul>
+<li><p>电源管理系统、USB_Type-C转串口模块、RGB三色灯、三轴加速度传感器、外部SPI FLASH、无源蜂鸣器、独立按键、可调电阻、红外模块、独立LED灯等等；</p></li>
+</ul>
+</li>
+<li><p>对外接口有USB-Type-C接口、USB_Type-C转串口接口、鼠标接口，矩阵按键接口、OLED显示屏接口、全GPIO测试接口等，如下图所示</p></li>
+</ul>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../../_images/BaseBoardModel3D.PNG" />
+<p class="caption"><span class="caption-text">PAN10xx EVB V1.0 3D图</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id11">
+<img alt="image" src="../../_images/BaseBoardPhoto.png" />
+<p class="caption"><span class="caption-text">PAN10xx EVB V1.0 实物图</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2 开发板硬件资源<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="pan10xx">
+<h3>2.1 PAN10xx最小系统<a class="headerlink" href="#pan10xx" title="永久链接至标题">¶</a></h3>
+<p>PAN10xx最小系统由核心板和转接板组成。最小系统以模块形式嵌入开发板底板中，可分离式设计方便单独调试及应用于其它场景，如下图所示：</p>
+<div class="figure align-center" id="id12">
+<img alt="image" src="../../_images/PAN1010S9FA-CoreBoardTop.PNG" />
+<p class="caption"><span class="caption-text">PAN1010S9FA最小系统板三维图顶部</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id13">
+<img alt="image" src="../../_images/CoreBoardTop.PNG" />
+<p class="caption"><span class="caption-text">PAN1070UA1A最小系统板三维图顶部</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id14">
+<img alt="image" src="../../_images/PAN1010S9FA-CoreBoardBottom.PNG" />
+<p class="caption"><span class="caption-text">PAN1010S9FA最小系统板三维图底部</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id15">
+<img alt="image" src="../../_images/CoreBoardBottom.PNG" />
+<p class="caption"><span class="caption-text">PAN1070UA1A最小系统板三维图底部</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
+<p>核心板搭载PAN10xx主控芯片、外部32M晶振、板载天线等，通过标准间距2.54mm双排针引出了所有GPIO，PAN10xx核心板原理图如下所示：</p>
+<div class="figure align-center" id="id16">
+<img alt="image" src="../../_images/PAN1010S9FA_SMT.png" />
+<p class="caption"><span class="caption-text">SSOP24封装核心板原理图</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id17">
+<img alt="image" src="../../_images/PAN1070UA1A_SMT.png" />
+<p class="caption"><span class="caption-text">QFN32封装核心板原理图</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2.2 电源模块<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>PAN10xx EVB开发板可选择使用以下两种供电方式之一：</p>
+<ul class="simple">
+<li><p>5V的USB供电；</p></li>
+<li><p>3V的CR2032纽扣电池供电；</p></li>
+</ul>
+<p>EVB开发板电源模块原理图如下：</p>
+<div class="figure align-center" id="id18">
+<img alt="image" src="../../_images/PowerSupplySch.PNG" />
+<p class="caption"><span class="caption-text">电源模块原理图</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+</div>
+<p>EVB开发板左侧有两个USB-Type-C接口<code class="docutils literal notranslate"><span class="pre">U5</span></code>与<code class="docutils literal notranslate"><span class="pre">U7</span></code>，它们的电源引脚均与EVB的5V电源网络连在一起；除此之外，二者还有以下区别：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">U7</span></code>为普通USB接口，使用跳线帽将EVB底板的<code class="docutils literal notranslate"><span class="pre">USBDM</span></code>/<code class="docutils literal notranslate"><span class="pre">USBDP</span></code>分别与SoC的对应引脚相连，即可使用PAN10xx SOC的USB模块；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">U5</span></code>为<em>USB转UART模块</em>的USB端接口，使用跳线帽将EVB底板的<code class="docutils literal notranslate"><span class="pre">TX0</span></code>/<code class="docutils literal notranslate"><span class="pre">RX0</span></code>分别与SoC对应的引脚相连，即可通过USB转串口模块，实现PAN10xx SOC的UART0与PC进行通信；</p>
+<blockquote>
+<div><p><strong>注</strong>：在实际使用过程中，选用任意一个USB口供电即可，但需注意，板载电源切换开关应拨动至<em>LDO</em>档位。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>一种典型的供电方法如下图所示：</p>
+<div class="figure align-center" id="id19">
+<img alt="image" src="../../_images/PowerSupply.PNG" />
+<p class="caption"><span class="caption-text">供电方式示意图</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<p>其中：</p>
+<ol>
+<li><p>拨动开关SW2左拨到<em>LDO</em>档位；</p></li>
+<li><p>使用跳线帽短接图右侧排针，作用是将电源分别连接至<em>VCC</em>（即核心板系统电源）、<em>VDD</em>（即开发板外设供电），电压分别有3.3V、2.5V、1.8V可选。</p>
+<blockquote>
+<div><p>电源网络的三个LDO模块，分别输出3.3V、2.5V、1.8V，故VCC（核心板系统电源）、VDD（开发板外设供电）可以各自分别选择所需要的电压。</p>
+</div></blockquote>
+</li>
+</ol>
+<p>另外，若希望开发板由左下角纽扣电池供电，则拨动开关SW2往右拨到<em>BAT</em>档位即可。</p>
+</div>
+<div class="section" id="swd">
+<h3>2.3 SWD调试接口<a class="headerlink" href="#swd" title="永久链接至标题">¶</a></h3>
+<p>开发板提供了单排针接口用于连接J-LINK实现SWD调试和程序下载功能，该排针接口位于整板左上方。</p>
+<p>一种典型的使用方法如下图所示：</p>
+<ol class="simple">
+<li><p>JLINK下载器插到SWD接口<code class="docutils literal notranslate"><span class="pre">J4</span></code>；</p></li>
+<li><p>供电方式参考上文。</p></li>
+</ol>
+<div class="figure align-center" id="id20">
+<img alt="image" src="../../_images/JLINK.png" />
+<p class="caption"><span class="caption-text">JLink连线</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="usb">
+<h3>2.4 USB转串口模块<a class="headerlink" href="#usb" title="永久链接至标题">¶</a></h3>
+<p>PAN10xx SoC的<code class="docutils literal notranslate"><span class="pre">P16</span></code>、<code class="docutils literal notranslate"><span class="pre">P17</span></code>引脚可通过软件配置成UART串口功能，然后通过CH343模块转为USB_Type-C接口。</p>
+<div class="figure align-center" id="id21">
+<img alt="image" src="../../_images/Schematic_USB-UART.png" />
+<p class="caption"><span class="caption-text">USB转UART模块原理图</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
+<p>USB转UART模块使用U5 USB_Type-C接口，并且使用跳线帽短接排针对应的引脚，如下图所示(<strong>流控还需用跳线帽将<code class="docutils literal notranslate"><span class="pre">CTS0</span></code>、<code class="docutils literal notranslate"><span class="pre">RTS0</span></code>连接到SOC</strong>)：</p>
+<div class="figure align-center" id="id22">
+<img alt="image" src="../../_images/URAT.png" />
+<p class="caption"><span class="caption-text">USB转UART模块实物接线图</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="rgb">
+<h3>2.5 RGB灯<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载单颗RGB灯，可由芯片的三个IO通过晶体管控制，实现亮灭或渐变等效果。</p>
+<div class="figure align-center" id="id23">
+<img alt="image" src="../../_images/Schematic_RGB.png" />
+<p class="caption"><span class="caption-text">RGB灯原理图</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的三对引脚，如下图所示：</p>
+<div class="figure align-center" id="id24">
+<img alt="image" src="../../_images/rgb.png" />
+<p class="caption"><span class="caption-text">RGB灯实物图</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>2.6 USB模块<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>开发板提供一个USB_Type-C接口，原理图如下:</p>
+<div class="figure align-center" id="id25">
+<img alt="image" src="../../_images/Schematic_USB.png" />
+<p class="caption"><span class="caption-text">USB模块外围电路原理图</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id26">
+<img alt="image" src="../../_images/USB.png" />
+<p class="caption"><span class="caption-text">USB模块外围电路实物图</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>2.7 运动传感器<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了三轴加速度计传感器SC7A20，提供了IIC接口与主控芯片进行通信，IIC通信地址为：0X18，原理图如下：</p>
+<div class="figure align-center" id="id27">
+<img alt="image" src="../../_images/Schematic_G-Sensor.png" />
+<p class="caption"><span class="caption-text">G-Sensor 模块原理图</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id28">
+<img alt="image" src="../../_images/GyroscopeSensor.png" />
+<p class="caption"><span class="caption-text">G-Sensor 模块实物接线图</span><a class="headerlink" href="#id28" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="oled">
+<h3>2.8 OLED显示屏<a class="headerlink" href="#oled" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了常见的0.96寸、七针接口、128*64分辨率的OLED显示屏模块接口，OLED模块使用SSD1306显示驱动芯片进行控制，具备内部升压，对外默认提供三线SPI接口与主控芯片进行通信，其原理图如下：</p>
+<div class="figure align-center" id="id29">
+<img alt="image" src="../../_images/Schematic_OLED.png" />
+<p class="caption"><span class="caption-text">OLED模块原理图</span><a class="headerlink" href="#id29" title="永久链接至图片">¶</a></p>
+</div>
+<p>使用此模块功能之前，需要使用跳线帽短接OLED功能对应的排针，如下图所示：</p>
+<div class="figure align-center" id="id30">
+<img alt="image" src="../../_images/OLED.png" />
+<p class="caption"><span class="caption-text">OLED模块接线实物图</span><a class="headerlink" href="#id30" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p><strong>注</strong>：OLED显示屏模块与板载SPI FLASH芯片共用主控芯片的SPI接口。</p>
+</div></blockquote>
+</div>
+<div class="section" id="spi-flash">
+<h3>2.9 外部SPI FLASH<a class="headerlink" href="#spi-flash" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了具备1MB存储空间的外部FLASH芯片GD25WQ80，该芯片与板载显示屏模块共用主控芯片的SPI接口，其原理图如下：</p>
+<div class="figure align-center" id="id31">
+<img alt="image" src="../../_images/Schematic_FLASH.png" />
+<p class="caption"><span class="caption-text">外部 SPI Flash 模块原理图</span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id32">
+<img alt="image" src="../../_images/FLASH.png" />
+<p class="caption"><span class="caption-text">外部 SPI Flash 模块实物接线图</span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2.10 蜂鸣器<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了贴片无源蜂鸣器电路用于声音提示、报警等功能，可由PAN10xx SoC通过PWM输出2KHz~3KHz频率的方波控制发声，其原理图如下：</p>
+<div class="figure align-center" id="id33">
+<img alt="image" src="../../_images/Buzzer.png" />
+<p class="caption"><span class="caption-text">蜂鸣器模块原理图</span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id34">
+<img alt="image" src="../../_images/BUZ.png" />
+<p class="caption"><span class="caption-text">蜂鸣器模块实物接线图</span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>2.11 可调电阻<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了一个最大阻值为10K的可调电阻与0欧姆精密电阻串联接入电源电路，在LDO提供VDD电源的系统中，可在ADC采样点产生<strong>0</strong>V~ <strong>VDD</strong>V的可调电压，用于测试PAN10xx SoC的ADC（模数转换器）采样功能，其原理图如下：</p>
+<div class="figure align-center" id="id35">
+<img alt="image" src="../../_images/Schematic_R-ADJ.png" />
+<p class="caption"><span class="caption-text">可调电阻原理图</span><a class="headerlink" href="#id35" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id36">
+<img alt="image" src="../../_images/ADC.png" />
+<p class="caption"><span class="caption-text">ADC模块示例接线图</span><a class="headerlink" href="#id36" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>2.12 轻触按键<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>开发板底板配备了4个按键：2个普通GPIO按键、1个低功耗唤醒按键和1个复位按键。其中：</p>
+<ul class="simple">
+<li><p>按键<code class="docutils literal notranslate"><span class="pre">K1</span></code>可通过跳线帽连接至PAN10xx SoC的<code class="docutils literal notranslate"><span class="pre">RST</span></code>引脚，用于控制芯片复位；</p></li>
+<li><p>按键<code class="docutils literal notranslate"><span class="pre">K2</span></code>可通过跳线帽连接至PAN10xx SoC的<code class="docutils literal notranslate"><span class="pre">P02</span></code>引脚，在PAN10xx SoC处于待机（Standby）模式下时，P56引脚可被配置为低功耗唤醒引脚。</p></li>
+<li><p>按键<code class="docutils literal notranslate"><span class="pre">K3</span></code>、<code class="docutils literal notranslate"><span class="pre">K4</span></code>连接至PAN10xx SoC的GPIO口<code class="docutils literal notranslate"><span class="pre">P06</span></code>、<code class="docutils literal notranslate"><span class="pre">P12</span></code>，当做普通按键使用；</p></li>
+</ul>
+<p>按键，原理图如下：</p>
+<div class="figure align-center" id="id37">
+<img alt="image" src="../../_images/Schematic_KEY.png" />
+<p class="caption"><span class="caption-text">按键原理图</span><a class="headerlink" href="#id37" title="永久链接至图片">¶</a></p>
+</div>
+<p>为正常使用所有按键，需要将GPIO内部上拉电阻开关打开，PCBA如下图所示：</p>
+<div class="figure align-center" id="id38">
+<img alt="image" src="../../_images/Development_board_KEY.png" />
+<p class="caption"><span class="caption-text">按键图</span><a class="headerlink" href="#id38" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="led">
+<h3>2.13 独立LED灯<a class="headerlink" href="#led" title="永久链接至标题">¶</a></h3>
+<p>开发板底板配备了4独立LED灯，原理图如下：</p>
+<div class="figure align-center" id="id39">
+<img alt="image" src="../../_images/S_LED.PNG" />
+<p class="caption"><span class="caption-text">LED灯模块原理图</span><a class="headerlink" href="#id39" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示：</p>
+<div class="figure align-center" id="id40">
+<img alt="image" src="../../_images/LED.png" />
+<p class="caption"><span class="caption-text">LED灯模块实物接线图</span><a class="headerlink" href="#id40" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>2.14 红外模块<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>开发板搭载了一个红外收发模块，包括一个发射电路和一个接收电路，其原理图如下：</p>
+<div class="figure align-center" id="id41">
+<img alt="image" src="../../_images/Schematic_IR.png" />
+<p class="caption"><span class="caption-text">红外模块原理图</span><a class="headerlink" href="#id41" title="永久链接至图片">¶</a></p>
+</div>
+<p>为使用此模块功能，需要将跳线帽短接排针上对应的引脚，如下图所示（可选择只短接需要使用的LED灯，不需要全部短接）：</p>
+<div class="figure align-center" id="id42">
+<img alt="image" src="../../_images/Infrared.png" />
+<p class="caption"><span class="caption-text">红外模块实物接线图</span><a class="headerlink" href="#id42" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

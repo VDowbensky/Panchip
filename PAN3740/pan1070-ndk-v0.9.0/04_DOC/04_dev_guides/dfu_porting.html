@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 蓝牙 OTA 移植指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK PAN101x 工程移植指南" href="ndk_chip_migration.html" />
+    <link rel="prev" title="NDK RAM 使用分析及优化指南" href="ndk_ram_analysis_guidance.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 蓝牙 OTA 移植指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dfu">2 DFU 代码移植</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ota-demo">2.1 基于支持 OTA 的 Demo 工程开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.2 DFU 标准移植方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2 DFU 快速移植方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3  工程配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4 DFU使用注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK 蓝牙 OTA 移植指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/dfu_porting.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-ota">
+<h1>NDK 蓝牙 OTA 移植指南<a class="headerlink" href="#ndk-ota" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>NDK BLE OTA 功能使用的是开源 DFU 协议（磐启添加了设备相关的适配层），支持通过 NRF Connect App 进行 OTA 固件升级，同时支持 IOS 和安卓版 NRF Connect App。</p>
+<p>磐启移植的是 DFU server，如果用户需要将 DFU Client 集成到自己的系统，需要自行处理，可以去 Nordic github 仓库寻找资源。</p>
+<p>一个完整的 DFU 功能移植包含2个工作：</p>
+<ol class="simple">
+<li><p>DFU 代码移植</p></li>
+<li><p>工程参数配置（例如：Flash Map 的配置）</p></li>
+</ol>
+</div>
+<div class="section" id="dfu">
+<h2>2 DFU 代码移植<a class="headerlink" href="#dfu" title="永久链接至标题">¶</a></h2>
+<p><strong>磐启提供了3种 DFU 代码移植方法</strong>：</p>
+<ol class="simple">
+<li><p>基于支持 OTA demo工程开发</p></li>
+<li><p>标准移植</p></li>
+<li><p>快速移植</p></li>
+</ol>
+<p>用户可以在 SDK 的 <code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\component\dfu</span></code>路径下找到 DFU 源码。</p>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../_images/dfu_src_code.png" />
+<p class="caption"><span class="caption-text">DFU 源码文件</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+<div class="section" id="ota-demo">
+<h3>2.1 基于支持 OTA 的 Demo 工程开发<a class="headerlink" href="#ota-demo" title="永久链接至标题">¶</a></h3>
+<p>​	用户可以基于 OTA demo工程（ble_periph_hr_ota）开发项目，这个最简单，用户只需要关注 Flash Map 和 BLE 资源要根据实际需求配置。Flash Map 和 BLE 资源的配置选项可以在工程的<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>中找到。</p>
+</div>
+<div class="section" id="id2">
+<h3>2.2 DFU 标准移植方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p><strong>Step1: 在 keil 工程中新建 <code class="docutils literal notranslate"><span class="pre">ble_dfu</span> </code>文件夹（名称可以自己取）</strong></p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../_images/dfu_std_port_step1.png" />
+<p class="caption"><span class="caption-text">新建ble_dfu文件夹</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p><strong>Step2:  通过 keil 添加 DFU 源码文件到 ble_dfu 文件夹中</strong></p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../_images/dfu_std_port_step2.png" />
+<p class="caption"><span class="caption-text">添加DFU源文件</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p><strong>Step3:  添加 DFU 头文件到 keil</strong></p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../_images/dfu_std_port_step3.png" />
+<p class="caption"><span class="caption-text">添加 DFU 头文件</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p><strong>Step4:  在 code 中引入 DFU 头文件 <code class="docutils literal notranslate"><span class="pre">pan_smp.h</span></code>,  同时在 <code class="docutils literal notranslate"><span class="pre">app_ble_pre_init_cb()</span></code> 函数中添加 DFU 初始化函数 <code class="docutils literal notranslate"><span class="pre">pan_dfu_init()</span></code></strong></p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../_images/dfu_std_port_step4.png" />
+<p class="caption"><span class="caption-text">添加 DFU 初始化函数到工程</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ul>
+<p>到此, DFU 代码移植完成</p>
+</div>
+<div class="section" id="id3">
+<h3>2.2 DFU 快速移植方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>快速移植方法是在标准移植方法的基础上去掉了新建ble_dfu文件夹和添加DFU 源文件到ble_dfu文件夹以及手动添加 DFU 头文件的步骤，也即去掉了标准移植方法的 step1 和 step2 以及 step3，同时对step 4 略微修改</p>
+<ul class="simple">
+<li><p><strong>Step1:</strong> 在 SDK <code class="docutils literal notranslate"><span class="pre">&lt;home&gt;/nimble/scripts/</span></code>路径下找到 <code class="docutils literal notranslate"><span class="pre">dfu_porting_tool.py</span></code>脚本，copy脚本到用户工程目录下，然后执行脚本，脚本将自动添加DFU 头文件到keil工程。<strong>(需要安装python)</strong></p></li>
+</ul>
+<div class="figure align-center" id="id11">
+<img alt="image" src="../_images/dfu_fast_port_step1.png" />
+<p class="caption"><span class="caption-text">dfu_porting_tool.py 脚本</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><strong>Step2：</strong> 在 code 中引入 DFU 头文件 <code class="docutils literal notranslate"><span class="pre">pan_dfu.h</span></code>,  同时在 <code class="docutils literal notranslate"><span class="pre">app_ble_pre_init_cb()</span></code> 函数中添加 DFU 初始化函数 <code class="docutils literal notranslate"><span class="pre">pan_dfu_init()</span></code></p></li>
+</ul>
+<div class="figure align-center" id="id12">
+<img alt="image" src="../_images/dfu_fast_port_step2.png" />
+<p class="caption"><span class="caption-text">添加 DFU 初始化函数到工程</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+<p>到此，DFU 代码移植完成</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3  工程配置<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>DFU 代码移植完成后，需要根据所使用的芯片 Flash Size和应用来配置 Flash Layout。Flash Layout 主要包含bootloader area、image area、image backup area、kv store area和user custom parameter area配置。</p>
+<p>Flash layout的配置选项可以在工程的sdk_config.h中找到。</p>
+<div class="figure align-center" id="id13">
+<img alt="image" src="../_images/dfu_config.png" />
+<p class="caption"><span class="caption-text">Flash Layout</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>注意：蓝牙DFU应用中，”Enable App Image Header ” 配置选项必须开启, 用户可以通过image header来维护固件版本</p>
+</div></blockquote>
+<p>除了上述配置外，可能还需要配置 RTOS 参数或者 BLE 参数，这个与具体应用有关系，无法给出一个具体配置，这里只是给用户做个提示。</p>
+</div>
+<div class="section" id="id5">
+<h2>4 DFU使用注意事项<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>DFU移植并配置好后，即可通过keil编译生成app image。生成的固件被存储在工程目录下的 Images 文件夹中,其中带 “<strong>signed</strong>” 字样的是经过脚本处理后的可以OTA的固件。</p>
+<blockquote>
+<div><p>注意： 工程目录下的 Images 文件夹中的文件 都是通过 post_build.bat 脚本生成的，该脚本在每个demo工程中都有一个，不同的工程略有区别.</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="figure align-center" id="id14">
+<img alt="image" src="../_images/dfu_app_image.png" />
+<p class="caption"><span class="caption-text">Images 文件夹</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+<ol>
+<li><p>在支持OTA的蓝牙应用中，不能通过 keil 烧录程序，必须通过J-Flash等工具烧录Images文件夹下带”<strong>signed</strong>” 字样的 bin 或者 hex 文件。因为 keil 直接烧录的程序是没有被签名过的程序，因此无法进行OTA。</p></li>
+<li><p>如果用户需要 hex 版本的签名固件，需要将如下代码copy 到工程目录下的 post_build.bat 脚本中靠后的位置, 或者直接从SDK中支持OTA 的demo工程中copy 一份 post_build.bat</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>..\..\..\..\scripts\srec_cat.exe <span class="nv">%1</span>\ndk_app.signed.bin -binary -offset 0xA000 -o <span class="nv">%1</span>\ndk_app.signed.hex -intel -Output_Block_Size 0x10
+<span class="k">IF</span> <span class="nv">%errorlevel%</span> <span class="ow">NEQ</span> 0 <span class="p">(</span>
+  <span class="p">@</span><span class="k">ECHO</span> Error occurred when generating ndk_app.signed.hex, errno is <span class="nv">%errorlevel%</span>, exit.
+  <span class="k">exit</span> /b <span class="nv">%errorlevel%</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>为了使用DFU功能，除了烧录app 固件外，还需烧录 bootloader 固件，bootloader固件可以通过SDK中 <a class="reference internal" href="ndk_mcu_boot.html"><span class="doc std std-doc">mcu_boot</span></a> 工程编译得到，并直接keil烧录即可。</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

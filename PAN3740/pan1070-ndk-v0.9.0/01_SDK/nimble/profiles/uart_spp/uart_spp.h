@@ -1,0 +1,26 @@
+/**
+ *******************************************************************************
+ * @file     uart_spp.h
+ * @create   2023-08-01
+ * @author   Panchip BLE GROUP
+ * @note
+ * Copyright (c) 2022 Shanghai Panchip Microelectronics Co.,Ltd.
+ *
+ *******************************************************************************
+ */
+
+#ifndef UART_SPP_H
+#define UART_SPP_H
+
+#include <stdint.h>
+
+/* SPP service uuid */
+#define BLE_SVC_SPP_UUID128			    0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x00, 0x00, 0x40, 0x6e
+#define BLE_SVC_SPP_CHR_UUID128_RX		0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x02, 0x00, 0x40, 0x6e
+#define BLE_SVC_SPP_CHR_UUID128_TX		0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x03, 0x00, 0x40, 0x6e
+
+int ble_svc_spp_init(void);
+
+int ble_svc_spp_send_notify(uint16_t conn_handle, uint8_t *pdata, uint32_t len);
+
+#endif

@@ -1,0 +1,32 @@
+
+void ApplyDebugKey(void)
+{
+    // Write debug key to KEY Registers in eFuse module
+    JLINK_MEM_WriteU32(0x40080068, 0x0a320bfa); // EF_VERIFY_DEBUG1
+    JLINK_MEM_WriteU32(0x4008006C, 0x32a24f95); // EF_VERIFY_DEBUG2
+    JLINK_MEM_WriteU32(0x40080070, 0x29fe9e58); // EF_VERIFY_DEBUG3
+    JLINK_MEM_WriteU32(0x40080074, 0x18e2403f); // EF_VERIFY_DEBUG4
+}
+
+// int ResetTarget(void)
+// {
+//    JLINK_SYS_Report("ResetTarget(), Replace the default Reset Proc.");
+
+//    return 0;
+//}
+
+int SetupTarget(void)
+{
+    JLINK_SYS_Report("SetupTarget()");
+
+    return 0;
+}
+
+int AfterResetTarget(void)
+{
+    JLINK_SYS_Report("AfterResetTarget()");
+
+    ApplyDebugKey();
+
+    return 0;
+}

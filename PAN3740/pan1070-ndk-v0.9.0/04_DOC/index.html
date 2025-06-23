@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PAN107x/PAN101x Nimble Development Kit 文档中心 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="快速入门" href="01_quick_start/index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="#">Docs / 0.9.0</a> &raquo;</li>
+  
+  <li>PAN107x/PAN101x Nimble Development Kit 文档中心</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="section" id="soc-name-pan101x-nimble-development-kit">
+<span id="pan107x-ndk-home"></span><h1>PAN107x/PAN101x Nimble Development Kit 文档中心<a class="headerlink" href="#soc-name-pan101x-nimble-development-kit" title="永久链接至标题">¶</a></h1>
+<p>欢迎访问 PAN107x/PAN101x Nimble Development Kit 文档中心！</p>
+<p>本中心为开发者提供关于 PAN107x/PAN101x Nimble Development Kit (PAN107x/PAN101x NDK 开发套件) 的快速入门、硬件介绍、例程说明、开发指南等开发文档。</p>
+<p>当前文档为 <strong>正式发布版本</strong>：NDK-v0.9.0。</p>
+<p>查看最新版本文档，请访问 <a class="reference external" href="http://docs.panchip.com/pan1070dk-doc/ndk-latest">PAN107x/PAN101x Nimble Development Kit 文档中心</a> 网站。
+查看特定版本的文档，请在页面左下角版本选择菜单中进行选择。</p>
+<div class="section" id="id1">
+<h2>适用范围<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本中心的文档适用于以下 Panchip SoC 芯片：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.panchip.com/ble/pan107-series/">PAN107 系列产品</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/ble/pan101-series/">PAN101 系列产品</a></p></li>
+</ul>
+<div class="important admonition">
+<p class="admonition-title">提醒</p>
+<p>PAN101x 是与 PAN107x 不同系列的产品，其指标参数、硬件资源、封装形式等均与 PAN107x 有所不同，但它们的软件开发框架和流程是相同的，
+因此从 PAN107x NDK v0.5.0 版本开始，我们添加了对 PAN101x 系列芯片的支持。</p>
+<p>本文档中心的一些文章在具体表述中，可能只会以 PAN107x 系列产品为例进行讲述，但若无特别说明，也是适用于 PAN101x 系列产品的。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>芯片文档<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>PAN107x:</p>
+<ul>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/3294">PAN107x 产品说明书（中文）</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/2867">PAN107x Datasheet（英文）</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/2946">PAN107x User Manual（英文）</a></p></li>
+</ul>
+</li>
+<li><p>PAN101x:</p>
+<ul>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/3306">PAN101x 产品说明书（中文）</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/3204">PAN101x Datasheet（英文）</a></p></li>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/3301">PAN101x User Manual（英文）</a></p></li>
+</ul>
+</li>
+<li><p>其他:</p>
+<ul>
+<li><p><a class="reference external" href="https://wiki.panchip.com/download/3906">PAN3740 产品说明书（中文）</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>快捷导航<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="grid">
+    <li class="grid-item">
+        <a href="01_quick_start/ndk_quick_start.html">
+            <span class="grid-icon fa fa-paper-plane"></span>
+            <h2>SDK 快速入门指南</h2>
+        </a>
+        <p>快速入门PAN107x/PAN101x Nimble SDK的开发，搭建软硬件环境并编译运行调试一个例程。</p>
+    </li>
+    <li class="grid-item">
+        <a href="01_quick_start/nimble_introduction.html">
+            <img alt="" src="_static/images/mynewt-nimble.png"/>
+            <h2>Nimble 简介</h2>
+        </a>
+        <p>简要介绍Nimble框架的特性，以及PAN107x/PAN101x NDK为其做了哪些适配。</p>
+    </li>
+    <li class="grid-item">
+        <a href="01_quick_start/ndk_framework.html">
+            <span class="grid-icon fa fa-table"></span>
+            <h2>SDK 整体框架介绍</h2>
+        </a>
+        <p>介绍PAN107x/PAN101x NDK整体框架，包括系统架构，目录结构概览等。</p>
+    </li>
+    <li class="grid-item">
+        <a href="01_quick_start/ndk_develop_environment_intro.html">
+            <span class="grid-icon fa fa-laptop"></span>
+            <h2>SDK 开发环境介绍</h2>
+        </a>
+        <p>介绍PAN107x/PAN101x NDK的开发环境。</p>
+    </li>
+    <li class="grid-item">
+        <a href="03_samples/index.html">
+            <span class="grid-icon fa fa-bluetooth-b"></span>
+            <h2>SDK 演示例程</h2>
+        </a>
+        <p>PAN107x/PAN101x NDK包含的所有演示例程介绍。</p>
+    </li>
+    <li class="grid-item">
+        <a href="04_dev_guides/index.html">
+            <span class="grid-icon fa fa-terminal"></span>
+            <h2>SDK 开发指南</h2>
+        </a>
+        <p>PAN107x/PAN101x NDK开发指南，包括开发技巧、应用指南及相关工具介绍等。</p>
+    </li>
+   <li class="grid-item">
+        <a href="02_hardware/hardware_reference_design/pan107x_hw_reference_design.html">
+            <span class="grid-icon fa fa-microchip"></span>
+            <h2>硬件参考设计</h2>
+        </a>
+        <p>PAN107x/PAN101x硬件参考设计指南文档。</p>
+    </li>
+    <li class="grid-item">
+        <a href="05_manufacturing_and_testing/manufacture.html">
+            <span class="grid-icon fa fa-keyboard-o"></span>
+            <h2>量产烧录</h2>
+        </a>
+        <p>PAN10xx量产烧录方法与相关工具介绍。</p>
+    </li>
+    <li class="grid-item">
+        <a href="06_dev_tools/index.html">
+            <span class="grid-icon fa fa-cubes"></span>
+            <h2>开发工具</h2>
+        </a>
+        <p>为方便PAN10xx芯片开发而提供的一些工具软件介绍。</p>
+    </li>
+    <li class="grid-item">
+        <a href="07_others/index.html">
+            <span class="grid-icon fa fa-file-pdf-o"></span>
+            <h2>其他文档</h2>
+        </a>
+        <p>PAN107x/PAN101x其他相关文档，包括产品说明书、认证证书等。</p>
+    </li>
+    <li class="grid-item">
+        <a href="CHANGELOG.html">
+            <span class="grid-icon fa fa-flag-o"></span>
+            <h2>更新日志</h2>
+        </a>
+        <p>PAN107x/PAN101x NDK 更新日志（Release Notes）。</p>
+    </li>
+    <li class="grid-item">
+        <a href="http://wiki.panchip.com/">
+            <span class="grid-icon fa fa-internet-explorer"></span>
+            <h2>Panchip Wiki</h2>
+        </a>
+        <p>Panchip SoC产品维基百科网站。</p>
+    </li>
+</ul><div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">更新日志</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

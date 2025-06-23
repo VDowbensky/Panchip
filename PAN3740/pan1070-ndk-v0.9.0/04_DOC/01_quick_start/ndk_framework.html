@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 整体框架介绍 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK BLE 协议栈简介" href="ndk_ble_introduction.html" />
+    <link rel="prev" title="NDK 开发环境搭建" href="ndk_develop_environment_intro.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">快速入门</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_quick_start.html">NDK 快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_develop_environment_intro.html">NDK 开发环境搭建</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 整体框架介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk">2 SDK 目录结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules">2.1 modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component">2.2 component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller">2.3 controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host">2.4 host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib">2.5 lib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles">2.6 profiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samples">2.7 samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ble_introduction.html">NDK BLE 协议栈简介</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">快速入门</a> &raquo;</li>
+  
+  <li>NDK 整体框架介绍</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/01_quick_start/ndk_framework.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk">
+<h1>NDK 整体框架介绍<a class="headerlink" href="#ndk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>PAN107x NDK 的 SDK 部分基于开源蓝牙协议栈 Nimble(Host)、开源实时操作系统 FreeRTOS 以及 Panchip 私有 BLE Controller 实现的。Nimble 和 FreeRTOS 均开放源码，BLE Controller 通过标准化 HCI 接口实现。需要注意的是本 SDK 依赖的开发环境 (IDE) 为 Keil v5。</p>
+<div class="figure align-center" id="id2">
+<img alt="image" src="../_images/sdk_structure.png" />
+<p class="caption"><span class="caption-text">NDK整体结构</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="sdk">
+<h2>2 SDK 目录结构<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h2>
+<p>PAN107x NDK 的 SDK 部分源码树结构如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK
+├──<span class="w"> </span>modules
+│<span class="w">   </span>└──<span class="w"> </span>hal
+└──<span class="w"> </span>nimble
+<span class="w">    </span>├──<span class="w"> </span>README.md
+<span class="w">    </span>├──<span class="w"> </span>component
+<span class="w">    </span>├──<span class="w"> </span>config
+<span class="w">    </span>├──<span class="w"> </span>controller
+<span class="w">    </span>├──<span class="w"> </span>host
+<span class="w">    </span>├──<span class="w"> </span>lib
+<span class="w">    </span>├──<span class="w"> </span>os
+<span class="w">    </span>├──<span class="w"> </span>profiles
+<span class="w">    </span>├──<span class="w"> </span>scripts
+<span class="w">    </span>├──<span class="w"> </span>soc
+<span class="w">    </span>├──<span class="w"> </span>utilities
+<span class="w">    </span>└──<span class="w"> </span>samples
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">moudules/hal</span></code>：与ZDK同根同源，属于外设和driver相关的硬件抽象层</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md：</span></code>nimble基本介绍</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">component</span></code>:  磐启提供的开箱即用的通用组件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller</span></code>：BLE Controller 头文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span></code>：Nimble 源文件 + 磐启适配层源文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lib</span></code>：BLE Controller 或者2.4G或者其他库文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code>: FreeRTOS 源文件 + 磐启OS 适配层源文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profiles</span></code>： 目前磐启支持的BLE profiles文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts</span></code>: 一些有用的脚本文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soc</span></code>: Soc通用接口源文件 ,例如： system clock初始化、FT Load、PM driver等</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utilites</span></code>: 磐启提供的一些方便但很难分类的函数接口，例如：数据打包和拆包、mac address 加载、FressRTOS一些函数和宏的包装、中断临界保护以及一些杂项函数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">samples</span></code>:磐启提供的demo工程，例如：蓝牙demo、MCU外设demo、PM demo、sub-1G demo等</p></li>
+</ul>
+<div class="section" id="modules">
+<h3>2.1 modules<a class="headerlink" href="#modules" title="永久链接至标题">¶</a></h3>
+<p>modules在NDK中主要为外设以及USB，2.4G等依赖的库文件</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/modules
+.
+└──<span class="w"> </span>hal
+<span class="w">    </span>└──<span class="w"> </span>panchip
+<span class="w">        </span>└──<span class="w"> </span>panplat
+<span class="w">            </span>└──<span class="w"> </span>pan1070
+<span class="w">                </span>└──<span class="w"> </span>bsp
+<span class="w">                    </span>├──<span class="w"> </span>cmsis
+<span class="w">                    </span>├──<span class="w"> </span>device
+<span class="w">                    </span>├──<span class="w"> </span>peripheral
+<span class="w">                    </span>├──<span class="w"> </span>radio
+<span class="w">                    </span>└──<span class="w"> </span>usb
+</pre></div>
+</div>
+</div>
+<div class="section" id="component">
+<h3>2.2 component<a class="headerlink" href="#component" title="永久链接至标题">¶</a></h3>
+<p>为了方便用户使用， NDK提供了组件文件夹用于存放一些<code class="docutils literal notranslate"><span class="pre">开箱即用</span></code>的组件。目前有如下组件可用：</p>
+<ol>
+<li><p><strong>ble_dev_filter</strong></p>
+<p>ble device filter 提供了一套简单易用的API，用于设备作central role时，从adv report中过滤出用户关心的设备，从而建立连接或者做其他处理。</p>
+<p><strong>ble device filter 组件提供了如下过滤功能：</strong></p>
+<ul class="simple">
+<li><p>过滤设备Name</p></li>
+<li><p>过滤RSSI</p></li>
+<li><p>过滤一个或者多个设备address</p></li>
+<li><p>过滤设备address type</p></li>
+<li><p>过滤16bits UUID</p></li>
+<li><p>过滤128bits UUID</p></li>
+<li><p>过滤制造商特定数据</p></li>
+</ul>
+<p><strong>ble device filter支持两种过滤mode</strong></p>
+<ul class="simple">
+<li><p>Single mode - 多个过滤条件只要一个满足即认为有效</p></li>
+<li><p>All mode - 多个过滤条件必须同时满足才认为有效，<code class="docutils literal notranslate"><span class="pre">这是default</span> <span class="pre">mode</span></code></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">具体用法可以参看ble_central工程。</span></code></p>
+</li>
+<li><p><strong>app_timer</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>app_timer 组件提供了一套简单易用的timer API，它是基于32k sleep timer来实现的，精度高。</p></li>
+<li><p>app_timer使用之前需要调用app_timer_init()函数对app_timer系统进行初始化</p></li>
+<li><p>app_timer使用时需要注意：</p>
+<ul>
+<li><p>app_timer使用了sleep timer channel 1中断，因此，用户应用中不能使用sleep timer channel 1</p></li>
+<li><p>由于app_timer的timeout回调是在中断中执行的，因此，应用时要注意 timeout 回调函数应尽量短小精悍</p></li>
+<li><p>sleep timer的中断优先级可能会影响app_timer的定时精度（优先级低可能被其他中断打断），使用时需要根据实际应用调整sleep timer 中断优先级。</p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">app_timer的用法可以参看app_timer.c文件下的test用例。</span> </code></p>
+<ol>
+<li><p><strong>app_log</strong></p>
+<p>NDK中提供了一套log系统，方便用户使用</p>
+<p><strong>app_log 组件功能</strong></p>
+<ul class="simple">
+<li><p>支持<code class="docutils literal notranslate"><span class="pre">DEBUG/INFO/WRN/ERROR</span></code> log level，用户可以在sdk_config.h中配置log level</p></li>
+<li><p>支持 trace info的输出，用户可以在sdk_config.h中配置Enable/Disable, trace信息包含了log输出的具体位置。</p></li>
+<li><p>支持log level target的输出，用户可以在sdk_config.h中配置Enable/Disable</p></li>
+<li><p>支持 UART和RTT，用户可以在sdk_config.h中配置Enable/Disable</p></li>
+</ul>
+</li>
+<li><p><strong>app_assert</strong></p>
+<p>NDK提供了通用的断言组件供用户使用。断言主要应用于对参数的检查和函数返回值的检查中，如果出现异常可以让程序停住并输出异常原因。</p>
+</li>
+<li><p><strong>app_fifo</strong></p>
+<p>app_fifo 组件提供了一套类似 ringbuffer 功能的程序，但是其执行效率比 ringbuffer 快，代码量更小，无依赖。</p>
+<p><strong>app_fifo组件的功能及使用要点：</strong></p>
+<ul class="simple">
+<li><p>app_fifo提供了一套高效的方法对一个连续内存进行管理</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">app_fifo要求内存大小必须是2的n次幂</span> <span class="pre">，例如：</span> <span class="pre">2,4,8,16,32…</span> </code></p></li>
+</ul>
+</li>
+<li><p><strong>ringbuffer</strong></p>
+<p>ringbuffer 组件提供了一种常规的循环buffer接口。</p>
+</li>
+<li><p><strong>sort_queue</strong></p>
+<p>sort_queue 组件提供了一套自动排序的queue API, 主要用于对数据有排序要求的场景， app_timer组件就使用了sort_queue。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sort_queue的具体用法可以参看app_timer或者sort_queue.c下的测试程序。</span> </code></p>
+</li>
+<li><p><strong>mem_mng</strong></p>
+<p>mem_mng 组件提供一套通用的memory 管理API，目前暂时是通过包装OS memory管理函数实现，后面我们慢慢实现自己的mem_mng组件，但是API接口将保持不变，保证后续的兼容性。</p>
+</li>
+<li><p><strong>kv_store</strong></p>
+<p>kv_store 提供了一套通用的Flash 管理的API，主要用于存储system运行参数，用户数据等。 目前kv_store组件使用的是开源的。</p>
+</li>
+</ol>
+<p>随着时间的推移，我们将不断增加组件，节省用户开发时间。</p>
+</div>
+<div class="section" id="controller">
+<h3>2.3 controller<a class="headerlink" href="#controller" title="永久链接至标题">¶</a></h3>
+<p>controller中主要包含了BLE controller相关头文件和RF test相关的文件。 为了方便用户使用ble controller的接口函数，将controller头文件集中在pan_ble_controller.h文件中，用户如果要使用ble controller的接口，直接包含该文件即可。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/nimble/controller
+.
+├──<span class="w"> </span>rf_test
+├──<span class="w"> </span>pan_ble_controller.h
+└──<span class="w"> </span>pan107x_spark
+<span class="w">    </span>└──<span class="w"> </span>include
+</pre></div>
+</div>
+</div>
+<div class="section" id="host">
+<h3>2.4 host<a class="headerlink" href="#host" title="永久链接至标题">¶</a></h3>
+<p>host中包含nimble的源代码以及其他必须的组件。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/nimble/host
+.
+├──<span class="w"> </span>smp_bt
+│<span class="w">	</span>├──<span class="w"> </span>app_smp
+│<span class="w">	</span>├──<span class="w"> </span>mcumgr
+│<span class="w">	</span>├──<span class="w"> </span>os_smp
+│<span class="w">	</span>└──<span class="w"> </span>tinycbor
+└──<span class="w"> </span>nimble
+<span class="w">    </span>├──<span class="w"> </span>CODING_STANDARDS.md
+<span class="w">    </span>├──<span class="w"> </span>LICENSE
+<span class="w">    </span>├──<span class="w"> </span>NOTICE
+<span class="w">    </span>├──<span class="w"> </span>README.md
+<span class="w">    </span>├──<span class="w"> </span>RELEASE_NOTES.md
+<span class="w">    </span>├──<span class="w"> </span>apps
+<span class="w">    </span>├──<span class="w"> </span>babblesim
+<span class="w">    </span>├──<span class="w"> </span>docs
+<span class="w">    </span>├──<span class="w"> </span>ext
+<span class="w">    </span>├──<span class="w"> </span>nimble
+<span class="w">    </span>├──<span class="w"> </span>porting
+<span class="w">    </span>├──<span class="w"> </span>repository.yml
+<span class="w">    </span>├──<span class="w"> </span>targets
+<span class="w">    </span>├──<span class="w"> </span>uncrustify.cfg
+<span class="w">    </span>└──<span class="w"> </span>version.yml
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">smp_bt:</span></code></p>
+<p>OTA相关的实现文件，该模块实现了基于SMP service的OTA固件升级协议，可以通过NRF connect app进行固件升级。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nimble</span></code>：</p>
+<p>参考nimble专页介绍，NDK使用的nimble版本是<code class="docutils literal notranslate"><span class="pre">v1.5.0</span></code></p>
+</li>
+</ul>
+</div>
+<div class="section" id="lib">
+<h3>2.5 lib<a class="headerlink" href="#lib" title="永久链接至标题">¶</a></h3>
+<p>lib中主要包含了controller库文件:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/nimble/lib
+.
+├──<span class="w"> </span>pan101x_spark
+<span class="p">|</span><span class="w">   </span>└──<span class="w"> </span>ble_spark_101x.lib
+└──<span class="w"> </span>pan107x_spark
+<span class="w">    </span>├──<span class="w"> </span>ble_spark_107x.lib
+<span class="w">    </span>└──<span class="w"> </span>ble_spark_107x_rd.lib
+</pre></div>
+</div>
+<p>目前NDK中BLE Controller支持pan101x/pan107x系列芯片。pan107x提供了两个lib，其中带<code class="docutils literal notranslate"><span class="pre">&quot;rd&quot;</span></code>字样的lib是RAM优化版本，用于对功耗要求不高，但是需要较多RAM空间的情况，目前ble_mulit_role demo工程使用了该库。</p>
+</div>
+<div class="section" id="profiles">
+<h3>2.6 profiles<a class="headerlink" href="#profiles" title="永久链接至标题">¶</a></h3>
+<p>profiles中包含了蓝牙官方定义以及磐启自定义的BLE service的具体实现，目前可用的profiles如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/nimble/profiles
+.
+└── profles
+	├── acc
+	├── ans
+	├── bas
+	├── dis
+	├── gap
+	├── gatt
+	├── gw
+	├── hid
+	├── hrs
+	├── hts (待实现)
+	└── uart_spp
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="samples">
+<h3>2.7 samples<a class="headerlink" href="#samples" title="永久链接至标题">¶</a></h3>
+<p>nimble示例工程：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&lt;home&gt;/01_SDK/nimble/samples
+.
+└──<span class="w"> </span>samples
+<span class="w">    </span>├──<span class="w"> </span>bluetooth
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>ble_central_periph
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>...
+<span class="w">    </span>└──<span class="w"> </span>solutions
+<span class="w">        </span>├──<span class="w"> </span>ble_hid_selfie
+<span class="w">        </span>└──<span class="w"> </span>...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

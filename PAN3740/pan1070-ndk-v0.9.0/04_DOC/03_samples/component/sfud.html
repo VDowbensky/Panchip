@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Serial Flash Universal Driver &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="USBD CDC-ACM" href="usbd_cdc_acm.html" />
+    <link rel="prev" title="Flash KVStore" href="flash_kvstore.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">系统组件例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="flash_kvstore.html">Flash KVStore</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Serial Flash Universal Driver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_cdc_acm.html">USBD CDC-ACM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_cdc_acm_msc_ram_disk.html">USBD CDC-ACM and MSC RAM Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_custom_inout.html">USBD HID Custom In/Out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_custom_msc_ram_disk.html">USBD HID Custom In/Out and MSC RAM Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_keyboard.html">USBD HID Keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_hid_mouse.html">USBD HID Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_msc_flash_disk.html">USBD MSC Flash Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbd_msc_ram_disk.html">USBD MSC RAM Disk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">系统组件例程</a> &raquo;</li>
+  
+  <li>Serial Flash Universal Driver</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/component/sfud.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="serial-flash-universal-driver">
+<h1>Serial Flash Universal Driver<a class="headerlink" href="#serial-flash-universal-driver" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使用 SPI Flash 通用驱动库（SFUD）组件，对外部 SPI Flash 进行读写擦等操作的方法。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>使用跳线帽将 EVB 底板上的外部 SPI Flash 的通信口与芯片 IO 相连：</p>
+<ul>
+<li><p>FLASH MISO &lt;–&gt; P05</p></li>
+<li><p>FLASH CS   &lt;–&gt; P03</p></li>
+<li><p>FLASH SCK  &lt;–&gt; P04</p></li>
+<li><p>FLASH MOSI &lt;–&gt; P11</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\component\sfud\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>烧录完成后，芯片会通过串口打印例程 Log：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span> <span class="n">to</span> <span class="n">load</span> <span class="n">HW</span> <span class="n">calibration</span> <span class="n">data</span><span class="o">..</span> <span class="n">DONE</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Info</span>         <span class="p">:</span> <span class="mh">0x61</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">CP</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">255</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">FT</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">7</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">MAC</span> <span class="n">Address</span>  <span class="p">:</span> <span class="n">E11000014DE5</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">UID</span>          <span class="p">:</span> <span class="n">B90801465454455354</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">UID</span>    <span class="p">:</span> <span class="mi">4250315</span><span class="n">A3538380B01FD8B435603EF78</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">Size</span>   <span class="p">:</span> <span class="mi">512</span> <span class="n">KB</span> <span class="p">(</span><span class="n">Inc</span><span class="o">.</span> <span class="mi">4</span><span class="n">KB</span> <span class="n">Panchip</span> <span class="n">Info</span> <span class="n">Area</span><span class="p">)</span>
+
+<span class="o">-</span> <span class="n">Current</span> <span class="n">Flash</span> <span class="n">Map</span> <span class="p">:</span>
+  <span class="o">+-------------------------+</span> <span class="o">&lt;-</span> <span class="n">Addr</span><span class="p">:</span> <span class="mh">0x00000</span>
+  <span class="o">|</span>      <span class="n">App</span> <span class="n">Partition</span>      <span class="o">|</span>
+  <span class="o">|</span>        <span class="p">(</span><span class="mi">480</span> <span class="n">KB</span><span class="p">)</span>         <span class="o">|</span>
+  <span class="o">+-------------------------+</span> <span class="o">&lt;-</span> <span class="n">Addr</span><span class="p">:</span> <span class="mh">0x78000</span>
+  <span class="o">|</span>    <span class="n">KVStore</span> <span class="n">Partition</span>    <span class="o">|</span>
+  <span class="o">|</span>        <span class="p">(</span> <span class="mi">16</span> <span class="n">KB</span><span class="p">)</span>         <span class="o">|</span>
+  <span class="o">+-------------------------+</span> <span class="o">&lt;-</span> <span class="n">Addr</span><span class="p">:</span> <span class="mh">0x7C000</span>
+  <span class="o">|</span>  <span class="n">User</span> <span class="n">Custom</span> <span class="n">Partition</span>  <span class="o">|</span>
+  <span class="o">|</span>        <span class="p">(</span> <span class="mi">12</span> <span class="n">KB</span><span class="p">)</span>         <span class="o">|</span>
+  <span class="o">+-------------------------+</span> <span class="o">&lt;-</span> <span class="n">Addr</span><span class="p">:</span> <span class="mh">0x7F000</span>
+  <span class="o">|</span>    <span class="n">Panchip</span> <span class="n">Info</span> <span class="n">Area</span>    <span class="o">|</span>
+  <span class="o">|</span>     <span class="p">(</span><span class="mi">4</span> <span class="n">KB</span><span class="p">,</span> <span class="n">Hidden</span><span class="p">)</span>      <span class="o">|</span>
+  <span class="o">+-------------------------+</span> <span class="o">&lt;-</span> <span class="n">End</span> <span class="p">:</span> <span class="mh">0x80000</span> <span class="p">(</span><span class="mi">512</span> <span class="n">KB</span><span class="p">)</span>
+
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">App</span> <span class="n">started</span><span class="o">..</span>
+
+<span class="p">[</span><span class="n">SFUD</span><span class="p">][</span><span class="n">INF</span><span class="p">]</span> <span class="n">Found</span> <span class="n">a</span> <span class="n">Winbond</span> <span class="n">W25Q128BV</span> <span class="n">flash</span> <span class="n">chip</span><span class="o">.</span> <span class="n">Size</span> <span class="ow">is</span> <span class="mi">16384</span> <span class="n">KBytes</span><span class="o">.</span>
+<span class="p">[</span><span class="n">SFUD</span><span class="p">][</span><span class="n">INF</span><span class="p">]</span> <span class="n">Flash0</span> <span class="n">flash</span> <span class="n">device</span> <span class="n">initialized</span> <span class="n">successfully</span><span class="o">.</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">Erase</span> <span class="n">the</span> <span class="n">Flash0</span> <span class="n">flash</span> <span class="n">data</span> <span class="n">finish</span><span class="o">.</span> <span class="n">Start</span> <span class="kn">from</span> <span class="mh">0x00000000</span><span class="p">,</span> <span class="n">size</span> <span class="ow">is</span> <span class="mf">1024.</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">Write</span> <span class="n">the</span> <span class="n">Flash0</span> <span class="n">flash</span> <span class="n">data</span> <span class="n">finish</span><span class="o">.</span> <span class="n">Start</span> <span class="kn">from</span> <span class="mh">0x00000000</span><span class="p">,</span> <span class="n">size</span> <span class="ow">is</span> <span class="mf">1024.</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">Read</span> <span class="n">the</span> <span class="n">Flash0</span> <span class="n">flash</span> <span class="n">data</span> <span class="n">success</span><span class="o">.</span> <span class="n">Start</span> <span class="kn">from</span> <span class="mh">0x00000000</span><span class="p">,</span> <span class="n">size</span> <span class="ow">is</span> <span class="mf">1024.</span> <span class="n">The</span> <span class="n">data</span> <span class="ow">is</span><span class="p">:</span>
+<span class="n">Offset</span> <span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">02</span> <span class="mi">03</span> <span class="mi">04</span> <span class="mi">05</span> <span class="mi">06</span> <span class="mi">07</span> <span class="mi">08</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">A</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">0</span><span class="n">C</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">0</span><span class="n">E</span> <span class="mi">0</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000000</span><span class="p">]</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">02</span> <span class="mi">03</span> <span class="mi">04</span> <span class="mi">05</span> <span class="mi">06</span> <span class="mi">07</span> <span class="mi">08</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">A</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">0</span><span class="n">C</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">0</span><span class="n">E</span> <span class="mi">0</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000010</span><span class="p">]</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">1</span><span class="n">A</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">1</span><span class="n">C</span> <span class="mi">1</span><span class="n">D</span> <span class="mi">1</span><span class="n">E</span> <span class="mi">1</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000020</span><span class="p">]</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span> <span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">2</span><span class="n">A</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">2</span><span class="n">C</span> <span class="mi">2</span><span class="n">D</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">2</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000030</span><span class="p">]</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span> <span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="mi">39</span> <span class="mi">3</span><span class="n">A</span> <span class="mi">3</span><span class="n">B</span> <span class="mi">3</span><span class="n">C</span> <span class="mi">3</span><span class="n">D</span> <span class="mi">3</span><span class="n">E</span> <span class="mi">3</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000040</span><span class="p">]</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span> <span class="mi">48</span> <span class="mi">49</span> <span class="mi">4</span><span class="n">A</span> <span class="mi">4</span><span class="n">B</span> <span class="mi">4</span><span class="n">C</span> <span class="mi">4</span><span class="n">D</span> <span class="mi">4</span><span class="n">E</span> <span class="mi">4</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000050</span><span class="p">]</span> <span class="mi">50</span> <span class="mi">51</span> <span class="mi">52</span> <span class="mi">53</span> <span class="mi">54</span> <span class="mi">55</span> <span class="mi">56</span> <span class="mi">57</span> <span class="mi">58</span> <span class="mi">59</span> <span class="mi">5</span><span class="n">A</span> <span class="mi">5</span><span class="n">B</span> <span class="mi">5</span><span class="n">C</span> <span class="mi">5</span><span class="n">D</span> <span class="mi">5</span><span class="n">E</span> <span class="mi">5</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000060</span><span class="p">]</span> <span class="mi">60</span> <span class="mi">61</span> <span class="mi">62</span> <span class="mi">63</span> <span class="mi">64</span> <span class="mi">65</span> <span class="mi">66</span> <span class="mi">67</span> <span class="mi">68</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">A</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">6</span><span class="n">C</span> <span class="mi">6</span><span class="n">D</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000070</span><span class="p">]</span> <span class="mi">70</span> <span class="mi">71</span> <span class="mi">72</span> <span class="mi">73</span> <span class="mi">74</span> <span class="mi">75</span> <span class="mi">76</span> <span class="mi">77</span> <span class="mi">78</span> <span class="mi">79</span> <span class="mi">7</span><span class="n">A</span> <span class="mi">7</span><span class="n">B</span> <span class="mi">7</span><span class="n">C</span> <span class="mi">7</span><span class="n">D</span> <span class="mi">7</span><span class="n">E</span> <span class="mi">7</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000080</span><span class="p">]</span> <span class="mi">80</span> <span class="mi">81</span> <span class="mi">82</span> <span class="mi">83</span> <span class="mi">84</span> <span class="mi">85</span> <span class="mi">86</span> <span class="mi">87</span> <span class="mi">88</span> <span class="mi">89</span> <span class="mi">8</span><span class="n">A</span> <span class="mi">8</span><span class="n">B</span> <span class="mi">8</span><span class="n">C</span> <span class="mi">8</span><span class="n">D</span> <span class="mi">8</span><span class="n">E</span> <span class="mi">8</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000090</span><span class="p">]</span> <span class="mi">90</span> <span class="mi">91</span> <span class="mi">92</span> <span class="mi">93</span> <span class="mi">94</span> <span class="mi">95</span> <span class="mi">96</span> <span class="mi">97</span> <span class="mi">98</span> <span class="mi">99</span> <span class="mi">9</span><span class="n">A</span> <span class="mi">9</span><span class="n">B</span> <span class="mi">9</span><span class="n">C</span> <span class="mi">9</span><span class="n">D</span> <span class="mi">9</span><span class="n">E</span> <span class="mi">9</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">000000</span><span class="n">A0</span><span class="p">]</span> <span class="n">A0</span> <span class="n">A1</span> <span class="n">A2</span> <span class="n">A3</span> <span class="n">A4</span> <span class="n">A5</span> <span class="n">A6</span> <span class="n">A7</span> <span class="n">A8</span> <span class="n">A9</span> <span class="n">AA</span> <span class="n">AB</span> <span class="n">AC</span> <span class="n">AD</span> <span class="n">AE</span> <span class="n">AF</span>
+<span class="p">[</span><span class="mi">000000</span><span class="n">B0</span><span class="p">]</span> <span class="n">B0</span> <span class="n">B1</span> <span class="n">B2</span> <span class="n">B3</span> <span class="n">B4</span> <span class="n">B5</span> <span class="n">B6</span> <span class="n">B7</span> <span class="n">B8</span> <span class="n">B9</span> <span class="n">BA</span> <span class="n">BB</span> <span class="n">BC</span> <span class="n">BD</span> <span class="n">BE</span> <span class="n">BF</span>
+<span class="p">[</span><span class="mi">000000</span><span class="n">C0</span><span class="p">]</span> <span class="n">C0</span> <span class="n">C1</span> <span class="n">C2</span> <span class="n">C3</span> <span class="n">C4</span> <span class="n">C5</span> <span class="n">C6</span> <span class="n">C7</span> <span class="n">C8</span> <span class="n">C9</span> <span class="n">CA</span> <span class="n">CB</span> <span class="n">CC</span> <span class="n">CD</span> <span class="n">CE</span> <span class="n">CF</span>
+<span class="p">[</span><span class="mi">000000</span><span class="n">D0</span><span class="p">]</span> <span class="n">D0</span> <span class="n">D1</span> <span class="n">D2</span> <span class="n">D3</span> <span class="n">D4</span> <span class="n">D5</span> <span class="n">D6</span> <span class="n">D7</span> <span class="n">D8</span> <span class="n">D9</span> <span class="n">DA</span> <span class="n">DB</span> <span class="n">DC</span> <span class="n">DD</span> <span class="n">DE</span> <span class="n">DF</span>
+<span class="p">[</span><span class="mf">000000E0</span><span class="p">]</span> <span class="n">E0</span> <span class="n">E1</span> <span class="n">E2</span> <span class="n">E3</span> <span class="n">E4</span> <span class="n">E5</span> <span class="n">E6</span> <span class="n">E7</span> <span class="n">E8</span> <span class="n">E9</span> <span class="n">EA</span> <span class="n">EB</span> <span class="n">EC</span> <span class="n">ED</span> <span class="n">EE</span> <span class="n">EF</span>
+<span class="p">[</span><span class="mi">000000</span><span class="n">F0</span><span class="p">]</span> <span class="n">F0</span> <span class="n">F1</span> <span class="n">F2</span> <span class="n">F3</span> <span class="n">F4</span> <span class="n">F5</span> <span class="n">F6</span> <span class="n">F7</span> <span class="n">F8</span> <span class="n">F9</span> <span class="n">FA</span> <span class="n">FB</span> <span class="n">FC</span> <span class="n">FD</span> <span class="n">FE</span> <span class="n">FF</span>
+<span class="p">[</span><span class="mi">00000100</span><span class="p">]</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">02</span> <span class="mi">03</span> <span class="mi">04</span> <span class="mi">05</span> <span class="mi">06</span> <span class="mi">07</span> <span class="mi">08</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">A</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">0</span><span class="n">C</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">0</span><span class="n">E</span> <span class="mi">0</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000110</span><span class="p">]</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">1</span><span class="n">A</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">1</span><span class="n">C</span> <span class="mi">1</span><span class="n">D</span> <span class="mi">1</span><span class="n">E</span> <span class="mi">1</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000120</span><span class="p">]</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span> <span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">2</span><span class="n">A</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">2</span><span class="n">C</span> <span class="mi">2</span><span class="n">D</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">2</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000130</span><span class="p">]</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span> <span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="mi">39</span> <span class="mi">3</span><span class="n">A</span> <span class="mi">3</span><span class="n">B</span> <span class="mi">3</span><span class="n">C</span> <span class="mi">3</span><span class="n">D</span> <span class="mi">3</span><span class="n">E</span> <span class="mi">3</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000140</span><span class="p">]</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span> <span class="mi">48</span> <span class="mi">49</span> <span class="mi">4</span><span class="n">A</span> <span class="mi">4</span><span class="n">B</span> <span class="mi">4</span><span class="n">C</span> <span class="mi">4</span><span class="n">D</span> <span class="mi">4</span><span class="n">E</span> <span class="mi">4</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000150</span><span class="p">]</span> <span class="mi">50</span> <span class="mi">51</span> <span class="mi">52</span> <span class="mi">53</span> <span class="mi">54</span> <span class="mi">55</span> <span class="mi">56</span> <span class="mi">57</span> <span class="mi">58</span> <span class="mi">59</span> <span class="mi">5</span><span class="n">A</span> <span class="mi">5</span><span class="n">B</span> <span class="mi">5</span><span class="n">C</span> <span class="mi">5</span><span class="n">D</span> <span class="mi">5</span><span class="n">E</span> <span class="mi">5</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000160</span><span class="p">]</span> <span class="mi">60</span> <span class="mi">61</span> <span class="mi">62</span> <span class="mi">63</span> <span class="mi">64</span> <span class="mi">65</span> <span class="mi">66</span> <span class="mi">67</span> <span class="mi">68</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">A</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">6</span><span class="n">C</span> <span class="mi">6</span><span class="n">D</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000170</span><span class="p">]</span> <span class="mi">70</span> <span class="mi">71</span> <span class="mi">72</span> <span class="mi">73</span> <span class="mi">74</span> <span class="mi">75</span> <span class="mi">76</span> <span class="mi">77</span> <span class="mi">78</span> <span class="mi">79</span> <span class="mi">7</span><span class="n">A</span> <span class="mi">7</span><span class="n">B</span> <span class="mi">7</span><span class="n">C</span> <span class="mi">7</span><span class="n">D</span> <span class="mi">7</span><span class="n">E</span> <span class="mi">7</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000180</span><span class="p">]</span> <span class="mi">80</span> <span class="mi">81</span> <span class="mi">82</span> <span class="mi">83</span> <span class="mi">84</span> <span class="mi">85</span> <span class="mi">86</span> <span class="mi">87</span> <span class="mi">88</span> <span class="mi">89</span> <span class="mi">8</span><span class="n">A</span> <span class="mi">8</span><span class="n">B</span> <span class="mi">8</span><span class="n">C</span> <span class="mi">8</span><span class="n">D</span> <span class="mi">8</span><span class="n">E</span> <span class="mi">8</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000190</span><span class="p">]</span> <span class="mi">90</span> <span class="mi">91</span> <span class="mi">92</span> <span class="mi">93</span> <span class="mi">94</span> <span class="mi">95</span> <span class="mi">96</span> <span class="mi">97</span> <span class="mi">98</span> <span class="mi">99</span> <span class="mi">9</span><span class="n">A</span> <span class="mi">9</span><span class="n">B</span> <span class="mi">9</span><span class="n">C</span> <span class="mi">9</span><span class="n">D</span> <span class="mi">9</span><span class="n">E</span> <span class="mi">9</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">000001</span><span class="n">A0</span><span class="p">]</span> <span class="n">A0</span> <span class="n">A1</span> <span class="n">A2</span> <span class="n">A3</span> <span class="n">A4</span> <span class="n">A5</span> <span class="n">A6</span> <span class="n">A7</span> <span class="n">A8</span> <span class="n">A9</span> <span class="n">AA</span> <span class="n">AB</span> <span class="n">AC</span> <span class="n">AD</span> <span class="n">AE</span> <span class="n">AF</span>
+<span class="p">[</span><span class="mi">000001</span><span class="n">B0</span><span class="p">]</span> <span class="n">B0</span> <span class="n">B1</span> <span class="n">B2</span> <span class="n">B3</span> <span class="n">B4</span> <span class="n">B5</span> <span class="n">B6</span> <span class="n">B7</span> <span class="n">B8</span> <span class="n">B9</span> <span class="n">BA</span> <span class="n">BB</span> <span class="n">BC</span> <span class="n">BD</span> <span class="n">BE</span> <span class="n">BF</span>
+<span class="p">[</span><span class="mi">000001</span><span class="n">C0</span><span class="p">]</span> <span class="n">C0</span> <span class="n">C1</span> <span class="n">C2</span> <span class="n">C3</span> <span class="n">C4</span> <span class="n">C5</span> <span class="n">C6</span> <span class="n">C7</span> <span class="n">C8</span> <span class="n">C9</span> <span class="n">CA</span> <span class="n">CB</span> <span class="n">CC</span> <span class="n">CD</span> <span class="n">CE</span> <span class="n">CF</span>
+<span class="p">[</span><span class="mi">000001</span><span class="n">D0</span><span class="p">]</span> <span class="n">D0</span> <span class="n">D1</span> <span class="n">D2</span> <span class="n">D3</span> <span class="n">D4</span> <span class="n">D5</span> <span class="n">D6</span> <span class="n">D7</span> <span class="n">D8</span> <span class="n">D9</span> <span class="n">DA</span> <span class="n">DB</span> <span class="n">DC</span> <span class="n">DD</span> <span class="n">DE</span> <span class="n">DF</span>
+<span class="p">[</span><span class="mf">000001E0</span><span class="p">]</span> <span class="n">E0</span> <span class="n">E1</span> <span class="n">E2</span> <span class="n">E3</span> <span class="n">E4</span> <span class="n">E5</span> <span class="n">E6</span> <span class="n">E7</span> <span class="n">E8</span> <span class="n">E9</span> <span class="n">EA</span> <span class="n">EB</span> <span class="n">EC</span> <span class="n">ED</span> <span class="n">EE</span> <span class="n">EF</span>
+<span class="p">[</span><span class="mi">000001</span><span class="n">F0</span><span class="p">]</span> <span class="n">F0</span> <span class="n">F1</span> <span class="n">F2</span> <span class="n">F3</span> <span class="n">F4</span> <span class="n">F5</span> <span class="n">F6</span> <span class="n">F7</span> <span class="n">F8</span> <span class="n">F9</span> <span class="n">FA</span> <span class="n">FB</span> <span class="n">FC</span> <span class="n">FD</span> <span class="n">FE</span> <span class="n">FF</span>
+<span class="p">[</span><span class="mi">00000200</span><span class="p">]</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">02</span> <span class="mi">03</span> <span class="mi">04</span> <span class="mi">05</span> <span class="mi">06</span> <span class="mi">07</span> <span class="mi">08</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">A</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">0</span><span class="n">C</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">0</span><span class="n">E</span> <span class="mi">0</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000210</span><span class="p">]</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">1</span><span class="n">A</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">1</span><span class="n">C</span> <span class="mi">1</span><span class="n">D</span> <span class="mi">1</span><span class="n">E</span> <span class="mi">1</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000220</span><span class="p">]</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span> <span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">2</span><span class="n">A</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">2</span><span class="n">C</span> <span class="mi">2</span><span class="n">D</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">2</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000230</span><span class="p">]</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span> <span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="mi">39</span> <span class="mi">3</span><span class="n">A</span> <span class="mi">3</span><span class="n">B</span> <span class="mi">3</span><span class="n">C</span> <span class="mi">3</span><span class="n">D</span> <span class="mi">3</span><span class="n">E</span> <span class="mi">3</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000240</span><span class="p">]</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span> <span class="mi">48</span> <span class="mi">49</span> <span class="mi">4</span><span class="n">A</span> <span class="mi">4</span><span class="n">B</span> <span class="mi">4</span><span class="n">C</span> <span class="mi">4</span><span class="n">D</span> <span class="mi">4</span><span class="n">E</span> <span class="mi">4</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000250</span><span class="p">]</span> <span class="mi">50</span> <span class="mi">51</span> <span class="mi">52</span> <span class="mi">53</span> <span class="mi">54</span> <span class="mi">55</span> <span class="mi">56</span> <span class="mi">57</span> <span class="mi">58</span> <span class="mi">59</span> <span class="mi">5</span><span class="n">A</span> <span class="mi">5</span><span class="n">B</span> <span class="mi">5</span><span class="n">C</span> <span class="mi">5</span><span class="n">D</span> <span class="mi">5</span><span class="n">E</span> <span class="mi">5</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000260</span><span class="p">]</span> <span class="mi">60</span> <span class="mi">61</span> <span class="mi">62</span> <span class="mi">63</span> <span class="mi">64</span> <span class="mi">65</span> <span class="mi">66</span> <span class="mi">67</span> <span class="mi">68</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">A</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">6</span><span class="n">C</span> <span class="mi">6</span><span class="n">D</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000270</span><span class="p">]</span> <span class="mi">70</span> <span class="mi">71</span> <span class="mi">72</span> <span class="mi">73</span> <span class="mi">74</span> <span class="mi">75</span> <span class="mi">76</span> <span class="mi">77</span> <span class="mi">78</span> <span class="mi">79</span> <span class="mi">7</span><span class="n">A</span> <span class="mi">7</span><span class="n">B</span> <span class="mi">7</span><span class="n">C</span> <span class="mi">7</span><span class="n">D</span> <span class="mi">7</span><span class="n">E</span> <span class="mi">7</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000280</span><span class="p">]</span> <span class="mi">80</span> <span class="mi">81</span> <span class="mi">82</span> <span class="mi">83</span> <span class="mi">84</span> <span class="mi">85</span> <span class="mi">86</span> <span class="mi">87</span> <span class="mi">88</span> <span class="mi">89</span> <span class="mi">8</span><span class="n">A</span> <span class="mi">8</span><span class="n">B</span> <span class="mi">8</span><span class="n">C</span> <span class="mi">8</span><span class="n">D</span> <span class="mi">8</span><span class="n">E</span> <span class="mi">8</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000290</span><span class="p">]</span> <span class="mi">90</span> <span class="mi">91</span> <span class="mi">92</span> <span class="mi">93</span> <span class="mi">94</span> <span class="mi">95</span> <span class="mi">96</span> <span class="mi">97</span> <span class="mi">98</span> <span class="mi">99</span> <span class="mi">9</span><span class="n">A</span> <span class="mi">9</span><span class="n">B</span> <span class="mi">9</span><span class="n">C</span> <span class="mi">9</span><span class="n">D</span> <span class="mi">9</span><span class="n">E</span> <span class="mi">9</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">000002</span><span class="n">A0</span><span class="p">]</span> <span class="n">A0</span> <span class="n">A1</span> <span class="n">A2</span> <span class="n">A3</span> <span class="n">A4</span> <span class="n">A5</span> <span class="n">A6</span> <span class="n">A7</span> <span class="n">A8</span> <span class="n">A9</span> <span class="n">AA</span> <span class="n">AB</span> <span class="n">AC</span> <span class="n">AD</span> <span class="n">AE</span> <span class="n">AF</span>
+<span class="p">[</span><span class="mi">000002</span><span class="n">B0</span><span class="p">]</span> <span class="n">B0</span> <span class="n">B1</span> <span class="n">B2</span> <span class="n">B3</span> <span class="n">B4</span> <span class="n">B5</span> <span class="n">B6</span> <span class="n">B7</span> <span class="n">B8</span> <span class="n">B9</span> <span class="n">BA</span> <span class="n">BB</span> <span class="n">BC</span> <span class="n">BD</span> <span class="n">BE</span> <span class="n">BF</span>
+<span class="p">[</span><span class="mi">000002</span><span class="n">C0</span><span class="p">]</span> <span class="n">C0</span> <span class="n">C1</span> <span class="n">C2</span> <span class="n">C3</span> <span class="n">C4</span> <span class="n">C5</span> <span class="n">C6</span> <span class="n">C7</span> <span class="n">C8</span> <span class="n">C9</span> <span class="n">CA</span> <span class="n">CB</span> <span class="n">CC</span> <span class="n">CD</span> <span class="n">CE</span> <span class="n">CF</span>
+<span class="p">[</span><span class="mi">000002</span><span class="n">D0</span><span class="p">]</span> <span class="n">D0</span> <span class="n">D1</span> <span class="n">D2</span> <span class="n">D3</span> <span class="n">D4</span> <span class="n">D5</span> <span class="n">D6</span> <span class="n">D7</span> <span class="n">D8</span> <span class="n">D9</span> <span class="n">DA</span> <span class="n">DB</span> <span class="n">DC</span> <span class="n">DD</span> <span class="n">DE</span> <span class="n">DF</span>
+<span class="p">[</span><span class="mf">000002E0</span><span class="p">]</span> <span class="n">E0</span> <span class="n">E1</span> <span class="n">E2</span> <span class="n">E3</span> <span class="n">E4</span> <span class="n">E5</span> <span class="n">E6</span> <span class="n">E7</span> <span class="n">E8</span> <span class="n">E9</span> <span class="n">EA</span> <span class="n">EB</span> <span class="n">EC</span> <span class="n">ED</span> <span class="n">EE</span> <span class="n">EF</span>
+<span class="p">[</span><span class="mi">000002</span><span class="n">F0</span><span class="p">]</span> <span class="n">F0</span> <span class="n">F1</span> <span class="n">F2</span> <span class="n">F3</span> <span class="n">F4</span> <span class="n">F5</span> <span class="n">F6</span> <span class="n">F7</span> <span class="n">F8</span> <span class="n">F9</span> <span class="n">FA</span> <span class="n">FB</span> <span class="n">FC</span> <span class="n">FD</span> <span class="n">FE</span> <span class="n">FF</span>
+<span class="p">[</span><span class="mi">00000300</span><span class="p">]</span> <span class="mi">00</span> <span class="mi">01</span> <span class="mi">02</span> <span class="mi">03</span> <span class="mi">04</span> <span class="mi">05</span> <span class="mi">06</span> <span class="mi">07</span> <span class="mi">08</span> <span class="mi">09</span> <span class="mi">0</span><span class="n">A</span> <span class="mi">0</span><span class="n">B</span> <span class="mi">0</span><span class="n">C</span> <span class="mi">0</span><span class="n">D</span> <span class="mi">0</span><span class="n">E</span> <span class="mi">0</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000310</span><span class="p">]</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">1</span><span class="n">A</span> <span class="mi">1</span><span class="n">B</span> <span class="mi">1</span><span class="n">C</span> <span class="mi">1</span><span class="n">D</span> <span class="mi">1</span><span class="n">E</span> <span class="mi">1</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000320</span><span class="p">]</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span> <span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">2</span><span class="n">A</span> <span class="mi">2</span><span class="n">B</span> <span class="mi">2</span><span class="n">C</span> <span class="mi">2</span><span class="n">D</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">2</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000330</span><span class="p">]</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span> <span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="mi">39</span> <span class="mi">3</span><span class="n">A</span> <span class="mi">3</span><span class="n">B</span> <span class="mi">3</span><span class="n">C</span> <span class="mi">3</span><span class="n">D</span> <span class="mi">3</span><span class="n">E</span> <span class="mi">3</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000340</span><span class="p">]</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span> <span class="mi">48</span> <span class="mi">49</span> <span class="mi">4</span><span class="n">A</span> <span class="mi">4</span><span class="n">B</span> <span class="mi">4</span><span class="n">C</span> <span class="mi">4</span><span class="n">D</span> <span class="mi">4</span><span class="n">E</span> <span class="mi">4</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000350</span><span class="p">]</span> <span class="mi">50</span> <span class="mi">51</span> <span class="mi">52</span> <span class="mi">53</span> <span class="mi">54</span> <span class="mi">55</span> <span class="mi">56</span> <span class="mi">57</span> <span class="mi">58</span> <span class="mi">59</span> <span class="mi">5</span><span class="n">A</span> <span class="mi">5</span><span class="n">B</span> <span class="mi">5</span><span class="n">C</span> <span class="mi">5</span><span class="n">D</span> <span class="mi">5</span><span class="n">E</span> <span class="mi">5</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000360</span><span class="p">]</span> <span class="mi">60</span> <span class="mi">61</span> <span class="mi">62</span> <span class="mi">63</span> <span class="mi">64</span> <span class="mi">65</span> <span class="mi">66</span> <span class="mi">67</span> <span class="mi">68</span> <span class="mi">69</span> <span class="mi">6</span><span class="n">A</span> <span class="mi">6</span><span class="n">B</span> <span class="mi">6</span><span class="n">C</span> <span class="mi">6</span><span class="n">D</span> <span class="mi">6</span><span class="n">E</span> <span class="mi">6</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000370</span><span class="p">]</span> <span class="mi">70</span> <span class="mi">71</span> <span class="mi">72</span> <span class="mi">73</span> <span class="mi">74</span> <span class="mi">75</span> <span class="mi">76</span> <span class="mi">77</span> <span class="mi">78</span> <span class="mi">79</span> <span class="mi">7</span><span class="n">A</span> <span class="mi">7</span><span class="n">B</span> <span class="mi">7</span><span class="n">C</span> <span class="mi">7</span><span class="n">D</span> <span class="mi">7</span><span class="n">E</span> <span class="mi">7</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000380</span><span class="p">]</span> <span class="mi">80</span> <span class="mi">81</span> <span class="mi">82</span> <span class="mi">83</span> <span class="mi">84</span> <span class="mi">85</span> <span class="mi">86</span> <span class="mi">87</span> <span class="mi">88</span> <span class="mi">89</span> <span class="mi">8</span><span class="n">A</span> <span class="mi">8</span><span class="n">B</span> <span class="mi">8</span><span class="n">C</span> <span class="mi">8</span><span class="n">D</span> <span class="mi">8</span><span class="n">E</span> <span class="mi">8</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">00000390</span><span class="p">]</span> <span class="mi">90</span> <span class="mi">91</span> <span class="mi">92</span> <span class="mi">93</span> <span class="mi">94</span> <span class="mi">95</span> <span class="mi">96</span> <span class="mi">97</span> <span class="mi">98</span> <span class="mi">99</span> <span class="mi">9</span><span class="n">A</span> <span class="mi">9</span><span class="n">B</span> <span class="mi">9</span><span class="n">C</span> <span class="mi">9</span><span class="n">D</span> <span class="mi">9</span><span class="n">E</span> <span class="mi">9</span><span class="n">F</span>
+<span class="p">[</span><span class="mi">000003</span><span class="n">A0</span><span class="p">]</span> <span class="n">A0</span> <span class="n">A1</span> <span class="n">A2</span> <span class="n">A3</span> <span class="n">A4</span> <span class="n">A5</span> <span class="n">A6</span> <span class="n">A7</span> <span class="n">A8</span> <span class="n">A9</span> <span class="n">AA</span> <span class="n">AB</span> <span class="n">AC</span> <span class="n">AD</span> <span class="n">AE</span> <span class="n">AF</span>
+<span class="p">[</span><span class="mi">000003</span><span class="n">B0</span><span class="p">]</span> <span class="n">B0</span> <span class="n">B1</span> <span class="n">B2</span> <span class="n">B3</span> <span class="n">B4</span> <span class="n">B5</span> <span class="n">B6</span> <span class="n">B7</span> <span class="n">B8</span> <span class="n">B9</span> <span class="n">BA</span> <span class="n">BB</span> <span class="n">BC</span> <span class="n">BD</span> <span class="n">BE</span> <span class="n">BF</span>
+<span class="p">[</span><span class="mi">000003</span><span class="n">C0</span><span class="p">]</span> <span class="n">C0</span> <span class="n">C1</span> <span class="n">C2</span> <span class="n">C3</span> <span class="n">C4</span> <span class="n">C5</span> <span class="n">C6</span> <span class="n">C7</span> <span class="n">C8</span> <span class="n">C9</span> <span class="n">CA</span> <span class="n">CB</span> <span class="n">CC</span> <span class="n">CD</span> <span class="n">CE</span> <span class="n">CF</span>
+<span class="p">[</span><span class="mi">000003</span><span class="n">D0</span><span class="p">]</span> <span class="n">D0</span> <span class="n">D1</span> <span class="n">D2</span> <span class="n">D3</span> <span class="n">D4</span> <span class="n">D5</span> <span class="n">D6</span> <span class="n">D7</span> <span class="n">D8</span> <span class="n">D9</span> <span class="n">DA</span> <span class="n">DB</span> <span class="n">DC</span> <span class="n">DD</span> <span class="n">DE</span> <span class="n">DF</span>
+<span class="p">[</span><span class="mf">000003E0</span><span class="p">]</span> <span class="n">E0</span> <span class="n">E1</span> <span class="n">E2</span> <span class="n">E3</span> <span class="n">E4</span> <span class="n">E5</span> <span class="n">E6</span> <span class="n">E7</span> <span class="n">E8</span> <span class="n">E9</span> <span class="n">EA</span> <span class="n">EB</span> <span class="n">EC</span> <span class="n">ED</span> <span class="n">EE</span> <span class="n">EF</span>
+<span class="p">[</span><span class="mi">000003</span><span class="n">F0</span><span class="p">]</span> <span class="n">F0</span> <span class="n">F1</span> <span class="n">F2</span> <span class="n">F3</span> <span class="n">F4</span> <span class="n">F5</span> <span class="n">F6</span> <span class="n">F7</span> <span class="n">F8</span> <span class="n">F9</span> <span class="n">FA</span> <span class="n">FB</span> <span class="n">FC</span> <span class="n">FD</span> <span class="n">FE</span> <span class="n">FF</span>
+
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">The</span> <span class="n">Flash0</span> <span class="n">flash</span> <span class="n">test</span> <span class="ow">is</span> <span class="n">success</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>本例程成功初始化外部 SPI Flash 后，先后成功执行了对 Flash 的擦、写、读等操作，并将读出的数据打印出来，观察可知符合预期。</p></li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">24</span>.82k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.41<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

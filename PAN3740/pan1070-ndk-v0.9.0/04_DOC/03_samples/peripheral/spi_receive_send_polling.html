@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SPI Receive Send Polling &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Timer Basic" href="timer_basic.html" />
+    <link rel="prev" title="SPI Receive Send Interrupt" href="spi_receive_send_interrupt.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">外设驱动例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adc_read_multiple_channels.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_digital_input_interrupt.html">GPIO Input With Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_digital_input_polling.html">GPIO Input Polling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_output_open_drain.html">GPIO Open-Drain Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_output_push_pull.html">GPIO Push-Pull Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_simple_convenient_apis.html">GPIO Simple Convenient APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_dma.html">I2C Receive Send Dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_interrupt.html">I2C Receive Send Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_polling.html">I2C Receive Send Polling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pwm.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spi_receive_send_dma.html">SPI Receive Send Dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spi_receive_send_interrupt.html">SPI Receive Send Interrupt</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SPI Receive Send Polling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="timer_basic.html">Timer Basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer_capture.html">Timer Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uart_dma.html">UART DMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uart_fifo.html">UART FIFO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">外设驱动例程</a> &raquo;</li>
+  
+  <li>SPI Receive Send Polling</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/peripheral/spi_receive_send_polling.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="spi-receive-send-polling">
+<h1>SPI Receive Send Polling<a class="headerlink" href="#spi-receive-send-polling" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使用 SPI HAL Driver 实现查询方式的 SPI收发功能。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各两块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>USB-TypeC 线两条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB0 底板上的 P11(MOSI)、P03(CS)、P04(CLK)、P05(MISO)分别接入EVB1对应相同PAD上</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\peripheral\spi_master_poll_send_receive\keil_107x</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">NDK&gt;\01_SDK\nimble\samples\peripheral\spi_slave_poll_receive_send\keil_107x</span></code></p>
+<p>双击NDK&gt;\01_SDK\nimble\samples\peripheral\spi_master_poll_send_receive\keil_107x目录下Keil Project 文件打开工程进行编译并烧录至EVB0板。</p>
+<p>双击NDK&gt;\01_SDK\nimble\samples\peripheral\spi_slave_poll_receive_send\keil_107x目录下Keil Project 文件打开工程进行编译并烧录至EVB1板。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>先烧录spi_slave_poll_receive_send hex至EVB1，芯片会通过串口打印初始化 Log，spi slave进入接收模式，等待接收160个16bit数据：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span> <span class="n">to</span> <span class="n">load</span> <span class="n">HW</span> <span class="n">calibration</span> <span class="n">data</span><span class="o">..</span> <span class="n">DONE</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Info</span>         <span class="p">:</span> <span class="mh">0x1</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">CP</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">255</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">FT</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">4</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">MAC</span> <span class="n">Address</span>  <span class="p">:</span> <span class="n">D0000000037D</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">UID</span>          <span class="p">:</span> <span class="mi">7</span><span class="n">D0300DDF8375603E8</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">UID</span>    <span class="p">:</span> <span class="mi">425031563233391700</span><span class="n">DDF8375603E878</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">Size</span>   <span class="p">:</span> <span class="mi">512</span> <span class="n">KB</span>
+
+<span class="n">APP</span> <span class="n">version</span><span class="p">:</span> <span class="mf">255.255.65535</span>
+<span class="n">slave</span> <span class="n">start</span> <span class="n">receive</span> 
+</pre></div>
+</div>
+</li>
+<li><p>烧录spi_master_poll_send_receive hex至EVB0，芯片会通过串口打印初始化 Log，spi master进入发送模式，发送16bit数据0x0000~0x009f，Log打印发送的数据，发送完成后Log打印master send done!并进入spi master接收模式：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Try to load HW calibration data.. DONE.
+- Chip Info         : 0x1
+- Chip CP Version   : 255
+- Chip FT Version   : 4
+- Chip MAC Address  : D000000000D1
+- Chip UID          : D10000F5F737560347
+- Chip Flash UID    : 425031563233391700F5F73756034778
+- Chip Flash Size   : 512 KB
+
+APP version: 255.255.65535
+master send data: 
+0x0000,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,0x0008,0x0009,0x000a,0x000b,0x000c,0x000d,0x000e,0x000f,
+0x0010,0x0011,0x0012,0x0013,0x0014,0x0015,0x0016,0x0017,0x0018,0x0019,0x001a,0x001b,0x001c,0x001d,0x001e,0x001f,
+0x0020,0x0021,0x0022,0x0023,0x0024,0x0025,0x0026,0x0027,0x0028,0x0029,0x002a,0x002b,0x002c,0x002d,0x002e,0x002f,
+0x0030,0x0031,0x0032,0x0033,0x0034,0x0035,0x0036,0x0037,0x0038,0x0039,0x003a,0x003b,0x003c,0x003d,0x003e,0x003f,
+0x0040,0x0041,0x0042,0x0043,0x0044,0x0045,0x0046,0x0047,0x0048,0x0049,0x004a,0x004b,0x004c,0x004d,0x004e,0x004f,
+0x0050,0x0051,0x0052,0x0053,0x0054,0x0055,0x0056,0x0057,0x0058,0x0059,0x005a,0x005b,0x005c,0x005d,0x005e,0x005f,
+0x0060,0x0061,0x0062,0x0063,0x0064,0x0065,0x0066,0x0067,0x0068,0x0069,0x006a,0x006b,0x006c,0x006d,0x006e,0x006f,
+0x0070,0x0071,0x0072,0x0073,0x0074,0x0075,0x0076,0x0077,0x0078,0x0079,0x007a,0x007b,0x007c,0x007d,0x007e,0x007f,
+0x0080,0x0081,0x0082,0x0083,0x0084,0x0085,0x0086,0x0087,0x0088,0x0089,0x008a,0x008b,0x008c,0x008d,0x008e,0x008f,
+0x0090,0x0091,0x0092,0x0093,0x0094,0x0095,0x0096,0x0097,0x0098,0x0099,0x009a,0x009b,0x009c,0x009d,0x009e,0x009f,
+master send done! 
+master turn to receive mode 
+</pre></div>
+</div>
+</li>
+<li><p>spi slave接收160个16bit数据并打印接收的数据，同时spi slave进入发送模式，spi slave发送16bit数据0x0000~0x9f9f并打印发送的数据：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slave</span> <span class="n">receive</span> <span class="n">data</span><span class="p">:</span> 
+<span class="mh">0x0000</span><span class="p">,</span><span class="mh">0x0001</span><span class="p">,</span><span class="mh">0x0002</span><span class="p">,</span><span class="mh">0x0003</span><span class="p">,</span><span class="mh">0x0004</span><span class="p">,</span><span class="mh">0x0005</span><span class="p">,</span><span class="mh">0x0006</span><span class="p">,</span><span class="mh">0x0007</span><span class="p">,</span><span class="mh">0x0008</span><span class="p">,</span><span class="mh">0x0009</span><span class="p">,</span><span class="mh">0x000a</span><span class="p">,</span><span class="mh">0x000b</span><span class="p">,</span><span class="mh">0x000c</span><span class="p">,</span><span class="mh">0x000d</span><span class="p">,</span><span class="mh">0x000e</span><span class="p">,</span><span class="mh">0x000f</span><span class="p">,</span>
+<span class="mh">0x0010</span><span class="p">,</span><span class="mh">0x0011</span><span class="p">,</span><span class="mh">0x0012</span><span class="p">,</span><span class="mh">0x0013</span><span class="p">,</span><span class="mh">0x0014</span><span class="p">,</span><span class="mh">0x0015</span><span class="p">,</span><span class="mh">0x0016</span><span class="p">,</span><span class="mh">0x0017</span><span class="p">,</span><span class="mh">0x0018</span><span class="p">,</span><span class="mh">0x0019</span><span class="p">,</span><span class="mh">0x001a</span><span class="p">,</span><span class="mh">0x001b</span><span class="p">,</span><span class="mh">0x001c</span><span class="p">,</span><span class="mh">0x001d</span><span class="p">,</span><span class="mh">0x001e</span><span class="p">,</span><span class="mh">0x001f</span><span class="p">,</span>
+<span class="mh">0x0020</span><span class="p">,</span><span class="mh">0x0021</span><span class="p">,</span><span class="mh">0x0022</span><span class="p">,</span><span class="mh">0x0023</span><span class="p">,</span><span class="mh">0x0024</span><span class="p">,</span><span class="mh">0x0025</span><span class="p">,</span><span class="mh">0x0026</span><span class="p">,</span><span class="mh">0x0027</span><span class="p">,</span><span class="mh">0x0028</span><span class="p">,</span><span class="mh">0x0029</span><span class="p">,</span><span class="mh">0x002a</span><span class="p">,</span><span class="mh">0x002b</span><span class="p">,</span><span class="mh">0x002c</span><span class="p">,</span><span class="mh">0x002d</span><span class="p">,</span><span class="mh">0x002e</span><span class="p">,</span><span class="mh">0x002f</span><span class="p">,</span>
+<span class="mh">0x0030</span><span class="p">,</span><span class="mh">0x0031</span><span class="p">,</span><span class="mh">0x0032</span><span class="p">,</span><span class="mh">0x0033</span><span class="p">,</span><span class="mh">0x0034</span><span class="p">,</span><span class="mh">0x0035</span><span class="p">,</span><span class="mh">0x0036</span><span class="p">,</span><span class="mh">0x0037</span><span class="p">,</span><span class="mh">0x0038</span><span class="p">,</span><span class="mh">0x0039</span><span class="p">,</span><span class="mh">0x003a</span><span class="p">,</span><span class="mh">0x003b</span><span class="p">,</span><span class="mh">0x003c</span><span class="p">,</span><span class="mh">0x003d</span><span class="p">,</span><span class="mh">0x003e</span><span class="p">,</span><span class="mh">0x003f</span><span class="p">,</span>
+<span class="mh">0x0040</span><span class="p">,</span><span class="mh">0x0041</span><span class="p">,</span><span class="mh">0x0042</span><span class="p">,</span><span class="mh">0x0043</span><span class="p">,</span><span class="mh">0x0044</span><span class="p">,</span><span class="mh">0x0045</span><span class="p">,</span><span class="mh">0x0046</span><span class="p">,</span><span class="mh">0x0047</span><span class="p">,</span><span class="mh">0x0048</span><span class="p">,</span><span class="mh">0x0049</span><span class="p">,</span><span class="mh">0x004a</span><span class="p">,</span><span class="mh">0x004b</span><span class="p">,</span><span class="mh">0x004c</span><span class="p">,</span><span class="mh">0x004d</span><span class="p">,</span><span class="mh">0x004e</span><span class="p">,</span><span class="mh">0x004f</span><span class="p">,</span>
+<span class="mh">0x0050</span><span class="p">,</span><span class="mh">0x0051</span><span class="p">,</span><span class="mh">0x0052</span><span class="p">,</span><span class="mh">0x0053</span><span class="p">,</span><span class="mh">0x0054</span><span class="p">,</span><span class="mh">0x0055</span><span class="p">,</span><span class="mh">0x0056</span><span class="p">,</span><span class="mh">0x0057</span><span class="p">,</span><span class="mh">0x0058</span><span class="p">,</span><span class="mh">0x0059</span><span class="p">,</span><span class="mh">0x005a</span><span class="p">,</span><span class="mh">0x005b</span><span class="p">,</span><span class="mh">0x005c</span><span class="p">,</span><span class="mh">0x005d</span><span class="p">,</span><span class="mh">0x005e</span><span class="p">,</span><span class="mh">0x005f</span><span class="p">,</span>
+<span class="mh">0x0060</span><span class="p">,</span><span class="mh">0x0061</span><span class="p">,</span><span class="mh">0x0062</span><span class="p">,</span><span class="mh">0x0063</span><span class="p">,</span><span class="mh">0x0064</span><span class="p">,</span><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0066</span><span class="p">,</span><span class="mh">0x0067</span><span class="p">,</span><span class="mh">0x0068</span><span class="p">,</span><span class="mh">0x0069</span><span class="p">,</span><span class="mh">0x006a</span><span class="p">,</span><span class="mh">0x006b</span><span class="p">,</span><span class="mh">0x006c</span><span class="p">,</span><span class="mh">0x006d</span><span class="p">,</span><span class="mh">0x006e</span><span class="p">,</span><span class="mh">0x006f</span><span class="p">,</span>
+<span class="mh">0x0070</span><span class="p">,</span><span class="mh">0x0071</span><span class="p">,</span><span class="mh">0x0072</span><span class="p">,</span><span class="mh">0x0073</span><span class="p">,</span><span class="mh">0x0074</span><span class="p">,</span><span class="mh">0x0075</span><span class="p">,</span><span class="mh">0x0076</span><span class="p">,</span><span class="mh">0x0077</span><span class="p">,</span><span class="mh">0x0078</span><span class="p">,</span><span class="mh">0x0079</span><span class="p">,</span><span class="mh">0x007a</span><span class="p">,</span><span class="mh">0x007b</span><span class="p">,</span><span class="mh">0x007c</span><span class="p">,</span><span class="mh">0x007d</span><span class="p">,</span><span class="mh">0x007e</span><span class="p">,</span><span class="mh">0x007f</span><span class="p">,</span>
+<span class="mh">0x0080</span><span class="p">,</span><span class="mh">0x0081</span><span class="p">,</span><span class="mh">0x0082</span><span class="p">,</span><span class="mh">0x0083</span><span class="p">,</span><span class="mh">0x0084</span><span class="p">,</span><span class="mh">0x0085</span><span class="p">,</span><span class="mh">0x0086</span><span class="p">,</span><span class="mh">0x0087</span><span class="p">,</span><span class="mh">0x0088</span><span class="p">,</span><span class="mh">0x0089</span><span class="p">,</span><span class="mh">0x008a</span><span class="p">,</span><span class="mh">0x008b</span><span class="p">,</span><span class="mh">0x008c</span><span class="p">,</span><span class="mh">0x008d</span><span class="p">,</span><span class="mh">0x008e</span><span class="p">,</span><span class="mh">0x008f</span><span class="p">,</span>
+<span class="mh">0x0090</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span><span class="mh">0x0092</span><span class="p">,</span><span class="mh">0x0093</span><span class="p">,</span><span class="mh">0x0094</span><span class="p">,</span><span class="mh">0x0095</span><span class="p">,</span><span class="mh">0x0096</span><span class="p">,</span><span class="mh">0x0097</span><span class="p">,</span><span class="mh">0x0098</span><span class="p">,</span><span class="mh">0x0099</span><span class="p">,</span><span class="mh">0x009a</span><span class="p">,</span><span class="mh">0x009b</span><span class="p">,</span><span class="mh">0x009c</span><span class="p">,</span><span class="mh">0x009d</span><span class="p">,</span><span class="mh">0x009e</span><span class="p">,</span><span class="mh">0x009f</span><span class="p">,</span>
+
+<span class="n">slave</span> <span class="n">send</span> <span class="n">data</span><span class="p">:</span> 
+<span class="mh">0x0000</span><span class="p">,</span><span class="mh">0x0101</span><span class="p">,</span><span class="mh">0x0202</span><span class="p">,</span><span class="mh">0x0303</span><span class="p">,</span><span class="mh">0x0404</span><span class="p">,</span><span class="mh">0x0505</span><span class="p">,</span><span class="mh">0x0606</span><span class="p">,</span><span class="mh">0x0707</span><span class="p">,</span><span class="mh">0x0808</span><span class="p">,</span><span class="mh">0x0909</span><span class="p">,</span><span class="mh">0x0a0a</span><span class="p">,</span><span class="mh">0x0b0b</span><span class="p">,</span><span class="mh">0x0c0c</span><span class="p">,</span><span class="mh">0x0d0d</span><span class="p">,</span><span class="mh">0x0e0e</span><span class="p">,</span><span class="mh">0x0f0f</span><span class="p">,</span>
+<span class="mh">0x1010</span><span class="p">,</span><span class="mh">0x1111</span><span class="p">,</span><span class="mh">0x1212</span><span class="p">,</span><span class="mh">0x1313</span><span class="p">,</span><span class="mh">0x1414</span><span class="p">,</span><span class="mh">0x1515</span><span class="p">,</span><span class="mh">0x1616</span><span class="p">,</span><span class="mh">0x1717</span><span class="p">,</span><span class="mh">0x1818</span><span class="p">,</span><span class="mh">0x1919</span><span class="p">,</span><span class="mh">0x1a1a</span><span class="p">,</span><span class="mh">0x1b1b</span><span class="p">,</span><span class="mh">0x1c1c</span><span class="p">,</span><span class="mh">0x1d1d</span><span class="p">,</span><span class="mh">0x1e1e</span><span class="p">,</span><span class="mh">0x1f1f</span><span class="p">,</span>
+<span class="mh">0x2020</span><span class="p">,</span><span class="mh">0x2121</span><span class="p">,</span><span class="mh">0x2222</span><span class="p">,</span><span class="mh">0x2323</span><span class="p">,</span><span class="mh">0x2424</span><span class="p">,</span><span class="mh">0x2525</span><span class="p">,</span><span class="mh">0x2626</span><span class="p">,</span><span class="mh">0x2727</span><span class="p">,</span><span class="mh">0x2828</span><span class="p">,</span><span class="mh">0x2929</span><span class="p">,</span><span class="mh">0x2a2a</span><span class="p">,</span><span class="mh">0x2b2b</span><span class="p">,</span><span class="mh">0x2c2c</span><span class="p">,</span><span class="mh">0x2d2d</span><span class="p">,</span><span class="mh">0x2e2e</span><span class="p">,</span><span class="mh">0x2f2f</span><span class="p">,</span>
+<span class="mh">0x3030</span><span class="p">,</span><span class="mh">0x3131</span><span class="p">,</span><span class="mh">0x3232</span><span class="p">,</span><span class="mh">0x3333</span><span class="p">,</span><span class="mh">0x3434</span><span class="p">,</span><span class="mh">0x3535</span><span class="p">,</span><span class="mh">0x3636</span><span class="p">,</span><span class="mh">0x3737</span><span class="p">,</span><span class="mh">0x3838</span><span class="p">,</span><span class="mh">0x3939</span><span class="p">,</span><span class="mh">0x3a3a</span><span class="p">,</span><span class="mh">0x3b3b</span><span class="p">,</span><span class="mh">0x3c3c</span><span class="p">,</span><span class="mh">0x3d3d</span><span class="p">,</span><span class="mh">0x3e3e</span><span class="p">,</span><span class="mh">0x3f3f</span><span class="p">,</span>
+<span class="mh">0x4040</span><span class="p">,</span><span class="mh">0x4141</span><span class="p">,</span><span class="mh">0x4242</span><span class="p">,</span><span class="mh">0x4343</span><span class="p">,</span><span class="mh">0x4444</span><span class="p">,</span><span class="mh">0x4545</span><span class="p">,</span><span class="mh">0x4646</span><span class="p">,</span><span class="mh">0x4747</span><span class="p">,</span><span class="mh">0x4848</span><span class="p">,</span><span class="mh">0x4949</span><span class="p">,</span><span class="mh">0x4a4a</span><span class="p">,</span><span class="mh">0x4b4b</span><span class="p">,</span><span class="mh">0x4c4c</span><span class="p">,</span><span class="mh">0x4d4d</span><span class="p">,</span><span class="mh">0x4e4e</span><span class="p">,</span><span class="mh">0x4f4f</span><span class="p">,</span>
+<span class="mh">0x5050</span><span class="p">,</span><span class="mh">0x5151</span><span class="p">,</span><span class="mh">0x5252</span><span class="p">,</span><span class="mh">0x5353</span><span class="p">,</span><span class="mh">0x5454</span><span class="p">,</span><span class="mh">0x5555</span><span class="p">,</span><span class="mh">0x5656</span><span class="p">,</span><span class="mh">0x5757</span><span class="p">,</span><span class="mh">0x5858</span><span class="p">,</span><span class="mh">0x5959</span><span class="p">,</span><span class="mh">0x5a5a</span><span class="p">,</span><span class="mh">0x5b5b</span><span class="p">,</span><span class="mh">0x5c5c</span><span class="p">,</span><span class="mh">0x5d5d</span><span class="p">,</span><span class="mh">0x5e5e</span><span class="p">,</span><span class="mh">0x5f5f</span><span class="p">,</span>
+<span class="mh">0x6060</span><span class="p">,</span><span class="mh">0x6161</span><span class="p">,</span><span class="mh">0x6262</span><span class="p">,</span><span class="mh">0x6363</span><span class="p">,</span><span class="mh">0x6464</span><span class="p">,</span><span class="mh">0x6565</span><span class="p">,</span><span class="mh">0x6666</span><span class="p">,</span><span class="mh">0x6767</span><span class="p">,</span><span class="mh">0x6868</span><span class="p">,</span><span class="mh">0x6969</span><span class="p">,</span><span class="mh">0x6a6a</span><span class="p">,</span><span class="mh">0x6b6b</span><span class="p">,</span><span class="mh">0x6c6c</span><span class="p">,</span><span class="mh">0x6d6d</span><span class="p">,</span><span class="mh">0x6e6e</span><span class="p">,</span><span class="mh">0x6f6f</span><span class="p">,</span>
+<span class="mh">0x7070</span><span class="p">,</span><span class="mh">0x7171</span><span class="p">,</span><span class="mh">0x7272</span><span class="p">,</span><span class="mh">0x7373</span><span class="p">,</span><span class="mh">0x7474</span><span class="p">,</span><span class="mh">0x7575</span><span class="p">,</span><span class="mh">0x7676</span><span class="p">,</span><span class="mh">0x7777</span><span class="p">,</span><span class="mh">0x7878</span><span class="p">,</span><span class="mh">0x7979</span><span class="p">,</span><span class="mh">0x7a7a</span><span class="p">,</span><span class="mh">0x7b7b</span><span class="p">,</span><span class="mh">0x7c7c</span><span class="p">,</span><span class="mh">0x7d7d</span><span class="p">,</span><span class="mh">0x7e7e</span><span class="p">,</span><span class="mh">0x7f7f</span><span class="p">,</span>
+<span class="mh">0x8080</span><span class="p">,</span><span class="mh">0x8181</span><span class="p">,</span><span class="mh">0x8282</span><span class="p">,</span><span class="mh">0x8383</span><span class="p">,</span><span class="mh">0x8484</span><span class="p">,</span><span class="mh">0x8585</span><span class="p">,</span><span class="mh">0x8686</span><span class="p">,</span><span class="mh">0x8787</span><span class="p">,</span><span class="mh">0x8888</span><span class="p">,</span><span class="mh">0x8989</span><span class="p">,</span><span class="mh">0x8a8a</span><span class="p">,</span><span class="mh">0x8b8b</span><span class="p">,</span><span class="mh">0x8c8c</span><span class="p">,</span><span class="mh">0x8d8d</span><span class="p">,</span><span class="mh">0x8e8e</span><span class="p">,</span><span class="mh">0x8f8f</span><span class="p">,</span>
+<span class="mh">0x9090</span><span class="p">,</span><span class="mh">0x9191</span><span class="p">,</span><span class="mh">0x9292</span><span class="p">,</span><span class="mh">0x9393</span><span class="p">,</span><span class="mh">0x9494</span><span class="p">,</span><span class="mh">0x9595</span><span class="p">,</span><span class="mh">0x9696</span><span class="p">,</span><span class="mh">0x9797</span><span class="p">,</span><span class="mh">0x9898</span><span class="p">,</span><span class="mh">0x9999</span><span class="p">,</span><span class="mh">0x9a9a</span><span class="p">,</span><span class="mh">0x9b9b</span><span class="p">,</span><span class="mh">0x9c9c</span><span class="p">,</span><span class="mh">0x9d9d</span><span class="p">,</span><span class="mh">0x9e9e</span><span class="p">,</span><span class="mh">0x9f9f</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
+<li><p>spi master接收160个16bit数据并打印接收的数据：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">master</span> <span class="n">turn</span> <span class="n">to</span> <span class="n">receive</span> <span class="n">mode</span> 
+<span class="n">receive</span> <span class="n">data</span><span class="p">:</span> 
+<span class="mh">0x0000</span><span class="p">,</span><span class="mh">0x0101</span><span class="p">,</span><span class="mh">0x0202</span><span class="p">,</span><span class="mh">0x0303</span><span class="p">,</span><span class="mh">0x0404</span><span class="p">,</span><span class="mh">0x0505</span><span class="p">,</span><span class="mh">0x0606</span><span class="p">,</span><span class="mh">0x0707</span><span class="p">,</span><span class="mh">0x0808</span><span class="p">,</span><span class="mh">0x0909</span><span class="p">,</span><span class="mh">0x0a0a</span><span class="p">,</span><span class="mh">0x0b0b</span><span class="p">,</span><span class="mh">0x0c0c</span><span class="p">,</span><span class="mh">0x0d0d</span><span class="p">,</span><span class="mh">0x0e0e</span><span class="p">,</span><span class="mh">0x0f0f</span><span class="p">,</span>
+<span class="mh">0x1010</span><span class="p">,</span><span class="mh">0x1111</span><span class="p">,</span><span class="mh">0x1212</span><span class="p">,</span><span class="mh">0x1313</span><span class="p">,</span><span class="mh">0x1414</span><span class="p">,</span><span class="mh">0x1515</span><span class="p">,</span><span class="mh">0x1616</span><span class="p">,</span><span class="mh">0x1717</span><span class="p">,</span><span class="mh">0x1818</span><span class="p">,</span><span class="mh">0x1919</span><span class="p">,</span><span class="mh">0x1a1a</span><span class="p">,</span><span class="mh">0x1b1b</span><span class="p">,</span><span class="mh">0x1c1c</span><span class="p">,</span><span class="mh">0x1d1d</span><span class="p">,</span><span class="mh">0x1e1e</span><span class="p">,</span><span class="mh">0x1f1f</span><span class="p">,</span>
+<span class="mh">0x2020</span><span class="p">,</span><span class="mh">0x2121</span><span class="p">,</span><span class="mh">0x2222</span><span class="p">,</span><span class="mh">0x2323</span><span class="p">,</span><span class="mh">0x2424</span><span class="p">,</span><span class="mh">0x2525</span><span class="p">,</span><span class="mh">0x2626</span><span class="p">,</span><span class="mh">0x2727</span><span class="p">,</span><span class="mh">0x2828</span><span class="p">,</span><span class="mh">0x2929</span><span class="p">,</span><span class="mh">0x2a2a</span><span class="p">,</span><span class="mh">0x2b2b</span><span class="p">,</span><span class="mh">0x2c2c</span><span class="p">,</span><span class="mh">0x2d2d</span><span class="p">,</span><span class="mh">0x2e2e</span><span class="p">,</span><span class="mh">0x2f2f</span><span class="p">,</span>
+<span class="mh">0x3030</span><span class="p">,</span><span class="mh">0x3131</span><span class="p">,</span><span class="mh">0x3232</span><span class="p">,</span><span class="mh">0x3333</span><span class="p">,</span><span class="mh">0x3434</span><span class="p">,</span><span class="mh">0x3535</span><span class="p">,</span><span class="mh">0x3636</span><span class="p">,</span><span class="mh">0x3737</span><span class="p">,</span><span class="mh">0x3838</span><span class="p">,</span><span class="mh">0x3939</span><span class="p">,</span><span class="mh">0x3a3a</span><span class="p">,</span><span class="mh">0x3b3b</span><span class="p">,</span><span class="mh">0x3c3c</span><span class="p">,</span><span class="mh">0x3d3d</span><span class="p">,</span><span class="mh">0x3e3e</span><span class="p">,</span><span class="mh">0x3f3f</span><span class="p">,</span>
+<span class="mh">0x4040</span><span class="p">,</span><span class="mh">0x4141</span><span class="p">,</span><span class="mh">0x4242</span><span class="p">,</span><span class="mh">0x4343</span><span class="p">,</span><span class="mh">0x4444</span><span class="p">,</span><span class="mh">0x4545</span><span class="p">,</span><span class="mh">0x4646</span><span class="p">,</span><span class="mh">0x4747</span><span class="p">,</span><span class="mh">0x4848</span><span class="p">,</span><span class="mh">0x4949</span><span class="p">,</span><span class="mh">0x4a4a</span><span class="p">,</span><span class="mh">0x4b4b</span><span class="p">,</span><span class="mh">0x4c4c</span><span class="p">,</span><span class="mh">0x4d4d</span><span class="p">,</span><span class="mh">0x4e4e</span><span class="p">,</span><span class="mh">0x4f4f</span><span class="p">,</span>
+<span class="mh">0x5050</span><span class="p">,</span><span class="mh">0x5151</span><span class="p">,</span><span class="mh">0x5252</span><span class="p">,</span><span class="mh">0x5353</span><span class="p">,</span><span class="mh">0x5454</span><span class="p">,</span><span class="mh">0x5555</span><span class="p">,</span><span class="mh">0x5656</span><span class="p">,</span><span class="mh">0x5757</span><span class="p">,</span><span class="mh">0x5858</span><span class="p">,</span><span class="mh">0x5959</span><span class="p">,</span><span class="mh">0x5a5a</span><span class="p">,</span><span class="mh">0x5b5b</span><span class="p">,</span><span class="mh">0x5c5c</span><span class="p">,</span><span class="mh">0x5d5d</span><span class="p">,</span><span class="mh">0x5e5e</span><span class="p">,</span><span class="mh">0x5f5f</span><span class="p">,</span>
+<span class="mh">0x6060</span><span class="p">,</span><span class="mh">0x6161</span><span class="p">,</span><span class="mh">0x6262</span><span class="p">,</span><span class="mh">0x6363</span><span class="p">,</span><span class="mh">0x6464</span><span class="p">,</span><span class="mh">0x6565</span><span class="p">,</span><span class="mh">0x6666</span><span class="p">,</span><span class="mh">0x6767</span><span class="p">,</span><span class="mh">0x6868</span><span class="p">,</span><span class="mh">0x6969</span><span class="p">,</span><span class="mh">0x6a6a</span><span class="p">,</span><span class="mh">0x6b6b</span><span class="p">,</span><span class="mh">0x6c6c</span><span class="p">,</span><span class="mh">0x6d6d</span><span class="p">,</span><span class="mh">0x6e6e</span><span class="p">,</span><span class="mh">0x6f6f</span><span class="p">,</span>
+<span class="mh">0x7070</span><span class="p">,</span><span class="mh">0x7171</span><span class="p">,</span><span class="mh">0x7272</span><span class="p">,</span><span class="mh">0x7373</span><span class="p">,</span><span class="mh">0x7474</span><span class="p">,</span><span class="mh">0x7575</span><span class="p">,</span><span class="mh">0x7676</span><span class="p">,</span><span class="mh">0x7777</span><span class="p">,</span><span class="mh">0x7878</span><span class="p">,</span><span class="mh">0x7979</span><span class="p">,</span><span class="mh">0x7a7a</span><span class="p">,</span><span class="mh">0x7b7b</span><span class="p">,</span><span class="mh">0x7c7c</span><span class="p">,</span><span class="mh">0x7d7d</span><span class="p">,</span><span class="mh">0x7e7e</span><span class="p">,</span><span class="mh">0x7f7f</span><span class="p">,</span>
+<span class="mh">0x8080</span><span class="p">,</span><span class="mh">0x8181</span><span class="p">,</span><span class="mh">0x8282</span><span class="p">,</span><span class="mh">0x8383</span><span class="p">,</span><span class="mh">0x8484</span><span class="p">,</span><span class="mh">0x8585</span><span class="p">,</span><span class="mh">0x8686</span><span class="p">,</span><span class="mh">0x8787</span><span class="p">,</span><span class="mh">0x8888</span><span class="p">,</span><span class="mh">0x8989</span><span class="p">,</span><span class="mh">0x8a8a</span><span class="p">,</span><span class="mh">0x8b8b</span><span class="p">,</span><span class="mh">0x8c8c</span><span class="p">,</span><span class="mh">0x8d8d</span><span class="p">,</span><span class="mh">0x8e8e</span><span class="p">,</span><span class="mh">0x8f8f</span><span class="p">,</span>
+<span class="mh">0x9090</span><span class="p">,</span><span class="mh">0x9191</span><span class="p">,</span><span class="mh">0x9292</span><span class="p">,</span><span class="mh">0x9393</span><span class="p">,</span><span class="mh">0x9494</span><span class="p">,</span><span class="mh">0x9595</span><span class="p">,</span><span class="mh">0x9696</span><span class="p">,</span><span class="mh">0x9797</span><span class="p">,</span><span class="mh">0x9898</span><span class="p">,</span><span class="mh">0x9999</span><span class="p">,</span><span class="mh">0x9a9a</span><span class="p">,</span><span class="mh">0x9b9b</span><span class="p">,</span><span class="mh">0x9c9c</span><span class="p">,</span><span class="mh">0x9d9d</span><span class="p">,</span><span class="mh">0x9e9e</span><span class="p">,</span><span class="mh">0x9f9f</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
+<li><p>spi master与slave进入全双工模式，同时发送接收数据0x0000~0x009f，打印接收的数据：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">master</span> <span class="n">receive</span> <span class="n">data</span> <span class="n">at</span> <span class="n">quasi</span> <span class="n">mode</span><span class="p">:</span> 
+<span class="mh">0x0000</span><span class="p">,</span><span class="mh">0x0001</span><span class="p">,</span><span class="mh">0x0002</span><span class="p">,</span><span class="mh">0x0003</span><span class="p">,</span><span class="mh">0x0004</span><span class="p">,</span><span class="mh">0x0005</span><span class="p">,</span><span class="mh">0x0006</span><span class="p">,</span><span class="mh">0x0007</span><span class="p">,</span><span class="mh">0x0008</span><span class="p">,</span><span class="mh">0x0009</span><span class="p">,</span><span class="mh">0x000a</span><span class="p">,</span><span class="mh">0x000b</span><span class="p">,</span><span class="mh">0x000c</span><span class="p">,</span><span class="mh">0x000d</span><span class="p">,</span><span class="mh">0x000e</span><span class="p">,</span><span class="mh">0x000f</span><span class="p">,</span>
+<span class="mh">0x0010</span><span class="p">,</span><span class="mh">0x0011</span><span class="p">,</span><span class="mh">0x0012</span><span class="p">,</span><span class="mh">0x0013</span><span class="p">,</span><span class="mh">0x0014</span><span class="p">,</span><span class="mh">0x0015</span><span class="p">,</span><span class="mh">0x0016</span><span class="p">,</span><span class="mh">0x0017</span><span class="p">,</span><span class="mh">0x0018</span><span class="p">,</span><span class="mh">0x0019</span><span class="p">,</span><span class="mh">0x001a</span><span class="p">,</span><span class="mh">0x001b</span><span class="p">,</span><span class="mh">0x001c</span><span class="p">,</span><span class="mh">0x001d</span><span class="p">,</span><span class="mh">0x001e</span><span class="p">,</span><span class="mh">0x001f</span><span class="p">,</span>
+<span class="mh">0x0020</span><span class="p">,</span><span class="mh">0x0021</span><span class="p">,</span><span class="mh">0x0022</span><span class="p">,</span><span class="mh">0x0023</span><span class="p">,</span><span class="mh">0x0024</span><span class="p">,</span><span class="mh">0x0025</span><span class="p">,</span><span class="mh">0x0026</span><span class="p">,</span><span class="mh">0x0027</span><span class="p">,</span><span class="mh">0x0028</span><span class="p">,</span><span class="mh">0x0029</span><span class="p">,</span><span class="mh">0x002a</span><span class="p">,</span><span class="mh">0x002b</span><span class="p">,</span><span class="mh">0x002c</span><span class="p">,</span><span class="mh">0x002d</span><span class="p">,</span><span class="mh">0x002e</span><span class="p">,</span><span class="mh">0x002f</span><span class="p">,</span>
+<span class="mh">0x0030</span><span class="p">,</span><span class="mh">0x0031</span><span class="p">,</span><span class="mh">0x0032</span><span class="p">,</span><span class="mh">0x0033</span><span class="p">,</span><span class="mh">0x0034</span><span class="p">,</span><span class="mh">0x0035</span><span class="p">,</span><span class="mh">0x0036</span><span class="p">,</span><span class="mh">0x0037</span><span class="p">,</span><span class="mh">0x0038</span><span class="p">,</span><span class="mh">0x0039</span><span class="p">,</span><span class="mh">0x003a</span><span class="p">,</span><span class="mh">0x003b</span><span class="p">,</span><span class="mh">0x003c</span><span class="p">,</span><span class="mh">0x003d</span><span class="p">,</span><span class="mh">0x003e</span><span class="p">,</span><span class="mh">0x003f</span><span class="p">,</span>
+<span class="mh">0x0040</span><span class="p">,</span><span class="mh">0x0041</span><span class="p">,</span><span class="mh">0x0042</span><span class="p">,</span><span class="mh">0x0043</span><span class="p">,</span><span class="mh">0x0044</span><span class="p">,</span><span class="mh">0x0045</span><span class="p">,</span><span class="mh">0x0046</span><span class="p">,</span><span class="mh">0x0047</span><span class="p">,</span><span class="mh">0x0048</span><span class="p">,</span><span class="mh">0x0049</span><span class="p">,</span><span class="mh">0x004a</span><span class="p">,</span><span class="mh">0x004b</span><span class="p">,</span><span class="mh">0x004c</span><span class="p">,</span><span class="mh">0x004d</span><span class="p">,</span><span class="mh">0x004e</span><span class="p">,</span><span class="mh">0x004f</span><span class="p">,</span>
+<span class="mh">0x0050</span><span class="p">,</span><span class="mh">0x0051</span><span class="p">,</span><span class="mh">0x0052</span><span class="p">,</span><span class="mh">0x0053</span><span class="p">,</span><span class="mh">0x0054</span><span class="p">,</span><span class="mh">0x0055</span><span class="p">,</span><span class="mh">0x0056</span><span class="p">,</span><span class="mh">0x0057</span><span class="p">,</span><span class="mh">0x0058</span><span class="p">,</span><span class="mh">0x0059</span><span class="p">,</span><span class="mh">0x005a</span><span class="p">,</span><span class="mh">0x005b</span><span class="p">,</span><span class="mh">0x005c</span><span class="p">,</span><span class="mh">0x005d</span><span class="p">,</span><span class="mh">0x005e</span><span class="p">,</span><span class="mh">0x005f</span><span class="p">,</span>
+<span class="mh">0x0060</span><span class="p">,</span><span class="mh">0x0061</span><span class="p">,</span><span class="mh">0x0062</span><span class="p">,</span><span class="mh">0x0063</span><span class="p">,</span><span class="mh">0x0064</span><span class="p">,</span><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0066</span><span class="p">,</span><span class="mh">0x0067</span><span class="p">,</span><span class="mh">0x0068</span><span class="p">,</span><span class="mh">0x0069</span><span class="p">,</span><span class="mh">0x006a</span><span class="p">,</span><span class="mh">0x006b</span><span class="p">,</span><span class="mh">0x006c</span><span class="p">,</span><span class="mh">0x006d</span><span class="p">,</span><span class="mh">0x006e</span><span class="p">,</span><span class="mh">0x006f</span><span class="p">,</span>
+<span class="mh">0x0070</span><span class="p">,</span><span class="mh">0x0071</span><span class="p">,</span><span class="mh">0x0072</span><span class="p">,</span><span class="mh">0x0073</span><span class="p">,</span><span class="mh">0x0074</span><span class="p">,</span><span class="mh">0x0075</span><span class="p">,</span><span class="mh">0x0076</span><span class="p">,</span><span class="mh">0x0077</span><span class="p">,</span><span class="mh">0x0078</span><span class="p">,</span><span class="mh">0x0079</span><span class="p">,</span><span class="mh">0x007a</span><span class="p">,</span><span class="mh">0x007b</span><span class="p">,</span><span class="mh">0x007c</span><span class="p">,</span><span class="mh">0x007d</span><span class="p">,</span><span class="mh">0x007e</span><span class="p">,</span><span class="mh">0x007f</span><span class="p">,</span>
+<span class="mh">0x0080</span><span class="p">,</span><span class="mh">0x0081</span><span class="p">,</span><span class="mh">0x0082</span><span class="p">,</span><span class="mh">0x0083</span><span class="p">,</span><span class="mh">0x0084</span><span class="p">,</span><span class="mh">0x0085</span><span class="p">,</span><span class="mh">0x0086</span><span class="p">,</span><span class="mh">0x0087</span><span class="p">,</span><span class="mh">0x0088</span><span class="p">,</span><span class="mh">0x0089</span><span class="p">,</span><span class="mh">0x008a</span><span class="p">,</span><span class="mh">0x008b</span><span class="p">,</span><span class="mh">0x008c</span><span class="p">,</span><span class="mh">0x008d</span><span class="p">,</span><span class="mh">0x008e</span><span class="p">,</span><span class="mh">0x008f</span><span class="p">,</span>
+<span class="mh">0x0090</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span><span class="mh">0x0092</span><span class="p">,</span><span class="mh">0x0093</span><span class="p">,</span><span class="mh">0x0094</span><span class="p">,</span><span class="mh">0x0095</span><span class="p">,</span><span class="mh">0x0096</span><span class="p">,</span><span class="mh">0x0097</span><span class="p">,</span><span class="mh">0x0098</span><span class="p">,</span><span class="mh">0x0099</span><span class="p">,</span><span class="mh">0x009a</span><span class="p">,</span><span class="mh">0x009b</span><span class="p">,</span><span class="mh">0x009c</span><span class="p">,</span><span class="mh">0x009d</span><span class="p">,</span><span class="mh">0x009e</span><span class="p">,</span><span class="mh">0x009f</span><span class="p">,</span>
+
+<span class="n">slave</span> <span class="n">receive</span> <span class="n">data</span> <span class="n">at</span> <span class="n">quasi</span> <span class="n">mode</span><span class="p">:</span> 
+<span class="mh">0x0000</span><span class="p">,</span><span class="mh">0x0001</span><span class="p">,</span><span class="mh">0x0002</span><span class="p">,</span><span class="mh">0x0003</span><span class="p">,</span><span class="mh">0x0004</span><span class="p">,</span><span class="mh">0x0005</span><span class="p">,</span><span class="mh">0x0006</span><span class="p">,</span><span class="mh">0x0007</span><span class="p">,</span><span class="mh">0x0008</span><span class="p">,</span><span class="mh">0x0009</span><span class="p">,</span><span class="mh">0x000a</span><span class="p">,</span><span class="mh">0x000b</span><span class="p">,</span><span class="mh">0x000c</span><span class="p">,</span><span class="mh">0x000d</span><span class="p">,</span><span class="mh">0x000e</span><span class="p">,</span><span class="mh">0x000f</span><span class="p">,</span>
+<span class="mh">0x0010</span><span class="p">,</span><span class="mh">0x0011</span><span class="p">,</span><span class="mh">0x0012</span><span class="p">,</span><span class="mh">0x0013</span><span class="p">,</span><span class="mh">0x0014</span><span class="p">,</span><span class="mh">0x0015</span><span class="p">,</span><span class="mh">0x0016</span><span class="p">,</span><span class="mh">0x0017</span><span class="p">,</span><span class="mh">0x0018</span><span class="p">,</span><span class="mh">0x0019</span><span class="p">,</span><span class="mh">0x001a</span><span class="p">,</span><span class="mh">0x001b</span><span class="p">,</span><span class="mh">0x001c</span><span class="p">,</span><span class="mh">0x001d</span><span class="p">,</span><span class="mh">0x001e</span><span class="p">,</span><span class="mh">0x001f</span><span class="p">,</span>
+<span class="mh">0x0020</span><span class="p">,</span><span class="mh">0x0021</span><span class="p">,</span><span class="mh">0x0022</span><span class="p">,</span><span class="mh">0x0023</span><span class="p">,</span><span class="mh">0x0024</span><span class="p">,</span><span class="mh">0x0025</span><span class="p">,</span><span class="mh">0x0026</span><span class="p">,</span><span class="mh">0x0027</span><span class="p">,</span><span class="mh">0x0028</span><span class="p">,</span><span class="mh">0x0029</span><span class="p">,</span><span class="mh">0x002a</span><span class="p">,</span><span class="mh">0x002b</span><span class="p">,</span><span class="mh">0x002c</span><span class="p">,</span><span class="mh">0x002d</span><span class="p">,</span><span class="mh">0x002e</span><span class="p">,</span><span class="mh">0x002f</span><span class="p">,</span>
+<span class="mh">0x0030</span><span class="p">,</span><span class="mh">0x0031</span><span class="p">,</span><span class="mh">0x0032</span><span class="p">,</span><span class="mh">0x0033</span><span class="p">,</span><span class="mh">0x0034</span><span class="p">,</span><span class="mh">0x0035</span><span class="p">,</span><span class="mh">0x0036</span><span class="p">,</span><span class="mh">0x0037</span><span class="p">,</span><span class="mh">0x0038</span><span class="p">,</span><span class="mh">0x0039</span><span class="p">,</span><span class="mh">0x003a</span><span class="p">,</span><span class="mh">0x003b</span><span class="p">,</span><span class="mh">0x003c</span><span class="p">,</span><span class="mh">0x003d</span><span class="p">,</span><span class="mh">0x003e</span><span class="p">,</span><span class="mh">0x003f</span><span class="p">,</span>
+<span class="mh">0x0040</span><span class="p">,</span><span class="mh">0x0041</span><span class="p">,</span><span class="mh">0x0042</span><span class="p">,</span><span class="mh">0x0043</span><span class="p">,</span><span class="mh">0x0044</span><span class="p">,</span><span class="mh">0x0045</span><span class="p">,</span><span class="mh">0x0046</span><span class="p">,</span><span class="mh">0x0047</span><span class="p">,</span><span class="mh">0x0048</span><span class="p">,</span><span class="mh">0x0049</span><span class="p">,</span><span class="mh">0x004a</span><span class="p">,</span><span class="mh">0x004b</span><span class="p">,</span><span class="mh">0x004c</span><span class="p">,</span><span class="mh">0x004d</span><span class="p">,</span><span class="mh">0x004e</span><span class="p">,</span><span class="mh">0x004f</span><span class="p">,</span>
+<span class="mh">0x0050</span><span class="p">,</span><span class="mh">0x0051</span><span class="p">,</span><span class="mh">0x0052</span><span class="p">,</span><span class="mh">0x0053</span><span class="p">,</span><span class="mh">0x0054</span><span class="p">,</span><span class="mh">0x0055</span><span class="p">,</span><span class="mh">0x0056</span><span class="p">,</span><span class="mh">0x0057</span><span class="p">,</span><span class="mh">0x0058</span><span class="p">,</span><span class="mh">0x0059</span><span class="p">,</span><span class="mh">0x005a</span><span class="p">,</span><span class="mh">0x005b</span><span class="p">,</span><span class="mh">0x005c</span><span class="p">,</span><span class="mh">0x005d</span><span class="p">,</span><span class="mh">0x005e</span><span class="p">,</span><span class="mh">0x005f</span><span class="p">,</span>
+<span class="mh">0x0060</span><span class="p">,</span><span class="mh">0x0061</span><span class="p">,</span><span class="mh">0x0062</span><span class="p">,</span><span class="mh">0x0063</span><span class="p">,</span><span class="mh">0x0064</span><span class="p">,</span><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0066</span><span class="p">,</span><span class="mh">0x0067</span><span class="p">,</span><span class="mh">0x0068</span><span class="p">,</span><span class="mh">0x0069</span><span class="p">,</span><span class="mh">0x006a</span><span class="p">,</span><span class="mh">0x006b</span><span class="p">,</span><span class="mh">0x006c</span><span class="p">,</span><span class="mh">0x006d</span><span class="p">,</span><span class="mh">0x006e</span><span class="p">,</span><span class="mh">0x006f</span><span class="p">,</span>
+<span class="mh">0x0070</span><span class="p">,</span><span class="mh">0x0071</span><span class="p">,</span><span class="mh">0x0072</span><span class="p">,</span><span class="mh">0x0073</span><span class="p">,</span><span class="mh">0x0074</span><span class="p">,</span><span class="mh">0x0075</span><span class="p">,</span><span class="mh">0x0076</span><span class="p">,</span><span class="mh">0x0077</span><span class="p">,</span><span class="mh">0x0078</span><span class="p">,</span><span class="mh">0x0079</span><span class="p">,</span><span class="mh">0x007a</span><span class="p">,</span><span class="mh">0x007b</span><span class="p">,</span><span class="mh">0x007c</span><span class="p">,</span><span class="mh">0x007d</span><span class="p">,</span><span class="mh">0x007e</span><span class="p">,</span><span class="mh">0x007f</span><span class="p">,</span>
+<span class="mh">0x0080</span><span class="p">,</span><span class="mh">0x0081</span><span class="p">,</span><span class="mh">0x0082</span><span class="p">,</span><span class="mh">0x0083</span><span class="p">,</span><span class="mh">0x0084</span><span class="p">,</span><span class="mh">0x0085</span><span class="p">,</span><span class="mh">0x0086</span><span class="p">,</span><span class="mh">0x0087</span><span class="p">,</span><span class="mh">0x0088</span><span class="p">,</span><span class="mh">0x0089</span><span class="p">,</span><span class="mh">0x008a</span><span class="p">,</span><span class="mh">0x008b</span><span class="p">,</span><span class="mh">0x008c</span><span class="p">,</span><span class="mh">0x008d</span><span class="p">,</span><span class="mh">0x008e</span><span class="p">,</span><span class="mh">0x008f</span><span class="p">,</span>
+<span class="mh">0x0090</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span><span class="mh">0x0092</span><span class="p">,</span><span class="mh">0x0093</span><span class="p">,</span><span class="mh">0x0094</span><span class="p">,</span><span class="mh">0x0095</span><span class="p">,</span><span class="mh">0x0096</span><span class="p">,</span><span class="mh">0x0097</span><span class="p">,</span><span class="mh">0x0098</span><span class="p">,</span><span class="mh">0x0099</span><span class="p">,</span><span class="mh">0x009a</span><span class="p">,</span><span class="mh">0x009b</span><span class="p">,</span><span class="mh">0x009c</span><span class="p">,</span><span class="mh">0x009d</span><span class="p">,</span><span class="mh">0x009e</span><span class="p">,</span><span class="mh">0x009f</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<p>spi_master_poll_send_receive:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>FLASH<span class="w"> </span>Size:<span class="w">  </span><span class="m">19</span>.80k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">9</span>.40<span class="w"> </span>k
+</pre></div>
+</div>
+<p>spi_slave_poll_receive_send:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>FLASH<span class="w"> </span>Size:<span class="w">  </span><span class="m">19</span>.91k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">9</span>.71<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
