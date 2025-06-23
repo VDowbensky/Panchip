@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Panchip 工具目录工具 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="PAN107x 低功耗蓝牙功耗分析工具" href="power_profiler_intro.html" />
+    <link rel="prev" title="开发工具" href="index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发工具</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Panchip 工具目录工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">工具界面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">帮助</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="power_profiler_intro.html">PAN107x 低功耗蓝牙功耗分析工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prf_captrue.html">2.4G 抓包工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox_intro.html">Panchip Toolbox 工具箱</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发工具</a> &raquo;</li>
+  
+  <li>Panchip 工具目录工具</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/06_dev_tools/panchip_tools_directory.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="panchip">
+<h1>Panchip 工具目录工具<a class="headerlink" href="#panchip" title="永久链接至标题">¶</a></h1>
+<p>Panchip Tools Directory 是 <em>Shanghai Panchip Microelectronics Co.,Ltd.</em> 为 PAN107x/PAN101x SDK 提供的开发工具集合，目前包含如下功能：</p>
+<ul class="simple">
+<li><p>PANCHIP 对外提供的所有工具目录工具</p></li>
+<li><p>可以通过工具目录直接打开下载对于的工具</p></li>
+</ul>
+<p><a class="reference external" href="https://wiki.panchip.com/download/3364/">下载</a>工具。</p>
+<div class="section" id="id1">
+<h2>工具界面<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id3">
+<img alt="panchip_tools_directory" src="../_images/panchip_tools_directory.png" />
+<p class="caption"><span class="caption-text">工具界面</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+<p>​    首页为显示 PANCHIP 系列工具目录列表。</p>
+<p>​    目录列表的每一行对应一个系列的工具。</p>
+<p>​    <font color=00A0FF size=4>工具系列名</font>: <font color=606060 size=3>工具系列包含的工具说明</font></p>
+<div class="figure align-center" id="id4">
+<img alt="panchip_tools_list" src="../_images/panchip_tools_list.png" />
+<p class="caption"><span class="caption-text">通用系列工具列表界面</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+<p>​    点击首页 General Tools 系列工具列表行时，进入通用系列工具列表界面。</p>
+<p>​    目录列表的每一行对应一个工具。</p>
+<p>​    <font color=00A0FF size=3>工具名</font>: <font color=606060 size=3>工具功能说明</font>。</p>
+<p>​    <strong>点击</strong>工具列表项时</p>
+<p>​		1、如果工具目录下的 <strong>panchip_tools</strong> 目录无对应工具，则会先自动下载工具到 <strong>panchip_tools</strong> 目录中对应的工具名称文件夹，下载成功会自动打开工具运行。</p>
+<p>​		2、如果工具目录下的 <strong>panchip_tools</strong> 目录已存在对应工具文件，则会自动打开工具运行。</p>
+</div>
+<div class="section" id="id2">
+<h2>帮助<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>详细使用说明，可以点击软件菜单的 <strong>帮助</strong>-&gt;<strong>查看帮助文档</strong>。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

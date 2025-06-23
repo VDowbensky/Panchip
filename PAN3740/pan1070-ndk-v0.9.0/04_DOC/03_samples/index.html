@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>演示例程 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="蓝牙例程" href="bluetooth/index.html" />
+    <link rel="prev" title="PAN3740 EVB 介绍与硬件参考设计" href="../02_hardware/pan3740_reference_design/pan3740_reference_design.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">演示例程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+  <li>演示例程</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/index.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="section" id="samples-intro-ndk">
+<span id="id1"></span><h1>演示例程<a class="headerlink" href="#samples-intro-ndk" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p><strong>蓝牙例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\bluetooth</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="bluetooth/ble_central_periph.html"><span class="doc">Central and Peripheral</span></a></p></td>
+<td><p>演示蓝牙主从一体功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bluetooth/ble_central.html"><span class="doc">Central</span></a></p></td>
+<td><p>演示蓝牙主机功能，发现设备并与设备建立连接和断连</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bluetooth/ble_periph_enc.html"><span class="doc">BLE Peripheral ENC</span></a></p></td>
+<td><p>演示外设以及加密配对功能，可以和主机示例进行对测</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bluetooth/ble_periph_hr.html"><span class="doc">Peripheral HR</span></a></p></td>
+<td><p>演示蓝牙从机功能，包含 GATT服务：HR (Heart Rate)，连接订阅服务后，会上报虚拟的心率值，低功耗演示demo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bluetooth/ble_periph_hr_ota.html"><span class="doc">Peripheral HR OTA</span></a></p></td>
+<td><p>演示蓝牙从机 OTA 功能，包含完整的蓝牙通用的 SMP 服务，配合手机 nrf connect 进行 OTA 升级</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bluetooth/ble_distance.html"><span class="doc">Peripheral Distance</span></a></p></td>
+<td><p>演示蓝牙从机 s2 s8 编码长距离传输的功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bluetooth/ble_multi_role.html"><span class="doc">BLE Multi-Roles</span></a></p></td>
+<td><p>演示蓝牙多主多从功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bluetooth/ble_hci.html"><span class="doc">BLE HCI</span></a></p></td>
+<td><p>演示蓝牙HCI功能</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>系统组件例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\component</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="component/flash_kvstore.html"><span class="doc">Flash KVStore</span></a></p></td>
+<td><p>演示 Flash KVStore 组件的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="component/sfud.html"><span class="doc">Serial Flash Universal Driver</span></a></p></td>
+<td><p>演示 SPI Flash 通用驱动库（SFUD）组件的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="component/usbd_cdc_acm.html"><span class="doc">USBD CDC-ACM</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 CDC-ACM Device（虚拟串口设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="component/usbd_cdc_acm_msc_ram_disk.html"><span class="doc">USBD CDC-ACM and MSC RAM Disk</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 CDC-ACM and MSC RAM Disk Device（虚拟串口与大容量存储复合设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="component/usbd_hid_custom_inout.html"><span class="doc">USBD HID Custom In/Out</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 HID Custom In/Out Device（自定义人机接口设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="component/usbd_hid_custom_msc_ram_disk.html"><span class="doc">USBD HID Custom In/out and MSC RAM Disk</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 HID Custom In/Out and MSC RAM Disk Device（自定义人机接口与大容量存储复合设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="component/usbd_hid_keyboard.html"><span class="doc">USBD HID Keyboard</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 HID Keyboard Device（键盘设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="component/usbd_hid_mouse.html"><span class="doc">USBD HID Mouse</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 HID Mouse Device（鼠标设备）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="component/usbd_msc_flash_disk.html"><span class="doc">USBD MSC Flash Disk</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 MSC Flash Disk Device（大容量存储设备 - Flash 虚拟 U 盘）的基本功能与使用方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="component/usbd_msc_ram_disk.html"><span class="doc">USBD MSC RAM Disk</span></a></p></td>
+<td><p>演示 CherryUSB 组件的 MSC RAM Disk Device（大容量存储设备 - RAM 虚拟 U 盘）的基本功能与使用方法</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>低功耗例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\low_power</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="low_power/deepsleep_gpio_key_wakeup.html"><span class="doc">DeepSleep GPIO Key Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 DeepSleep 状态，并通过 GPIO 按键将其唤醒</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="low_power/deepsleep_gpio_pwm_wakeup.html"><span class="doc">DeepSleep GPIO PWM Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 DeepSleep 状态，使用外部 PWM 波形通过 GPIO 将其唤醒</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="low_power/deepsleep_pwm_waveform_generator.html"><span class="doc">DeepSleep PWM Waveform Generator</span></a></p></td>
+<td><p>演示 SoC 在 DeepSleep 状态下输出 PWM 波形，并使用 APB HW Timer0 定时唤醒并修改 PWM 波形周期和占空比</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="low_power/deepsleep_slptmr_wakeup.html"><span class="doc">DeepSleep SleepTimer Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 DeepSleep 状态，并通过 SleepTimer 定时器将其唤醒</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="low_power/standby_m1_gpio_key_wakeup.html"><span class="doc">Standby Mode1 GPIO Key Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 Standby Mode 1 状态，并通过 GPIO 按键将其唤醒</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="low_power/standby_m1_slptmr_wakeup.html"><span class="doc">Standby Mode1 SleepTimer Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 Standby Mode 1 状态，并通过 SleepTimer 定时器将其唤醒</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="low_power/standby_m0_p02_key_wakeup.html"><span class="doc">Standby Mode0 P02 Key Wakeup</span></a></p></td>
+<td><p>演示 SoC 进入 Standby Mode 0 状态，并通过 WKUP (P02) 按键将其唤醒</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="low_power/multiple_wakeup_source.html"><span class="doc">Multiple Wakeup Source</span></a></p></td>
+<td><p>演示 SoC 多种唤醒源、多种低功耗模式之间的切换</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>系统调试例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\os_debug</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="os_debug/os_rtt_logging.html"><span class="doc">OS RTT Logging</span></a></p></td>
+<td><p>演示芯片通过 Segger RTT 机制输出 Log 的方法</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>外设驱动例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\peripheral</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/adc_read_multiple_channels.html"><span class="doc">ADC</span></a></p></td>
+<td><p>演示使用 ADC HAL Driver 实现读取芯片VBAT电压、芯片温度、以及一个外部通道电压的功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/gpio_digital_input_interrupt.html"><span class="doc">GPIO Input With Interrupt</span></a></p></td>
+<td><p>演示使用 GPIO HAL Driver 实现中断方式的 GPIO 输入检测功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/gpio_digital_input_polling.html"><span class="doc">GPIO Input Polling</span></a></p></td>
+<td><p>演示使用 GPIO HAL Driver 实现查询方式的 GPIO 输入检测功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/gpio_output_open_drain.html"><span class="doc">GPIO Open-Drain Output</span></a></p></td>
+<td><p>演示使用 GPIO HAL Driver 实现 GPIO 开漏（Open-Drain）输出功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/gpio_output_push_pull.html"><span class="doc">GPIO Push-Pull Output</span></a></p></td>
+<td><p>演示使用 GPIO HAL Driver 实现 GPIO 推挽（Push-Pull）输出功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/gpio_simple_convenient_apis.html"><span class="doc">GPIO Simple Convenient APIs</span></a></p></td>
+<td><p>演示 GPIO 底层 Driver 中提供的几个简单好用的接口</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/i2c_receive_send_dma.html"><span class="doc">I2C Receive Send Dma</span></a></p></td>
+<td><p>演示使用 I2C HAL Driver 和 DMA HAL Driver 实现 DMA 方式的 I2C 收发功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/i2c_receive_send_interrupt.html"><span class="doc">I2C Receive Send Interrupt</span></a></p></td>
+<td><p>演示使用 I2C HAL Driver 实现中断方式的 I2C 收发功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/i2c_receive_send_polling.html"><span class="doc">I2C Receive Send Polling</span></a></p></td>
+<td><p>演示使用 I2C HAL Driver 实现轮询方式的 I2C 收发功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/pwm.html"><span class="doc">PWM</span></a></p></td>
+<td><p>演示使用 PWM HAL Driver 实现 PWM 输出的功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/spi_receive_send_dma.html"><span class="doc">SPI Receive Send Dma</span></a></p></td>
+<td><p>演示使用 SPI HAL Driver 和 DMA HAL Driver 实现 DMA 方式的 SPI 收发功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/spi_receive_send_interrupt.html"><span class="doc">SPI Receive Send Interrupt</span></a></p></td>
+<td><p>演示使用 SPI HAL Driver 实现中断方式的 SPI 收发功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/spi_receive_send_polling.html"><span class="doc">SPI Receive Send Polling</span></a></p></td>
+<td><p>演示使用 SPI HAL Driver 实现轮询方式的 SPI 收发功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/timer_basic.html"><span class="doc">Timer Basic</span></a></p></td>
+<td><p>演示使用 TIMER HAL Driver 实现 Timer 的定时功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/timer_capture.html"><span class="doc">Timer Capture</span></a></p></td>
+<td><p>演示使用 TIMER HAL Driver 实现 Timer 的外部输入捕获功能</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="peripheral/uart_fifo.html"><span class="doc">UART FIFO</span></a></p></td>
+<td><p>演示使用 UART HAL Driver 实现中断方式的 UART 收发功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="peripheral/uart_dma.html"><span class="doc">UART DMA</span></a></p></td>
+<td><p>演示使用 UART HAL Driver 实现 DMA方式的 UART 收发功能</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>固件保护例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\security</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="security/fw_encryption.html"><span class="doc">Firmware Encryption</span></a></p></td>
+<td><p>演示芯片通过固件加密、硬件解密的机制保护 Flash 关键代码的方法</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="security/swd_protection.html"><span class="doc">SWD Protection</span></a></p></td>
+<td><p>演示芯片 SWD Debug Protect 调试保护机制</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>通用解决方案</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\solutions</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions/ble_hid_selfie.html"><span class="doc">BLE HID Selfie</span></a></p></td>
+<td><p>自拍解决方案，通过蓝牙HID控制手机拍照</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="solutions/ble_hid_uart_capture.html"><span class="doc">BLE HID Uart Capture</span></a></p></td>
+<td><p>录像拍照云台解决方案，通过蓝牙HID和串口透传控制手机拍照和录像</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions/ble_hid_uart_mult_roles.html"><span class="doc">BLE HID Uart Mult Roles</span></a></p></td>
+<td><p>蓝牙串口透传解决方案，演示蓝牙hid串口透传功能，支持1主1从</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="solutions/ble_panchip_cte_beacon.html"><span class="doc">BLE Panchip-CTE Beacon</span></a></p></td>
+<td><p>Panchip 蓝牙定位标签方案，通过发送特定的广播数据，实现蓝牙定位功能</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions/ble_prf_sample.html"><span class="doc">BLE PRF Sample</span></a></p></td>
+<td><p>BLE和私有2.4G协议双模例程，BLE和2.4G可同时工作</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="solutions/ble_prf_multi_mode_toggle.html"><span class="doc">BLE PRF Sample</span></a></p></td>
+<td><p>BLE和私有2.4G协议双模例程，BLE和2.4G可通过按键切换分时工作</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions/ble_rgb_light.html"><span class="doc">BLE RGB Light</span></a></p></td>
+<td><p>蓝牙 RGB 灯控方案，演示 BLE RGB 灯与手机 APP 进行连接，通过 APP 控制 RGB 灯的亮度与颜色</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="solutions/ble_vehicles_key.html"><span class="doc">BLE Vehicles Key</span></a></p></td>
+<td><p>蓝牙车钥匙解决方案，演示基于HID服务的自动连接服务</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PC外设方案</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\solutions_hid</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions_hid/mult_ms.html"><span class="doc">Multimode Mouse</span></a></p></td>
+<td><p>多模实体办公键鼠 demo，演示2.4G或蓝牙配对工作</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="solutions_hid/mult_ms_evb.html"><span class="doc">Multimode Mouse EVB</span></a></p></td>
+<td><p>多模办公键鼠 evb demo，演示2.4G或蓝牙配对工作</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="solutions_hid/prf_dongle.html"><span class="doc">PRF Dongle</span></a></p></td>
+<td><p>2.4G Dongle例程，配合mult_ms或者108鼠标可以演示键鼠功能</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sub-1G 例程</strong></p>
+<p>源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\01_SDK\nimble\samples\sub_1G</span></code></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="sub_1g/cad.html"><span class="doc">CAD</span></a></p></td>
+<td><p>Sub 1G cad演示例程，演示芯片信道ChirpIO信号检测及退避机制</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sub_1g/intelligent_search.html"><span class="doc">Intelligent Search</span></a></p></td>
+<td><p>Sub 1G 智能搜索演示例程，接收端可接收多个SF值不同的设备</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sub_1g/plhd.html"><span class="doc">PLHD</span></a></p></td>
+<td><p>Sub 1G 提前中断演示例程，可过滤掉一些非预期包，提高接收效率</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sub_1g/trx_sample.html"><span class="doc">TRx Sample</span></a></p></td>
+<td><p>Sub 1G TRx转换演示例程</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sub_1g/packet_reception_rate.html"><span class="doc">Packet Reception Rate</span></a></p></td>
+<td><p>Sub 1G 收包率演示例程</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<div class="section" id="mcu">
+<h2>MCU裸机例程<a class="headerlink" href="#mcu" title="永久链接至标题">¶</a></h2>
+<p>例程源码路径: <code class="docutils literal notranslate"><span class="pre">&lt;PAN1070-NDK&gt;\03_MCU\mcu_samples</span></code></p>
+<p>MCU 底层驱动（Low Level Driver）Keil 例程：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>例程</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_ADC例程说明.pdf">MCU Low Level ADC Driver Sample</a></p></td>
+<td><p>MCU 底层 ADC 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_CLKTRIM例程说明.pdf">MCU Low Level CLKTRIM Driver Sample</a></p></td>
+<td><p>MCU 底层 Clock Trim 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_CLK例程说明.pdf">MCU Low Level CLK Driver Sample</a></p></td>
+<td><p>MCU 底层 CLK 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_DMA例程说明.pdf">MCU Low Level DMA Driver Sample</a></p></td>
+<td><p>MCU 底层 DMA 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_eFuse例程说明.pdf">MCU Low Level eFuse Driver Sample</a></p></td>
+<td><p>MCU 底层 eFuse 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_FMC例程说明.pdf">MCU Low Level FMC Driver Sample</a></p></td>
+<td><p>MCU 底层 FMC 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_GPIO例程说明.pdf">MCU Low Level GPIO Driver Sample</a></p></td>
+<td><p>MCU 底层 GPIO 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_I2C例程说明.pdf">MCU Low Level I2C Driver Sample</a></p></td>
+<td><p>MCU 底层 I2C 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_PWM例程说明.pdf">MCU Low Level PWM Sample</a></p></td>
+<td><p>MCU 底层 PWM 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_SPI例程说明.pdf">MCU Low Level SPI Sample</a></p></td>
+<td><p>MCU 底层 SPI 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_TIMER例程说明.pdf">MCU Low Level TIMER Sample</a></p></td>
+<td><p>MCU 底层 TIMER 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_UART例程说明.pdf">MCU Low Level UART Sample</a></p></td>
+<td><p>MCU 底层 UART 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_WDT例程说明.pdf">MCU Low Level WDT Sample</a></p></td>
+<td><p>MCU 底层 WDT 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_WWDT例程说明.pdf">MCU Low Level WWDT Sample</a></p></td>
+<td><p>MCU 底层 WWDT 驱动例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_LowPower例程说明.pdf">MCU LowPower Sample</a></p></td>
+<td><p>MCU Low Power 低功耗例程演示说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_DebugProtect例程说明.pdf">MCU DebugProtect Sample</a></p></td>
+<td><p>MCU Debug Protect 调试接口保护例程演示说明</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_PRF_TRX开发指南.pdf">MCU PRF TRX Sample</a></p></td>
+<td><p>MCU 私有 2.4G 通信开发指南</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="../../03_MCU/mcu_samples_doc/PAN1070_PRF_UI距离测试说明.pdf">MCU PRF UI Distance Test Sample</a></p></td>
+<td><p>MCU 私有 2.4G 距离测试例程演示说明</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

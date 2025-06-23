@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 低功耗开发指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK Bootloader 开发指南" href="ndk_mcu_boot.html" />
+    <link rel="prev" title="NDK PRF 2.4G 开发指南" href="ndk_prf_dev_guidance.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 低功耗开发指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1 低功耗模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2 开发流程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.1 低功耗使用流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.2 参考相关例程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.3  Standby_m1休眠唤醒</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3 其他说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK 低功耗开发指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_lowpower_dev_notes.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk">
+<h1>NDK 低功耗开发指南<a class="headerlink" href="#ndk" title="永久链接至标题">¶</a></h1>
+<p>本文主要通过一些示例，介绍<strong>低功耗</strong>各个模式、使用的方法以及可能遇到的问题。</p>
+<div class="section" id="id1">
+<h2>1 低功耗模式<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>芯片电源结构简图：</p>
+<p><img alt="image" src="../_images/PAN1070_Power_Structure.png" /></p>
+<p>芯片定义了 4 种低功耗模式：</p>
+<ol class="simple">
+<li><p><strong>Sleep 模式</strong>：</p>
+<ul class="simple">
+<li><p>芯片供电与 Active 状态下相同，CPU 时钟停止，所有其他时钟均处于开启状态</p></li>
+<li><p>唤醒源支持所有外设中断、BOD、LVR</p></li>
+</ul>
+</li>
+<li><p><strong>DeepSleep 模式</strong>：</p>
+<ul class="simple">
+<li><p>芯片供电：</p>
+<ul>
+<li><p>DeepSleep Mode 1：HPLDO（1.2v）关闭，LPLDOL（0.4v）开启，LPLDOH（0.7v）开启，开关 sw0 闭合，开关 sw1 断开，开关 sw2 ~ sw6 可根据需要选择闭合或断开，芯片功耗约 3 ~ 4 uA</p></li>
+<li><p>DeepSleep Mode 2：HPLDO（1.2v）关闭，LPLDOH（0.7v）开启，开关 sw0 闭合，开关 sw1 闭合，开关 sw2 ~ sw6 可根据需要选择闭合或断开，芯片功耗约 6 ~ 8 uA</p></li>
+</ul>
+</li>
+<li><p>芯片时钟：高速时钟关闭、32K 低速时钟可根据需要选择是否开启</p></li>
+<li><p>唤醒源：所有 GPIO 引脚中断、SleepTimer、Timer0/1/2（仅限 DeepSleep Mode 2）、BOD、LVR</p></li>
+</ul>
+</li>
+<li><p><strong>Standby Mode 1 模式</strong>：</p>
+<ul class="simple">
+<li><p>芯片供电：HPLDO（1.2v）关闭，LPLDOL（0.4v）开启，LPLDOH（0.7v）开启，开关 sw0 断开，开关 sw1 断开，开关 sw2 ~ sw6 可根据需要选择闭合或断开，芯片功耗约 1 ~ 2 uA</p></li>
+<li><p>芯片时钟：高速时钟关闭、32K 低速时钟可根据需要选择是否开启</p></li>
+<li><p>唤醒源：所有 GPIO 引脚中断、SleepTimer、BOD、LVR</p></li>
+</ul>
+</li>
+<li><p><strong>Standby Mode 0 模式</strong>：</p>
+<ul class="simple">
+<li><p>芯片供电：所有内部 LDO 均关闭，芯片功耗约 300 nA</p></li>
+<li><p>芯片时钟：所有时钟均关闭</p></li>
+<li><p>唤醒源：GPIO P00/P01/P02 电平唤醒</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>2 开发流程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>2.1 低功耗使用流程<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="sleep">
+<h4>2.1.1 Sleep模式<a class="headerlink" href="#sleep" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p><strong>进入流程：</strong></p></li>
+</ul>
+<ol class="simple">
+<li><p>配置 sleep_mode 为 sleep 模式</p></li>
+<li><p>唤醒源配置</p></li>
+<li><p>设置flash dp_en为0</p></li>
+<li><p>设置CPU SLEEPDEEP寄存器为0</p></li>
+<li><p>考虑安全，建议进行一次手动3V同步操作</p></li>
+<li><p>__WFI()；</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>退出流程：</strong></p></li>
+</ul>
+<ol class="simple">
+<li><p>唤醒源产生中断；</p></li>
+<li><p>处理中断，清除中断源；</p></li>
+</ol>
+</div>
+<div class="section" id="deepsleep">
+<h4>2.1.2 Deepsleep模式<a class="headerlink" href="#deepsleep" title="永久链接至标题">¶</a></h4>
+<p><strong>进入流程：</strong></p>
+<ol>
+<li><p>配置sleep_mode为deepsleep模式，配置各电压域的power switch，配置rcl_en_ctrl，xtl_pwr_ctrl，Buck和flashldo的配置建议使用driver默认</p></li>
+<li><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Power Switch</p></th>
+<th class="head"><p>模式1</p></th>
+<th class="head"><p>模式2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lpldoh_en</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>lpldol_en</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Ldo_pwr_ctrl</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ldol_pwr_ctrl</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Peri_pwr_ctrl（cpu/ll_sram/phy_sram/sram0/sram1）</p></td>
+<td><p>1（ram可配）</p></td>
+<td><p>1（ram可配）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lpldoh_iso_en</p></td>
+<td><p>1（配置0待测试）</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>唤醒源配置：所有GPIO，SLPTMR，WDT，TIMER0/1/2，BOD/LVR（可选），PIN RESET。对于模式1，如果Lpldoh_iso_en配置为1，则不支持TIMER0/1/2唤醒；如果Lpldoh_iso_en配置为0，则支持TIMER0/1/2唤醒和PWM输出（需要测试是否有漏电）。对于模式2，上述唤醒源都可以唤醒系统。BOD，LVR唤醒需要开启32K时钟。</p></li>
+<li><p>对于模式1，如果Lpldoh_iso_en配置为1，不支持PWM输出；如果Lpldoh_iso_en配置为0，则支持PWM输出（需要测试是否有漏电）。对于模式2， PWM可以输出</p></li>
+<li><p>Flash dp设置为1，并退出enhance模式。配置合适的dp，和rdp时间</p></li>
+<li><p>建议cpu地址重映射功能开启，映射地址为ram保电区域，可加快唤醒后，程序执行速度</p></li>
+<li><p>设置CPU SLEEPDEEP寄存器为1</p></li>
+<li><p>Flash控制器退出增强型模式；</p></li>
+<li><p>_WFI()；</p></li>
+</ol>
+<p><strong>退出流程：</strong></p>
+<ol class="simple">
+<li><p>唤醒源唤醒，产生lp中断或者唤醒源相对应的中断</p></li>
+<li><p>清除相应flag</p></li>
+</ol>
+<p><strong>备注：</strong></p>
+<ol class="simple">
+<li><p>此状态下 SWD 功能无效（无法调试或烧录程序，需要唤醒后操作）</p></li>
+<li><p>gpio唤醒电平，至少需要保持一个完整的32K时钟周期。如果需要读取的gpio的中断，需要7个32K时钟周期（需要dly2的延时决定）；如果32K时钟关闭，则唤醒需要的时间更久，和32K时钟的启动时间相关</p></li>
+</ol>
+</div>
+<div class="section" id="standby-m1">
+<h4>2.1.3 Standby_m1模式<a class="headerlink" href="#standby-m1" title="永久链接至标题">¶</a></h4>
+<p><strong>进入流程：</strong></p>
+<ol>
+<li><p>配置sleep_mode为standby_m1模式，配置各电压域的power switch，配置rcl_en_ctrl，xtl_pwr_ctrl，Buck和flashldo的配置建议使用driver默认</p></li>
+<li><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lpldoh_en</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>lpldol_en</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Ldo_pwr_ctrl</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ldol_pwr_ctrl</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Peri_pwr_ctrl（cpu/ll_sram/phy_sram/sram0/sram1）</p></td>
+<td><p>1（可配）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lpldoh_iso_en</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>唤醒源配置：所有GPIO，SLPTMR，WDT，BOD/LVR（可选），PIN RESET。BOD，LVR唤醒需要开启32K时钟。</p></li>
+<li><p>flash如果使用4线模式，建议开启dp模式，flash 两线切换四线的时间特别长，一般会有8ms；如果flash使用2线模式，不建议开启dp模式，flash直接掉电处理。</p></li>
+<li><p>建议cpu地址重映射功能开启，映射地址为ram保电区域，可加快唤醒后，程序执行速度</p></li>
+<li><p>根据需求，决定是否开启cpu保电功能，寄存器LP_FL_CTRL[4]。可硬件恢复现场，代码实现有特定需求，参见说明部分</p></li>
+<li><p>Dly_time2需要根据测试结果重新配置，默认值比较大</p></li>
+<li><p>设置CPU SLEEPDEEP寄存器为1</p></li>
+<li><p>_WFI()；</p></li>
+</ol>
+<p><strong>退出流程：</strong></p>
+<ol class="simple">
+<li><p>唤醒源唤醒，产生lp中断以及唤醒源相对应的中断</p></li>
+<li><p>清除相应flag</p></li>
+</ol>
+<p><strong>备注：</strong></p>
+<ol class="simple">
+<li><p>支持 cpu core 寄存器 retention 功能</p></li>
+<li><p>gpio唤醒电平，至少需要保持一个完整的32K时钟周期。如果需要读取的gpio的中断，需要7个32K时钟周期（需要dly2的延时决定）；如果32K时钟关闭，则唤醒需要的时间更久，和32K时钟的启动时间相关</p></li>
+</ol>
+</div>
+<div class="section" id="standby-m0">
+<h4><strong>2.1.4</strong> Standby_m0模式<a class="headerlink" href="#standby-m0" title="永久链接至标题">¶</a></h4>
+<p><strong>进入流程：</strong></p>
+<ol class="simple">
+<li><p>配置sleep_mode为standby_m0模式，配置rcl_en_ctrl，xtl_pwr_ctrl</p></li>
+<li><p>唤醒源配置：所有P00，P01，P02， BOD/LVR（可选），PIN RESET。</p></li>
+<li><p>Flash dp设置为0</p></li>
+<li><p>Dly_time1根据需要决定是否配置，如果不在意m0的唤醒时间不建议去修改。此处的时间测试遍历会比较多，设置的值不好控制</p></li>
+<li><p>设置CPU SLEEPDEEP寄存器为1</p></li>
+<li><p>_WFI()；</p></li>
+</ol>
+<p><strong>退出流程：</strong></p>
+<ol class="simple">
+<li><p>唤醒源唤醒，产生lp中断以及唤醒源相对应的中断</p></li>
+<li><p>清除相应flag</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>2.2 参考相关例程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>SDK 中提供了诸多演示芯片低功耗的例程：</p>
+<ul class="simple">
+<li><p>裸机例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-DK&gt;\03_MCU\mcu_samples\LowPower</span></code></p></li>
+<li><p>带OS例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-DK&gt;\01_SDK\nimble\samples\low_power</span></code></p></li>
+</ul>
+<p>低功耗例程的详细说明请参考对应例程的文档。</p>
+</div>
+<div class="section" id="id5">
+<h3>2.3  Standby_m1休眠唤醒<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>以standby m1模式，cpu retention and cpu continue run模式为基础介绍各个时间阶段mcu的动作。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>阶段</p></th>
+<th class="head"><p>说明</p></th>
+<th class="head"><p>时间(us)</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>进入休眠</p></td>
+<td><p>从软件发送休眠指令至硬件完全休眠的时间</p></td>
+<td><p>236</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>硬件唤醒启动</p></td>
+<td><p>唤醒源触发后硬件完全启动的时间</p></td>
+<td><p>278</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Standby M1 retention模式</p></td>
+<td><p>continue run，唤醒至rx ready时间</p></td>
+<td><p>465</p></td>
+<td><p>此模式下<strong>软件初始化和RF初始化步骤</strong>可以省略</p></td>
+</tr>
+<tr class="row-odd"><td><p>TX/RX(max 59B)</p></td>
+<td><p>收发最大payload的时间，根据传输速率与字节数计算得出</p></td>
+<td><p>1888</p></td>
+<td><p>此处按最大数据计算</p></td>
+</tr>
+<tr class="row-even"><td><p>总计</p></td>
+<td><p>休眠唤醒至tx完成/rx完成的时间</p></td>
+<td><p>2867</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>休眠时间</p>
+<p><img alt="image" src="../_images/enter_standby_m1.png" /></p>
+<p>唤醒时间</p>
+<p><img alt="image" src="../_images/wake_from_standby_m1.png" /></p>
+<p>软件运行至RF ready时间</p>
+<p><img alt="image" src="../_images/run_to_rf_ready.png" /></p>
+<p>RF 接收32Byte时间</p>
+<p><img alt="image" src="../_images/rf_receive.png" /></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>3 其他说明<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>低功耗模式下供电分两部分LPLDOL和LPLDOH，其中LPLDOL给sram供电，电压为 0.4v 左右，LPLDOH给需要稍高一些电压的模块供电，供电电压 0.7v 左右。</p></li>
+<li><p>DeepSleep模式下外设timer0/1/2作为唤醒以及PWM在低功耗下输出需要将deepsleep低功耗模式设置为模式2，即dp_mode=LP_DEEPSLEEP_MODE2。</p></li>
+<li><p>Standby M1 cpu retention 模式唤醒后外设部分及RF MAC层寄存器需要重新初始化，PHY、保电的sram、时钟等不需要重新初始化。</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

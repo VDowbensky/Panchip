@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE PRF Sample &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE RGB Light" href="ble_rgb_light.html" />
+    <link rel="prev" title="BLE PRF Multi Mode Toggle" href="ble_prf_multi_mode_toggle.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">通用解决方案</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_accelerometer.html">BLE Accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_app_uart.html">BLE APP Uart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_selfie.html">BLE HID Selfie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_capture.html">BLE HID Uart Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_mult_roles.html">BLE HID Uart Mult Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_panchip_cte_beacon.html">BLE Panchip-CTE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_multi_mode_toggle.html">BLE PRF Multi Mode Toggle</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE PRF Sample</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发使用说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_rgb_light.html">BLE RGB Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_spi_tft_lcd.html">BLE Spi Tft Lcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_vehicles_key.html">BLE Vehicles Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf_mini_test.html">RF Mini Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">通用解决方案</a> &raquo;</li>
+  
+  <li>BLE PRF Sample</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions/ble_prf_sample.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-prf-sample">
+<h1>BLE PRF Sample<a class="headerlink" href="#ble-prf-sample" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>此项目演示 BLE 从机和 2.4G 同时工作的双模场景，其在蓝牙从机 <a class="reference internal" href="../bluetooth/ble_periph_hr.html"><span class="doc std std-doc">BLE Peripheral HR</span></a> 例程的基础上增加了 PRF 2.4G 相关功能。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107x</span> <span class="pre">evb</span></code></p></li>
+<li><p>uart(option): 用来显示串口log（波特率921600，选项<code class="docutils literal notranslate"><span class="pre">8n1</span></code>）</p></li>
+<li><p>手机app <code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions\ble_prf_sample\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>打开项目进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>烧录完成后，设备复位会显示上电log，上电后的log如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span> <span class="n">to</span> <span class="n">load</span> <span class="n">HW</span> <span class="n">calibration</span> <span class="n">data</span><span class="o">..</span> <span class="n">DONE</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Info</span>         <span class="p">:</span> <span class="mh">0x1</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">CP</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">255</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">FT</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">6</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">MAC</span> <span class="n">Address</span>  <span class="p">:</span> <span class="n">E11000000FBC</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">UID</span>          <span class="p">:</span> <span class="mi">090001465454455354</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">UID</span>    <span class="p">:</span> <span class="mi">4250315</span><span class="n">A3538380B006ED94356031578</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">Size</span>   <span class="p">:</span> <span class="mi">512</span> <span class="n">KB</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">app</span> <span class="n">started</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">ble</span> <span class="n">stack</span> <span class="n">init</span> <span class="n">start</span><span class="o">...</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">Spark</span> <span class="n">Controller</span> <span class="n">Init</span> <span class="n">Start</span><span class="o">.</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">BLE</span> <span class="n">Heap</span> <span class="n">size</span><span class="p">:</span><span class="mi">3844</span> <span class="n">B</span><span class="p">,</span> <span class="n">remain</span><span class="p">:</span><span class="mi">64</span> <span class="n">B</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">Spark</span> <span class="n">Controller</span> <span class="n">Init</span> <span class="n">OK</span><span class="o">.</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">ble</span> <span class="n">host</span> <span class="n">init</span> <span class="n">ok</span> <span class="o">-&gt;</span> <span class="n">ble</span> <span class="n">thread</span> <span class="n">start</span><span class="o">...</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">registered</span> <span class="n">service</span> <span class="mh">0x180a</span> <span class="k">with</span> <span class="n">handle</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a24</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">2</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a25</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">4</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a27</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">6</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">7</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a26</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">8</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">9</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a28</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">10</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">11</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a29</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">12</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">13</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a23</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">14</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">15</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">registered</span> <span class="n">service</span> <span class="mh">0x180d</span> <span class="k">with</span> <span class="n">handle</span><span class="o">=</span><span class="mi">16</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a37</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">17</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">18</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span>   <span class="n">registering</span> <span class="n">characteristic</span> <span class="mh">0x2a38</span> <span class="k">with</span> <span class="n">def_handle</span><span class="o">=</span><span class="mi">20</span> <span class="n">val_handle</span><span class="o">=</span><span class="mi">21</span>
+<span class="p">[</span><span class="n">W</span><span class="p">]</span> <span class="n">Device</span> <span class="n">Id</span> <span class="n">Address</span><span class="p">:</span> <span class="n">E1</span> <span class="mi">10</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">0</span><span class="n">F</span> <span class="n">BC</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">BLE</span> <span class="n">adv</span> <span class="n">start</span><span class="o">...</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">tx</span> <span class="n">done</span>
+</pre></div>
+</div>
+<p>“tx done”是2.4g发送完一包后的打印，例程默认每隔500ms发送一次，偶尔会出现1s打印一次。这个是由于蓝牙和2.4g碰撞到一起的时候蓝牙优先级高，此时蓝牙工作2.4g不工作，2.4g主要在蓝牙空闲的时候工作。</p>
+</li>
+<li><p>使用手机 <code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code> 扫描蓝牙设备名称<code class="docutils literal notranslate"><span class="pre">ble_hr</span></code>并且连接</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../../_images/bleprph-hr1.jpg" />
+<p class="caption"><span class="caption-text">nrf connect连接ble_hr</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+<p>蓝牙广播和连接的同时也能发送2.4g包。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发使用说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="bleprf">
+<h3>5.1ble和prf初始化<a class="headerlink" href="#bleprf" title="永久链接至标题">¶</a></h3>
+<ol class="simple">
+<li><p>双模例程必须使能双模的宏”PRF_BLE_DUAL_MODE”，目前宏定义在keil工程的Options-&gt;C/C++下选项Preprocessor Symbols中。</p></li>
+<li><p>2.4g和BLE初始化代码如下：</p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="n">pan_ant_init</span><span class="p">();</span>
+
+<span class="w">	</span><span class="k">extern</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">BB_UsToTick</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">us</span><span class="p">);</span>
+
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">tick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0x50020014</span><span class="p">);</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">interval</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">BB_UsToTick</span><span class="p">(</span><span class="mi">500000</span><span class="p">);</span><span class="w">			</span><span class="c1">//prf interval 500ms</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">slot_duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w">							</span><span class="c1">//prf work duration 6 * 1.25ms</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">before_point</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">anchor_point</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">tick</span><span class="p">;</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">AntStartCback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prf_event_handler</span><span class="p">;</span><span class="w">			</span><span class="c1">//prf event cb</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">AntStopCback</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">	</span><span class="n">prf_tx</span><span class="p">.</span><span class="n">priority</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">							</span><span class="c1">//priority lowest 0,1,2; 2 highest</span>
+<span class="w">	</span><span class="n">pan_ant_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">prf_tx</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">panchip_prf_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_config</span><span class="p">);</span>
+<span class="w">	</span><span class="n">panchip_prf_set_chn</span><span class="p">(</span><span class="n">tx_config</span><span class="p">.</span><span class="n">rf_channel</span><span class="p">);</span>
+
+<span class="w">	</span><span class="cm">/*adr match bit */</span>
+<span class="w">	</span><span class="n">PRI_RF_SetAddrMatchBit</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">	</span><span class="n">panchip_prf_set_data</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_payload</span><span class="p">);</span>
+<span class="w">	</span><span class="n">panchip_prf_ble_resume</span><span class="p">();</span>
+
+<span class="w">	</span><span class="cm">/* start advertising */</span>
+<span class="w">	</span><span class="n">app_ble_advertise_start</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>2.4g和蓝牙广播初始化无先后顺序，例程默认是先初始化2.4g，然后初始化广播。</p>
+<ol>
+<li><p>需要定义一个定时事件的结构体”ab_event_node_t”，包含定时间隔和定时回调等参数。</p></li>
+<li><p>首先调用”pan_ant_init()”接口，初始化定时事件调度的内存空间和回调函数。然后注册结构体”pan_ant_create(&amp;prf_tx)”，将2.4g事件插入到蓝牙事件的间隙中。</p></li>
+<li><p>结构体中需要填写几个关键参数，结构体定义如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="p">{</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">interval</span><span class="p">;</span><span class="w">       </span><span class="cm">/* unit: tick (32us) */</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">slot_duration</span><span class="p">;</span><span class="w">  </span><span class="cm">/* event max duration  unit: 1.25ms */</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">before_point</span><span class="p">;</span><span class="w">   </span><span class="cm">/* unit: tick (32us) */</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">anchor_point</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 32k current count unit: tick (32us) */</span>
+<span class="w">	</span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">event</span><span class="p">;</span><span class="w">         </span><span class="cm">/* ab_event_come_t    event;*/</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">reserve</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w">            </span><span class="n">priority</span><span class="p">;</span><span class="w">       </span><span class="cm">/* priority lowest 0,1,2; 2 highest*/</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w">            </span><span class="n">dy_scan</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">AntStartCback_t</span><span class="w">    </span><span class="n">AntStartCback</span><span class="p">;</span>
+<span class="w">	</span><span class="n">AntStartCback_t</span><span class="w">    </span><span class="n">AntStopCback</span><span class="p">;</span>
+<span class="p">}</span><span class="n">ab_event_node_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>注册完2.4g事件后就可以启动2.4g收发了，例程在500ms定时回调中启动2.4g发射，2.4g发完后会有tx中断。同理rx也是如此。</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>5.2ble和prf切换说明<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>目前例程ble和2.4g切换在底层接口已经实现好了，对用户来说是无感的。在此简单说明一下：</p>
+<ol class="simple">
+<li><p>2.4g和蓝牙切换依赖于panchip_switch_prf接口，控制”pan_prf_config_t”结构体的成员变量中”prf_chip_mode_sel_t”如下</p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="n">PRF_CHIP_MODE_SEL_BLE</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">		</span><span class="n">PRF_CHIP_MODE_SEL_XN297</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">		</span><span class="n">PRF_CHIP_MODE_SEL_NRF</span><span class="w">		   </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">	</span><span class="p">}</span><span class="n">prf_chip_mode_sel_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>如果工作在蓝牙模式则配成1，如果工作在2.4g模式则配成2或3。</p>
+<ol>
+<li><p>2.4g和蓝牙共同使用同一个中断”LL_IRQHandler”，中断处理都是独立的。2.4g定时回调中切换工作模式到2.4g模式，2.4g产生中断后，即trx结束后切换工作模式到蓝牙模式。</p>
+<p>2.4g中断服务函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">panchip_prf_ble_handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>蓝牙中断服务函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PAN_BLE_STACK_API</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">pan_ble_irq</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">148</span>.02k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">36</span>.32<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

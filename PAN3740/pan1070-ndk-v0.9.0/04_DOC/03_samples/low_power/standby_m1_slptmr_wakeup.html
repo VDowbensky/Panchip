@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Standby Mode1 SleepTimer Wakeup &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Standby Mode0 P02 Key Wakeup" href="standby_m0_p02_key_wakeup.html" />
+    <link rel="prev" title="Standby Mode1 GPIO Key Wakeup" href="standby_m1_gpio_key_wakeup.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">低功耗例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_key_wakeup.html">DeepSleep GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_pwm_wakeup.html">DeepSleep GPIO PWM Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_slptmr_wakeup.html">DeepSleep SleepTimer Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_pwm_waveform_generator.html">DeepSleep PWM Waveform Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_gpio_key_wakeup.html">Standby Mode1 GPIO Key Wakeup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Standby Mode1 SleepTimer Wakeup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m0_p02_key_wakeup.html">Standby Mode0 P02 Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_wakeup_source.html">Multiple Wakeup Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">低功耗例程</a> &raquo;</li>
+  
+  <li>Standby Mode1 SleepTimer Wakeup</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/low_power/standby_m1_slptmr_wakeup.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="standby-mode1-sleeptimer-wakeup">
+<h1>Standby Mode1 SleepTimer Wakeup<a class="headerlink" href="#standby-mode1-sleeptimer-wakeup" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使 SoC 进入 Standby Mode 1 状态，然后通过 SleepTimer 定时器将其唤醒。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p><strong>电流计</strong>（本文使用电流可视化测量设备 PPK2 <em>[Nordic Power Profiler Kit II]</em> 进行演示）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>为确保能够准确地测量 SoC 本身的功耗，排除底板外围电路的影响，请确认 EVB 底板上的：</p>
+<ul>
+<li><p>Voltage 排针组中的 VCC 和 VDD 均接至 3V3</p></li>
+<li><p>POWER 开关从 LDO 档位拨至 BAT 档位（并确认底板背部的电池座内<strong>没有</strong>纽扣电池）</p></li>
+</ul>
+</li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>将 PPK2 硬件的：</p>
+<ul>
+<li><p>USB DATA/POWER 接口连接至 PC USB 接口</p></li>
+<li><p>VOUT 连接至 EVB 底板的 VBAT 排针</p></li>
+<li><p>GND 连接至 EVB 底板的 GND 排针</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+<li><p>nRF Connect Desktop（用于配合 PPK2 测量 SoC 电流）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\low_power\standby_m1_slptmr_wakeup\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录，烧录成功后断开 JLink 连线。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>PC 上打开 PPK2 Power Profiler 软件，供电电压选择 3300 mV，然后打开供电开关</p></li>
+<li><p>从串口工具中看到如下的打印信息：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>nRESET<span class="w"> </span>Pin<span class="w"> </span>Reset.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>5s<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>SoC<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>mode..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">1068</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">2068</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">3068</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">4068</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">5068</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Now<span class="w"> </span>try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>SoC<span class="w"> </span>standby<span class="w"> </span>mode<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>wakeup<span class="w"> </span>reset<span class="o">)</span>..
+
+Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>Standby<span class="w"> </span>Mode<span class="w"> </span><span class="m">1</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>Wakeup<span class="w"> </span><span class="o">(</span><span class="nv">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">)</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>5s<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>SoC<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>mode..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">7152</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span><span class="o">[</span>Uptime:<span class="w"> </span><span class="m">8152</span><span class="w"> </span>ms<span class="o">]</span><span class="w"> </span>SleepTimer<span class="w"> </span><span class="m">1</span><span class="w"> </span>IRQ<span class="w"> </span>triggered.
+...
+</pre></div>
+</div>
+<blockquote>
+<div><p>由 Log 中的时间戳可以看出，每隔 1s 触发 SleepTimer 1 中断，触发 5 次中断后，芯片进入 Standby Mode 1，接着被唤醒（复位方式），如此循环</p>
+</div></blockquote>
+</li>
+<li><p>再观察芯片电流波形：</p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../../_images/stbm1_slptmr_wakeup_ppk2.png" />
+<p class="caption"><span class="caption-text">使用电流计抓取电流波形</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>可见芯片基本上每过 5.5s 左右的时间进入低功耗，底电流为 1.2uA 左右，并在一段时间以后被唤醒，如此循环。</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="sdk-config">
+<h3>5.1 SDK Config 配置<a class="headerlink" href="#sdk-config" title="永久链接至标题">¶</a></h3>
+<p>与本例程相关的 <a class="reference internal" href="../../04_dev_guides/ndk_configuration_guidance.html"><span class="doc std std-doc">SDK Config</span></a> (<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>) 配置有：</p>
+<ul class="simple">
+<li><p><strong>SoC Platform : Chip Power Mode</strong></p>
+<ul>
+<li><p>芯片供电选择 DCDC 模式，以降低芯片动态功耗</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_SOC_DCDC_PAN1070</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode</strong></p>
+<ul>
+<li><p>使能系统低功耗功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode : Continue Run After Standby M1 Wakeup</strong></p>
+<ul>
+<li><p>配置 Standby Mode 1 唤醒后 CPU 的行为：CPU 复位，而不是继续执行 WFI 后面的指令</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log</strong></p>
+<ul>
+<li><p>使能 App Log 功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">APP_LOG_EN</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log : Log to UART</strong></p>
+<ul>
+<li><p>将 App Log 输出至串口</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_UART_LOG_ENABLE</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>5.2 程序代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>5.2.1 主程序<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>本例程中，OS 为使能状态，因此主程序 main() 函数也是 OS Main Task 的入口函数，其内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Application initialization */</span>
+<span class="w">    </span><span class="n">app_setup</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Application main infinite loop */</span>
+<span class="w">    </span><span class="n">app_main_loop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-setup">
+<h4>5.2.2 App Setup 初始化<a class="headerlink" href="#app-setup" title="永久链接至标题">¶</a></h4>
+<p>App 初始化 app_setup() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;App started..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Get the last reset reason */</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Reset Reason: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rst_reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_reset_reason_get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">rst_reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_POR_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Power On Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_PIN_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;nRESET Pin Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_SYS_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;NVIC System Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_STBM1_SLPTMR1_WAKEUP</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Standby Mode 1 SleepTimer 1 Wakeup (cnt = %d).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">wkup_cnt</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Unhandled Reset Reason (%d), refer to more reason define in soc_api.h!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Init Sleep Timer for wake up use */</span>
+<span class="w">    </span><span class="n">slptmr_init</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>打印 App 初始化 Log</p></li>
+<li><p>获取并打印本次芯片启动的复位原因</p></li>
+<li><p>在 slptmr_init() 函数中初始化 SleepTimer 1 配置</p></li>
+</ol>
+</div>
+<div class="section" id="app-main-task-loop">
+<h4>5.2.3 App Main Task Loop 任务循环<a class="headerlink" href="#app-main-task-loop" title="永久链接至标题">¶</a></h4>
+<p>App Main Task 循环 app_main_loop() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_main_loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Busy wait 5s to keep SoC in active mode..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">5000000</span><span class="p">);</span>
+
+<span class="cp">#if !CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Now try to enter SoC standby mode 1 (wakeup reset)..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="cm">/* Waiting for UART Tx done and re-set UART IO before entering standby mode 1 to avoid current leakage */</span>
+<span class="w">    </span><span class="n">reset_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="w">    </span><span class="cm">/* Enter standby mode1 with all sram power off */</span>
+<span class="w">    </span><span class="n">soc_enter_standby_mode_1</span><span class="p">(</span><span class="n">STBM1_WAKEUP_SRC_SLPTMR</span><span class="p">,</span><span class="w"> </span><span class="n">STBM1_RETENTION_SRAM_NONE</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;WARNING: Failed to enter SoC standby mode 1 due to unexpected interrupt detected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         Please check if there is an unhandled interrupt during the standby mode 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         entering flow.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Now try to enter SoC standby mode 1 (wakeup continuous run)..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">        </span><span class="cm">/* Waiting for UART Tx done and re-set UART IO before entering standby mode 1 to avoid current leakage */</span>
+<span class="w">        </span><span class="n">reset_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="w">        </span><span class="cm">/* Enter standby mode1 with all common 48KB sram retention */</span>
+<span class="w">        </span><span class="n">soc_enter_standby_mode_1</span><span class="p">(</span><span class="n">STBM1_WAKEUP_SRC_SLPTMR</span><span class="p">,</span><span class="w"> </span><span class="n">STBM1_RETENTION_SRAM_BLOCK0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">STBM1_RETENTION_SRAM_BLOCK1</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/* Restore hardware peripherals manually */</span>
+<span class="w">        </span><span class="n">restore_hw_peripherals</span><span class="p">();</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Waked up from SoC standby mode 1 and continue run (cnt = %d)..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">wkup_cnt</span><span class="p">);</span>
+<span class="w">        </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Busy wait 5s to keep SoC in active mode..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">5000000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="cp">#endif </span><span class="cm">/* CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_busy_wait()</span></code> 接口使芯片在 Active 状态下全速运行 5.5s</p></li>
+<li><p>根据 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET</span></code> 配置，决定进入 Standby Mode 1 的流程，这里由于我们将此配置设置为 0，因此会执行<strong>唤醒后复位</strong>的 Standby Mode 1 流程</p></li>
+<li><p>进入 Standby Mode 1 前，先将 Log UART IO 配置还原为 GPIO 模拟输入状态，以避免 Standby 模式下 IO 漏电</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_1()</span></code> 接口，使系统进入 Standby Mode 1 低功耗状态，此接口接受两个参数：第一个参数用于配置唤醒源，第二个参数用于配置低功耗下保电的 SRAM，这里我们将唤醒源配置为 SleepTimer，且低功耗状态下所有 SRAM 均掉电以节约功耗（由于当前低功耗配置为唤醒后复位，因此所有 SRAM 均没有保电的必要）</p>
+<blockquote>
+<div><p>通过此接口可配置 SoC 进入 Standby M1 状态后，仍然保持供电（保持数据）的 SRAM：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STBM1_RETENTION_SRAM_BLOCK0</span></code>: 通用 SRAM0 保电（32KB，地址区间 0x20000000 ~ 0x20007FFF）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STBM1_RETENTION_SRAM_BLOCK1</span></code>: 通用 SRAM1 保电（16KB，地址区间 0x20008000 ~ 0x2000BFFF）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STBM1_RETENTION_SRAM_LL</span></code>: 蓝牙 LinkLayer 专用 SRAM（8KB）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STBM1_RETENTION_SRAM_ALL</span></code>: 上述三块 SRAM 均保电</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STBM1_RETENTION_SRAM_NONE</span></code>: 上述三块 SRAM 均掉电</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="sleeptimer">
+<h4>5.2.4 SleepTimer 初始化程序<a class="headerlink" href="#sleeptimer" title="永久链接至标题">¶</a></h4>
+<p>SleepTimer 1 初始化程序 slptmr_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">slptmr_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Configure timeout of SleepTimer 1 with interrupt and wakeup enabled */</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Configure timeout:</span>
+<span class="cm">     * timeout1 = SLPTMR1_TIMEOUT_CNT / FREQ_32K_HZ</span>
+<span class="cm">     *         = (32000 / 1) / 32000 (s)</span>
+<span class="cm">     *         = 1 s</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">SLPTMR1_TIMEOUT_CNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_32k_clock_freq_get</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Set timeout of SleepTimer 1 */</span>
+<span class="w">    </span><span class="n">LP_SetSleepTime</span><span class="p">(</span><span class="n">ANA</span><span class="p">,</span><span class="w"> </span><span class="n">SLPTMR1_TIMEOUT_CNT</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>此函数功能是将 SleepTimer 1 超时时间配置为 1s</p></li>
+<li><p>配置时间的具体公式计算请参考代码注释</p></li>
+</ol>
+</div>
+<div class="section" id="sleeptimer-1">
+<h4>5.2.5 SleepTimer 1 中断服务回调函数<a class="headerlink" href="#sleeptimer-1" title="永久链接至标题">¶</a></h4>
+<p>SleepTimer 1 的中断服务回调函数如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This function overrides the reserved weak function with same name in os_lp.c */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sleep_timer1_handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[Uptime: %d ms] SleepTimer 1 IRQ triggered.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">soc_lptmr_uptime_get_ms</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>芯片共有 3 个 SleepTimer，分别为 SleepTimer 0、SleepTimer 1 和 SleepTimer 2，它们共用一个中断服务函数 <code class="docutils literal notranslate"><span class="pre">SLPTMR_IRQHandler()</span></code>，此函数是在 os_lp.c 中实现的；其中 SleepTimer0 被用作 OS Tick，因此在 App 层只可通过回调函数使用 SleepTimer 1 和 SleepTimer 2</p></li>
+<li><p>本例程我们在 App 中实现了 <code class="docutils literal notranslate"><span class="pre">sleep_timer1_handler()</span></code> 中断回调函数，在其中打印芯片上电时间戳 Log</p></li>
+</ol>
+</div>
+<div class="section" id="hook">
+<h4>5.2.6 与低功耗相关的 Hook 函数<a class="headerlink" href="#hook" title="永久链接至标题">¶</a></h4>
+<p>本例程还用到了 2 个与低功耗密切相关的 Hook 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepEnterHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">reset_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepExitHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">set_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>上述两个 Hook 函数用于在进入 DeepSleep 前和从 DeepSleep 唤醒后做一些额外操作，如关闭和重新配置 IO 为串口功能，以防止 DeepSleep 状态下 IO 漏电</p></li>
+<li><p>详细解释请参考 <a class="reference internal" href="standby_m1_gpio_key_wakeup.html"><span class="doc std std-doc">Standby Mode1 GPIO Key Wakeup</span></a> 例程中的相关介绍</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h4>5.2.7 其他功能函数<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>本例程还编写了 1 个用于 Standby Mode 1 非 Reset 方式下唤醒后的外设恢复函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">restore_hw_peripherals</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">UART_InitTypeDef</span><span class="w"> </span><span class="n">Init_Struct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">.</span><span class="n">UART_BaudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">921600</span><span class="p">,</span>
+<span class="w">        </span><span class="p">.</span><span class="n">UART_LineCtrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uart_Line_8n1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="cm">/* Re-init UART */</span>
+<span class="w">    </span><span class="n">UART_Init</span><span class="p">(</span><span class="n">UART0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Init_Struct</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UART_EnableFifo</span><span class="p">(</span><span class="n">UART0</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* Set IO pinmux to UART again */</span>
+<span class="w">    </span><span class="n">set_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="w">    </span><span class="cm">/* Re-enable Sleep Timer interrupt */</span>
+<span class="w">    </span><span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">SLPTMR_IRQn</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#endif </span><span class="cm">/* CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET */</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>本例程中，我们可以通过手动将 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM_STANDBY_M1_WAKEUP_WITHOUT_RESET</span></code> 配置设置为 1，效果是芯片从 Standby Mode 1 下唤醒后，CPU 不复位，而是从睡眠之前的代码处接着执行，但由于 Standby Mode 1 状态下芯片内部大部分模块均已掉电，因此醒来后需通过函数 <code class="docutils literal notranslate"><span class="pre">restore_hw_peripherals()</span></code> 重新初始化一些用到的硬件模块。</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">21</span>.77k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.20<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

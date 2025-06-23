@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK Configuration 配置指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK 蓝牙开发指南" href="ndk_app_dev_notes.html" />
+    <link rel="prev" title="开发指南" href="index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK Configuration 配置指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-config">1. SDK Config 系统简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2. SDK Config 配置说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#platform-config">2.1 Platform Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lowpower-enable">2.2 LowPower Enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rtos-enable">2.3 RTOS Enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ble-enable">2.4 BLE Enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flash-image-config">2.5 Flash/Image Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-debug-config">2.6 Log/Debug Config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK Configuration 配置指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_configuration_guidance.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-configuration">
+<h1>NDK Configuration 配置指南<a class="headerlink" href="#ndk-configuration" title="永久链接至标题">¶</a></h1>
+<div class="section" id="sdk-config">
+<h2>1. SDK Config 系统简介<a class="headerlink" href="#sdk-config" title="永久链接至标题">¶</a></h2>
+<p>NDK 中设计了一套 SDK 配置系统，其面向用户的接口是一个名为 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>的头文件，位于各个 App 工程目录内。结合 Keil MDK 的 Configuration Wizard 功能，用户可以方便地通过图形菜单的方式修改 SDK 中提供的各个配置。</p>
+</div>
+<div class="section" id="id1">
+<h2>2. SDK Config 配置说明<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>目前 SDK Config 配置共分为 7 大类，依次为 <code class="docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Config</span></code>、<code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">Config</span></code>、<code class="docutils literal notranslate"><span class="pre">LowPower</span> <span class="pre">Enable</span></code>、<code class="docutils literal notranslate"><span class="pre">RTOS</span> <span class="pre">Enable</span></code>、<code class="docutils literal notranslate"><span class="pre">BLE</span> <span class="pre">Enable</span></code> 、<code class="docutils literal notranslate"><span class="pre">Flash/Image</span> <span class="pre">Config</span></code>、<code class="docutils literal notranslate"><span class="pre">Log/Debug</span> <span class="pre">Config</span></code>。</p>
+<div class="figure align-center" id="id2">
+<img alt="image" src="../_images/configuration_overview.png" />
+<p class="caption"><span class="caption-text">SDK Config Overview</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p><strong>注</strong>：其中第一个类别 <code class="docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Config</span></code>，是为用户预留的菜单，用户可在自己的 App 中自定义一些 Config 配置，并将其放在 SDK Config 的 <code class="docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Config</span></code> 配置菜单下以方便后续使用。</p>
+</div></blockquote>
+<div class="section" id="platform-config">
+<h3>2.1 Platform Config<a class="headerlink" href="#platform-config" title="永久链接至标题">¶</a></h3>
+<p>Platform Config 是与芯片平台相关的配置，包括时钟、电源、平台相关的特殊 Feature 等项目：</p>
+<div class="figure align-center" id="id3">
+<img alt="image" src="../_images/soc_platform.png" />
+<p class="caption"><span class="caption-text">SoC Platform Configuration</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+<ol class="simple">
+<li><p><strong>Chip Power Mode</strong>：选择芯片的供电模式</p>
+<ul class="simple">
+<li><p>SDK 中的例程大部分都是默认选择 <em>DCDC</em> 模式，用户也可根据项目需要切换至 <em>LDO</em> 模式</p></li>
+<li><p>芯片在 DCDC 模式下动态功耗更低，但需要板级硬件电路的支持（BUCK外围电路）</p></li>
+</ul>
+</li>
+<li><p><strong>System Clock</strong>：配置系统高速时钟频率</p>
+<ul class="simple">
+<li><p>SDK 例程中，PAN107x 工程配置一般是默认选择 <em>32MHz (DPLL)</em>，PAN101x 工程配置一般是默认选择 <em>48MHz (DPLL)</em></p></li>
+</ul>
+</li>
+<li><p><strong>APB1 Clock Divisor</strong>：配置 APB1 时钟分频系数</p>
+<ul class="simple">
+<li><p>芯片 APB1 上的外设有：I2C、SPI0、UART0、PWM、ADC、WDT、WWDT、TIMER0</p></li>
+<li><p>SDK 中的例程一般是默认选择 <em>2</em> 分频，用户也可根据项目需要改变此分频值</p></li>
+<li><p>实际项目中，若某些 APB1 上的外设需要工作在较高的速度下（如 SPI0），可能默认的 2 分频无法满足需要，那么可将 APB1 改为不分频（<em>No Divider</em>）</p></li>
+<li><p>实际项目中，若对芯片的动态功耗有要求，但是对 APB1 上的外设速度要求不高，那么可将 APB1 分频改为能正常工作的最大值（需通过试验得出），以降低芯片动态功耗</p></li>
+</ul>
+</li>
+<li><p><strong>APB2 Clock Divisor</strong>：配置 APB2 时钟分频系数</p>
+<ul class="simple">
+<li><p>芯片 APB2 上的外设有：SPI1、UART1、TIMER1、TIMER2、CLKTRIM</p></li>
+<li><p>SDK 中的例程一般是默认选择 <em>2</em> 分频，用户也可根据项目需要改变此分频值</p></li>
+<li><p>实际项目中，若某些 APB2 上的外设需要工作在较高的速度下（如 SPI1），可能默认的 2 分频无法满足需要，那么可将 APB2 改为不分频（<em>No Divider</em>）</p></li>
+<li><p>实际项目中，若对芯片的动态功耗有要求，但是对 APB2 上的外设速度要求不高，那么可将 APB2 分频改为能正常工作的最大值（需通过试验得出），以降低芯片动态功耗</p></li>
+</ul>
+</li>
+<li><p><strong>32K Low-Speed Clock Source</strong>：配置系统低速时钟源</p>
+<ul class="simple">
+<li><p>选择 <em>RCL</em>，芯片无需外接 32K 晶振，但精度相对较低（低功耗蓝牙应用的功耗会稍高一些）</p></li>
+<li><p>选择 <em>XTL</em>，芯片需要外接 32K 晶振（32768 Hz），精度更高（低功耗蓝牙应用的功耗会更低一些）</p></li>
+<li><p>选择 <em>ACT32K</em>，蓝牙内部 32K 定时器将使用高速晶振（32M XTH）分频后的时钟源，精度高，但此时仅支持蓝牙非低功耗的场景，一般是主机或者多连接的场景</p></li>
+</ul>
+</li>
+<li><p><strong>Force Calib RCL Clock</strong>：选择是否在系统初始化的时候强制校准一次 RCL 时钟</p>
+<ul class="simple">
+<li><p>若前面低速时钟源选择 <em>RCL</em>，则此处必须勾选强制校准 RCL 时钟，否则 RCL 不准确可能会影响 APP 定时相关的功能</p></li>
+</ul>
+</li>
+<li><p><strong>Enable RAM Function</strong>：将一些对时间敏感的函数编译到 SRAM 中执行，加快程序执行速度，以达到降低功耗的效果（程序执行得更快，可以让芯片有更多时间处于进入低功耗模式）</p>
+<ul class="simple">
+<li><p>此配置使能后，代码中带有 <code class="docutils literal notranslate"><span class="pre">CONFIG_RAM_CODE</span></code> 前缀的函数将被编译到 SRAM 中执行，其中包括关键的 OS 调度函数、OS DeepSleep 低功耗处理函数、蓝牙中断服务函数等</p></li>
+<li><p>SDK 例程中，PAN107x 工程配置会默认使能此选项（PAN107x SRAM 有 48KB，相对充足），而 PAN101x 工程配置则默认不使能此选项以节省 SRAM 空间（PAN101x SRAM 仅有 16KB）</p></li>
+</ul>
+</li>
+<li><p><strong>Enable Flash LDO</strong>：使能内部专用的 1.8v Flash LDO 给 Flash 供电</p>
+<ul class="simple">
+<li><p>芯片上电默认 Flash 供电电源为芯片 VBAT，当使能此选项后，Flash 供电电源将切换至内部 1.8v Flash LDO，以达到降低 Flash 功耗的效果</p></li>
+<li><p>SDK 例程中，此选项默认都是使能的，一般无需修改此默认配置</p></li>
+</ul>
+</li>
+<li><p><strong>Remap Vector Table to SRAM</strong>：将中断向量表映射到 SRAM 中的指定地址，以加快中断响应速度</p>
+<ul class="simple">
+<li><p>使能此配置会多占用 256 Bytes 的 SRAM 空间</p></li>
+<li><p>SDK 例程中，PAN107x 工程配置会默认使能此选项，而 PAN101x 工程配置则默认不使能此选项以节省 SRAM 空间</p></li>
+</ul>
+</li>
+<li><p><strong>Enable Auto Power Optimization</strong>：定时检测当前芯片温度，并根据温度自动优化芯片的电源配置（目前使用两个温度临界点（0℃、50℃）将温度分为三个区间）</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>Temperature Sample Interval</strong> 可以更改定时温度检测的时间间隔</p></li>
+<li><p>使能子配置 <strong>Enable DVDD Voltage Optimization</strong> 后，常温下芯片数字电路的供电电源 DVDD 电压会由 1.16v 降至 1.12v 左右（<strong>实际产品中不建议使能此配置</strong>）</p></li>
+<li><p>此功能通过芯片 ADC 模块读取芯片内部温度传感器数据，这个流程本身也会增加芯片动态功耗（5 分钟时间间隔配置下芯片平均电流约增加 200nA）</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="lowpower-enable">
+<h3>2.2 LowPower Enable<a class="headerlink" href="#lowpower-enable" title="永久链接至标题">¶</a></h3>
+<p>LowPower Enable 是与芯片低功耗相关的配置，包括低功耗使能、低功耗下的相关电源配置等项目：</p>
+<div class="figure align-center" id="id4">
+<img alt="image" src="../_images/power_management.png" />
+<p class="caption"><span class="caption-text">LowPower Configuration</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+<ol class="simple">
+<li><p><strong>Low Power Enable</strong>：使能系统低功耗流程及低功耗相关的 API 接口</p>
+<ul class="simple">
+<li><p>若同时使能了 OS，则芯片会在 OS Ilde Task 中自动进入 DeepSleep 低功耗模式</p></li>
+<li><p>使能此配置后，可以通过调用 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_1()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_0()</span></code> 两个接口使芯片分别进入 Standby M1 和 Standby M0 两种低功耗模式</p></li>
+</ul>
+</li>
+<li><p><strong>Enable System Watchdog</strong>：使能系统 Watchdog 功能</p></li>
+<li><p><strong>Keep Flash Power in Low Power Mode</strong>：芯片 DeepSleep 状态下，Flash 不断电，而是切换至 DP 低功耗状态</p></li>
+<li><p><strong>Enable DeepSleep Mode 2</strong>：使能 DeepSleep Power Mode 2</p>
+<ul class="simple">
+<li><p>若不使能此配置，则芯片进入 DeepSleep 状态后使用 Power Mode 1，此模式下芯片内部数字电路通过 0.5v LPLDOL 和 0.7v LPLDOH 这两个 LDO 配合供电，常温下芯片低功耗底电流约 3~4 uA</p></li>
+<li><p>若使能此配置，则芯片进入 DeepSleep 状态后使用 Power Mode 2，此模式下芯片内部数字电路均通过 0.7v LPLDOH 供电，常温下芯片低功耗底电流约 6~7 uA</p></li>
+</ul>
+</li>
+<li><p><strong>Increase LPLDOH trim value</strong>：抬高 LPLDOH 电压档位（档位步进约 50mV）</p>
+<ul class="simple">
+<li><p>芯片 LPLDOH 电压值在校准后约为 700mV 左右，但某些应用场景下可能需要抬高 LPLDOH 电压值</p></li>
+</ul>
+</li>
+<li><p><strong>Continue Run After Standby M1 Wakeup</strong>：芯片从低功耗 Standby M1 模式醒来后，CPU 接着从睡眠前的代码位置继续运行而不是复位</p>
+<ul class="simple">
+<li><p>使能此配置后，芯片唤醒后 CPU 虽然没有复位，但芯片除 GPIO 外的所有外设状态都是复位的，因此醒来后需要重新配置使用到的外设模块</p></li>
+</ul>
+</li>
+<li><p><strong>Enable AHB Clock Optimization</strong>：使能此选项后，若 OS 通过 Idle Task 进入芯片的 Sleep 状态（注意不是 DeepSleep 状态），则临时降低 AHB 时钟频率以节约芯片 Sleep 状态下的功耗（<strong>实际产品中不建议使能此配置</strong>）</p></li>
+</ol>
+</div>
+<div class="section" id="rtos-enable">
+<h3>2.3 RTOS Enable<a class="headerlink" href="#rtos-enable" title="永久链接至标题">¶</a></h3>
+<p>RTOS Enable 是与 OS 相关的配置，NDK 中的大部分应用均以 FreeRTOS 为基础进行构建，且 NimBLE 必须依赖 FreeRTOS 运行：</p>
+<div class="figure align-center" id="id5">
+<img alt="image" src="../_images/RTOS_configuration.png" />
+<p class="caption"><span class="caption-text">RTOS Configuration</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+<ol>
+<li><p><strong>RTOS Enable</strong>：系统中使能 FreeRTOS</p></li>
+<li><p><strong>The Maximum Number of OS Task</strong>：设置 OS Task 的最大优先级</p></li>
+<li><p><strong>OS Total Heap Size</strong>：设置 OS Heap 大小，单位为 Byte</p>
+<ul>
+<li><p>OS Heap 主要由下面这些对象消耗的，一般无需关心细节，可勾选 <strong>Enable OS Malloc Fail Hook</strong> 功能进行 Heap 余量检测，若不够则会打印 Malloc Failed Log，方案中可通过此方法自行调整大小，<strong>默认的工程一般都是稍有余量</strong>。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Total Heap</p></th>
+<th class="head"><p>unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IDLE Thread STACK</p></td>
+<td><p>size*4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Timer Thread STACK</p></td>
+<td><p>size*4</p></td>
+</tr>
+<tr class="row-even"><td><p>BLE Host Thread STACK</p></td>
+<td><p>size*4</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS 相关的对象的使用，例如实例化定时器的个数，信号量的个数</p></td>
+<td><p>\</p></td>
+</tr>
+<tr class="row-even"><td><p>BLE ATT GATT entry 等，一般服务越多，支持的角色，就需要的越多</p></td>
+<td><p>\</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLE Host buffer，Host 使用的部分 buf，也是占用 Total heap size</p></td>
+<td><p>\</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><p><strong>OS Main Thread Stack Size</strong>：设置 Main Task 栈大小，单位为 Word</p></li>
+<li><p><strong>OS Main Thread Priority</strong>：设置 Main Task 任务优先级（值越大，任务优先级越高）</p></li>
+<li><p><strong>OS BLE Host Thread Stack Size</strong>：设置 BLE Host Task 栈大小，单位为 Word</p></li>
+<li><p><strong>OS BLE Host Thread Priority</strong>：设置 BLE Host Task 任务优先级（值越大，任务优先级越高）</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>场景</p></th>
+<th class="head"><p>任务栈大小推荐值</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>不支持配对加密</p></td>
+<td><p>256 - 300 <strong>words</strong></p></td>
+<td><p>实际的栈大小还和用户的操作有关系</p></td>
+</tr>
+<tr class="row-odd"><td><p>支持配对加密</p></td>
+<td><p>400 - 500 <strong>words</strong></p></td>
+<td><p>实际的栈大小还和用户的操作有关系</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>OS Timer Task Enable</strong>：使能 OS Timer Task（软件定时器）</p></li>
+<li><p><strong>OS Timer Task Stack Size</strong>：设置 Timer Task 栈大小，单位为 Word</p></li>
+<li><p><strong>OS Timer Task Priority</strong>：设置 Timer Task 任务优先级（值越大，任务优先级越高）</p></li>
+<li><p><strong>The Maximun Number of OS Timer Queue Length</strong>：设置 OS Timer 支持的最大队列（Queue）长度，一般一个定时操作需要 4-5 个 Queue，详情参考 FreeRTOS 官方文档</p></li>
+<li><p><strong>Enable OS Idle Hook</strong>：使能 OS 调度进入 Idle Task 后给予用户的回调函数</p></li>
+<li><p><strong>Enable OS Tick Hook</strong>：使能 OS 调度进入 Tick 更新后给予用户的回调函数</p></li>
+<li><p><strong>Enable OS Malloc Fail Hook</strong>：使能 OS Malloc 内存失败后给予用户的回调函数</p></li>
+<li><p><strong>Enable OS Stack OverFlow Hook</strong>：使能 OS Task Stack 栈溢出检测功能，详情参考 FreeRTOS 官方文档</p></li>
+<li><p><strong>OS Log: Print Current Heap Usage</strong>：使能 Malloc 的 Log，在调用 <code class="docutils literal notranslate"><span class="pre">pvPortMalloc()</span></code> 函数的时候打印 Heap 申请和使用信息</p></li>
+</ol>
+</div>
+<div class="section" id="ble-enable">
+<h3>2.4 BLE Enable<a class="headerlink" href="#ble-enable" title="永久链接至标题">¶</a></h3>
+<div class="section" id="ble-resource">
+<h4>2.4.1 BLE Resource<a class="headerlink" href="#ble-resource" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../_images/ble_resource.png" />
+<p class="caption"><span class="caption-text">BLE Resource Configuration</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+<ol>
+<li><p><strong>Use Chip unique Mac Address</strong></p>
+<p>使用芯片的出厂的 mac 地址</p>
+</li>
+<li><p><strong>RF TX power</strong></p>
+<p>支持范围是 -40 到 9dBm，最小步长是 1dBm，如果需要设置 0 以下，可以通过 text Editor修改.</p>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../_images/tx_power_configuration.png" />
+<p class="caption"><span class="caption-text">Tx Power Configuration</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p><strong>Support maximun number of BLE Master Link</strong></p>
+<p>设置 ble controller 支持的 master links 数量，如果设置为0，表示不支持 master link。用户可以设置任意数量的 master link 数，具体可以设置多少个由RAM和Flash资源以及搜索连接的算法决定。</p>
+<blockquote>
+<div><p>多个master link 建立连接以后，ble controller 能保证连接之间不冲突，且各个连接具有相同的或者不同的数据带宽(用户可配)。</p>
+</div></blockquote>
+</li>
+<li><p><strong>Support maximun number of BLE Slave Link</strong></p>
+<p>设置 ble controller 支持的 slave links 数量, 如果设置为0，表示不支持 slave link。用户可以设置任意数量的 slave link 数，<strong>但是建议 slave link 数最多设置 4 个</strong>，原因如下：</p>
+<ul class="simple">
+<li><p>slave link 数设置越多，消耗资源越多</p></li>
+<li><p>slave link 数设置越多，建立连接以后，连接之间的冲突会很频繁，导致数据有较大延时；当冲突严重时，可能导致断连。</p></li>
+</ul>
+</li>
+<li><p><strong>GAP 角色定义</strong></p>
+<ul class="simple">
+<li><p>Support GAP broadcaster role</p></li>
+<li><p>Support GAP central role</p></li>
+<li><p>Support GAP observer role</p></li>
+<li><p>Support GAP peripheral role</p></li>
+</ul>
+</li>
+<li><p><strong>Host Buffer 相关</strong></p>
+<ul>
+<li><p><strong>BLE Host Max ATT MTU Size</strong></p>
+<p>设置ATT MTU Size，它决定了用户数据的大小，这个值必须 &gt;=  23B。</p>
+</li>
+<li><p><strong>BLE Host HCI Rx ACL buffer size  和 BLE Host HCI Rx ACL buffer counts</strong></p>
+<ul class="simple">
+<li><p>Host Rx ACL buffer用于 host 接收 controller 上报的 ACL data 的 buffer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLE</span> <span class="pre">Host</span> <span class="pre">HCI</span> <span class="pre">Rx</span> <span class="pre">ACL</span> <span class="pre">buffer</span> <span class="pre">size</span></code> 用于设置ACL buffer size, <strong>其取值范围是27B - 251B, 如果使用LE Secure Connection, 则ACL buffer至少设置65B。</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLE</span> <span class="pre">Host</span> <span class="pre">HCI</span> <span class="pre">Rx</span> <span class="pre">ACL</span> <span class="pre">buffer</span> <span class="pre">counts</span></code> 用于设置ACL buffer个数</p></li>
+<li><p>ACL buffer的设置必须保证至少能接收2个 ATT MTU Size的数据。</p></li>
+<li><p>Host 没有Tx ACL buffer可以设置，因为Host 下发的 ACL data 直达 Controller， Tx ACL buffer在controller实现。</p></li>
+</ul>
+</li>
+<li><p><strong>BLE Host HCI events counts</strong></p>
+<ul class="simple">
+<li><p>Host HCI event counts用于设置 Host 接收controller 上报的HCI event(除adv report event 外) buffer的个数， HCI event buffer size不需要用户设置，协议栈已经按照spec要求配置好了</p></li>
+<li><p>Host HCI event counts应该根据实际情况配置，如果交互数据比较频繁或者多连接，建议HCI Event buffer Count &gt;= 8, buffer少了将出现异常，Buffer 不够时会有log输出。</p></li>
+</ul>
+</li>
+<li><p><strong>BLE Host HCI discardable events counts</strong>
+BLE Host HCI discardable events counts用于设置Host 接收 controller 上报的Adv report event buffer的个数，Host HCI discardable events buffer size 不需要用户设置，协议栈已经按照spec要求配置好了。</p></li>
+<li><p><strong>BLE Host L2CAP buffer size 和 BLE Host L2CAP buffer counts</strong></p>
+<ul class="simple">
+<li><p>L2CAP buffer用于蓝牙数据发送，包括SMP和ATT</p></li>
+<li><p>L2CAP buffer是基于内存池技术实现的链式 buffer, 例如：假如用户配置L2CAP buffer参数是120B/4个，用户有240B的数据需要发送，那么协议栈首先申请一个120B的buffer，存储120B的用户数据，然后再申请120B的buffer，用于存取剩余的120B的用户数据，最后将这两个buffer通过链表连接为一个整体。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>BLE Controller 相关</strong></p>
+<ul>
+<li><p><strong>BLE Controller RF Rx buffer 和 BLE Controller RF Rx Buffer Number</strong></p>
+<ul class="simple">
+<li><p>RF Rx buffer 用于 controller 接收 peer 设备数据的 buffer, RF Rx buffer使用的是MAC层专用的一块RAM，在 pan107 上这个专用的 RAM 有 8KB，实际 BLE Controller 只能使用7.5KB。<strong>(RF Tx/Rx 共用 7.5kB专用RAM)</strong></p></li>
+<li><p>RF Rx buffer Size 由 Host HCI Rx ACL buffer size 决定</p></li>
+<li><p><strong>RF Rx buffer Number 需要配置，且 Number 只能是2的 n 次幂,  例如：2,4,8,16,32…</strong></p></li>
+<li><p>对于single connection的应用来说，RF Rx buffer 设置为 8 即可</p></li>
+<li><p>对于multi connection的应用来说，由于 multi connection 共用 Rx buffer，所以需要确保平均每个connection 至少有1 - 2个Rx buffer可用。如果Rx buffer设置少了，当controller一直没有Rx buffer可用时，数据将一直重传，可能导致 peer 上层协议数据交互超时而主动断连。</p></li>
+</ul>
+</li>
+<li><p><strong>BLE Controller RF Tx buffer 和 BLE Controller RF Tx Buffer Number</strong></p>
+<ul class="simple">
+<li><p>RF Tx buffer 用于controller发送数据的buffer， RF Tx buffer使用的是MAC层专用的RAM，在pan107上这个专用的RAM有8KB，实际BLE Controller 只能使用7.5KB. <code class="docutils literal notranslate"><span class="pre">(RF</span> <span class="pre">Tx/Rx</span> <span class="pre">共用</span> <span class="pre">7.5kB专用RAM)</span></code></p></li>
+<li><p>RF Tx buffer Size 由 Host HCI Rx ACL buffer size 决定</p></li>
+<li><p><strong>RF Tx buffer Number需要配置，且Number只能是2的 n 次幂,  例如：2,4,8,16,32…</strong></p></li>
+<li><p>对于single connection的应用来说，RF Tx buffer 设置为 4或者8 即可</p></li>
+<li><p>对于multi connection的应用来说，multi connection中的每个connection的Tx buffer是各自独立的，因此设置越大, 消耗的MAC专用RAM越多，但是能保证多个connection具有同等的数据带宽，使多个connection具有极好的数据吞吐率。</p></li>
+</ul>
+</li>
+<li><p><strong>BLE Controller Packet Encrypt Time</strong></p>
+<p>如果支持配对建议写到 300us，否则写 100us</p>
+</li>
+<li><p><strong>BLE Controller More Data Number</strong></p>
+<p>用于配置一个connection interval发送包的最大个数， range: 1-6</p>
+</li>
+<li><p><strong>BLE Controller WhiteList Number</strong></p>
+<p>用于配置白名单个数，根据实际情况设置，默认是 1</p>
+</li>
+<li><p><strong>BLE Controller Resolving List Number</strong></p>
+<p>用于配置可解析列表的个数（目前尚不支持该功能）</p>
+</li>
+<li><p><strong>BLE Controller Master Link Margin</strong></p>
+<p>用于设置多master connection之前的间隔， 用于多连接以调节connection数据带宽。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>BLE 中断优先级相关</strong></p>
+<ul class="simple">
+<li><p><strong>BLE LL IRQ priority</strong></p>
+<ul>
+<li><p>用于配置 BLE LL 中断优先级，默认 BLE LL 中断优先级是最高的。</p></li>
+<li><p>如果用户的中断需要较高的优先级，且用户的中断执行时间足够短 ，例如 &lt; 30us 时，可以将BLE LL中断优先级调低一档。</p></li>
+</ul>
+</li>
+<li><p><strong>BLE Event Handler IRQ priority</strong></p>
+<ul>
+<li><p>用于配置 BLE Event Handler 中断优先级，默认 BLE Event Handler 中断优先级为 次高优先级。</p></li>
+<li><p>如果用户中断需要较高优先级，可以调低 BLE Event Handler 中断优先级</p></li>
+<li><p>需要注意 BLE Event Handler 主要处理 Controller 上报的 Event 和 ACL 到 host, 以及处理 Host下发的 HCI Cmd 和 ACL，如果中断优先级变低，则处理变的缓慢，对于实时性或者数据率要求高的应用慎用。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="ble-security-manager">
+<h4>2.4.2 BLE Security Manager<a class="headerlink" href="#ble-security-manager" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../_images/ble_security_manager_cfg.png" />
+<p class="caption"><span class="caption-text">BLE Security Manager</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<ol>
+<li><p><strong>Select Security Level</strong></p>
+<p>用于设置应用最低安全级别，注意如果peer设备的安全级别小于这里设置的安全级别，协议栈为了安全将拒接对端数据交互。</p>
+</li>
+<li><p><strong>Enable SM Legacy Pair 和 Enable SM Security Pair</strong></p>
+<p>用于Enable/Disable BLE Legacy Pair和 BLE Secure Connection</p>
+</li>
+<li><p><strong>Select IO Capability</strong></p>
+<p>用于设置本地设备的 IO 能力</p>
+</li>
+<li><p><strong>Enable SM Bonding / Enable MITM / Enable SM OOB</strong></p>
+<p>用于设置本地设备的认证能力</p>
+</li>
+<li><p><strong>Support persist store key</strong></p>
+<p>用于使能pair信息存储功能，pair信息将常驻在flash上</p>
+</li>
+<li><p><strong>Support maximun store bonded devices</strong></p>
+<p>用于设置支持的最大 bonding 数目，这个数目越大需要的  <strong>Key-Value-Store</strong> 的区域也越大</p>
+</li>
+<li><p><strong>Support maximun store bonded device’s cccd</strong></p>
+<p>用于设置支持的最大bonding 设备的 cccd，根据实现项目来</p>
+</li>
+<li><p><strong>Support host software rpa feature</strong></p>
+<p>用于使能 Host RPA 功能，建议一直开着</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="flash-image-config">
+<h3>2.5 Flash/Image Config<a class="headerlink" href="#flash-image-config" title="永久链接至标题">¶</a></h3>
+<p>Flash/Image Config 主要包括芯片 Flash 分区规划及特殊 Image 生成相关的配置：</p>
+<div class="figure align-center" id="id9">
+<img alt="image" src="../_images/flash_map.png" />
+<p class="caption"><span class="caption-text">Flash/Image Config</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<div class="section" id="chip-flash-size">
+<h4>2.5.1 Chip Flash Size<a class="headerlink" href="#chip-flash-size" title="永久链接至标题">¶</a></h4>
+<p>指定当前芯片的 Flash 大小，需与实际使用的芯片 Flash 大小保持一致。</p>
+<ul class="simple">
+<li><p>目前 PAN107x 芯片的 Flash 大小均为 512KB（其中尾部 4KB 为保留区域，存放芯片出厂校准信息，因此用户可用的实际空间为 508KB）</p></li>
+<li><p>目前 PAN101x 芯片的 Flash 大小均为 256KB（其中尾部 4KB 为保留区域，存放芯片出厂校准信息，因此用户可用的实际空间为 252KB）</p></li>
+</ul>
+</div>
+<div class="section" id="flash-partition-config">
+<h4>2.5.2 Flash Partition Config<a class="headerlink" href="#flash-partition-config" title="永久链接至标题">¶</a></h4>
+<p>Flash Partition Config 用于配置与 Flash 分区强相关的功能，如 Flash 各个分区的大小、是否使能 Bootloader等。</p>
+<ol class="simple">
+<li><p><strong>Enable Bootloader</strong>：使能 Bootloader</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>Bootloader Flash Partition Size</strong> 可以配置 Bootloader 分区大小（KB）</p></li>
+<li><p>通过子配置 <strong>nable App Image Header</strong> 可以配置是否使能当前 App Image Header 功能</p>
+<ul>
+<li><p>使能 App Image Header 后，可以通过配置项指定当前 Image 的版本号信息</p></li>
+<li><p>目前 SDK 框架下，若使能了 Bootloader，必须同时使能 App Image Header，因为 SDK 中 DFU/OTA 组件均依赖 Image Header</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>App Flash Partition Size</strong>：设置当前 App Flash 分区大小（KB）</p>
+<ul class="simple">
+<li><p>根据项目需要修改即可（必须配置为非 0 值才有意义）</p></li>
+</ul>
+</li>
+<li><p><strong>App Backup Flash Partition Size</strong>：设置 App Backup Flash 分区（App 备份区）大小（KB）</p>
+<ul class="simple">
+<li><p>是否使用 App 备份区需根据实际情况选择：例如当应用需要使用蓝牙 OTA 功能时，则必须使用 App 备份区，并且此区域大小应与 App 区保持一致，同时需使能 Bootloader；其他情况则可以不使用 App 备份区</p></li>
+</ul>
+</li>
+<li><p><strong>KVStore Flash Partition Size</strong>：设置 KVStore Flash 分区大小（KB）</p>
+<ul class="simple">
+<li><p>当应用中不使用 KVStore 组件时，可将此项配置为 0x0</p></li>
+<li><p>当应用中需使用 KVStore 组件时，需将此项配置为 8（KB）的整数倍</p></li>
+</ul>
+</li>
+<li><p><strong>User Custom Flash Partition Size</strong>：设置 User Custom 用户自定义 Flash 分区大小（KB）</p>
+<ul class="simple">
+<li><p>当应用中不使用 User Custom 用户自定义分区时，可将此项配置为 0x0</p></li>
+<li><p>当应用中需使用 User Custom 用户自定义分区时，需将此项配置为非 0 值（注意不要超出 Flash 大小，否则会弹出预编译报错提醒）</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="enable-firmware-encryption">
+<h4>2.5.3 Enable Firmware Encryption<a class="headerlink" href="#enable-firmware-encryption" title="永久链接至标题">¶</a></h4>
+<p>Enable Firmware Encryption 用于配置是否使能 App Image 加密特性。</p>
+<blockquote>
+<div><p>此配置需配合 Image 加密脚本使用，详情参考 <a class="reference internal" href="../03_samples/security/fw_encryption.html"><span class="doc std std-doc">FW Encryption 例程</span></a>。</p>
+</div></blockquote>
+<p>当使能 Firmware Encryption 配置后，可以通过配置项 <strong>Encrypt Flash Offset</strong> 指定 Flash 的加密位置：</p>
+<ul class="simple">
+<li><p>这里 1 个 offset 表示 1 个 Flash Page（256 字节），例如若希望加密 Flash 0x1000 ~ 0x10FF 地址区间，则需将 <strong>Encrypt Flash Offset</strong> 配置为 16</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="log-debug-config">
+<h3>2.6 Log/Debug Config<a class="headerlink" href="#log-debug-config" title="永久链接至标题">¶</a></h3>
+<p>Log/Debug Config 是与 Log 日志和 Debug 调试相关的配置：</p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../_images/log_debug_config.png" />
+<p class="caption"><span class="caption-text">Log/Debug config</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<div class="section" id="enable-log">
+<h4>2.6.1 Enable Log<a class="headerlink" href="#enable-log" title="永久链接至标题">¶</a></h4>
+<ol class="simple">
+<li><p><strong>Enable Log</strong>：使能 Log 日志打印功能</p></li>
+<li><p><strong>Enable APP Log</strong>：使能 App Log 相关功能与接口，用于 App 工程中的 Log 打印</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>Select Log Level</strong> 可以选择当前 Log 输出等级</p></li>
+<li><p>通过子配置 <strong>Print Log Level String</strong> 可以选择是否打印 Log 等级前缀</p></li>
+<li><p>通过子配置 <strong>Print Log Verbose String</strong> 可以选择是否打印 Log 所处的源码文件、行数、函数等信息</p></li>
+</ul>
+</li>
+<li><p><strong>Enable SYS Log</strong>：使能 SYS Log 相关功能与接口，用于 SDK 底层的 Log 打印</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>Select Log Level</strong> 可以选择当前 Log 输出等级</p></li>
+<li><p>通过子配置 <strong>Print Log Level String</strong> 可以选择是否打印 Log 等级前缀</p></li>
+<li><p>通过子配置 <strong>Print Log Verbose String</strong> 可以选择是否打印 Log 所处的源码行数等信息</p></li>
+</ul>
+</li>
+<li><p><strong>Log Output to UART</strong>：将 Log 输出至 UART 串口，可配置 UART Tx 引脚和波特率</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>Log UART Tx Pin</strong> 可以配置 Log UART Tx 引脚</p></li>
+<li><p>通过子配置 <strong>Log UART Baudrate</strong> 可以配置 Log UART 波特率</p></li>
+</ul>
+</li>
+<li><p><strong>Log Output to RTT</strong>：将 Log 输出至 Segger RTT，可配置 RTT Buffer 大小</p>
+<ul class="simple">
+<li><p>通过子配置 <strong>RTT Log Buffer Size</strong> 可以配置 RTT Buffer 大小</p></li>
+</ul>
+</li>
+<li><p><strong>APP Log Backend</strong>：选择 APP Log 的后端实现，推荐选择 <code class="docutils literal notranslate"><span class="pre">printk</span></code> 以减少代码大小和任务栈消耗</p>
+<ul class="simple">
+<li><p>只有在需要打印浮点数的时候才建议选择 <code class="docutils literal notranslate"><span class="pre">printf</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>SYS Log Backend</strong>：选择 SYS Log 的后端实现，推荐选择 <code class="docutils literal notranslate"><span class="pre">printk</span></code> 以减少代码大小和任务栈消耗</p>
+<ul class="simple">
+<li><p>只有在需要打印浮点数的时候才建议选择 <code class="docutils literal notranslate"><span class="pre">printf</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>BLE Controller Log Backend</strong>：选择 BLE Controller Lib 中 Log 的后端实现，推荐选择 <code class="docutils literal notranslate"><span class="pre">vprintk</span></code> 以减少代码大小和任务栈消耗</p>
+<ul class="simple">
+<li><p>只有在需要打印浮点数的时候才建议选择 <code class="docutils literal notranslate"><span class="pre">vprintf</span></code></p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="enable-assert">
+<h4>2.6.2 Enable Assert<a class="headerlink" href="#enable-assert" title="永久链接至标题">¶</a></h4>
+<ol class="simple">
+<li><p><strong>Enable Assert</strong>：使能 Assert 断言功能</p></li>
+<li><p><strong>Enable APP Assert</strong>：使能 App 工程中的 Assert 断言</p></li>
+<li><p><strong>Enable SYS Assert</strong>：使能 SDK 底层的 Assert 断言</p></li>
+</ol>
+</div>
+<div class="section" id="enable-io-timing-track">
+<h4>2.6.3 Enable IO Timing Track<a class="headerlink" href="#enable-io-timing-track" title="永久链接至标题">¶</a></h4>
+<p>Enable IO Timing Track 用于配置是否使能 App Track 组件。</p>
+<p>当使能 App Track 组件后，可以通过一些子项修改相关配置。</p>
+<ul class="simple">
+<li><p><strong>(Internal) Enable BLE Controller Timing Track</strong>：使能蓝牙 Controller 内部事件的 Timing Track</p>
+<ul>
+<li><p>注意：无特殊需要请勿勾选此项，否则可能会影响 App 正常 IO 功能</p></li>
+</ul>
+</li>
+<li><p><strong>… Track Pin</strong>：配置各模块的 Timing Track IO 引脚，其中：</p>
+<ul>
+<li><p>以 “HAL” 开头的是 HAL Driver 预设的 GPIO Track 信号</p></li>
+<li><p>以 “User” 开头的是用户可在 App 使用的 GPIO Track 信号</p></li>
+<li><p>剩下的是一些重要系统流程中预设的 GPIO Track 信号</p></li>
+<li><p>若相应的 GPIO 信号设置为 “None”，则表示 Disable 该信号，程序中不会编译相关 Code</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="enable-startup-long-delay">
+<h4>2.6.4 Enable Startup Long Delay<a class="headerlink" href="#enable-startup-long-delay" title="永久链接至标题">¶</a></h4>
+<p>在系统初始化的早期阶段，插入一段长时间的延时（约 1s），以满足某些调试需求。</p>
+<p>例如在一个使能了 DeepSleep 低功耗的蓝牙应用中，系统会频繁进出低功耗，这会导致 SWD/Jlink 烧录变得困难（低功耗状态下由于电压原因，SWD 是无法正常工作的），影响调试效率，那么此时就可以使能这个长延时配置，JLink 在多次尝试 SWD 通信均不成功的时候，会拉一下芯片 Reset 引脚复位芯片，那么在复位后的系统初始化阶段大概率 JLink 就可以正常识别 SWD 并进入烧录或调试流程了。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

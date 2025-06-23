@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE Accelerometer &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE APP Uart" href="ble_app_uart.html" />
+    <link rel="prev" title="通用解决方案" href="index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">通用解决方案</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE Accelerometer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 设备连接和控制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_app_uart.html">BLE APP Uart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_selfie.html">BLE HID Selfie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_capture.html">BLE HID Uart Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_mult_roles.html">BLE HID Uart Mult Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_panchip_cte_beacon.html">BLE Panchip-CTE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_multi_mode_toggle.html">BLE PRF Multi Mode Toggle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_sample.html">BLE PRF Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_rgb_light.html">BLE RGB Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_spi_tft_lcd.html">BLE Spi Tft Lcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_vehicles_key.html">BLE Vehicles Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf_mini_test.html">RF Mini Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">通用解决方案</a> &raquo;</li>
+  
+  <li>BLE Accelerometer</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions/ble_accelerometer.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-accelerometer">
+<h1>BLE Accelerometer<a class="headerlink" href="#ble-accelerometer" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本文主要介绍 PAN10xx BLE Accelerometer和手机 APP 进行连接，通过 APP 上报Accelerometer实时坐标并修改上报时间间隔, 此功能支持<code class="docutils literal notranslate"><span class="pre">pan107x</span></code>芯片</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107x</span> <span class="pre">evb</span></code></p></li>
+<li><p>uart (option): 显示串口log</p></li>
+<li><p>NRF Connect/BLE调试助手APP</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pan107x</span></code>芯片例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions\ble_accelerometer\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>进行打开项目进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>PAN107 EVB板GPIO P07、P10与g-sensor电路用跳线帽连接。</p></li>
+<li><p>BLE广播设备的名字是”b+acc sensor” 。</p></li>
+<li><p>打开安卓手机”NRF Connect“ app，在app上启动搜索设备。</p></li>
+<li><p>搜索到后点击连接，连接成功后就可以控制g-sensor的定时上报及显示实时坐标。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 设备连接和控制<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>5.1 广播数据<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Adv Data Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Length</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0xff</p></td>
+<td><p>Device id</p></td>
+<td><p>10byte</p></td>
+<td><p>0xD1, 0x07, 0xc9, 0x7a, 0xbb, 0x8f, 0xdd, 0x4b, 0x00, 0x11</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x07</p></td>
+<td><p>128-bit UUID</p></td>
+<td><p>16byte</p></td>
+<td><p>0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0,<br/>0x93, 0xf3, 0xa3, 0xb5, 0x01, 0x20, 0x40, 0x6e</p></td>
+</tr>
+<tr class="row-even"><td><p>0x09</p></td>
+<td><p>Device name</p></td>
+<td><p>n byte</p></td>
+<td><p>“b+acc sensor”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gatt">
+<h3>5.2 GATT服务<a class="headerlink" href="#gatt" title="永久链接至标题">¶</a></h3>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Service Attribute</p></th>
+<th class="text-align:left head"><p>UUID(128bit)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Useless</p></td>
+<td><p>Primary service</p></td>
+<td class="text-align:left"><p>0xE9, 0x5D, 0x07, 0x53, 0x25, 0x1D, 0x47, 0x0A,<br/>0xA0, 0x62, 0xFA, 0x19, 0x22, 0xDF, 0xA9, 0xA8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Notify g-sensor的坐标</p></td>
+<td><p>Notify characteristic declaration</p></td>
+<td class="text-align:left"><p>0xE9, 0x5D, 0xCA, 0x4B, 0x25, 0x1D, 0x47, 0x0A,<br/>0xA0, 0x62, 0xFA, 0x19, 0x22, 0xDF, 0xA9, 0xA8</p></td>
+</tr>
+<tr class="row-even"><td><p>控制g-sensor的周期</p></td>
+<td><p>Write characteristic declaration</p></td>
+<td class="text-align:left"><p>0xE9, 0x5D, 0xFB, 0x24, 0x25, 0x1D, 0x47, 0x0A,<br/>0xA0, 0x62, 0xFA, 0x19, 0x22, 0xDF, 0xA9, 0xA8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h3>5.3 通信协议<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="section" id="period-control">
+<h4>5.3.1 Period Control<a class="headerlink" href="#period-control" title="永久链接至标题">¶</a></h4>
+<p>UUID = {0xE9, 0x5D,  0xFB, 0x24, 0x25, 0x1D, 0x47, 0x0A,0xA0, 0x62, 0xFA, 0x19, 0x22, 0xDF, 0xA9, 0xA8}</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Period(ms)</p></th>
+<th class="head"><p>Length</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>1byte</p></td>
+<td><p>0x01</p></td>
+</tr>
+<tr class="row-odd"><td><p>1000</p></td>
+<td><p>1byte</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>1500</p></td>
+<td><p>1byte</p></td>
+<td><p>0x03</p></td>
+</tr>
+<tr class="row-odd"><td><p>2000</p></td>
+<td><p>1byte</p></td>
+<td><p>0x04</p></td>
+</tr>
+</tbody>
+</table>
+<p>控制Accelerometer上报周期时间。</p>
+</div>
+<div class="section" id="notify-accelerometer-coordinate">
+<h4>5.3.2 Notify Accelerometer Coordinate<a class="headerlink" href="#notify-accelerometer-coordinate" title="永久链接至标题">¶</a></h4>
+<p>UUID = {0xE9, 0x5D, 0xCA, 0x4B, 0x25, 0x1D, 0x47, 0x0A,0xA0, 0x62, 0xFA, 0x19, 0x22, 0xDF, 0xA9, 0xA8}</p>
+<p>每次收到控制命令后将Accelerometer的实时坐标通知给手机app。</p>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">137</span>.72k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">31</span>.74<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>UART DMA &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="UART FIFO" href="uart_fifo.html" />
+    <link rel="prev" title="Timer Capture" href="timer_capture.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">外设驱动例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adc_read_multiple_channels.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_digital_input_interrupt.html">GPIO Input With Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_digital_input_polling.html">GPIO Input Polling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_output_open_drain.html">GPIO Open-Drain Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_output_push_pull.html">GPIO Push-Pull Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio_simple_convenient_apis.html">GPIO Simple Convenient APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_dma.html">I2C Receive Send Dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_interrupt.html">I2C Receive Send Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i2c_receive_send_polling.html">I2C Receive Send Polling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pwm.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spi_receive_send_dma.html">SPI Receive Send Dma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spi_receive_send_interrupt.html">SPI Receive Send Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spi_receive_send_polling.html">SPI Receive Send Polling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer_basic.html">Timer Basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer_capture.html">Timer Capture</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">UART DMA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="uart_fifo.html">UART FIFO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">外设驱动例程</a> &raquo;</li>
+  
+  <li>UART DMA</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/peripheral/uart_dma.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="uart-dma">
+<h1>UART DMA<a class="headerlink" href="#uart-dma" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使用 UART HAL Driver 实现DMA方式的 UART 收发功能。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107 EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p>串口模块一块</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将串口模块上的 TX 引脚接至底板上的 P24，RX 引脚接至底板上的 P10</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（Panchip Serial Assistant），串口打印 Log 波特率 921600，串口通信波特率 115200。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\peripheral\uart_dma\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>烧录完成后，芯片会通过串口打印初始化 Log：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span> <span class="n">to</span> <span class="n">load</span> <span class="n">HW</span> <span class="n">calibration</span> <span class="n">data</span><span class="o">..</span> <span class="n">DONE</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Info</span>         <span class="p">:</span> <span class="mh">0x1</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">CP</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">255</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">FT</span> <span class="n">Version</span>   <span class="p">:</span> <span class="mi">7</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">MAC</span> <span class="n">Address</span>  <span class="p">:</span> <span class="n">E110000052E3</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">UID</span>          <span class="p">:</span> <span class="mi">060300465454455354</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">UID</span>    <span class="p">:</span> <span class="mi">4250315</span><span class="n">A3538380B00CE12435603C678</span>
+<span class="o">-</span> <span class="n">Chip</span> <span class="n">Flash</span> <span class="n">Size</span>   <span class="p">:</span> <span class="mi">512</span> <span class="n">KB</span>
+<span class="p">[</span><span class="n">I</span><span class="p">]</span> <span class="n">App</span> <span class="n">started</span><span class="o">..</span>
+</pre></div>
+</div>
+</li>
+<li><p>打开另外一个串口调试助手（Panchip Serial Assistant）：</p>
+<p>工程中测试一次dma传输的大小为32字节，当接收到32字节时，dma中断才会触发。</p>
+<p>在send区域发送数据，观察receive区域收数据的情况，如下图所示</p>
+<p><img alt="uart_dma" src="../../_images/uart_dma.png" /></p>
+<p>在receive区域可以看到接收和发送数据是一样的，芯片把收到的数据原封不动的发给上位机。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">20</span>.13k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">9</span>.40<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

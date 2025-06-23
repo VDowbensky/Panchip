@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE Peripheral OTA &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE Peripheral Throughput Test" href="ble_throughput.html" />
+    <link rel="prev" title="BLE Peripheral HR" href="ble_periph_hr.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">蓝牙例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_central.html">BLE Central</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_central_periph.html">BLE Central and Peripheral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_distance.html">BLE Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hci.html">BLE HCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_multi_role.html">BLE MULTI ROLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_periph_enc.html">BLE Peripheral ENC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_periph_hr.html">BLE Peripheral HR</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE Peripheral  OTA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 运行说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_throughput.html">BLE Peripheral Throughput Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">蓝牙例程</a> &raquo;</li>
+  
+  <li>BLE Peripheral  OTA</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/bluetooth/ble_periph_hr_ota.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-peripheral-ota">
+<h1>BLE Peripheral  OTA<a class="headerlink" href="#ble-peripheral-ota" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>ble_periph_ota例程演示了如何使用通过SMP服务进行OTA固件升级。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107x</span> <span class="pre">evb</span></code></p></li>
+<li><p>uart(option): 用来显示串口log（波特率921600，选项<code class="docutils literal notranslate"><span class="pre">8n1</span></code>）</p></li>
+<li><p>手机app <code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>ble_periph_ota 例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\bluetooth\ble_periph_hr_ota\keil_107x</span></code></p>
+<p>bootloader工程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\mcu_boot\keil</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>打开项目并编译和烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 运行说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>分别编译<code class="docutils literal notranslate"><span class="pre">mcu_boot</span></code>和<code class="docutils literal notranslate"><span class="pre">ble_periph_hr_ota</span></code>工程，并烧录这两个固件，给设备上电，通过串口助手可以查看程序运行log。通过手机App NRF Connect可以搜索到名字为<code class="docutils literal notranslate"><span class="pre">pan_ble_ota</span></code>的设备。</p>
+<blockquote>
+<div><p>注意：</p>
+<ol class="simple">
+<li><p>第一次烧录的app image必需是带签名的固件（可以在工程的Images文件夹中找到），带签名的固件带有 “signed”字样，并且通过J-Flash或者PLink烧录。</p></li>
+<li><p>bootloader 固件可以通过keil烧录</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>编译用于升级的测试固件，任意工程均可用于升级，但是其他工程暂无OTA功能，为了演示OTA固件升级，可以将<code class="docutils literal notranslate"><span class="pre">ble_periph_ota</span></code>工程中蓝牙设备名修改为其他名称，例如：<code class="docutils literal notranslate"><span class="pre">pan_ble_ota_2</span></code>。</p>
+<p>Note: 如果升级的固件和运行的固件是一样的，<code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code>检查校验签名一致则不进行升级，<strong>校验签名和bin文件内容有关</strong>。</p>
+</li>
+<li><p>生成的测试固件在路径<code class="docutils literal notranslate"><span class="pre">ble_periph_ota\keil\Images</span></code>路径下，找到<code class="docutils literal notranslate"><span class="pre">ndk_app.signed.bin</span></code>文件,将该文件导入到手机APP。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code>扫描并连接名称为<code class="docutils literal notranslate"><span class="pre">pan_ble_ota</span></code>的设备，连接上会显示SMP Service，同时右上角会<code class="docutils literal notranslate"><span class="pre">DFU</span></code>标示。在进行DFU之前先在<code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">connection</span> <span class="pre">priority</span></code>中选择<code class="docutils literal notranslate"><span class="pre">HIGH(11.25-15ms，0，20s)</span></code>，然后点击<code class="docutils literal notranslate"><span class="pre">DFU</span></code>标示选则待升级的<code class="docutils literal notranslate"><span class="pre">ndk_app.signed.bin</span></code>文件，点击Test and Confirm,启动OTA升级流程。</p>
+<div class="figure align-center" id="id5">
+<img alt="image" src="../../_images/bleprph_hr_ota1.jpg" />
+<p class="caption"><span class="caption-text">nrf connect连接, 显示SMP服务</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id6">
+<img alt="image" src="../../_images/bleprph_hr_ota2.jpg" />
+<p class="caption"><span class="caption-text">nrf connect选则待升级文件</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="image" src="../../_images/bleprph_hr_ota3.jpg" />
+<p class="caption"><span class="caption-text">nrf connect SMP OTA升级中</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>升级完成后，设备将自动重启</p></li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>RAM<span class="w"> </span>Size:37.47<span class="w"> </span>k
+Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">145</span>.78k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

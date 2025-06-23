@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE HID Uart Capture &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE HID Uart Mult Roles" href="ble_hid_uart_mult_roles.html" />
+    <link rel="prev" title="BLE HID Selfie" href="ble_hid_selfie.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">通用解决方案</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_accelerometer.html">BLE Accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_app_uart.html">BLE APP Uart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_selfie.html">BLE HID Selfie</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE HID Uart Capture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_mult_roles.html">BLE HID Uart Mult Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_panchip_cte_beacon.html">BLE Panchip-CTE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_multi_mode_toggle.html">BLE PRF Multi Mode Toggle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_sample.html">BLE PRF Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_rgb_light.html">BLE RGB Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_spi_tft_lcd.html">BLE Spi Tft Lcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_vehicles_key.html">BLE Vehicles Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf_mini_test.html">RF Mini Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">通用解决方案</a> &raquo;</li>
+  
+  <li>BLE HID Uart Capture</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions/ble_hid_uart_capture.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-hid-uart-capture">
+<h1>BLE HID Uart Capture<a class="headerlink" href="#ble-hid-uart-capture" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>此项目演示基于HID服务和串口透传服务实现用按键进行拍照、录像和调焦，同时也能通过串口透传数据给手机。用 K1 和 K2 按键可以唤醒安卓手机的相机，切换录像和拍照，切换前后摄像头，远近调焦。我们可以在相机模式下和录像模式下可以实现拍照录像功能。pan101x 芯片受限于ram资源，此工程暂不支持pan101x。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: `pan107x evb</p></li>
+<li><p>uart0(option): 用来显示串口log（端口P16、P17，波特率921600，选项<code class="docutils literal notranslate"><span class="pre">8n1</span></code>）</p></li>
+<li><p>uart1: 串口透传，P24作为uart_tx，P10作为uart_rx，波特率115200</p></li>
+<li><p>手机app <code class="docutils literal notranslate"><span class="pre">nrf</span> <span class="pre">connect</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions\ble_hid_uart_capture\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>进行打开项目进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>在设置蓝牙界面连接<code class="docutils literal notranslate"><span class="pre">Capture</span> <span class="pre">pi</span></code>进行配对，通过按键KEY1唤醒手机原生相机，可以切换录像和拍照，通过按键KEY2音量减小键实现拍照和录像快捷键功能。具体操作说明可参考文档：<a class="reference internal" href="ble_hid_selfie.html"><span class="doc std std-doc">ble_hid_selfie.md</span></a></p>
+<p>K1和K2按键还可修改成其他功能，其他键值对应的功能如下：</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>键值</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CONSUMER_KEY_VAL_VOLUME_INCREMENT</p></td>
+<td><p>音量加或拍照录像</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONSUMER_KEY_VAL_VOLUME_DECREMENT</p></td>
+<td><p>音量减或拍照录像</p></td>
+</tr>
+<tr class="row-even"><td><p>CONSUMER_KEY_VAL_MODE_STEP</p></td>
+<td><p>切换前后摄像头</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONSUMER_KEY_VAL_VCR_PLUS</p></td>
+<td><p>切换拍照或录像</p></td>
+</tr>
+<tr class="row-even"><td><p>CONSUMER_KEY_VAL_AC_ZOOM_IN</p></td>
+<td><p>镜头放大</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONSUMER_KEY_VAL_AC_ZOOM_OUT</p></td>
+<td><p>镜头缩小</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hid</span></code>相关的初始化在profiles目录下的<code class="docutils literal notranslate"><span class="pre">hid.c</span></code>中：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_gatt_svc_def</span><span class="w"> </span><span class="n">ble_svc_hid_defs</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 	</span><span class="p">{</span>
+<span class="w"> 		</span><span class="cm">/* Service: HID */</span>
+<span class="w"> 		</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_SVC_TYPE_PRIMARY</span><span class="p">,</span>
+<span class="w"> 		</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS</span><span class="p">),</span>
+<span class="w"> 		</span><span class="p">.</span><span class="n">characteristics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_gatt_chr_def</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hids information */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_INFO</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ</span><span class="p">,</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hids report map */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT_MAP</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ_ENC</span><span class="p">,</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hids input report */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid_input_report</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_NOTIFY</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">val_handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hid_input_handle</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">descriptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_gatt_dsc_def</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 					</span><span class="p">{</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT_REF</span><span class="p">),</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid_input_report</span><span class="p">,</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">att_flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_ATT_F_READ</span><span class="p">,</span>
+<span class="w"> 					</span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 						</span><span class="mi">0</span>
+<span class="w"> 					</span><span class="p">},</span>
+<span class="w"> 				</span><span class="p">}</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hids consumer report */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid_consumer_report</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_NOTIFY</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">val_handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hid_consumer_input_handle</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">descriptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_gatt_dsc_def</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 					</span><span class="p">{</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT_REF</span><span class="p">),</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid_consumer_report</span><span class="p">,</span>
+<span class="w"> 						</span><span class="p">.</span><span class="n">att_flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_ATT_F_READ</span><span class="p">,</span>
+<span class="w"> 					</span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 						</span><span class="mi">0</span>
+<span class="w"> 					</span><span class="p">},</span>
+<span class="w"> 				</span><span class="p">}</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hids consumer report */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gatt_svr_chr_access_hid_mouse_report</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_NOTIFY</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">val_handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hid_mouse_input_handle</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">descriptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_gatt_dsc_def</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 				</span><span class="p">{</span>
+<span class="w"> 				  </span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_REPORT_REF</span><span class="p">),</span>
+<span class="w"> 				  </span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gatt_svr_chr_access_hid_mouse_report</span><span class="p">,</span>
+<span class="w"> 				  </span><span class="p">.</span><span class="n">att_flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_ATT_F_READ</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> 				  </span><span class="mi">0</span>
+<span class="w"> 				</span><span class="p">},</span><span class="w"> </span><span class="p">}</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="cm">/* Characteristic: hidS control point */</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_UUID16_DECLARE</span><span class="p">(</span><span class="n">BT_UUID_HIDS_CTRL_POINT</span><span class="p">),</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">access_cb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ble_svc_chr_access_hid</span><span class="p">,</span>
+<span class="w"> 				</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLE_GATT_CHR_F_WRITE_NO_RSP</span><span class="p">,</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 			</span><span class="p">{</span>
+<span class="w"> 				</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* No more characteristics in this service */</span>
+<span class="w"> 			</span><span class="p">},</span>
+<span class="w"> 		</span><span class="p">}</span>
+<span class="w"> 	</span><span class="p">},</span>
+<span class="w"> 	</span><span class="p">{</span>
+<span class="w"> 		 </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* No more services. */</span>
+<span class="w"> 	</span><span class="p">},</span>
+<span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</li>
+<li><p>相关hog硬件初始化和处理以及发送消息的函数在<code class="docutils literal notranslate"><span class="pre">hog.c</span></code>中</p></li>
+<li><p>通过串口透传发送命令实现和按键一样的功能，透传发送的命令如下代码：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x92</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_MODE_STEP</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x93</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_VOLUME_DECREMENT</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x94</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_VCR_PLUS</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">((</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xA0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x00</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x82</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_AC_ZOOM_IN</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">((</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xA0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x00</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xAA</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_AC_ZOOM_OUT</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">((</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xA0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x00</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x96</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_REALEASED</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">((</span><span class="n">send_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x80</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x84</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">send_data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x02</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hog_send_consumer_key</span><span class="p">(</span><span class="n">CONSUMER_KEY_VAL_REALEASED</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>send_data[0]和send_data[1]都为0xAA，其他串口透传命令可参考文档 <a class="reference internal" href="ble_hid_uart_mult_roles.html"><span class="doc std std-doc">ble_hid_uart_mult_roles.md</span></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">170</span>.81k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">43</span>.27<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

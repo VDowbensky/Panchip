@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Standby Mode0 P02 Key Wakeup &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Multiple Wakeup Source" href="multiple_wakeup_source.html" />
+    <link rel="prev" title="Standby Mode1 SleepTimer Wakeup" href="standby_m1_slptmr_wakeup.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">低功耗例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_key_wakeup.html">DeepSleep GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_gpio_pwm_wakeup.html">DeepSleep GPIO PWM Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_slptmr_wakeup.html">DeepSleep SleepTimer Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deepsleep_pwm_waveform_generator.html">DeepSleep PWM Waveform Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_gpio_key_wakeup.html">Standby Mode1 GPIO Key Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standby_m1_slptmr_wakeup.html">Standby Mode1 SleepTimer Wakeup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Standby Mode0 P02 Key Wakeup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multiple_wakeup_source.html">Multiple Wakeup Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">低功耗例程</a> &raquo;</li>
+  
+  <li>Standby Mode0 P02 Key Wakeup</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/low_power/standby_m0_p02_key_wakeup.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="standby-mode0-p02-key-wakeup">
+<h1>Standby Mode0 P02 Key Wakeup<a class="headerlink" href="#standby-mode0-p02-key-wakeup" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示如何使 SoC 进入 Standby Mode 0 状态，然后通过 WKUP (P02) 按键将其唤醒。</p>
+<blockquote>
+<div><p>Standby Mode 0 是芯片的最低功耗模式，只支持 P00/P01/P02 这三个 IO 将芯片唤醒（唤醒电平可配且共用）。由于 P00/P01 两个引脚默认为 SWD 功能，为方便演示本例程仅以 P02 唤醒为例进行说明。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程程序）</p></li>
+<li><p><strong>电流计</strong>（本文使用电流可视化测量设备 PPK2 <em>[Nordic Power Profiler Kit II]</em> 进行演示）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>为确保能够准确地测量 SoC 本身的功耗，排除底板外围电路的影响，请确认 EVB 底板上的：</p>
+<ul>
+<li><p>Voltage 排针组中的 VCC 和 VDD 均接至 3V3</p></li>
+<li><p>POWER 开关从 LDO 档位拨至 BAT 档位（并确认底板背部的电池座内<strong>没有</strong>纽扣电池）</p></li>
+</ul>
+</li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>使用杜邦线将 JLink 仿真器的：</p>
+<ul>
+<li><p>SWD_CLK 引脚与 EVB 底板的 P00 排针相连</p></li>
+<li><p>SWD_DAT 引脚与 EVB 底板的 P01 排针相连</p></li>
+<li><p>SWD_GND 引脚与 EVB 底板的 GND 排针相连</p></li>
+</ul>
+</li>
+<li><p>将 PPK2 硬件的：</p>
+<ul>
+<li><p>USB DATA/POWER 接口连接至 PC USB 接口</p></li>
+<li><p>VOUT 连接至 EVB 底板的 VBAT 排针</p></li>
+<li><p>GND 连接至 EVB 底板的 GND 排针</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+<li><p>nRF Connect Desktop（用于配合 PPK2 测量 SoC 电流）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\low_power\standby_m0_p02_key_wakeup\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程进行编译烧录，烧录成功后断开 JLink 连线以避免漏电。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>PC 上打开 PPK2 Power Profiler 软件，供电电压选择 3300 mV，然后打开供电开关</p></li>
+<li><p>从串口工具中看到如下的打印信息：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>nRESET<span class="w"> </span>Pin<span class="w"> </span>Reset.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>100ms<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>SoC<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>mode..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>SoC<span class="w"> </span>sleep/deepsleep<span class="w"> </span>mode<span class="w"> </span><span class="k">for</span><span class="w"> </span>1000ms..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Waked<span class="w"> </span>up<span class="w"> </span>from<span class="w"> </span>SoC<span class="w"> </span>sleep/deepsleep<span class="w"> </span>mode.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>SoC<span class="w"> </span>standby<span class="w"> </span>mode<span class="w"> </span><span class="m">0</span>..
+</pre></div>
+</div>
+</li>
+<li><p>此时观察芯片电流波形，发现稳定在 220nA 左右（说明芯片成功进入了 Standby Mode 0 状态）：</p>
+<div class="figure align-center" id="id8">
+<img alt="image" src="../../_images/stbm0_p02_key_wakeup_init.png" />
+<p class="caption"><span class="caption-text">系统初始化后进入 Standby Mode 0 状态</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>芯片低功耗状态下的底电流（漏电流）与环境温度相关，温度越高，漏电流越大。</p>
+</div></blockquote>
+</li>
+<li><p>尝试按下 EVB 底板上的 WKUP 按键，由串口打印信息可知触发了唤醒并复位，复位的原因为 Standby Mode 0 EXTIO Wakeup（即 WKUP 按键唤醒），随后芯片依次进入 100ms 的 Busy 状态，1s 的 DeepSleep 状态，接着唤醒后进入 Standby Mode 0 状态继续等待 WKUP 按键唤醒：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E110000052E3
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">060300465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B00CE12435603C678
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>App<span class="w"> </span>started..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Reset<span class="w"> </span>Reason:<span class="w"> </span>Standby<span class="w"> </span>Mode<span class="w"> </span><span class="m">0</span><span class="w"> </span>EXTIO<span class="w"> </span>Wakeup<span class="w"> </span><span class="o">(</span><span class="nv">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">)</span>.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Busy<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>100ms<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>SoC<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>mode..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>SoC<span class="w"> </span>sleep/deepsleep<span class="w"> </span>mode<span class="w"> </span><span class="k">for</span><span class="w"> </span>1000ms..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Waked<span class="w"> </span>up<span class="w"> </span>from<span class="w"> </span>SoC<span class="w"> </span>sleep/deepsleep<span class="w"> </span>mode.
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Try<span class="w"> </span>to<span class="w"> </span>enter<span class="w"> </span>SoC<span class="w"> </span>standby<span class="w"> </span>mode<span class="w"> </span><span class="m">0</span>..
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="sdk-config">
+<h3>5.1 SDK Config 配置<a class="headerlink" href="#sdk-config" title="永久链接至标题">¶</a></h3>
+<p>与本例程相关的 <a class="reference internal" href="../../04_dev_guides/ndk_configuration_guidance.html"><span class="doc std std-doc">SDK Config</span></a> (<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>) 配置有：</p>
+<ul class="simple">
+<li><p><strong>SoC Platform : Chip Power Mode</strong></p>
+<ul>
+<li><p>芯片供电选择 DCDC 模式，以降低芯片动态功耗</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_SOC_DCDC_PAN1070</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Power Management : Enable Low Power Mode</strong></p>
+<ul>
+<li><p>使能系统低功耗功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_PM</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log</strong></p>
+<ul>
+<li><p>使能 App Log 功能</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">APP_LOG_EN</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Log &amp; Debug Config : Enable App Log : Log to UART</strong></p>
+<ul>
+<li><p>将 App Log 输出至串口</p></li>
+<li><p>对应宏配置 <code class="docutils literal notranslate"><span class="pre">CONFIG_UART_LOG_ENABLE</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>5.2 程序代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>5.2.1 主程序<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>本例程中，OS 为使能状态，因此主程序 main() 函数也是 OS Main Task 的入口函数，其内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Application initialization */</span>
+<span class="w">    </span><span class="n">app_setup</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Application main infinite loop */</span>
+<span class="w">    </span><span class="n">app_main_loop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-setup">
+<h4>5.2.2 App Setup 初始化<a class="headerlink" href="#app-setup" title="永久链接至标题">¶</a></h4>
+<p>App 初始化 app_setup() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;App started..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Get the last reset reason */</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Reset Reason: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rst_reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soc_reset_reason_get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">rst_reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_POR_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Power On Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_PIN_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;nRESET Pin Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_SYS_RESET</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;NVIC System Reset.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SOC_RST_REASON_STBM0_EXTIO_WAKEUP</span><span class="p">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Standby Mode 0 EXTIO Wakeup (cnt = %d).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">wkup_cnt</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;Unhandled Reset Reason (%d), refer to more reason define in soc_api.h!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rst_reason</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* Enable P02 low level wakeup for standby mode 0 */</span>
+<span class="w">    </span><span class="n">wakeup_p02_key_init</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Busy wait 100ms to keep SoC in active mode..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Try to enter SoC sleep/deepsleep mode for 1000ms..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Waked up from SoC sleep/deepsleep mode.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">APP_LOG_INFO</span><span class="p">(</span><span class="s">&quot;Try to enter SoC standby mode 0..</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="cm">/* Wait for all log print done */</span>
+<span class="w">    </span><span class="n">soc_enter_standby_mode_0</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;WARNING: Failed to enter SoC standby mode 0 due to unexpected interrupt detected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         Please check if there is an unhandled interrupt during the standby mode 0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">APP_LOG</span><span class="p">(</span><span class="s">&quot;         entering flow.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>打印 App 初始化 Log</p></li>
+<li><p>获取并打印本次芯片启动的复位原因</p></li>
+<li><p>在 wakeup_p02_key_init() 函数中初始化 EXTIO (P02) 配置</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_busy_wait()</span></code> 接口使芯片在 Active 状态下全速运行 100ms</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">vTaskDelay()</span></code> 接口使系统切换至 Idle Task 执行 1s，实际上会使芯片进入持续 1s 的 DeepSleep 状态</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_busy_wait()</span></code> 接口延时 1ms，目的是确保所有串口打印消息都发送完成</p></li>
+<li><p>调用 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_0()</span></code> 接口，使系统进入 Standby Mode 0 低功耗状态</p></li>
+</ol>
+</div>
+<div class="section" id="app-main-task-loop">
+<h4>5.2.3 App Main Task Loop 任务循环<a class="headerlink" href="#app-main-task-loop" title="永久链接至标题">¶</a></h4>
+<p>App Main Task 循环 app_main_loop() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_main_loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Busy wait */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>由于在 app_setup() 流程中已经调用了进入 Standby Mode 0 的接口 <code class="docutils literal notranslate"><span class="pre">soc_enter_standby_mode_0()</span></code>，所以此处 Task 主循环中仅写了一个死循环防止 Task 退出。</p>
+</div>
+<div class="section" id="wkup-key-p02">
+<h4>5.2.4 WKUP Key（P02）初始化程序<a class="headerlink" href="#wkup-key-p02" title="永久链接至标题">¶</a></h4>
+<p>P02 初始化程序 wakeup_p02_key_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">wakeup_p02_key_init</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">wakeup_edge</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Configure GPIO P02 (WKUP Key) as Lowlevel Wakeup */</span>
+
+<span class="w">    </span><span class="cm">/* Configure P02 wakeup level due to wakeup_edge */</span>
+<span class="w">    </span><span class="n">LP_SetExternalWake</span><span class="p">(</span><span class="n">ANA</span><span class="p">,</span><span class="w"> </span><span class="n">wakeup_edge</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Set pinmux func of P02 as GPIO */</span>
+<span class="w">    </span><span class="n">SYS_SET_MFP</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Construct GPIO init structure and Init GPIO P02:</span>
+<span class="cm">     * - Set IO to digital input mode</span>
+<span class="cm">     * - Enable internal pull-up or pull-down resistor depends the wakeup_edge</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="n">HAL_GPIO_InitTypeDef</span><span class="w"> </span><span class="n">GPIO_InitStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">.</span><span class="n">mode</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">HAL_GPIO_MODE_INPUT_DIGITAL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeup_edge</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Enable internal pull-up resistor if P02 is low level wakeup */</span>
+<span class="w">        </span><span class="n">GPIO_InitStruct</span><span class="p">.</span><span class="n">pull</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HAL_GPIO_PULL_UP</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Enable internal pull-down resistor if P02 is high level wakeup */</span>
+<span class="w">        </span><span class="n">GPIO_InitStruct</span><span class="p">.</span><span class="n">pull</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HAL_GPIO_PULL_DOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">HAL_GPIO_Init</span><span class="p">(</span><span class="n">P0_2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">GPIO_InitStruct</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/* Wait for a while to ensure the internal pullup is stable before entering low power mode */</span>
+<span class="w">    </span><span class="n">soc_busy_wait</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>配置 EXTIO 的唤醒电平</p></li>
+<li><p>配置 P02 引脚 Pinmux 至 GPIO 功能</p></li>
+<li><p>配置 P02 为数字输入模式，并根据唤醒电平使能内部上拉或下拉电阻</p></li>
+<li><p>等待一段时间，确保上下拉电阻稳定</p></li>
+</ol>
+</div>
+<div class="section" id="hook">
+<h4>5.2.5 与低功耗相关的 Hook 函数<a class="headerlink" href="#hook" title="永久链接至标题">¶</a></h4>
+<p>本例程还用到了 2 个与低功耗密切相关的 Hook 函数：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepEnterHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">reset_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="n">CONFIG_RAM_CODE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vSocDeepSleepExitHook</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_UART_LOG_ENABLE</span>
+<span class="w">    </span><span class="n">set_uart_io</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>上述两个 Hook 函数用于在进入 DeepSleep 前和从 DeepSleep 唤醒后做一些额外操作，如关闭和重新配置 IO 为串口功能，以防止 DeepSleep 状态下 IO 漏电</p></li>
+<li><p>详细解释请参考 <a class="reference internal" href="standby_m1_gpio_key_wakeup.html"><span class="doc std std-doc">Standby Mode1 GPIO Key Wakeup</span></a> 例程中的相关介绍</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">22</span>.00k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.20<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

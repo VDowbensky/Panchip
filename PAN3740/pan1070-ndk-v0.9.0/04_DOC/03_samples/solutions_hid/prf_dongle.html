@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PRF Dongle &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Sub1G例程" href="../sub_1g/index.html" />
+    <link rel="prev" title="Multimode Mouse EVB" href="mult_ms_evb.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PC外设方案</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mult_ms.html">Multimode Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mult_ms_evb.html">Multimode Mouse EVB</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PRF Dongle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">PC外设方案</a> &raquo;</li>
+  
+  <li>PRF Dongle</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions_hid/prf_dongle.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="prf-dongle">
+<h1>PRF Dongle<a class="headerlink" href="#prf-dongle" title="永久链接至标题">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>此例程仅存在于特殊版本的SDK中，如有需要请联系Panchip。</p>
+</div>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>此sample为<code class="docutils literal notranslate"><span class="pre">pan107/pan101</span></code>上演示Dongle配合108鼠标端控制功能</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107</span></code>QFN32核心板/ <code class="docutils literal notranslate"><span class="pre">pan101</span></code>MSOP10核心板 + evb底板</p></li>
+<li><p>uart0: 设置P16，P17作为默认的LOG输出端口，波特率921600</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions_hid\prf_dongle\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>进行打开项目进行编译烧录，需要先移植确认flm文件（modules\hal\panchip\panplat\pan1070_hal_release\mcu_misc）拷贝至keil安装目录</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>keil全擦芯片后，编译烧录boot程序<code class="docutils literal notranslate"><span class="pre">pan10xx_mcu_boot\keil</span></code>,之后烧录<code class="docutils literal notranslate"><span class="pre">prf_dongle</span></code>程序，此时进入对码状态，dongle端在2412频点<code class="docutils literal notranslate"> <span class="pre">{</span> <span class="pre">0x7b,</span> <span class="pre">0x41,</span> <span class="pre">0x29,</span> <span class="pre">0x71</span> <span class="pre">}</span></code>地址（PIPE0）进行扫描，并根据本地mac地址的后四位计算出私有的8个跳频地址</p></li>
+<li><p>108鼠标进入强制配对，在2412频点<code class="docutils literal notranslate"> <span class="pre">{</span> <span class="pre">0x7b,</span> <span class="pre">0x41,</span> <span class="pre">0x29,</span> <span class="pre">0x71</span> <span class="pre">}</span></code>发送鼠标端的mac地址</p></li>
+<li><p>107dongle收到对码地址频点的鼠标端mac地址后，回复本地mac地址，并且把鼠标端mac地址后四位设置为PIPE1地址，如果在PIPE1地址上任意私有频点收取到数据，结束对码状态，如果没有收到私有地址频点的通信包，timeout中仍有机会切换到配对频点（鼠标端收到对码地址频点的dongle mac地址后，计算出私有的8个跳频地址，切换到鼠标mac地址后四位作为地址，跳频发送数据）</p></li>
+<li><p>对码后可以进行控制</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="flash">
+<h3>5.1 Flash配置及接口说明<a class="headerlink" href="#flash" title="永久链接至标题">¶</a></h3>
+<p>PAN107（512K 32pin）芯片作为调试芯片，最终PAN101（仅4个IO：P00 P01作为烧录脚，可以复用；P13 P14作为USB通信线，无Reset脚，reset需要重新上电；16K RAM 256K flash）作为实际使用芯片</p>
+<p>为确保PAN107编译的程序可以直切切换到PAN101芯片中</p>
+<p>BOOT默认划分40k flash，APP默认划分212k flash，可在<code class="docutils literal notranslate"><span class="pre">pan10xx_samples\solutions_hid\prf_dongle\include\image_map_config.h</span></code>中查看</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONFIG_BARE_IMAGE=0</span></code>:程序从boot启动后跳转到APP编译地址<code class="docutils literal notranslate"><span class="pre">0x3F000</span></code>，需要先进行boot烧录</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONFIG_BARE_IMAGE=1</span></code>:设置1可以将APP编译到0x0地址，rebuild烧录后，芯片不含boot区域</p>
+<p>需要注意101由于reset状态不易控制，先下载过<code class="docutils literal notranslate"><span class="pre">CONFIG_BARE_IMAGE=1</span></code>的程序如果后续修改为<code class="docutils literal notranslate"><span class="pre">CONFIG_BARE_IMAGE=0</span></code>需要重新上电确保不掉电配置稳定</p>
+<p>其他配置可以参考，不建议改动</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Copyright (c) 2022 Shanghai Panchip Microelectronics Co.,Ltd.</span>
+<span class="cm"> *</span>
+<span class="cm"> * SPDX-License-Identifier: Apache-2.0</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef IMAGE_MAP_CONFIG__H</span>
+<span class="cp">#define IMAGE_MAP_CONFIG__H</span>
+
+<span class="cp">#define CONFIG_BARE_IMAGE     			0</span>
+<span class="cp">#define CONFIG_OTA_IN_BOOTLOADER 		0</span>
+
+
+<span class="cp">#define SIZE_256K 						0x3F000</span>
+<span class="cp">#define SIZE_512K 						0x7F000</span>
+<span class="cp">#define SIZE_1M							0xFF000</span>
+<span class="cp">#define SIZE_BOOTLOADER            		0xA000  </span><span class="c1">// 40k</span>
+<span class="cp">#define SIZE_FIXED_APP_IMAGE            0x35000 </span><span class="c1">// 212k</span>
+<span class="cp">#define SIZE_FIXED_USER_FLASH			0x7000</span>
+
+
+<span class="cm">/* bare program which means it can work without bootloader</span>
+<span class="cm"> * note image start at 0 address,and user can modify CONFIG_USER_FLASH_EXTENDED_SIZE size</span>
+<span class="cm"> */</span>
+<span class="cp">#if (CONFIG_BARE_IMAGE)</span>
+<span class="cp">#define SIZE_IMAGE_HEADER				 0</span>
+<span class="cp">#define CONFIG_USER_FLASH_EXTENDED_SIZE (0) </span><span class="cm">/* user can change the value */</span>
+<span class="cp">#define APP_IMAGE_START 0x00000000</span>
+<span class="cp">#define APP_IMAGE_SIZE	(SIZE_256K - SIZE_FIXED_USER_FLASH - CONFIG_USER_FLASH_EXTENDED_SIZE)</span>
+
+<span class="cm">/* ota in bootloader and there are have no backup area. so it can expand image size user can use</span>
+<span class="cm"> * note it does not support ble ota</span>
+<span class="cm"> */</span>
+<span class="cp">#elif (CONFIG_OTA_IN_BOOTLOADER)</span>
+<span class="cp">#define SIZE_IMAGE_HEADER				 512</span>
+<span class="cp">#define CONFIG_IMAGE_EXTENDED_SIZE		(120 * 1024)	</span><span class="cm">/* user can change the value */</span>
+<span class="cp">#define CONFIG_USER_FLASH_EXTENDED_SIZE (100 * 1024)	</span><span class="cm">/* user can change the value */</span>
+<span class="cp">#define APP_IMAGE_START 0x0000A000</span>
+<span class="cp">#define APP_IMAGE_SIZE	(SIZE_FIXED_APP_IMAGE + CONFIG_IMAGE_EXTENDED_SIZE)</span>
+<span class="cp">#if (APP_IMAGE_SIZE + CONFIG_USER_FLASH_EXTENDED_SIZE + SIZE_BOOTLOADER &gt; SIZE_256K) </span><span class="cm">/* todo author:chao */</span>
+<span class="w">	</span><span class="cp">#error config ota in bootloader flash map over 508K</span>
+<span class="cp">#endif</span>
+
+<span class="cm">/* ota in bootloader and there are have a backup area.</span>
+<span class="cm"> * note it is used to adapt to condition that use want to ota in ble ways</span>
+<span class="cm"> */</span>
+<span class="cp">#else</span>
+<span class="cp">#define SIZE_IMAGE_HEADER				 512</span>
+<span class="cp">#define CONFIG_USER_FLASH_EXTENDED_SIZE (0)		</span><span class="cm">/* user can change the value */</span>
+<span class="cp">#define APP_IMAGE_START 0x0000A000</span>
+<span class="cp">#define APP_IMAGE_SIZE	(SIZE_FIXED_APP_IMAGE - CONFIG_USER_FLASH_EXTENDED_SIZE)</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#endif</span>
+
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pan10xx_samples\solutions_hid\prf_dongle\Keil_107x\project.sct</span></code> 中限制了RAM使用大小16K</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#! armcc -E</span>
+<span class="p">;</span><span class="w"> </span>*************************************************************
+<span class="p">;</span><span class="w"> </span>***<span class="w"> </span>Scatter-Loading<span class="w"> </span>Description<span class="w"> </span>File<span class="w"> </span>generated<span class="w"> </span>by<span class="w"> </span>uVision<span class="w"> </span>***
+<span class="p">;</span><span class="w"> </span>*************************************************************
+
+<span class="c1">#include &quot;..\include\image_map_config.h&quot;</span>
+
+
+LR_IROM1<span class="w"> </span>APP_IMAGE_START<span class="w"> </span>APP_IMAGE_SIZE<span class="w">  </span><span class="o">{</span><span class="w">    </span><span class="p">;</span><span class="w"> </span>load<span class="w"> </span>region<span class="w"> </span>size_region
+<span class="w">  </span><span class="c1">#if SIZE_IMAGE_HEADER</span>
+<span class="w">	</span>ER_IROM0<span class="w"> </span>APP_IMAGE_START<span class="w"> </span>SIZE_IMAGE_HEADER<span class="w">  </span><span class="o">{</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>load<span class="w"> </span><span class="nv">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>execution<span class="w"> </span>address
+<span class="w">   </span>*app_version.o
+<span class="w">  </span><span class="o">}</span>
+<span class="w">  </span><span class="c1">#endif</span>
+<span class="w">  </span>ER_IROM1<span class="w"> </span><span class="o">(</span>APP_IMAGE_START<span class="w"> </span>+<span class="w"> </span>SIZE_IMAGE_HEADER<span class="o">)</span><span class="w"> </span>APP_IMAGE_SIZE<span class="w">  </span><span class="o">{</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>load<span class="w"> </span><span class="nv">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>execution<span class="w"> </span>address
+<span class="w">   </span>*.o<span class="w"> </span><span class="o">(</span>RESET,<span class="w"> </span>+First<span class="o">)</span>
+<span class="w">   </span>*<span class="o">(</span>InRoot<span class="nv">$$</span>Sections<span class="o">)</span>
+<span class="w">   </span>.ANY<span class="w"> </span><span class="o">(</span>+RO<span class="o">)</span>
+<span class="w">   </span>.ANY<span class="w"> </span><span class="o">(</span>+XO<span class="o">)</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="w">  </span>RW_IRAM1<span class="w"> </span>0x20000000<span class="w"> </span>0x00004000<span class="w">  </span><span class="o">{</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>RW<span class="w"> </span>data
+<span class="w">   </span>.ANY<span class="w"> </span><span class="o">(</span>+RW<span class="w"> </span>+ZI<span class="o">)</span>
+<span class="w">   </span>*.o<span class="w"> </span><span class="o">(</span>.ramfunc<span class="o">)</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>以上，确保107芯片上编译验证后可以进行直接切换下载到101芯片中</p>
+<p>BOOT跳转注意点：</p>
+<p>可以使用 boot工程中<code class="docutils literal notranslate"><span class="pre">BOOT_FROM_USB</span></code>来控制实现boot升级流程，也可以不使用，最终跳转接口<code class="docutils literal notranslate"><span class="pre">jump_to_app</span></code></p>
+<p>Flash存读接口：</p>
+<p>参考prf dongle代码中，对 配对的mac地址的操作，参考代码在200k位置进行配对信息存储</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">FMC_ReadStream</span><span class="p">(</span><span class="n">FLCTL</span><span class="p">,</span><span class="w"> </span><span class="mh">0x32000</span><span class="p">,</span><span class="w"> </span><span class="n">CMD_DREAD</span><span class="p">,</span><span class="w"> </span><span class="n">read_addr0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="n">FMC_ReadStream</span><span class="p">(</span><span class="n">FLCTL</span><span class="p">,</span><span class="w"> </span><span class="mh">0x32006</span><span class="p">,</span><span class="w"> </span><span class="n">CMD_DREAD</span><span class="p">,</span><span class="w"> </span><span class="n">read_addr1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+
+<span class="n">FMC_WriteStream</span><span class="p">(</span><span class="n">FLCTL</span><span class="p">,</span><span class="w"> </span><span class="mh">0x32000</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">prf_state</span><span class="p">.</span><span class="n">pair_private_addr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prf">
+<h3>5.2 PRF说明<a class="headerlink" href="#prf" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id6">
+<h4>5.2.1 初始化<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pan_prf_config_t</span><span class="w"> </span><span class="n">rx_config</span><span class="w"> </span><span class="o">=</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="p">.</span><span class="n">work_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_mode_t</span><span class="p">)</span><span class="n">PRF_WORK_MODE</span><span class="p">,</span><span class="w">                                 </span><span class="c1">// PRF_MODE_NORMAL,PRF_MODE_ENHANCE</span>
+<span class="w">	</span><span class="p">.</span><span class="n">chip_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_chip_mode_sel_t</span><span class="p">)</span><span class="n">PRF_CHIP_MODE</span><span class="p">,</span><span class="w">                        </span><span class="c1">// PRF_CHIP_MODE_SEL_NRF,//PRF_CHIP_MODE_SEL_XN297,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">trx_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_trx_mode_t</span><span class="p">)</span><span class="n">PRF_TRX_SELECT</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">phy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_phy_t</span><span class="p">)</span><span class="n">PRF_PHY_SELECT</span><span class="p">,</span><span class="w">                                       </span><span class="c1">// PRF_PHY_250K,//PRF_PHY_1M,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_crc_sel_t</span><span class="p">)</span><span class="n">PRF_CRC</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_scramble_sel_t</span><span class="p">)</span><span class="n">PRF_SCR</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">mode_conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_mode_conf_sel_t</span><span class="p">)</span><span class="n">PRF_MODE_CONFIG</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">rx_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">                                                     </span><span class="c1">// us</span>
+<span class="w">	</span><span class="p">.</span><span class="n">rf_channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2412</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">tx_no_ack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DISABLE</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">trf_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">prf_trf_t</span><span class="p">)</span><span class="n">PRF_TRANS_TYPE</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">rx_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">sync_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">crc_include_sync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">src_include_sync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">sync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0x7b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x41</span><span class="p">,</span><span class="w"> </span><span class="mh">0x29</span><span class="p">,</span><span class="w"> </span><span class="mh">0x71</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="p">.</span><span class="n">pid_manual_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">tx_power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<span class="w">	</span><span class="p">.</span><span class="n">pipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PRF_PIPE0</span><span class="p">,</span>
+<span class="p">};</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">mouse_prf_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="n">panchip_prf_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_config</span><span class="p">);</span>
+
+<span class="w">	</span><span class="cm">/* init not init channel, must init channel after init */</span>
+<span class="w">	</span><span class="n">panchip_prf_set_chn</span><span class="p">(</span><span class="n">rx_config</span><span class="p">.</span><span class="n">rf_channel</span><span class="p">);</span>
+
+<span class="w">	</span><span class="cm">/* adr match bit match whole absolutely */</span>
+<span class="w">	</span><span class="n">PRI_RF_SetAddrMatchBit</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">	</span><span class="cm">/* disable pid err isr */</span>
+<span class="w">	</span><span class="n">panchip_prf_pid_cfg</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_config</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">	</span><span class="cm">/* enable len err isr */</span>
+<span class="w">	</span><span class="n">panchip_prf_rx_length_irq_cfg</span><span class="p">(</span><span class="n">ENABLE</span><span class="p">);</span>
+
+<span class="w">	</span><span class="cp">#if PRF_DBG_PIN</span>
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_MUX02</span><span class="p">,</span><span class="w"> </span><span class="n">TST_MUX_SELECT_11</span><span class="p">,</span><span class="w"> </span><span class="mh">0x14</span><span class="p">);</span><span class="w"> </span><span class="c1">// tx on</span>
+<span class="w">	</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">P1_MFP</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SYS_MFP_P10_LL_DBG_11</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_MUX02</span><span class="p">,</span><span class="w"> </span><span class="n">TST_MUX_SELECT_09</span><span class="p">,</span><span class="w"> </span><span class="mh">0x15</span><span class="p">);</span><span class="w"> </span><span class="c1">// rx on</span>
+<span class="w">	</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">P0_MFP</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SYS_MFP_P04_LL_DBG_9</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_MUX02</span><span class="p">,</span><span class="w"> </span><span class="n">TST_MUX_SELECT_10</span><span class="p">,</span><span class="w"> </span><span class="mh">0x17</span><span class="p">);</span><span class="w"> </span><span class="c1">// data</span>
+<span class="w">	</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">P0_MFP</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SYS_MFP_P07_LL_DBG_10</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_MUX03</span><span class="p">,</span><span class="w"> </span><span class="n">TST_MUX_SELECT_12</span><span class="p">,</span><span class="w"> </span><span class="mh">0x13</span><span class="p">);</span><span class="w"> </span><span class="c1">// acc match</span>
+<span class="w">	</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">P0_MFP</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SYS_MFP_P05_LL_DBG_12</span><span class="p">;</span>
+<span class="w">	</span><span class="cp">#endif</span>
+
+<span class="w">	</span><span class="n">mouse_prf_pair_init</span><span class="p">();</span>
+
+<span class="w">	</span><span class="n">panchip_prf_trx_start</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol>
+<li><p>全局变量<code class="docutils literal notranslate"><span class="pre">rx_config</span></code>，部分来源于config文件，部分来源于直接配置，定义好后，<code class="docutils literal notranslate"><span class="pre">panchip_prf_init(&amp;rx_config);</span></code>会进行除了频点之外的初始化，一定要在之后进行频点设置<code class="docutils literal notranslate"><span class="pre">panchip_prf_set_chn(rx_config.rf_channel);</span></code></p></li>
+<li><p>init后，设置地址全匹配，关闭pid err中断，开启len err中断，rf状态可控，增强型模式下，一定会进行完成<code class="docutils literal notranslate"><span class="pre">r-&gt;t/timeout/crc/len</span> <span class="pre">err</span></code>状态，中断内控制好下一次trx start之前进行flash操作、状态控制，不会引起rf死机状态</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRF_DBG_PIN</span></code>控制lldbg信号，可以抓取rf工作中的时序，但需要注意，开启debug信号时会一定程度影响rf，crc率会变高，关闭后正常</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mouse_prf_pair_init();</span></code>中获取dongle mac地址，计算出配对频点（通过dongle mac后四字节），并且设置可能存储过的配对地址作为rf 收取地址</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="cm">/* set PRI_RF_MODE_SEL_RX addr will set the rx addr &amp; pipe */</span>
+<span class="w">	</span><span class="cm">/* set PRI_RF_MODE_SEL_TX addr will set the single tx addr, no set tx will use init tx addr */</span>
+<span class="w">	</span><span class="cm">/* set PRI_RF_MODE_SEL_TRX addr will set the trx addr both, no set tx will use init tx addr */</span>
+<span class="w">	</span><span class="n">panchip_prf_set_addr</span><span class="p">(</span><span class="o">&amp;</span><span class="n">read_addr0</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">PRF_PIPE1</span><span class="p">,</span><span class="w"> </span><span class="n">PRI_RF_MODE_SEL_RX</span><span class="p">);</span>
+<span class="w">	</span><span class="n">panchip_prf_set_addr</span><span class="p">(</span><span class="o">&amp;</span><span class="n">read_addr1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">PRF_PIPE2</span><span class="p">,</span><span class="w"> </span><span class="n">PRI_RF_MODE_SEL_RX</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>设置PRI_RF_MODE_SEL_RX地址仅设置接收PIPE，不会设置发送地址</p>
+<p>rx isr中需要设置payload并且设置回复时的tx地址，设置发送地址参考</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">__ramfunc</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">app_prf_set_tx_addr</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="cp">#if SET_TX_ADDR_DIRECT</span>
+<span class="w">	</span><span class="cm">/* 1.25us */</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">tx_addr</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">tx_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">R05_TX_ADDR_L</span><span class="p">,</span><span class="w"> </span><span class="n">L32B</span><span class="p">,</span><span class="w"> </span><span class="n">tx_addr</span><span class="p">);</span>
+<span class="w">	</span><span class="cp">#else</span>
+<span class="w">	</span><span class="cm">/* 6us no used third param */</span>
+<span class="w">	</span><span class="n">panchip_prf_set_addr</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">PRI_RF_MODE_SEL_TX</span><span class="p">);</span>
+<span class="w">	</span><span class="cp">#endif</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>最后进行panchip_prf_trx_start();开启tx；需要注意，工程options C++ 中默认开启了最快时序 <code class="docutils literal notranslate"><span class="pre">CONFIG_PRF_REDUCE_TRX_TRANS_TIME=1</span></code></p>
+<p><img alt="prf_dg_config" src="../../_images/prf_dg_config.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h4>5.2.2 时间说明<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>说明比较重要的时间量取参数</p>
+<p><img alt="prf_dg_time" src="../../_images/prf_dg_time.png" /></p>
+<ol>
+<li><p>timeout debug信号结束到进入timeout中断：9us</p></li>
+<li><p>设置频点时间：50us</p></li>
+<li><p>trx start调用到debug信号拉取到发送出数据：24us</p></li>
+<li><p>DG端 rx自动转tx发送出时间：26us</p></li>
+<li><p>trx start执行占用时间</p></li>
+<li><p>rx isr中需要设置payload并且设置回复时的tx地址，设置地址时，可以快速设置4字节地址或者调用底层封装接口设置，分别占用1us或者6us，影响还好，就算当前次不能及时设置好地址，依然会在下次配对地址收到数据后在对应地址回复出</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* set addr will set the tx addr, if want to ack data from dynamic rx pipe ,rx isr must set tx addr */</span>
+<span class="n">__ramfunc</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">app_prf_set_tx_addr</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="cp">#if SET_TX_ADDR_DIRECT</span>
+<span class="w">	</span><span class="cm">/* 1.25us */</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">tx_addr</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">tx_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">PRI_RF_WRITE_REG_VALUE</span><span class="p">(</span><span class="n">PRI_RF</span><span class="p">,</span><span class="w"> </span><span class="n">R05_TX_ADDR_L</span><span class="p">,</span><span class="w"> </span><span class="n">L32B</span><span class="p">,</span><span class="w"> </span><span class="n">tx_addr</span><span class="p">);</span>
+<span class="w">	</span><span class="cp">#else</span>
+<span class="w">	</span><span class="cm">/* 6us no used third param */</span>
+<span class="w">	</span><span class="n">panchip_prf_set_addr</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">PRI_RF_MODE_SEL_TX</span><span class="p">);</span>
+<span class="w">	</span><span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="pipe">
+<h4><em>5.2.3 多pipe使用说明</em><a class="headerlink" href="#pipe" title="永久链接至标题">¶</a></h4>
+<p>107相对于108，增加feature 多pipe地址收取的功能，灵活使用可以实现配对地址和多通道地址同时可以收取回复数据，基于此feature可以扩展多个主机设备配对同一dongle，目前主机端最快速度在250us内可以完成发收，所以多设备自行处理的条件下，通过重传可以做到至少2个设备配对同一dongle后，可以达到1000hz上报率</p>
+<p>演示说明：</p>
+<ol class="simple">
+<li><p>准备2个108 8k鼠标，鼠标1下载默认程序，鼠标2下载 PAIR_COMBO_DG_DEV2=1的第二设备程序</p></li>
+<li><p>编译下载PAIR_ONLY_ONE=0的107 dongle程序</p></li>
+<li><p>鼠标1进入配对状态，复位107，鼠标1配对成功，鼠标1不移动情况下鼠标2进入配对或者上电状态，鼠标2配对成功</p></li>
+<li><p>鼠标1可以达到1000hz上报率，鼠标2默认配对后125hz上报率</p></li>
+</ol>
+<p>对码说明参考演示说明部分的第四点，补充说明鼠标1和鼠标2的区别在于，配对过程数据字段，回复的数据除了各自mac地址，还有额外的数据字段区分对应配对到哪一个pipe，107 rf中确认私有mac搜索到数据通信后不再添加其他地址，重新上电会重新进入可添加pipe地址状态</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">	</span><span class="n">pkt_pair</span><span class="p">.</span><span class="n">magic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PAIR_MAGIC</span><span class="p">;</span>
+<span class="w">	</span><span class="cp">#if PAIR_COMBO_DG_DEV2</span>
+<span class="w">	</span><span class="n">pkt_pair</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x20</span><span class="p">;</span>
+<span class="w">	</span><span class="cp">#else</span>
+<span class="w">	</span><span class="n">pkt_pair</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PAIR_MOUSE_8K_FLAG</span><span class="p">;</span>
+<span class="w">	</span><span class="cp">#endif</span>
+<span class="w">	</span><span class="n">memcpy</span><span class="p">(</span><span class="n">pkt_pair</span><span class="p">.</span><span class="n">mac</span><span class="p">,</span><span class="w"> </span><span class="n">pair_ctrl</span><span class="p">.</span><span class="n">pair_own_addr</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="w">	</span><span class="n">memcpy</span><span class="p">(</span><span class="n">tx_payload</span><span class="p">.</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pkt_pair</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usb">
+<h3>5.3 USB说明<a class="headerlink" href="#usb" title="永久链接至标题">¶</a></h3>
+<p>USB init软件过程基本与108一致，其他部分使用也一致</p>
+<p>硬件需要注意，101/107系列早期存在USB有问题版本，接入hub并且在hub上的第一个口通常能识别成功但也不稳定，直插线的方式在大部分电脑上都不能成功识别，一定要选用MPC版本之后USB修复后的芯片</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">usb_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reg_tmp</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">ANA</span><span class="o">-&gt;</span><span class="n">ANA_MISC_3V</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">((</span><span class="mh">0x1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">27</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mh">0x1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">28</span><span class="p">));</span>
+<span class="w">	</span><span class="n">ANA</span><span class="o">-&gt;</span><span class="n">ANA_MISC_3V</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">((</span><span class="mh">0X1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">26</span><span class="p">));</span>
+<span class="w">	</span><span class="cm">/*usb debounce time*/</span>
+<span class="w">	</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">CTRL1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">SYS</span><span class="o">-&gt;</span><span class="n">CTRL1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="mh">0xff</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">reg_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">READ_REG</span><span class="p">(</span><span class="n">USB</span><span class="o">-&gt;</span><span class="n">INT_USBE</span><span class="p">);</span>
+<span class="w">	</span><span class="n">reg_tmp</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
+<span class="w">	</span><span class="n">WRITE_REG</span><span class="p">(</span><span class="n">USB</span><span class="o">-&gt;</span><span class="n">INT_USBE</span><span class="p">,</span><span class="w"> </span><span class="n">reg_tmp</span><span class="p">);</span>
+
+<span class="w">	</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usb_init</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">	</span><span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">USB_IRQn</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">32</span>.68k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">10</span>.48<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

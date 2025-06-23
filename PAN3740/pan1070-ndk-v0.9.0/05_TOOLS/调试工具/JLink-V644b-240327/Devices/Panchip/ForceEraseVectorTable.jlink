@@ -1,0 +1,6 @@
+r
+sleep 10
+mem32 0x40030044 1 // Show ROM Status Flag
+regs
+loadfile .\JLink-V644b-240327\Devices\Panchip\ForceEraseVectorTable.bin 0x0 // Force clear vector table on flash (addr 0x00 ~ 0xBF)
+q

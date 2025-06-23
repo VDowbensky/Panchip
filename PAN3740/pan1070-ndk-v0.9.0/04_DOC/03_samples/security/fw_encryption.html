@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Firmware Encryption &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="SWD Protection" href="swd_protection.html" />
+    <link rel="prev" title="固件保护例程" href="index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">固件保护例程</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Firmware Encryption</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 例程演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 开发者说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="swd_protection.html">SWD Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">固件保护例程</a> &raquo;</li>
+  
+  <li>Firmware Encryption</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/security/fw_encryption.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="firmware-encryption">
+<h1>Firmware Encryption<a class="headerlink" href="#firmware-encryption" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>本例程演示芯片通过固件加密、硬件解密的机制保护 Flash 关键代码的方法。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>本功能需要用到 PanLink 量产烧录工具，为正常演示本例程，请确保您的 PanLink 上位机工具版本不低于 <code class="docutils literal notranslate"><span class="pre">v0.0.005</span></code>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>本功能需要通过 PanLink 工具烧录芯片 eFuse 的特定地址，eFuse 的物理特性是同一地址只可烧录一次，无法还原，因此<strong>当某颗芯片使能加密功能后，其将只能正常运行加密后的固件，无法再正常运行普通的明文固件</strong>！</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2 环境准备<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>硬件设备与线材：</p>
+<ul>
+<li><p>PAN107X EVB <strong>核心板</strong>与<strong>底板</strong>各一块</p></li>
+<li><p>JLink 仿真器（用于烧录例程<strong>明文程序</strong>）</p></li>
+<li><p>PanLink 量产烧录工具（用于烧录固件加密信息至芯片 eFuse，以及烧录例程<strong>加密程序</strong>至芯片 Flash）</p></li>
+<li><p>USB-TypeC 线一条（用于底板供电和查看串口打印 Log）</p></li>
+<li><p>杜邦线数根或跳线帽数个（用于连接各个硬件设备）</p></li>
+</ul>
+</li>
+<li><p>硬件接线：</p>
+<ul>
+<li><p>将 EVB 核心板插到底板上</p></li>
+<li><p>使用 USB-TypeC 线，将 PC USB 插口与 EVB 底板 USB-&gt;UART 插口相连</p></li>
+<li><p>使用杜邦线将 EVB 底板上的 TX 引脚接至核心板 P16，RX 引脚接至核心板 P17</p></li>
+<li><p>根据情况将 PanLink 或 Jlink 仿真器连接至芯片</p></li>
+</ul>
+</li>
+<li><p>PC 软件:</p>
+<ul>
+<li><p>串口调试助手（UartAssist）或终端工具（SecureCRT），波特率 921600（用于接收串口打印 Log）</p></li>
+<li><p>PanLink 上位机工具</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\samples\security\fw_encryption\keil_107x</span></code></p>
+<p>双击 Keil Project 文件打开工程，编译成功后，使用 Keil - Flash Download 按钮，<strong>向未使能加密功能的芯片中烧录明文程序</strong>。</p>
+<blockquote>
+<div><p><strong>注</strong>：本例程编译过程中会调用 <code class="docutils literal notranslate"><span class="pre">nimble\scripts\encrypt_tool.py</span></code> 脚本，此脚本中使用了一些第三方库: IntelHex、PyYAML、Crypto，需要提前安装。
+Windows 下安装此库的方法是：</p>
+<ol class="simple">
+<li><p>直接在 CMD 命令行中执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">intelhex</span> <span class="pre">pyyaml</span> <span class="pre">pycryptodome</span></code></p></li>
+<li><p>重新编译例程，检查是否能编译通过</p></li>
+<li><p>若仍无法正常编译，提示 Crypto 库未识别，则请进入 python 安装目录的第三方库子目录 <code class="docutils literal notranslate"><span class="pre">&lt;python-folder&gt;/Lib/site-packages</span></code>，查看此目录下是否有名为 <code class="docutils literal notranslate"><span class="pre">Crypto</span></code> 的子目录，并确认其首字母
+<code class="docutils literal notranslate"><span class="pre">C</span></code> 为大写，如果不是，则手动将其改为大写</p></li>
+<li><p>再次编译例程即可</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>4 例程演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>通过 Keil 将明文程序烧录至芯片后，可以看到芯片通过串口打印如下 Log：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E11000001012
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">250001465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B005B474356033C78
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+
+Hello<span class="w"> </span>World!
+
+Secret<span class="w"> </span>calcucation<span class="w"> </span>result:<span class="w"> </span>0x4604b510
+</pre></div>
+</div>
+</li>
+<li><p>断开 JLink 与芯片的连接，然后将 PanLink 连接至芯片（可能需要将芯片从 EVB 底板取下），打开 PanLink 上位机工具，使能 “加密信息配置”，并同时选择载入以下两个文件：</p>
+<ol class="simple">
+<li><p>本例程生成的加密配置信息文件（<code class="docutils literal notranslate"><span class="pre">Images\encrypt_info_enc.bin</span></code>）</p></li>
+<li><p>本例程生成的<strong>未加密</strong>固件（<code class="docutils literal notranslate"><span class="pre">Images\ndk_app.bin</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Images\ndk_app.hex</span></code>）</p></li>
+</ol>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../../_images/panlink_load_encrypt_info_file.png" />
+<p class="caption"><span class="caption-text">PanLink 载入加密配置信息文件和未加密固件完成</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p>具体操作步骤请参考 PanLink 上位机工具文档。</p>
+</div></blockquote>
+</li>
+<li><p>点击 “下载” 按钮，即可将本工程的加密配置信息（包括加密使能开关、防注入保护使能开关、加密 Flash 区域配置、加密秘钥等）和明文固件分别烧录到芯片 eFuse 和 Flash 中：</p>
+<div class="figure align-center" id="id11">
+<img alt="image" src="../../_images/panlink_download_encrypt_info_and_plain_image.png" />
+<p class="caption"><span class="caption-text">PanLink 烧录加密配置信息文件和未加密固件成功</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>eFuse 烧录成功后，复位芯片，可以看到刚才可以正常执行的程序，此时出现了 Hardfault</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E11000001012
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">250001465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B005B474356033C78
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+
+Hello<span class="w"> </span>World!
+
+In<span class="w"> </span>Hard<span class="w"> </span>Fault<span class="w"> </span>Handler
+<span class="nv">r0</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x20001cf0
+<span class="nv">r1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x40003000
+<span class="nv">r2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x1
+<span class="nv">r3</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x1941
+<span class="nv">r12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x0
+<span class="nv">lr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x1947
+<span class="nv">pc</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>0x10a
+<span class="nv">psr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x61000000
+</pre></div>
+</div>
+<blockquote>
+<div><p>这是因为芯片此时已经开启了加密使能，当程序执行到 eFuse 中配置的 Flash 加密区域后，会使用秘钥先将程序解密后运行，而此时由于 Flash 中的程序是明文程序，因此经过解密操作后反而会出错。</p>
+</div></blockquote>
+</li>
+<li><p>重新配置 Panlink，此时我们<strong>取消勾选</strong> “加密信息配置”，并且在 “下载程序配置” 中，指定烧录的 Image 为 <code class="docutils literal notranslate"><span class="pre">Images\ndk_app_enc.bin</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Images\ndk_app_enc.hex</span></code> 文件，然后点击 “下载” 按钮，将加密后的 Image 烧录至芯片：</p>
+<div class="figure align-center" id="id12">
+<img alt="image" src="../../_images/panlink_download_encrypted_image.png" />
+<p class="caption"><span class="caption-text">PanLink 烧录加密固件</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>再次复位芯片，可以看到此时程序又可以正常执行：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x1
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">6</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E11000001012
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span><span class="m">250001465454455354</span>
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B005B474356033C78
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB
+
+Hello<span class="w"> </span>World!
+
+Secret<span class="w"> </span>calcucation<span class="w"> </span>result:<span class="w"> </span>0x4604b510
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>5 开发者说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>5.1 工程配置<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>本工程相比与其他的普通工程（如蓝牙例程），在配置上有如下改动：</p>
+<ol>
+<li><p>修改了 SDK Config 配置（<code class="docutils literal notranslate"><span class="pre">configuration\sdk_config.h</span></code>），新增了打开加密功能及配置 Flash 加密区域的 Config：</p>
+<div class="figure align-center" id="id13">
+<img alt="image" src="../../_images/fw_encryption_sdk_config.png" />
+<p class="caption"><span class="caption-text">SDK Config File</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p><strong>注</strong>：此处配置的 <code class="docutils literal notranslate"><span class="pre">Encrypt</span> <span class="pre">Flash</span> <span class="pre">Offset</span></code> 值一定要与 encrypt_info.yaml 文件中配置的 <code class="docutils literal notranslate"><span class="pre">encrypt_flash_offset</span></code> 值相同！</p>
+</div></blockquote>
+</li>
+<li><p>修改了工程的分散加载文件 (<code class="docutils literal notranslate"><span class="pre">project.sct</span></code>)，新增了可配置的加密区域：</p>
+<div class="figure align-center" id="id14">
+<img alt="image" src="../../_images/fw_encryption_sct_file.png" />
+<p class="caption"><span class="caption-text">Project Scatter File</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>修改了工程的 <code class="docutils literal notranslate"><span class="pre">post.bat</span></code> 脚本，以支持生成的加密后的 Image 文件：</p>
+<div class="figure align-center" id="id15">
+<img alt="image" src="../../_images/fw_encryption_post_bat.png" />
+<p class="caption"><span class="caption-text">Post Build Script File</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>修改了工程的 After Build 命令，在编译完成后自动调用修改后的 post.bat 脚本：</p>
+<div class="figure align-center" id="id16">
+<img alt="image" src="../../_images/fw_encryption_keil_after_build.png" />
+<p class="caption"><span class="caption-text">Keil After Build Command</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>修改了工程的 Linker 链接参数，新增了 <code class="docutils literal notranslate"><span class="pre">--any_placement=best_fit</span></code> 参数：</p>
+<div class="figure align-center" id="id17">
+<img alt="image" src="../../_images/fw_encryption_keil_linker_control.png" />
+<p class="caption"><span class="caption-text">Keil Linker Control</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
+<blockquote>
+<div><p><strong>注</strong>：此选项在默认的例程配置（<code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code>: Encrypt Flash Offset = 0x1）下不是必须的，但是，若修改加密区域 Offset 到 Image 比较靠后的位置，
+则应指定此链接选项，以提示链接器最大化安排 Flash 空间，否则链接器可能会出现浪费 ER_IROM1 Section 空间（在 <code class="docutils literal notranslate"><span class="pre">project.sct</span></code> 中定义）的情况。</p>
+</div></blockquote>
+</li>
+<li><p>新增了加密信息配置文件（encrypt_info.yaml）:</p>
+<div class="figure align-center" id="id18">
+<img alt="image" src="../../_images/fw_encryption_encrypt_info_yaml.png" />
+<p class="caption"><span class="caption-text">Encrypt Info File</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+</div>
+<p>其中各个 item 解释如下：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">secure_enable:</span> <span class="pre">true</span></code>：使能固件加密功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anti_injection_enable:</span> <span class="pre">true</span></code>：使能防注入保护功能，与固件加密功能结合使用，作用是防止通过 SWD Debug 的方式获取到加密 Flash 区域的明文信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_flash_offset:</span> <span class="pre">0x1</span></code>：配置加密 Flash 的第几个 Page（大小 256 字节），如 0x1 表示加密 Flash 的第 1 个 Page，对应 Flash 绝对地址为 0x100；<strong>注意此处配置的值一定要与 sdk_config.h 中配置的 Encrypt Flash Offset 值相同！</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_key:</span> <span class="pre">'4c68384139f574d836bcf34e9dfb01bf'</span></code>：配置加密秘钥（AES-128）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug_protect_enable:</span> <span class="pre">false</span></code>：<strong>不</strong>使能 SWD Debug Protect 功能</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug_key:</span> <span class="pre">''</span></code>：<strong>不</strong>配置 SWD Debug Protect 秘钥</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_start_addr:</span> <span class="pre">0x0</span></code>：配置当前 Image 固件的起始地址为 0x0，用于 encrypt tool 交叉验证输入 Image 的地址是否有效</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ol class="simple">
+<li><p>本文件中包含明文的加密秘钥（encrypt_key），一定要妥善保管，不可随意外传，以防密钥泄露！</p></li>
+<li><p>在编译过程中，Keil 的 After Build 流程会基于本文件生成一个二次加密后的 <code class="docutils literal notranslate"><span class="pre">encrypt_info_enc.bin</span></code> 文件，此文件中会对秘钥添加扰码，因此在 PanLink 载入加密信息的过程中建议使用此文件，而不是明文的 yaml 文件。</p></li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>5.2 程序代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id8">
+<h4>5.2.1 主程序<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>主程序 app_init() 函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">app_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#if CONFIG_BOOT_ENABLE</span>
+<span class="w">    </span><span class="n">print_version_info</span><span class="p">();</span>
+<span class="cp">#endif</span>
+
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">secret_calc</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Hello World!</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">encrypted_test_function</span><span class="p">(</span><span class="o">&amp;</span><span class="n">secret_calc</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Secret calcucation result: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">secret_calc</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>若当前工程配置为非裸机程序（即支持 Bootloader 的程序），则打印 App 版本信息</p></li>
+<li><p>向串口打印 “Hello World” 字符串，用于指示主程序执行成功</p></li>
+<li><p>执行 Flash 加密区域的函数 <code class="docutils literal notranslate"><span class="pre">encrypted_test_function()</span></code></p></li>
+<li><p>向串口打印上述加密函数返回的 <code class="docutils literal notranslate"><span class="pre">secret_calc</span></code> 变量值</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h4>5.2.2 加密程序<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>编译到 Flash 加密区域的函数内容如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ENCRYPT_SECTION</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">encrypted_test_function</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="n">calculation</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Do some secret operations/calculations here */</span>
+<span class="w">    </span><span class="o">*</span><span class="n">calculation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)((</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">encrypted_test_function</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFFFFFFFE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello from %s!</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>使用前缀 <code class="docutils literal notranslate"><span class="pre">ENCRYPT_SECTION</span></code> 以将函数编译到 Flash 加密区域</p></li>
+<li><p>获取当前函数的首地址，并从首地址所在位置取出一个 word 数据，将其通过 <code class="docutils literal notranslate"><span class="pre">calculation</span></code> 指针传到上层</p></li>
+<li><p>向串口打印字符串</p></li>
+</ol>
+<blockquote>
+<div><p>芯片支持加密的 Flash 大小为一个 Page（256 字节），因此在实际项目中我们应当选取一个重要且简短的函数作为加密函数段。</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

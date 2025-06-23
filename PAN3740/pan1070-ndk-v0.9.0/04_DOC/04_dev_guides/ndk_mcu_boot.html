@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK Bootloader 开发指南 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK RAM 使用分析及优化指南" href="ndk_ram_analysis_guidance.html" />
+    <link rel="prev" title="NDK 低功耗开发指南" href="ndk_lowpower_dev_notes.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK Bootloader 开发指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1. 背景介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bootloader-config">2. Bootloader Config 配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.1 Bootloader Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#soc-platform">2.2 SoC Platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-debug-config">2.3 Log &amp; Debug Config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bootloader">3 BootLoader 升级流程和策略</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usb-dfu">3.1 USB DFU 模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-dfu">3.2 UART DFU 模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prf-ota">3.3 PRF OTA 模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backup-dfu">3.4 Backup DFU 模式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4. UART DFU 升级详解</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.1 检测并进入 UART DFU 升级模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.2 操作流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5 USB DFU 升级详解</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">5.1 检测并进入 USB DFU 升级模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">5.2 操作流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6 PRF OTA 升级详解</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_faqs.html">NDK 常见问题（FAQs）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK Bootloader 开发指南</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_mcu_boot.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-bootloader">
+<h1>NDK Bootloader 开发指南<a class="headerlink" href="#ndk-bootloader" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1. 背景介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>BootLoader 是一个系统引导程序，用于引导 App 软件初始化、支持 DFU/OTA 升级等。由于实际产品中 BootLoader 是不可以或者很难更新的，因此一个稳定且易用的 BootLoader 是对整个系统的一个基本保障。</p>
+<blockquote>
+<div><p>NDK Bootloader 例程代码位于：<code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\01_SDK\nimble\mcu_boot\</span></code> 目录下。</p>
+</div></blockquote>
+</div>
+<div class="section" id="bootloader-config">
+<h2>2. Bootloader Config 配置<a class="headerlink" href="#bootloader-config" title="永久链接至标题">¶</a></h2>
+<p>与 App 工程类似，Bootloader 工程中也提供了一个名为 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code> 的配置文件，但其配置项与 App 中的有所差异：</p>
+<div class="figure align-center" id="id10">
+<img alt="image" src="../_images/bootloader_config.png" />
+<p class="caption"><span class="caption-text">Bootloader Config File</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<div class="section" id="id2">
+<h3>2.1 Bootloader Config<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>Bootloader Config 是与当前 Bootloader 工程相关的配置，包括 Bootloader 支持功能的选择、Flash 分区配置等项目：</p>
+<ol>
+<li><p><strong>Enable UART DFU</strong>：使能 Bootloader UART DFU 功能</p>
+<ul class="simple">
+<li><p>此功能基于 Xmodem 协议实现</p></li>
+</ul>
+</li>
+<li><p><strong>Enable USB DFU</strong>：使能 Bootloader USB DFU 功能</p>
+<ul>
+<li><p>通过子配置 <strong>USB DFU Mode</strong> 可以选择当前 USB DFU 升级模式，在不同模式下，USB DFU 上位机工具会执行不同的命令交互流程，具体解释如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Select</span> <span class="n">USB</span> <span class="n">DFU</span> <span class="n">mode</span><span class="p">,</span> <span class="n">which</span> <span class="n">would</span> <span class="n">notify</span> <span class="n">DFU</span> <span class="n">Host</span> <span class="p">(</span><span class="n">Panchip</span> <span class="n">DFU</span> <span class="n">Tool</span><span class="p">)</span> <span class="n">to</span> <span class="n">decide</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="n">when</span> <span class="n">new</span> <span class="n">image</span> <span class="n">has</span> <span class="n">been</span> <span class="n">successfully</span> <span class="n">upgrade</span> <span class="n">to</span> <span class="n">SoC</span> <span class="n">flash</span> <span class="p">(</span><span class="n">CRC</span> <span class="n">ok</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Mode</span> <span class="mi">0</span><span class="p">:</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Behavior</span><span class="p">]</span> <span class="n">a</span><span class="o">.</span> <span class="n">Jump</span> <span class="n">to</span> <span class="n">App</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x04</span> <span class="n">DFU</span> <span class="n">End</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x00</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span> <span class="n">DFU</span> <span class="n">End</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Note</span><span class="p">]</span> <span class="n">For</span> <span class="n">this</span> <span class="n">mode</span><span class="p">,</span> <span class="n">bootloader</span> <span class="n">itself</span> <span class="n">has</span> <span class="n">responsibility</span> <span class="n">to</span> <span class="n">provide</span> <span class="n">a</span> <span class="n">way</span> <span class="k">for</span> <span class="n">entering</span> <span class="n">USB</span> <span class="n">DFU</span> <span class="n">flow</span> <span class="p">(</span><span class="n">such</span> <span class="k">as</span> <span class="n">key</span> <span class="n">press</span> <span class="n">event</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Mode</span> <span class="mi">1</span><span class="p">:</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Behavior</span><span class="p">]</span> <span class="n">a</span><span class="o">.</span> <span class="n">Erase</span> <span class="n">DFU</span> <span class="n">flag</span> <span class="n">on</span> <span class="n">flash</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x06</span> <span class="n">DFU</span> <span class="n">Force</span> <span class="n">Upgrade</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x01</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span> <span class="n">Stay</span> <span class="ow">in</span> <span class="n">bootloader</span> <span class="n">unless</span> <span class="n">reset</span><span class="p">;</span> <span class="n">c</span><span class="o">.</span> <span class="n">DFU</span> <span class="n">End</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Note</span><span class="p">]</span> <span class="n">App</span> <span class="n">should</span> <span class="nb">set</span> <span class="n">DFU</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">indicate</span> <span class="n">bootloader</span> <span class="n">to</span> <span class="n">enter</span> <span class="n">USB</span> <span class="n">DFU</span> <span class="n">proc</span><span class="o">.</span>
+<span class="n">Mode</span> <span class="mi">2</span><span class="p">:</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Behavior</span><span class="p">]</span> <span class="n">a</span><span class="o">.</span> <span class="n">Erase</span> <span class="n">DFU</span> <span class="n">flag</span> <span class="n">on</span> <span class="n">flash</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x06</span> <span class="n">DFU</span> <span class="n">Force</span> <span class="n">Upgrade</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x01</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span> <span class="n">Jump</span> <span class="n">to</span> <span class="n">App</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x04</span> <span class="n">DFU</span> <span class="n">End</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x00</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span> <span class="n">DFU</span> <span class="n">End</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Note</span><span class="p">]</span> <span class="n">App</span> <span class="n">should</span> <span class="nb">set</span> <span class="n">DFU</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">indicate</span> <span class="n">bootloader</span> <span class="n">to</span> <span class="n">enter</span> <span class="n">USB</span> <span class="n">DFU</span> <span class="n">proc</span><span class="o">.</span>
+<span class="n">Mode</span> <span class="mi">3</span><span class="p">:</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Behavior</span><span class="p">]</span> <span class="n">a</span><span class="o">.</span> <span class="n">Jump</span> <span class="n">to</span> <span class="n">App</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x04</span> <span class="n">DFU</span> <span class="n">End</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x00</span><span class="p">);</span> <span class="n">b</span><span class="o">.</span> <span class="n">Wait</span> <span class="k">for</span> <span class="n">App</span> <span class="n">USB</span> <span class="n">enum</span> <span class="n">OK</span><span class="p">;</span> <span class="n">c</span><span class="o">.</span> <span class="n">App</span> <span class="n">Erase</span> <span class="n">DFU</span> <span class="n">flag</span> <span class="n">on</span> <span class="n">flash</span> <span class="p">(</span><span class="n">cmd</span> <span class="mh">0x06</span> <span class="n">DFU</span> <span class="n">Force</span> <span class="n">Upgrade</span><span class="p">,</span> <span class="n">param</span> <span class="mh">0x01</span><span class="p">);</span> <span class="n">c</span><span class="o">.</span> <span class="n">DFU</span> <span class="n">End</span>
+<span class="o">-&gt;</span> <span class="p">[</span><span class="n">Note</span><span class="p">]</span> <span class="n">App</span> <span class="n">should</span> <span class="n">support</span> <span class="n">USB</span> <span class="n">HID</span><span class="p">,</span> <span class="ow">and</span> <span class="n">support</span> <span class="n">the</span> <span class="n">DFU</span> <span class="n">cmd</span> <span class="mh">0x06</span> <span class="p">(</span><span class="n">DFU</span> <span class="n">Force</span> <span class="n">Upgrade</span><span class="p">)</span> <span class="n">to</span> <span class="nb">set</span><span class="o">/</span><span class="n">erase</span> <span class="n">DFU</span> <span class="n">flag</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>默认的 Mode0 支持通过 EVB 按键 KEY2 进入 Bootloader USB DFU 流程</p></li>
+</ul>
+</li>
+<li><p><strong>Enable Private 2.4G OTA</strong>：使能 Bootloader 私有 2.4G OTA 功能</p>
+<ul class="simple">
+<li><p>此功能基于 Panchip 私有 2.4G OTA 升级协议实现</p></li>
+</ul>
+</li>
+<li><p><strong>Flash Partition Config</strong>：配置与 Bootloader 相关的 Flash 分区起始地址和大小（<strong>注意此处 Flash 分区配置需与 App 工程中的 sdk config 配置保持一致！</strong>）</p>
+<ul class="simple">
+<li><p><strong>Chip Flash Size</strong>：指定当前芯片的 Flash 大小，需与实际使用的芯片 Flash 大小保持一致</p>
+<ul>
+<li><p>目前 PAN107x 芯片的 Flash 大小均为 512KB（其中尾部 4KB 为保留区域，存放芯片出厂校准信息，因此用户可用的实际空间为 508KB）</p></li>
+<li><p>目前 PAN101x 芯片的 Flash 大小均为 256KB（其中尾部 4KB 为保留区域，存放芯片出厂校准信息，因此用户可用的实际空间为 252KB）</p></li>
+</ul>
+</li>
+<li><p><strong>Bootloader Flash Partition Size</strong>：设置 Bootloader Flash 分区大小（KB）</p>
+<ul>
+<li><p>将此项修改为非 0 值，表示为 Bootloader Image 预留的 Flash 空间大小</p></li>
+</ul>
+</li>
+<li><p><strong>App Flash Partition Size</strong>：设置当前 App Flash 分区大小（KB）</p>
+<ul>
+<li><p>将此项修改为非 0 值，表示为 App Image 预留的 Flash 空间大小</p></li>
+</ul>
+</li>
+<li><p><strong>App Backup Flash Partition Size</strong>：设置 App Backup Flash 分区大小（KB）</p>
+<ul>
+<li><p>根据当前项目需要，若需使用 App 备份区（如蓝牙 OTA 场景），则将此项修改为非 0 值</p></li>
+</ul>
+</li>
+<li><p><strong>KVStore Flash Partition Size</strong>：设置 KVStore Flash 分区大小（KB）</p>
+<ul>
+<li><p>根据当前项目需要，若需使用 KVStore 分区，则将此项修改为非 0 值</p></li>
+</ul>
+</li>
+<li><p><strong>User Custom Flash Partition Size</strong>：设置 User Custom Flash 分区大小（KB）</p>
+<ul>
+<li><p>根据当前项目需要，若需使用 User Custom 分区，则将此项修改为非 0 值</p></li>
+</ul>
+</li>
+<li><p><strong>App Has Image Header</strong>：表示 App Image 具有 Image Header</p>
+<ul>
+<li><p>当前 SDK 框架下，若使用 Bootloader，则 App 必须同时使能 App Image Header，所以此选项必须勾上（且应与 App Config 中的对应选项保持一致）</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="soc-platform">
+<h3>2.2 SoC Platform<a class="headerlink" href="#soc-platform" title="永久链接至标题">¶</a></h3>
+<p>SoC Platform 是与芯片平台相关的配置，包括时钟、电源、平台相关的特殊 Feature 等项目。</p>
+<p>Bootloader 中的此项菜单实际上是 App Config 中对应项菜单的子集，详情参考 <a class="reference internal" href="ndk_configuration_guidance.html"><span class="doc std std-doc">NDK Configuration 指南</span></a>。</p>
+</div>
+<div class="section" id="log-debug-config">
+<h3>2.3 Log &amp; Debug Config<a class="headerlink" href="#log-debug-config" title="永久链接至标题">¶</a></h3>
+<p>Log &amp; Debug Config 是与芯片 Log 功能和调试相关的配置。</p>
+<p>Bootloader 中的此项菜单实际上与 App Config 中对应项菜单相同，详情参考 <a class="reference internal" href="ndk_configuration_guidance.html"><span class="doc std std-doc">NDK Configuration 指南</span></a>。</p>
+</div>
+</div>
+<div class="section" id="bootloader">
+<h2>3 BootLoader 升级流程和策略<a class="headerlink" href="#bootloader" title="永久链接至标题">¶</a></h2>
+<p>BootLoader 启动的时候，会等待很多个信号，然后依次 trigger 信号的操作。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// signals:</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_key1_push_down</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_key2_push_down</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_ota_start_received</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_back_up_is_completed_image</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sig_hardware_recovery</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_usb_dfu_enter_check</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="c1">// slots:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_usb_dfu_enter</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_prf_ota_enter</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_uart_dfu_enter</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_image_load_enter</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>连接信号和槽</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>typedef<span class="w"> </span>void<span class="w"> </span><span class="o">(</span>slot_handler_t<span class="o">)(</span>void<span class="o">)</span><span class="p">;</span>
+typedef<span class="w"> </span>void<span class="w"> </span><span class="o">(</span>signal_handler_t<span class="o">)(</span>void<span class="o">)</span><span class="p">;</span>
+
+void<span class="w"> </span>connect<span class="o">(</span>uint8_t<span class="w"> </span>priority,<span class="w"> </span>signal_handler_t<span class="w"> </span>signal,<span class="w"> </span>slot_handler_t<span class="w"> </span>slot<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>事件检测流程</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/* If backup image is valid, the on_image_load_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sig_back_up_is_completed_image</span><span class="p">,</span><span class="w"> </span><span class="n">on_image_load_enter</span><span class="p">);</span>
+
+<span class="cp">#if BOOT_ENABLE_UART_DFU</span>
+<span class="w">    </span><span class="cm">/* when detecting key1 down, the on_uart_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sig_key1_push_down</span><span class="p">,</span><span class="w"> </span><span class="n">on_uart_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#if BOOT_ENABLE_USB_DFU</span>
+<span class="cp">#if BOOT_USB_DFU_MODE == 0x00 </span><span class="c1">// Use a GPIO Key to trigger entering USB DFU Mode</span>
+<span class="w">    </span><span class="cm">/* If key2 is pressed down, the on_usb_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">sig_key2_push_down</span><span class="p">,</span><span class="w"> </span><span class="n">on_usb_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">// BOOT_USB_DFU_MODE == 0x00</span>
+<span class="w">    </span><span class="cm">/* If the DFU flag on flash is detected, the on_usb_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">sig_usb_dfu_enter_check</span><span class="p">,</span><span class="w"> </span><span class="n">on_usb_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">// BOOT_ENABLE_USB_DFU</span>
+
+<span class="cp">#if BOOT_ENABLE_PRF_OTA</span>
+<span class="w">    </span><span class="cm">/* If a 2.4G ota start packet is received, the on_prf_ota_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">sig_ota_start_received</span><span class="p">,</span><span class="w"> </span><span class="n">on_prf_ota_enter</span><span class="p">);</span>
+<span class="cp">#endif</span>
+
+<span class="w">    </span><span class="cm">/* Start to handle all of events related signal functions */</span>
+<span class="w">    </span><span class="n">ss_events_handle</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="usb-dfu">
+<h3>3.1 USB DFU 模式<a class="headerlink" href="#usb-dfu" title="永久链接至标题">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>void<span class="w"> </span>on_usb_dfu_enter<span class="o">(</span>void<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>进入 DFU 流程，插上 USB 后会将其枚举为 Panchip 自定义的 USB-HID 设备，并准备接收 Panchip USB DFU 上位机工具的交互指令。</p>
+</div>
+<div class="section" id="uart-dfu">
+<h3>3.2 UART DFU 模式<a class="headerlink" href="#uart-dfu" title="永久链接至标题">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>void<span class="w"> </span>on_uart_dfu_enter<span class="o">(</span>void<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>进入 DFU 流程后，会采用 xmodem 协议进行OTA升级。</p>
+</div>
+<div class="section" id="prf-ota">
+<h3>3.3 PRF OTA 模式<a class="headerlink" href="#prf-ota" title="永久链接至标题">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>void<span class="w"> </span>on_prf_ota_enter<span class="o">(</span>void<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>待升级设备复位进入 PRF OTA 状态，新 App 固件可通过 2.4G Dongle 发送给待升级设备。</p>
+</div>
+<div class="section" id="backup-dfu">
+<h3>3.4 Backup DFU 模式<a class="headerlink" href="#backup-dfu" title="永久链接至标题">¶</a></h3>
+<p>尝试校验 Flash App Backup 分区中的固件, 以决定是否要将其搬移至 Flash App 分区。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>4. UART DFU 升级详解<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>升级的固件需要签名校验，默认 keil 编译的时候，在工程的同级目录Images下会自动生成 <code class="docutils literal notranslate"><span class="pre">ndk_app.signed.bin</span></code> 的签名 Image：</p>
+<p><img alt="" src="../_images/images_catalog.png" /></p>
+<div class="section" id="id4">
+<h3>4.1 检测并进入 UART DFU 升级模式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ol>
+<li><p>在 Bootloader Config 配置中使能 UART DFU 功能</p></li>
+<li><p>编写 UART DFU 进入的 Signal 函数，并将信号和槽连接，槽属于升级流程 BootLoader 已经支持，用户不需要修改。用户可以修改 signal 函数。默认如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if BOOT_ENABLE_UART_DFU</span>
+<span class="w">    </span><span class="cm">/* when detecting key1 down, the on_uart_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sig_key1_push_down</span><span class="p">,</span><span class="w"> </span><span class="n">on_uart_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif</span>
+
+<span class="cm">/* user can implement a custom signal fucntion */</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_key1_push_down</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GPIO_SetMode</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT6</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_MODE_INPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GPIO_EnablePullupPath</span><span class="p">(</span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">BIT6</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_delay_10nop</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">P06</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>下载 BootLoader 和 App 程序，App 程序配置为带 Bootloader 的方式</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>4.2 操作流程<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ol>
+<li><p>准备好 Bootloader Image</p></li>
+<li><p>准备好待升级的 App Image（例如 ble_periph_hr_ota）</p></li>
+<li><p>使用工具SecureCRT进行升级</p></li>
+<li><p>打开工具SecureCRT连接设备串口，串口波特率 921600</p></li>
+<li><p>按住 EVB 底板的 KEY1 按键不松开，然后再按一下 EVB 底板或核心板的 Reset 按钮复位芯片，查看工具 SecureCRT 上 log 打印，一直输出 CCCCCCCCCC</p>
+<div class="figure align-center" id="id11">
+<img alt="img" src="../_images/uart_enter_dfu.png" />
+<p class="caption"><span class="caption-text"><strong>PAN107x</strong> UART DFU进入升级模式</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在工具 SecureCRT 的”传输”界面选择”发送Xmodem(N)”，选择待升级工程的文件，位于image路径下: ndk_app.signed.bin，文件开始传输</p>
+<div class="figure align-center" id="id12">
+<img alt="img" src="../_images/uart_transfer_files.png" />
+<p class="caption"><span class="caption-text"><strong>PAN107x</strong> UART DFU传输文件</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>再次复位芯片，观察串口 log，确认已经打印升级后的程序log</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>5 USB DFU 升级详解<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>升级的固件需要签名校验，SDK 中 Keil 工程编译的时候，在工程的同级目录 Images 下会自动生成 <code class="docutils literal notranslate"><span class="pre">ndk_app.signed.bin</span></code> 的签名后 Image：</p>
+<p><img alt="" src="../_images/images_catalog.png" /></p>
+<div class="section" id="id7">
+<h3>5.1 检测并进入 USB DFU 升级模式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ol>
+<li><p>在 Bootloader Config 配置中使能 USB DFU 功能</p></li>
+<li><p>编写 USB DFU 进入的 signal 函数，并将信号和槽连接，槽属于升级流程 BootLoader 已经支持，用户不需要修改。用户可以修改 signal 函数。默认如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if BOOT_ENABLE_USB_DFU</span>
+<span class="cp">#if BOOT_USB_DFU_MODE == 0x00 </span><span class="c1">// Use a GPIO Key to trigger entering USB DFU Mode</span>
+<span class="w">    </span><span class="cm">/* If key2 is pressed down, the on_usb_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">sig_key2_push_down</span><span class="p">,</span><span class="w"> </span><span class="n">on_usb_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">// BOOT_USB_DFU_MODE == 0x00</span>
+<span class="w">    </span><span class="cm">/* If the DFU flag on flash is detected, the on_usb_dfu_enter function will be handled */</span>
+<span class="w">    </span><span class="n">ss_connect</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">sig_usb_dfu_enter_check</span><span class="p">,</span><span class="w"> </span><span class="n">on_usb_dfu_enter</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="c1">// BOOT_ENABLE_USB_DFU</span>
+
+<span class="cm">/* user can implement a custom signal fucntion */</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_key2_push_down</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GPIO_SetMode</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_MODE_INPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GPIO_EnablePullupPath</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SYS_delay_10nop</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">P12</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">sig_usb_dfu_enter_check</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">is_dfu_flag_valid</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/* user can implement a custom dfu flag checking flow */</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">is_dfu_flag_valid</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">flash_sector_start_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONFIG_FLASH_PARTITION_USER_CUSTOM_ADDR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CONFIG_FLASH_PARTITION_USER_CUSTOM_SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// last user custom sector</span>
+<span class="w">	</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dfu_flag</span><span class="p">;</span>
+
+<span class="w">	</span><span class="n">dfu_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FMC_ReadByte</span><span class="p">(</span><span class="n">FLCTL</span><span class="p">,</span><span class="w"> </span><span class="n">flash_sector_start_addr</span><span class="p">,</span><span class="w"> </span><span class="n">CMD_DREAD</span><span class="p">);</span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dfu_flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">USB_DFU_ENTER_FLAG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>下载 BootLoader 和 App 程序，App 程序配置为带 Bootloader 的方式</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h3>5.2 操作流程<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ol>
+<li><p>准备好 Bootloader Image</p></li>
+<li><p>准备好待升级的 App Image（例如 ble_periph_hr_ota）</p></li>
+<li><p>将 EVB 底板的 USB 口连接到 PC</p></li>
+<li><p>按住 EVB 底板的 KEY2 按键不松开，然后再按一下 EVB 底板或核心板的 Reset 按钮复位芯片，可从 Log 中观察到成功进入了 Bootloader USB DFU 流程：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Try<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>HW<span class="w"> </span>calibration<span class="w"> </span>data..<span class="w"> </span>DONE.
+-<span class="w"> </span>Chip<span class="w"> </span>Info<span class="w">         </span>:<span class="w"> </span>0x61
+-<span class="w"> </span>Chip<span class="w"> </span>CP<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">255</span>
+-<span class="w"> </span>Chip<span class="w"> </span>FT<span class="w"> </span>Version<span class="w">   </span>:<span class="w"> </span><span class="m">7</span>
+-<span class="w"> </span>Chip<span class="w"> </span>MAC<span class="w"> </span>Address<span class="w">  </span>:<span class="w"> </span>E11000014DE5
+-<span class="w"> </span>Chip<span class="w"> </span>UID<span class="w">          </span>:<span class="w"> </span>B90801465454455354
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>UID<span class="w">    </span>:<span class="w"> </span>4250315A3538380B01FD8B435603EF78
+-<span class="w"> </span>Chip<span class="w"> </span>Flash<span class="w"> </span>Size<span class="w">   </span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>KB<span class="w"> </span><span class="o">(</span>Inc.<span class="w"> </span>4KB<span class="w"> </span>Panchip<span class="w"> </span>Info<span class="w"> </span>Area<span class="o">)</span>
+
+Bootloader<span class="w"> </span><span class="k">in</span>..
+
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Check<span class="w"> </span>valid<span class="w"> </span>image<span class="w"> </span><span class="k">in</span><span class="w"> </span>App<span class="w"> </span>Backup<span class="w"> </span>Partition..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Entering<span class="w"> </span>USB<span class="w"> </span>DFU<span class="w"> </span>flow..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Found<span class="w"> </span>an<span class="w"> </span>App<span class="w"> </span>Image,<span class="w"> </span>version:<span class="w"> </span><span class="m">0</span>.0.1.0
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>USB<span class="w"> </span>init<span class="w"> </span><span class="k">done</span>,<span class="w"> </span>INT_USBE:<span class="w"> </span>0x1c
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>DFU<span class="w"> </span>Comm..
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>---USB<span class="w"> </span>plug<span class="w"> </span><span class="k">in</span>---
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>USB<span class="w"> </span>isr<span class="w"> </span><span class="k">in</span>:<span class="w"> </span>Reset<span class="w"> </span>evt
+<span class="o">[</span>I<span class="o">]</span><span class="w"> </span>USB<span class="w"> </span>isr<span class="w"> </span><span class="k">in</span>:<span class="w"> </span>Reset<span class="w"> </span>evt
+</pre></div>
+</div>
+</li>
+<li><p>打开 NDK 中 <code class="docutils literal notranslate"><span class="pre">05_TOOLS/量产烧录工具/Panhcip</span> <span class="pre">DFU</span> <span class="pre">Tool</span></code> 目录下的 <code class="docutils literal notranslate"><span class="pre">PanchipDFUTool</span> <span class="pre">Vx.x.xxx.exe</span></code>，界面右上角的芯片平台选择 <em>PAN10xx NDK</em></p>
+<ul class="simple">
+<li><p><strong>注意</strong>：需确保工具版本为<code class="docutils literal notranslate"><span class="pre">v0.1.015</span></code>或更高版本</p></li>
+</ul>
+</li>
+<li><p>直接点击功能列表中的<strong>读取设备版本信息</strong>按钮，工具会立刻扫描查找支持 Panchip USB DFU 的 USB-HID 设备，成功后会获取到芯片当前 App 固件版本等信息</p>
+<div class="figure align-center" id="id13">
+<img alt="img" src="../_images/usb_dfu_identify_usb_port.png" />
+<p class="caption"><span class="caption-text">识别 USB 设备并获取芯片当前固件版本信息</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>在工具程序设置那里选择<strong>加载程序</strong>，选择待升级工程的文件，位于 Images 路径下: <code class="docutils literal notranslate"><span class="pre">ndk_app.signed.bin</span></code></p>
+<div class="figure align-center" id="id14">
+<img alt="img" src="../_images/usb_dfu_load_firmware.png" />
+<p class="caption"><span class="caption-text">上位机工具成功载入待升级的新固件</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>程序加载成功后，点击<strong>开始升级</strong>按钮，稍等片刻即可升级完成</p>
+<div class="figure align-center" id="id15">
+<img alt="img" src="../_images/usb_dfu_upgrade_successful.png" />
+<p class="caption"><span class="caption-text">Bootloader USB DFU 升级成功</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>升级成功后芯片程序会立刻从 Bootloader 跳转到 App 区域执行升级后的新固件</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>6 PRF OTA 升级详解<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>打开工具 NDK 中 <code class="docutils literal notranslate"><span class="pre">05_TOOLS/OTA工具/Panhcip</span> <span class="pre">2.4G</span> <span class="pre">OTA</span></code> 目录下的 <code class="docutils literal notranslate"><span class="pre">Panchip</span> <span class="pre">2.4G</span> <span class="pre">OTA</span> <span class="pre">Vx.x.xxx.exe</span></code>，选择 2.4G Dongle 对应的串口，具体设置如下图所示：</p>
+<div class="figure align-center" id="id16">
+<img alt="image" src="../_images/prf_ota.png" />
+<p class="caption"><span class="caption-text"><strong>PRF OTA 上位机工具界面</strong></span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>2.4G Dongle 硬件需向 Panchip 申请或购买</p></li>
+<li><p>上位机工具的使用说明请参考其自带的帮助文档</p></li>
+</ol>
+<blockquote>
+<div><p><strong>注意</strong>：2.4G 多设备升级不会进行校验，因此不能确保每个设备都能升级成功，有些设备如果升级不成功需要重新升级。</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

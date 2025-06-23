@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 常见问题（FAQs） &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="量产测试" href="../05_manufacturing_and_testing/index.html" />
+    <link rel="prev" title="NDK PAN101x 工程移植指南" href="ndk_chip_migration.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_configuration_guidance.html">NDK Configuration 配置指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_app_dev_notes.html">NDK 蓝牙开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_prf_dev_guidance.html">NDK PRF 2.4G 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_lowpower_dev_notes.html">NDK 低功耗开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_mcu_boot.html">NDK Bootloader 开发指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ram_analysis_guidance.html">NDK RAM 使用分析及优化指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dfu_porting.html">NDK 蓝牙 OTA 移植指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_chip_migration.html">NDK PAN101x 工程移植指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 常见问题（FAQs）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#q1-jlink-swd">Q1：为什么我使用 JLink (SWD) 烧录一个工程后，无法（或很难）再次烧录？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">开发指南</a> &raquo;</li>
+  
+  <li>NDK 常见问题（FAQs）</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/04_dev_guides/ndk_faqs.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk-faqs">
+<h1>NDK 常见问题（FAQs）<a class="headerlink" href="#ndk-faqs" title="永久链接至标题">¶</a></h1>
+<div class="section" id="q1-jlink-swd">
+<h2>Q1：为什么我使用 JLink (SWD) 烧录一个工程后，无法（或很难）再次烧录？<a class="headerlink" href="#q1-jlink-swd" title="永久链接至标题">¶</a></h2>
+<p>正常来说，如果 JLink 接线没问题的话，您是可以反复烧录 App 工程的，若您发现在空板上使用 JLink 烧录 App 工程很容易成功，但再次烧录则不容易成功，则有可能是以下两个原因：</p>
+<ol class="simple">
+<li><p>您在 App 代码的初始化流程中修改了 P00/P01 引脚的功能，将其由默认的 SWD 功能切换为其他功能（如GPIO），那么当试图使用 JLink 进行烧录的时候，SWD 通信将无法正常进行</p></li>
+<li><p>您的 App 工程会频繁地或长期地进入芯片的 DeepSleep 或 Standby 低功耗流程，在这两种低功耗模式下，SWD 通信将无法正常进行</p></li>
+</ol>
+<p>若遇到上述情况，您可以尝试将 JLink 的 RESET 引脚接到 SoC 的 RESET 引脚上，然后再进行烧录，很多时候可以解决问题。</p>
+<p>进一步地，若方案仍处于调试阶段，则还可以在 <code class="docutils literal notranslate"><span class="pre">sdk_config.h</span></code> 中使能 <strong>Log/Debug Cofnig - Enable Startup Long Delay</strong> 配置，这样在每次系统启动的初始化阶段会被插入一段约 1s 的延时，从而大大提高复位后 SWD 的通信成功率。</p>
+<blockquote>
+<div><p><strong>注</strong>：此处的长延时会显著增加系统的平均功耗和启动时间，因此在方案的产品量产阶段不建议开启。</p>
+</div></blockquote>
+<p>若上述方法仍然无法成功或不方便使用，那么您还可以尝试以下两种方法：</p>
+<ol class="simple">
+<li><p>执行 JLink 脚本 ForceEraseVectorTable_PAN107x.bat（位于: <code class="docutils literal notranslate"><span class="pre">&lt;pan1070-ndk&gt;\05_TOOLS\调试工具</span></code> 目录下），此脚本会尝试将 Flash 上的启动代码擦掉，若成功，后续即可正常使用 JLink 重新烧录</p></li>
+<li><p>使用 Panchip 量产烧录工具 PANLINK 烧录固件或将 Flash 内容全部擦除</p></li>
+</ol>
+<blockquote>
+<div><p><strong>注</strong>：这两种方法也是需要将 SoC 的 RESET 引脚是连接到 PANLINK/JLink 的。</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

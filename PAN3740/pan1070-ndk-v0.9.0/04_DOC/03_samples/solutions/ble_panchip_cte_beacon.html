@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE Panchip-CTE Beacon &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE PRF Multi Mode Toggle" href="ble_prf_multi_mode_toggle.html" />
+    <link rel="prev" title="BLE HID Uart Mult Roles" href="ble_hid_uart_mult_roles.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">蓝牙例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">通用解决方案</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_accelerometer.html">BLE Accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_app_uart.html">BLE APP Uart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_selfie.html">BLE HID Selfie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_capture.html">BLE HID Uart Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_hid_uart_mult_roles.html">BLE HID Uart Mult Roles</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE Panchip-CTE Beacon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 广播数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">6 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_multi_mode_toggle.html">BLE PRF Multi Mode Toggle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_prf_sample.html">BLE PRF Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_rgb_light.html">BLE RGB Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_spi_tft_lcd.html">BLE Spi Tft Lcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_vehicles_key.html">BLE Vehicles Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rf_mini_test.html">RF Mini Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">通用解决方案</a> &raquo;</li>
+  
+  <li>BLE Panchip-CTE Beacon</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/solutions/ble_panchip_cte_beacon.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-panchip-cte-beacon">
+<h1>BLE Panchip-CTE Beacon<a class="headerlink" href="#ble-panchip-cte-beacon" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>此项目演示磐启蓝牙定位标签的功能，通过发送特定的广播数据，实现蓝牙定位功能。</p>
+<p>这是磐启蓝牙定位方案中的一部分，有关定位方案的更多信息请参考**[待补充]**。</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107</span></code></p></li>
+<li><p>uart (option): 显示串口log</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\solutions\ble_panchip_cte_beacon\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>进行打开项目进行编译烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 演示说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>烧录完成后，设备自动启动蓝牙广播，可以在手机<code class="docutils literal notranslate"><span class="pre">nRF</span> <span class="pre">Connect</span></code>或抓包工具上获取如下信息：</p>
+<ul class="simple">
+<li><p><strong>Advertising Type</strong>: ADV_SCAN_IND</p></li>
+<li><p><strong>Advertising Interval Time</strong>: 30ms</p></li>
+<li><p><strong>Company ID</strong>: (Shanghai Panchip Microelectronics Co., Ltd (0x07D1)</p></li>
+<li><p><strong>Device Name</strong>: PANCHIP-CTE Beacon</p></li>
+</ul>
+<p>下图是 <code class="docutils literal notranslate"><span class="pre">nRF</span> <span class="pre">Connect</span></code>(Android) 扫描到设备后显示的信息。</p>
+<div class="figure align-center" id="id6" style="width: 500px">
+<img alt="image" src="../../_images/ble_pcte_beacon_nrfconnect.png" />
+<p class="caption"><span class="caption-text">PANCHIP-CTE Beacon 手机端信息显示界面</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>5 广播数据<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>广播数据包含两个 AD Element，如下表。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index (Byte)</p></th>
+<th class="head"><p>Data</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0x02</p></td>
+<td><p>Length</p></td>
+<td><p>Length of this AD Element 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0x01</p></td>
+<td><p>AD Type</p></td>
+<td><p>Flags</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0x06</p></td>
+<td><p>Data</p></td>
+<td><p>BT_LE_AD_GENERAL, BT_LE_AD_GENERAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0x1B</p></td>
+<td><p>Length</p></td>
+<td><p>Length of this AD Element 2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0xFF</p></td>
+<td><p>AD Type</p></td>
+<td><p>Manufacturer Specific Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>5:6</p></td>
+<td><p>0x07D1</p></td>
+<td><p>Company ID</p></td>
+<td><p>Shanghai Panchip Microelectronics Co., Ltd<br/>厂商ID可由用户自定义用于区分设备厂家，标签和基站需要保持一致。</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>0x01</p></td>
+<td><p>Packet ID</p></td>
+<td><p>定位包ID，用于区分同一厂家的不同设备，如标签、手环、IOS微信小程序和安卓微信小程序等，标签使用0x01。<br/>该部分可由用户自定义，标签和基站需保持一致。</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>0x20</p></td>
+<td><p>Device Type</p></td>
+<td><p>设备类型</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>0x15</p></td>
+<td><p>Header</p></td>
+<td><p>Carries information of Tag’s TX rate, TX power and ID type</p></td>
+</tr>
+<tr class="row-odd"><td><p>10:16</p></td>
+<td><p>0xD2, 0x12, 0x03, 0x00, 0x02, 0x23,</p></td>
+<td><p>Tag ID</p></td>
+<td><p>用于区分不同的标签</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>0xC9</p></td>
+<td><p>Checksum</p></td>
+<td><p>CRC-8 [Device Type, Header, Tag ID]</p></td>
+</tr>
+<tr class="row-odd"><td><p>18:31</p></td>
+<td><p>0x67, 0xF7, 0xDB, 0x34, 0xC4, 0x03, 0x8E, 0x5C, 0x0B, 0xAA, 0x97, 0x30, 0x56, 0xE6</p></td>
+<td><p>DF Field</p></td>
+<td><p>该字段为辅助定位使用的固定字节。该段内容需保证空中抓取到的是固定频率的电磁波。根据2402MHz广播通道的白化算法规则和蓝牙先发送低字节的低比特的特性。<br/>修改信道时，需要对此进行调整。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ram-flash">
+<h2>6 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Flash<span class="w"> </span>Size:<span class="w"> </span><span class="m">131</span>.49k
+RAM<span class="w"> </span>Size:<span class="w">  </span><span class="m">31</span>.43<span class="w"> </span>k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

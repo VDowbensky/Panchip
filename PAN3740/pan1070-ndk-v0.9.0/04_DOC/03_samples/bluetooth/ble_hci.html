@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BLE HCI &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="BLE MULTI ROLE" href="ble_multi_role.html" />
+    <link rel="prev" title="BLE Distance" href="ble_distance.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_quick_start/index.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">演示例程</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">蓝牙例程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ble_central.html">BLE Central</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_central_periph.html">BLE Central and Peripheral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_distance.html">BLE Distance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BLE HCI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1 功能概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2 环境要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3 编译和烧录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4 配置说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5 演示说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ram-flash">5 RAM/Flash资源使用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ble_multi_role.html">BLE MULTI ROLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_periph_enc.html">BLE Peripheral ENC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_periph_hr.html">BLE Peripheral HR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_periph_hr_ota.html">BLE Peripheral  OTA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ble_throughput.html">BLE Peripheral Throughput Test</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../component/index.html">系统组件例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../low_power/index.html">低功耗例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os_debug/index.html">系统调试例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripheral/index.html">外设驱动例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">固件保护例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions/index.html">通用解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../solutions_hid/index.html">PC外设方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub_1g/index.html">Sub1G例程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#mcu">MCU裸机例程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="../index.html">演示例程</a> &raquo;</li>
+  
+     <li><a href="index.html">蓝牙例程</a> &raquo;</li>
+  
+  <li>BLE HCI</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/03_samples/bluetooth/ble_hci.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ble-hci">
+<h1>BLE HCI<a class="headerlink" href="#ble-hci" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1 功能概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>ble_hci 例程演示了如何通过 HCI 接口和磐启 BLE Controller 通讯。该工程适合BLE跑在多SOC的应用场景，例如BLE Host 跑在一个高性能的 SOC 上，BLE Controller 跑在磐启 MCU 上。</p>
+<p>ble_hci 支持 HCI H4 协议</p>
+</div>
+<div class="section" id="id2">
+<h2>2 环境要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>board: <code class="docutils literal notranslate"><span class="pre">pan107x</span> <span class="pre">evb</span></code></p></li>
+<li><p>uart0: 用来显示串口log（波特率921600，选项<code class="docutils literal notranslate"><span class="pre">8n1</span></code>）</p></li>
+<li><p>串口调试助手： 用于发送和接收 HCI 协议数据， 或者其他支持 HCI 协议的工具都可以</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>3 编译和烧录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>例程位置：<code class="docutils literal notranslate"><span class="pre">&lt;home&gt;\nimble\samples\bluetooth\ble_hci\keil_107x</span></code></p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">keil</span></code>打开项目并进行编译和烧录。</p>
+</div>
+<div class="section" id="id4">
+<h2>4 配置说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>ble_hci工程 使用了硬件UART1，UART1默认配置如下</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nl">baudrate</span><span class="p">:</span><span class="w"> </span><span class="mi">115200</span><span class="n">bps</span>
+<span class="w"> </span><span class="n">TX</span><span class="w"> </span><span class="n">pin</span><span class="o">:</span><span class="w"> </span><span class="n">P12</span>
+<span class="w"> </span><span class="n">RX</span><span class="w"> </span><span class="n">pin</span><span class="o">:</span><span class="w"> </span><span class="n">P24</span>
+<span class="w"> </span><span class="n">CTS</span><span class="w"> </span><span class="n">pin</span><span class="o">:</span><span class="w"> </span><span class="n">P02</span>
+<span class="w"> </span><span class="n">RTS</span><span class="w"> </span><span class="n">pin</span><span class="o">:</span><span class="w"> </span><span class="n">P11</span>
+</pre></div>
+</div>
+<p>默认情况下 UART 流控是使能的，用户可以到工程的 sdk_config.h 中配置使能或者失能 UART 流控。其他的配置如baudrate，BLE controller参数，log 等都可以到 sdk_config.h 中找到配置选项</p>
+</div>
+<div class="section" id="id5">
+<h2>5 演示说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol>
+<li><p>编译工程，烧录固件，设备上电，会输出log。</p></li>
+<li><p>打开串口调试助手，连接HCI UART，以 <strong>Hex</strong> 格式发送 HCI 协议数据，我们以启动 ble scan 为例来演示 ble_hci工程的使用</p>
+<p>涉及到的 HCI cmd 如下(其他HCI 协议包可以参看bluetooth spec)：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">HCI</span><span class="w"> </span><span class="n">Reset</span><span class="o">:</span><span class="w">		</span><span class="mo">01</span><span class="w"> </span><span class="mo">03</span><span class="w"> </span><span class="mi">0</span><span class="n">c</span><span class="w"> </span><span class="mo">00</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">HCI_LeSetScanParam</span><span class="o">:</span><span class="w">   </span><span class="mo">01</span><span class="w"> </span><span class="mi">0</span><span class="n">b</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mo">07</span><span class="w"> </span><span class="mo">01</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mo">00</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mo">00</span><span class="w"> </span><span class="mo">00</span><span class="w"> </span><span class="mo">00</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">HCI_LeScanEnable</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span><span class="w">  </span><span class="mo">01</span><span class="w"> </span><span class="mi">0</span><span class="n">c</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mo">02</span><span class="w"> </span><span class="mo">01</span><span class="w"> </span><span class="mo">00</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">HCI_LeScanEnable</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="w">  </span><span class="mo">01</span><span class="w"> </span><span class="mi">0</span><span class="n">c</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mo">02</span><span class="w"> </span><span class="mo">00</span><span class="w"> </span><span class="mo">00</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>依次点击下图中的发送button，发送相应的HCI cmd，HCI cmd发送到 ble controller 后，ble controller 会回复相应的 HCI Event。</p>
+<ul class="simple">
+<li><p>当”HCI_LeScanEnable(1)” 命令发送以后，ble controller 将启动 ble scan，并将 scan 到的 adv 数据上报给Host(这里的host就是串口调试助手)。</p></li>
+<li><p>当”HCI_LeScanEnable(0)” 命令发送以后，ble controller将退出 ble scan， 不会有adv 数据上报。</p></li>
+</ul>
+<p>测试效果如下：</p>
+<div class="figure align-center" id="id6">
+<img alt="images" src="../../_images/ble_hci_1.png" />
+<p class="caption"><span class="caption-text">HCI 数据交互</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="ram-flash">
+<h2>5 RAM/Flash资源使用情况<a class="headerlink" href="#ram-flash" title="永久链接至标题">¶</a></h2>
+<p>PAN107x:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>RAM<span class="w"> </span>Size:31.99<span class="w"> </span>k
+Flash<span class="w"> </span>Size:<span class="w">  </span><span class="m">89</span>.05k
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

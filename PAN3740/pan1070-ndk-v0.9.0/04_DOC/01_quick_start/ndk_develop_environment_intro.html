@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NDK 开发环境搭建 &mdash; PAN107x/PAN101x DK Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="NDK 整体框架介绍" href="ndk_framework.html" />
+    <link rel="prev" title="NDK 快速入门指南" href="ndk_quick_start.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                NDK-v0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+    
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> NDK 版本选择</span>
+      v: 0.9.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>版本选择</dt>
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/index.html">latest</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/index.html">0.9.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.8.0/index.html">0.8.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.7.0/index.html">0.7.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.6.0/index.html">0.6.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.5.0/index.html">0.5.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.4.0/index.html">0.4.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.3.0/index.html">0.3.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.2.0/index.html">0.2.0</a></dd>
+          
+        
+          
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/0.1.0/index.html">0.1.0</a></dd>
+          
+        
+      </dl>
+      <dl>
+        <dt>下载</dt>
+        
+          
+        
+        
+          <dd><a href="http://docs.panchip.com/pan1070dk-doc/ndk-0.9.0/pan107x-ndk.pdf">NDK文档（PDF）</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>芯片文档</dt>
+          <dd><a href="https://wiki.panchip.com/ble/pan107-series/">PAN107x 系列产品 WIKI</a></dd>
+          <dd><a href="https://wiki.panchip.com/ble/pan101-series/">PAN101x 系列产品 WIKI</a></dd>
+      </dl>
+      <dl>
+        <dt>相关链接</dt>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=157">PAN107x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="https://bbs.panchip.com/forum.php?mod=forumdisplay&fid=158">PAN101x 系列产品技术论坛</a>
+          </dd>
+          <dd>
+            <a href="http://www.panchip.com/">上海磐启微电子有限公司</a>
+          </dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">快速入门</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndk_quick_start.html">NDK 快速入门指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NDK 开发环境搭建</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keil-mdk-ide">1. Keil MDK 集成开发环境（IDE）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keil-flash-flm">2. Keil Flash 烧录算法 FLM 文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python3">3. Python3 环境</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_framework.html">NDK 整体框架介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ndk_ble_introduction.html">NDK BLE 协议栈简介</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_hardware/index.html">硬件资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_samples/index.html">演示例程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_dev_guides/index.html">开发指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_manufacturing_and_testing/index.html">量产测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_dev_tools/index.html">开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_others/index.html">其他文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">更新日志</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PAN107x/PAN101x Nimble Development Kit 文档中心</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 0.9.0 -->
+  
+  
+
+  <li><a href="../index.html">Docs / 0.9.0</a> &raquo;</li>
+  
+     <li><a href="index.html">快速入门</a> &raquo;</li>
+  
+  <li>NDK 开发环境搭建</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    
+      <div class="wy-alert wy-alert-danger">
+      
+        当前文档为 <strong>本地版本</strong> (NDK-v0.9.0)，您可以访问当前页面的 <a href="http://docs.panchip.com/pan1070dk-doc/ndk-latest/01_quick_start/ndk_develop_environment_intro.html">在线版本</a> 以获取最近可能的更新。
+        
+      </div>
+    
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ndk">
+<h1>NDK 开发环境搭建<a class="headerlink" href="#ndk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="keil-mdk-ide">
+<h2>1. Keil MDK 集成开发环境（IDE）<a class="headerlink" href="#keil-mdk-ide" title="永久链接至标题">¶</a></h2>
+<p>PAN107x/PAN101x NDK 的 SDK 部分基于 Keil MDK v5 + ARMCC v5.06 版本构建，因此我们推荐您也使用相同的 IDE 版本及编译器版本，以确保能够正常开发。</p>
+<p>您可以从 Keil 官方网站的历史版本页面中，下载指定版本的 Keil MDK 安装包: <a class="reference external" href="https://www.keil.com/update/rvmdk.asp">https://www.keil.com/update/rvmdk.asp</a></p>
+<div class="figure align-center" id="id1">
+<img alt="image" src="../_images/keil_download.png" />
+<p class="caption"><span class="caption-text">Keil MDK v5 历史版本下载页面</span><a class="headerlink" href="#id1" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>我们推荐您使用 MDK <strong>v5.25 ~ v5.36</strong> 之间的版本, 这些版本在安装完成后，无需额外操作即可直接编译 NDK 中的所有例程。</p>
+</div>
+<blockquote>
+<div><ol>
+<li><p>若您的 PC 已经有 Keil MDK 开发环境，但版本低于 v5.25，则建议您更新 Keil 版本至我们上述的版本</p></li>
+<li><p>若您的 PC 已经有 Keil MDK 开发环境，但版本高于 v5.36，那么：</p>
+<ul>
+<li><p>请首先在 Keil 工程配置界面确认是否有 ARMCC v5.06 版本的编译器</p>
+<div class="figure align-center" id="id2">
+<img alt="image" src="../_images/keil_version.png" />
+<p class="caption"><span class="caption-text">Keil 编译器版本选择</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>若没有，则需要从 ARM 官方网站中找到单独的 ARMCC 编译器安装包进行安装: <a class="reference external" href="https://developer.arm.com/documentation/ka005198/latest/">https://developer.arm.com/documentation/ka005198/latest/</a></p>
+<div class="figure align-center" id="id3">
+<img alt="image" src="../_images/armcc_download.png" />
+<p class="caption"><span class="caption-text">ARMCC 编译器下载</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="keil-flash-flm">
+<h2>2. Keil Flash 烧录算法 FLM 文件<a class="headerlink" href="#keil-flash-flm" title="永久链接至标题">¶</a></h2>
+<p>为正常使用 Jlink 烧录程序，需要提前配置 Flash 烧录算法。请将 <code class="docutils literal notranslate"><span class="pre">&lt;PAN10XX-NDK&gt;\03_MCU\mcu_misc</span></code> 目录下的 FLM 文件，拷贝到 Keil MDK 安装目录下（如 C:\Keil_v5\ARM\Flash）。</p>
+<p>在各个 Keil 工程的 Jlink 配置界面中，可以根据芯片类型选择对应的 FLM 文件：</p>
+<ul class="simple">
+<li><p>烧录 PAN107x 芯片 Flash，请选择 <code class="docutils literal notranslate"><span class="pre">PAN107x_508KB_FLASH.FLM</span></code></p></li>
+<li><p>烧录 PAN101x 芯片 Flash，请选择 <code class="docutils literal notranslate"><span class="pre">PAN101x_252KB_FLASH.FLM</span></code></p></li>
+</ul>
+<div class="figure align-center" id="id4">
+<img alt="image" src="../_images/keil_select_jlink_flm_file.png" />
+<p class="caption"><span class="caption-text">在 Keil 工程中选择正确的 JLink 烧录算法 FLM 文件</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="python3">
+<h2>3. Python3 环境<a class="headerlink" href="#python3" title="永久链接至标题">¶</a></h2>
+<p>NDK 各个例程均会在编译完成后调用 Post Build 脚本，实现一些特殊功能（如生成带有 Image Header 和签名的 Image 文件，供 OTA 升级使用）。为此，需要您的 PC 上有 Python3 环境。</p>
+<p>我们推荐您安装 Python 3.8 或以上的版本，Python 安装方法请自行在互联网中查阅相关文档，安装成功后，请在命令提示符 CMD 中依次执行如下命令：</p>
+<ol>
+<li><p>将 pip package 源重定向至国内的清华大学 pypi 镜像站，以提升 python package 的下载速度和成功率：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</pre></div>
+</div>
+</li>
+<li><p>安装 NDK 中需要的第三方 Python 库：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>intelhex<span class="w"> </span>pyyaml<span class="w"> </span>pycryptodome<span class="w"> </span>pywinusb
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2022-2025, Shanghai Panchip Microelectronics Co.,Ltd..
+      <span class="lastupdated">
+        最后更新于 2025年5月02日.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
